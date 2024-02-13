@@ -64,6 +64,7 @@
     "better-sqlite3": "^9.4.1",
     "edge.js": "^6.0.1",
     "luxon": "^3.4.4",
+    "primeicons": "^6.0.1",
     "primevue": "^3.48.1",
     "reflect-metadata": "^0.2.1",
     "vue": "^3.4.18"

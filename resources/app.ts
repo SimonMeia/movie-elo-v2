@@ -5,6 +5,7 @@ import { createInertiaApp } from '@inertiajs/vue3'
 
 import PrimeVue from 'primevue/config'
 import 'primevue/resources/themes/aura-light-green/theme.css'
+import 'primeicons/primeicons.css'
 
 void createInertiaApp({
   progress: { color: '#5468FF' },

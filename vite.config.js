@@ -3,6 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import adonisjs from '@adonisjs/vite/client'
 import { getDirname } from '@adonisjs/core/helpers'
 import { resolve } from 'node:path'
+import Components from 'unplugin-vue-components/vite'
+import { PrimeVueResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
   plugins: [
@@ -16,7 +18,6 @@ export default defineConfig({
        * result in a separate bundle.
        */
       entrypoints: ['resources/app.ts'],
-      reload: ['resources/views/**/*.edge'],
 
       /**
        * Paths to watch and reload the browser on file change
