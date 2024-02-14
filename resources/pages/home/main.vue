@@ -1,37 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import IconField from 'primevue/iconfield'
-import InputIcon from 'primevue/inputicon'
-import AutoComplete from 'primevue/autocomplete'
-import type { TmdbSearchResponse } from '@/types'
-
-const inputValue = ref('')
-const suggestions = ref([])
-
-async function search() {
-  fetch(`/search?query=${inputValue.value}`)
-    .then((response) => response.json())
-    .then((data : TmdbSearchResponse) => {
-      suggestions.value = data.results.map((movie) => movie.title)
-    })
-}
+import SearchTmdbMovieBar from '@/components/SearchTmdbMovieBar.vue'
 </script>
 
 <template>
   <div>
     <h1>Home</h1>
-    <IconField iconPosition="left">
-      <InputIcon>
-        <i class="pi pi-search" />
-      </InputIcon>
-      <AutoComplete
-        v-model="inputValue"
-        :suggestions="suggestions"
-        @complete="search"
-        placeholder="Search"
-      />
-    </IconField>
+    <SearchTmdbMovieBar />
   </div>
 </template>
-
-<style scoped></style>
