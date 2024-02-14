@@ -1,4 +1,5 @@
 import env from '#start/env'
+import { TmdbSearchResponse } from '../../types/tmdb.js'
 
 class TmdbService {
   private baseUrl = 'https://api.themoviedb.org/3'
@@ -13,7 +14,7 @@ class TmdbService {
       },
     }
     const response = await fetch(url, options)
-    const data = await response.json()
+    const data = (await response.json()) as TmdbSearchResponse
     return data
   }
 }

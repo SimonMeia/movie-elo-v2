@@ -3,19 +3,15 @@ import { computed, ref } from 'vue'
 import IconField from 'primevue/iconfield'
 import InputIcon from 'primevue/inputicon'
 import AutoComplete from 'primevue/autocomplete'
-import { router } from '@inertiajs/vue3'
+import type { TmdbSearchResponse } from '@/types'
 
-const props = defineProps<{
-  search: string
-}>()
-
-const inputValue = ref(props.search)
+const inputValue = ref('')
 const suggestions = ref([])
 
 async function search() {
   fetch(`/search?query=${inputValue.value}`)
     .then((response) => response.json())
-    .then((data) => {
+    .then((data : TmdbSearchResponse) => {
       suggestions.value = data.results.map((movie) => movie.title)
     })
 }
