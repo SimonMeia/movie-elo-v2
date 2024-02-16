@@ -5,6 +5,10 @@ import InputIcon from 'primevue/inputicon'
 import AutoComplete from 'primevue/autocomplete'
 import type { TmdbSearchResponse } from '@/types'
 
+const emit = defineEmits<{
+  (event: 'update', tmdbMovieId: number): void
+}>()
+
 const inputValue = ref('')
 const suggestions = ref([])
 
@@ -12,7 +16,9 @@ async function search() {
   fetch(`/search?query=${inputValue.value}`)
     .then((response) => response.json())
     .then((data: TmdbSearchResponse) => {
-      suggestions.value = data.results.map((movie) => movie.title)
+      suggestions.value = data.results.map((movie) => {
+        return { title: movie.title, tmdbMovieId: movie.id }
+      })
     })
 }
 </script>
@@ -24,8 +30,10 @@ async function search() {
     </InputIcon>
     <AutoComplete
       v-model="inputValue"
+      optionLabel="title"
       :suggestions="suggestions"
       @complete="search"
+      @item-select="$emit('update', $event.value.tmdbMovieId)"
       placeholder="Search"
     />
   </IconField>

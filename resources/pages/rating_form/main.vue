@@ -7,7 +7,6 @@ import Textarea from 'primevue/textarea'
 import Button from 'primevue/button'
 import { ref } from 'vue'
 import { router } from '@inertiajs/vue3'
-import { watchEffect } from 'vue'
 
 const props = defineProps<{
   csrfToken: string
@@ -50,7 +49,7 @@ function submit() {
   <div>
     <form @submit.prevent="submit">
       <h1>Rate a movie</h1>
-      <SearchTmdbMovieBar />
+      <SearchTmdbMovieBar @update="tmdbMovieId = $event" />
       <CategoryRating category-name="Histoire" :max-grade="5" @update="grades.story = $event" />
       <CategoryRating category-name="Acting" :max-grade="3" @update="grades.acting = $event" />
       <CategoryRating category-name="Musique" :max-grade="3" @update="grades.music = $event" />
@@ -71,7 +70,7 @@ function submit() {
       />
       <div>
         <label for="">Date de visionnage</label><br /><br />
-        <Calendar inline />
+        <Calendar inline v-model="date" :max-date="new Date()" />
       </div>
       <div>
         <label for="">Endroit</label><br />
