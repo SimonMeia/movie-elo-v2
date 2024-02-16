@@ -7,6 +7,7 @@ import Textarea from 'primevue/textarea'
 import Button from 'primevue/button'
 import { ref } from 'vue'
 import { router } from '@inertiajs/vue3'
+import PlacePartnerSelection from './components/place_partner_selection.vue'
 
 const props = defineProps<{
   csrfToken: string
@@ -72,14 +73,9 @@ function submit() {
         <label for="">Date de visionnage</label><br /><br />
         <Calendar inline v-model="date" :max-date="new Date()" />
       </div>
-      <div>
-        <label for="">Endroit</label><br />
-        <AutoComplete multiple dropdown></AutoComplete>
-      </div>
-      <div>
-        <label for="">Compagnie</label><br />
-        <AutoComplete multiple dropdown></AutoComplete>
-      </div>
+
+      <PlacePartnerSelection place-or-partner="place" />
+      <PlacePartnerSelection place-or-partner="partner" />
       <div>
         <label for="">Commentaire</label><br />
         <Textarea rows="5" cols="30" />
