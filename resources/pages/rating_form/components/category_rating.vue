@@ -27,6 +27,10 @@ const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-
       :options="options"
       :allowEmpty="false"
       @change="emit('update', value)"
+      :pt="{
+        root: { style: { width: '100%', display: 'flex', height: '3rem' } },
+        button: { style: { 'flex-grow': 1 } },
+      }"
     />
   </div>
 </template>
