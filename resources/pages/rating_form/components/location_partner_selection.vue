@@ -9,11 +9,11 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  update: [value: string[]]
+  update: [selection: string[]]
 }>()
 
 const label = props.placeOrPartner === 'place' ? 'Lieu' : 'Partenaire'
-const inputValue: Ref<string[]> = ref([])
+const selectedValues: Ref<string[]> = ref([])
 const items =
   label === 'Lieu'
     ? ref(['Cinema', 'Maison', 'La Neuveville'])
@@ -21,22 +21,20 @@ const items =
 const suggestions: Ref<string[]> = ref([])
 const addNewItemLabel = 'Ajouter : '
 
-watchEffect(() => console.log(inputValue.value))
-
 function select(event) {
   if (event.value.includes(addNewItemLabel)) {
     const newItem = event.value.split(addNewItemLabel)[1]
     items.value.push(newItem)
-    inputValue.value[inputValue.value.length - 1] = newItem
+    selectedValues.value[selectedValues.value.length - 1] = newItem
   }
+  emit('update', selectedValues.value)
 }
 
 function search(event) {
-  // suggestions.value = items.value.flat()
   suggestions.value = items.value.filter(
     (s) =>
       s.toLocaleLowerCase().includes(event.query.toLocaleLowerCase()) &&
-      !inputValue.value.includes(s)
+      !selectedValues.value.includes(s)
   )
   if (event.query !== '') {
     const includesQuery = items.value.some(
@@ -57,12 +55,13 @@ function search(event) {
     <AutoComplete
       multiple
       dropdown
-      v-model:model-value="inputValue"
+      autoOptionFocus
+      completeOnFocus
+      v-model:model-value="selectedValues"
+      placeholder="Search"
       :suggestions="suggestions"
       @complete="search"
       @item-select="select"
-      placeholder="Search"
     ></AutoComplete>
-    <!-- @item-select="$emit('update', $event.value.tmdbMovieId)"s -->
   </div>
 </template>

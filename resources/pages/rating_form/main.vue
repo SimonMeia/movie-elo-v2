@@ -7,7 +7,7 @@ import Textarea from 'primevue/textarea'
 import Button from 'primevue/button'
 import { ref } from 'vue'
 import { router } from '@inertiajs/vue3'
-import PlacePartnerSelection from './components/place_partner_selection.vue'
+import LocationPartnerSelection from './components/location_partner_selection.vue'
 
 const props = defineProps<{
   csrfToken: string
@@ -74,11 +74,11 @@ function submit() {
         <Calendar inline v-model="date" :max-date="new Date()" />
       </div>
 
-      <PlacePartnerSelection place-or-partner="place" />
-      <PlacePartnerSelection place-or-partner="partner" />
+      <LocationPartnerSelection place-or-partner="place" @update="locations = $event" />
+      <LocationPartnerSelection place-or-partner="partner" @update="partners = $event" />
       <div>
         <label for="">Commentaire</label><br />
-        <Textarea rows="5" cols="30" />
+        <Textarea rows="5" cols="30" v-model="comment" />
       </div>
       <Button type="submit">Ajouter la note</Button>
     </form>
