@@ -4,18 +4,18 @@ import { createReviewValidator } from '#validators/review'
 import { ReviewResponse } from '../../types/response.js'
 import { Review } from '../../types/review.js'
 
-export default class RatingController {
+export default class ReviewsController {
   @inject()
   async index(ctx: HttpContext) {
     console.log('index')
-    return ctx.inertia.render<{}>('rating/main', {})
+    return ctx.inertia.render<{}>('review/main', {})
   }
 
   @inject()
   async create(ctx: HttpContext) {
     console.log('create')
     ctx.request.csrfToken
-    return ctx.inertia.render<{}>('rating_form/main', { csrfToken: ctx.request.csrfToken })
+    return ctx.inertia.render<{}>('review_form/main', { csrfToken: ctx.request.csrfToken })
   }
 
   @inject()
@@ -25,6 +25,6 @@ export default class RatingController {
     const response: ReviewResponse = {
       review: payload,
     }
-    return ctx.inertia.render<ReviewResponse>('rating/main', response)
+    return ctx.inertia.render<ReviewResponse>('review/main', response)
   }
 }

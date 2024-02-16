@@ -29,7 +29,7 @@ const comment = ref('')
 
 function submit() {
   console.log('submit')
-  const rating = {
+  const review = {
     tmdbMovieId: tmdbMovieId.value,
     grades: grades.value,
     locations: locations.value,
@@ -38,9 +38,9 @@ function submit() {
     comment: comment.value === '' ? null : comment.value,
   }
 
-  router.visit('/rating', {
+  router.visit('/review', {
     method: 'post',
-    data: rating,
+    data: review,
     headers: { 'X-CSRF-Token': props.csrfToken },
   })
 }
