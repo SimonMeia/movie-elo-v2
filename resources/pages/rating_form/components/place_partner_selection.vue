@@ -19,9 +19,19 @@ const items =
     ? ref(['Cinema', 'Maison', 'La Neuveville'])
     : ref(['Solo', 'Jean-Luc', 'Pierre'])
 const suggestions: Ref<string[]> = ref([])
+const addNewItemLabel = 'Ajouter : '
 
 watchEffect(() => console.log(inputValue.value))
-async function search(event) {
+
+function select(event) {
+  if (event.value.includes(addNewItemLabel)) {
+    const newItem = event.value.split(addNewItemLabel)[1]
+    items.value.push(newItem)
+    inputValue.value[inputValue.value.length - 1] = newItem
+  }
+}
+
+function search(event) {
   // suggestions.value = items.value.flat()
   suggestions.value = items.value.filter(
     (s) =>
@@ -34,7 +44,7 @@ async function search(event) {
     )
 
     if (!includesQuery) {
-      suggestions.value.push(`Ajouter : ${event.query}`)
+      suggestions.value.push(`${addNewItemLabel}${event.query}`)
     }
   }
 }
@@ -50,6 +60,7 @@ async function search(event) {
       v-model:model-value="inputValue"
       :suggestions="suggestions"
       @complete="search"
+      @item-select="select"
       placeholder="Search"
     ></AutoComplete>
     <!-- @item-select="$emit('update', $event.value.tmdbMovieId)"s -->
