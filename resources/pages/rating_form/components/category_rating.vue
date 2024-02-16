@@ -20,7 +20,7 @@ const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-
 <template>
   <div>
     <label :for="fieldId">{{ categoryName }}</label>
-    <GradeDescription :max-grade="maxGrade" />
+    <!-- <GradeDescription :max-grade="maxGrade" /> -->
     <SelectButton
       :id="fieldId"
       v-model="value"
