@@ -5,12 +5,13 @@ services:
     image: mariadb:latest
     restart: always
     environment:
-      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
-      MARIADB_DATABASE: ${MARIADB_DATABASE}
-      MARIADB_USER: ${MARIADB_USER}
-      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${DB_DATABASE}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      HOSTNAME: ${DB_PASSWORD}
     ports:
-      - "3306:3306"
+      - '${DB_PORT}:${DB_PORT}'
     volumes:
       - mariadb_data:/var/lib/mysql
 
