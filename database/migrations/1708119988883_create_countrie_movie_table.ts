@@ -15,9 +15,6 @@ export default class extends BaseSchema {
         .notNullable()
         .onDelete('cascade')
       table.unique(['movie_id', 'country_id'])
-
-      table.timestamp('created_at')
-      table.timestamp('updated_at')
     })
   }
 

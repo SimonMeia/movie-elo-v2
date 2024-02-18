@@ -10,9 +10,6 @@ export default class extends BaseSchema {
       table.integer('movie_id').unsigned().references('movies.id').notNullable().onDelete('cascade')
       table.integer('genre_id').unsigned().references('genres.id').notNullable().onDelete('cascade')
       table.unique(['movie_id', 'genre_id'])
-
-      table.timestamp('created_at')
-      table.timestamp('updated_at')
     })
   }
 

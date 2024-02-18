@@ -13,7 +13,7 @@ const inputValue = ref('')
 const suggestions = ref([])
 
 async function search() {
-  fetch(`/search?query=${inputValue.value}`)
+  fetch(`/tmdb/search?id=${inputValue.value}`)
     .then((response) => response.json())
     .then((data: TmdbSearchResponse) => {
       suggestions.value = data.results.map((movie) => {

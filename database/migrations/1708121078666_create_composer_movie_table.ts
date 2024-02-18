@@ -9,9 +9,6 @@ export default class extends BaseSchema {
 
       table.integer('movie_id').unsigned().references('movies.id').onDelete('cascade')
       table.integer('movie_person_id').unsigned().references('movie_people.id').onDelete('cascade')
-
-      table.timestamp('created_at')
-      table.timestamp('updated_at')
     })
   }
 

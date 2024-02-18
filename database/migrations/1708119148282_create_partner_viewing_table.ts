@@ -20,8 +20,6 @@ export default class extends BaseSchema {
         .notNullable()
         .onDelete('cascade')
       table.unique(['viewing_id', 'partner_id'])
-
-      table.timestamp('created_at')
       table.timestamp('updated_at')
     })
   }

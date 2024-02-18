@@ -26,10 +26,10 @@ export default class Movie extends BaseModel {
   declare runtime: number
 
   @column()
-  declare backdropPath: string
+  declare backdropPath: string | null
 
   @column()
-  declare posterPath: string
+  declare posterPath: string | null
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

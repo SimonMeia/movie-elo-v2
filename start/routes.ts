@@ -15,7 +15,7 @@ const ReviewsController = () => import('#controllers/reviews_controller')
 
 router.get('/', [HomeController, 'index'])
 
-router.get('/search', [MoviesController, 'search'])
+router.get('/tmdb/search', [MoviesController, 'search'])
 
 router.post('/review', [ReviewsController, 'store'])
 router.get('/review', [ReviewsController, 'index'])

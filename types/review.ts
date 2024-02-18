@@ -1,5 +1,5 @@
 export type Review = {
-  tmdbMovieId: number
+  id: number
   grades: {
     story: number
     acting: number

@@ -9,7 +9,7 @@ export default class extends BaseSchema {
 
       table.integer('tmdb_id').notNullable()
       table.string('title').notNullable()
-      table.string('synopsis').notNullable()
+      table.string('synopsis', 1000).notNullable()
       table.date('release_date').notNullable()
       table.integer('runtime').notNullable()
       table.string('backdrop_path').nullable()
