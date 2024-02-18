@@ -16,7 +16,7 @@ async function search() {
   fetch(`/tmdb/search?id=${inputValue.value}`)
     .then((response) => response.json())
     .then((data: TmdbSearchResponse) => {
-      suggestions.value = data.results.map((movie) => {
+      suggestions.value = data.results.sort((a, b) => b.vote_average - a.vote_average).map((movie) => {
         return { title: movie.title, tmdbMovieId: movie.id }
       })
     })
