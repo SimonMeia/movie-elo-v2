@@ -5,7 +5,7 @@ export type Movie = {
   synopsis: string
   posterPath: string | null
   backdropPath: string | null
-  releaseDate: Date
+  releaseDate?: Date
   runtime: number
   actors: MoviePerson[]
   directors: MoviePerson[]

@@ -19,5 +19,6 @@ router.get('/tmdb/search', [MoviesController, 'search'])
 
 router.post('/review', [ReviewsController, 'store'])
 router.get('/review', [ReviewsController, 'index'])
+router.get('/review/:id', [ReviewsController, 'show']).as('reviews.show')
 
 router.get('/review-form', [ReviewsController, 'create'])

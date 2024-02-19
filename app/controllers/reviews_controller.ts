@@ -4,33 +4,29 @@ import { createReviewValidator } from '#validators/review'
 import { ReviewResponse } from '../../types/response.js'
 import MovieService from '#services/movie_service'
 import Review from '#models/review'
+import ReviewService from '#services/reviews_sevice'
 
 export default class ReviewsController {
   @inject()
-  async index(ctx: HttpContext) {
+  async index({ inertia }: HttpContext) {
     console.log('index')
-    return ctx.inertia.render<{}>('review/main', {})
+    return inertia.render<{}>('review/main', {})
   }
 
   @inject()
-  async create(ctx: HttpContext) {
+  async create({ inertia, request }: HttpContext) {
     console.log('create')
-    ctx.request.csrfToken
-    return ctx.inertia.render<{}>('review_form/main', { csrfToken: ctx.request.csrfToken })
+    request.csrfToken
+    return inertia.render<{}>('review_form/main', { csrfToken: request.csrfToken })
   }
 
   @inject()
-  async store(ctx: HttpContext) {
+  async store({ request, response }: HttpContext) {
     console.log('store')
-    const payload = await createReviewValidator.validate(ctx.request.all())
+    const payload = await createReviewValidator.validate(request.all())
 
     // 1. Check si le film existe, sinon le créer
-    const movie = await MovieService.getAndCreateMovie(payload.tmdbMovieId)
-    await movie.load('actors')
-    await movie.load('directors')
-    await movie.load('composers')
-    await movie.load('countries')
-    await movie.load('genres')
+    const movie = await MovieService.createIfNotExists(payload.tmdbMovieId)
 
     // 2. Créer un viewing pour le film, créer des locations et des partners si necessaire
 
@@ -46,28 +42,18 @@ export default class ReviewsController {
       comment: payload.comment,
       movieId: movie.id,
     })
+
     // 4. Rediriger vers la page du film
-    const response: ReviewResponse = {
-      movie: {
-        id: movie.id,
-        tmdbId: movie.tmdbId,
-        title: movie.title,
-        synopsis: movie.synopsis,
-        runtime: movie.runtime,
-        backdropPath: movie.backdropPath,
-        posterPath: movie.posterPath,
-        releaseDate: movie.releaseDate.toJSDate(),
-        actors: movie.actors,
-        directors: movie.directors,
-        composers: movie.composers,
-        countries: movie.countries,
-        genres: movie.genres,
-      },
-      review: {
-        id: review.id,
-        ...payload,
-      },
-    }
-    return ctx.inertia.render<ReviewResponse>('review/main', response)
+
+    return response.redirect().toRoute('reviews.show', { id: review.id })
+  }
+
+  @inject()
+  async show({ inertia, params }: HttpContext) {
+    console.log('show')
+    console.log(params.id)
+    const responseData: ReviewResponse = await ReviewService.getReviewResponse(params.id, 1)
+
+    return inertia.render<ReviewResponse>('review/main', responseData)
   }
 }

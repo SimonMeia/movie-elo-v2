@@ -20,7 +20,7 @@ export default class Movie extends BaseModel {
   declare synopsis: string
 
   @column.date()
-  declare releaseDate: DateTime
+  declare releaseDate: DateTime | null
 
   @column()
   declare runtime: number

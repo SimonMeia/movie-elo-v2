@@ -8,8 +8,23 @@ export type Review = {
     feeling: number
     personal: number
   }
-  locations: string[]
-  partners: string[]
-  date: Date
+  viewings: Viewing[]
   comment: string | null
+}
+
+export type Viewing = {
+  id: number
+  date: Date
+  locations: Location[]
+  partners: Partner[]
+}
+
+export type Location = {
+  id: number
+  name: string
+}
+
+export type Partner = {
+  id: number
+  name: string
 }

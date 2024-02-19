@@ -12,6 +12,7 @@ watchEffect(() => console.log(props))
   <h2>Movie {{ props.movie.title }}</h2>
   <pre>
     {{ props.review }}
+    {{ props.movie }}
   </pre>
 </template>
 
