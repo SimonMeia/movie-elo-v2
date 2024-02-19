@@ -58,6 +58,11 @@ function search(event) {
       v-model:model-value="selectedValues"
       placeholder="Search"
       :suggestions="suggestions"
+      :pt="{
+        root: {
+          class: 'w-full',
+        },
+      }"
       @complete="search"
       @item-select="select"
     ></AutoComplete>
