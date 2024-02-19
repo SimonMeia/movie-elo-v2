@@ -2,7 +2,7 @@ import TmdbService from '#services/tmdb_service'
 import vine from '@vinejs/vine'
 import { FieldContext } from '@vinejs/vine/types'
 
-async function isTmdbMovieIdValid(value: unknown, option: unknown, field: FieldContext) {
+async function isTmdbMovieIdValid(value: unknown, _option: unknown, field: FieldContext) {
   if (typeof value !== 'number') {
     return
   }
