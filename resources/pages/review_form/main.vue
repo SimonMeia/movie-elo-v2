@@ -11,7 +11,11 @@ import LocationPartnerSelection from './components/location_partner_selection.vu
 
 const props = defineProps<{
   csrfToken: string
+  dbLocations: string[]
+  dbPartners: string[]
 }>()
+
+console.log(props)
 
 const tmdbMovieId = ref(0)
 const grades = ref({
@@ -74,8 +78,16 @@ function submit() {
         <Calendar inline v-model="date" :max-date="new Date()" />
       </div>
 
-      <LocationPartnerSelection place-or-partner="place" @update="locations = $event" />
-      <LocationPartnerSelection place-or-partner="partner" @update="partners = $event" />
+      <LocationPartnerSelection
+        location-or-partner="location"
+        :items="dbLocations"
+        @update="locations = $event"
+      />
+      <LocationPartnerSelection
+        location-or-partner="partner"
+        :items="dbPartners"
+        @update="partners = $event"
+      />
       <div>
         <label for="">Commentaire</label><br />
         <Textarea rows="5" cols="30" v-model="comment" />

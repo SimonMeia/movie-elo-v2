@@ -5,6 +5,9 @@ import { ReviewResponse } from '../../types/response.js'
 import MovieService from '#services/movie_service'
 import Review from '#models/review'
 import ReviewService from '#services/reviews_sevice'
+import ViewingService from '#services/viewing_service'
+import Location from '#models/location'
+import Partner from '#models/partner'
 
 export default class ReviewsController {
   @inject()
@@ -16,8 +19,14 @@ export default class ReviewsController {
   @inject()
   async create({ inertia, request }: HttpContext) {
     console.log('create')
-    request.csrfToken
-    return inertia.render<{}>('review_form/main', { csrfToken: request.csrfToken })
+    const locations = await Location.query().where('userId', 1)
+    const partners = await Partner.query().where('userId', 1)
+
+    return inertia.render<{}>('review_form/main', {
+      csrfToken: request.csrfToken,
+      dbLocations: locations.map((l) => l.name),
+      dbPartners: partners.map((p) => p.name),
+    })
   }
 
   @inject()
@@ -28,9 +37,7 @@ export default class ReviewsController {
     // 1. Check si le film existe, sinon le créer
     const movie = await MovieService.createIfNotExists(payload.tmdbMovieId)
 
-    // 2. Créer un viewing pour le film, créer des locations et des partners si necessaire
-
-    // 3. Créer la review et link le film et le viewing
+    // 2. Créer la review et link le film
     const review = await Review.create({
       userId: 1,
       acting: payload.grades.acting,
@@ -43,8 +50,16 @@ export default class ReviewsController {
       movieId: movie.id,
     })
 
-    // 4. Rediriger vers la page du film
+    // 3. Créer un viewing pour le film, créer des locations et des partners si necessaire
+    await ViewingService.createViewing(
+      1,
+      payload.date,
+      review.id,
+      payload.locations,
+      payload.partners
+    )
 
+    // 4. Rediriger vers la page du film
     return response.redirect().toRoute('reviews.show', { id: review.id })
   }
 

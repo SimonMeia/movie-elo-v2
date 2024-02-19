@@ -5,6 +5,8 @@ import { compose } from '@adonisjs/core/helpers'
 import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
 import type { HasMany } from '@adonisjs/lucid/types/relations'
 import Review from '#models/review'
+import Location from '#models/location'
+import Partner from '#models/partner'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
@@ -38,4 +40,10 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @hasMany(() => Review)
   declare reviews: HasMany<typeof Review>
+
+  @hasMany(() => Location)
+  declare locations: HasMany<typeof Location>
+
+  @hasMany(() => Partner)
+  declare partners: HasMany<typeof Partner>
 }

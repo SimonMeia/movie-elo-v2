@@ -1,23 +1,20 @@
 <script setup lang="ts">
 import AutoComplete from 'primevue/autocomplete'
 import type { Ref } from 'vue'
-import { watchEffect } from 'vue'
 import { ref } from 'vue'
 
 const props = defineProps<{
-  placeOrPartner: 'place' | 'partner'
+  locationOrPartner: 'location' | 'partner'
+  items: string[]
 }>()
 
 const emit = defineEmits<{
   update: [selection: string[]]
 }>()
 
-const label = props.placeOrPartner === 'place' ? 'Lieu' : 'Partenaire'
+const label = props.locationOrPartner === 'location' ? 'Lieu' : 'Partenaire'
 const selectedValues: Ref<string[]> = ref([])
-const items =
-  label === 'Lieu'
-    ? ref(['Cinema', 'Maison', 'La Neuveville'])
-    : ref(['Solo', 'Jean-Luc', 'Pierre'])
+const items = ref(props.items)
 const suggestions: Ref<string[]> = ref([])
 const addNewItemLabel = 'Ajouter : '
 
@@ -26,6 +23,7 @@ function select(event) {
     const newItem = event.value.split(addNewItemLabel)[1]
     items.value.push(newItem)
     selectedValues.value[selectedValues.value.length - 1] = newItem
+    const destination = props.locationOrPartner === 'location' ? 'locations' : 'partners'
   }
   emit('update', selectedValues.value)
 }

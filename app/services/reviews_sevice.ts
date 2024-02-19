@@ -2,8 +2,8 @@ import Review from '#models/review'
 import { ReviewResponse } from '../../types/response.js'
 
 class ReviewService {
-  async getReview(reviewId: number, userId: number) {
-    const review = await Review.query()
+  async getReview(reviewId: number, userId: number): Promise<Review> {
+    const review: Review = await Review.query()
       .preload('movie', (movie) => {
         movie.preload('actors')
         movie.preload('directors')

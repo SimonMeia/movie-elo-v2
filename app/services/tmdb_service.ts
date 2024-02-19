@@ -50,6 +50,22 @@ class TmdbService {
 
     return { actors, directors, composers }
   }
+
+  async isMovieIdValid(id: number) {
+    const url = `${this.baseUrl}/movie/${id}?language=en-US`
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${env.get('TMDB_BEARER_TOKEN')}`,
+      },
+    }
+    const response = await fetch(url, options)
+    if (response.status !== 200) {
+      return false
+    }
+    return true
+  }
 }
 
 export default new TmdbService()

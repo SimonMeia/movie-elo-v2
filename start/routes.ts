@@ -15,10 +15,10 @@ const ReviewsController = () => import('#controllers/reviews_controller')
 
 router.get('/', [HomeController, 'index'])
 
-router.get('/tmdb/search', [MoviesController, 'search'])
-
 router.post('/review', [ReviewsController, 'store'])
 router.get('/review', [ReviewsController, 'index'])
 router.get('/review/:id', [ReviewsController, 'show']).as('reviews.show')
 
 router.get('/review-form', [ReviewsController, 'create'])
+
+router.get('/api/tmdb/search', [MoviesController, 'search'])
