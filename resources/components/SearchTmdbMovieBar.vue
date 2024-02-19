@@ -26,17 +26,20 @@ function search() {
 </script>
 
 <template>
-  <IconField iconPosition="left">
-    <InputIcon>
-      <i class="pi pi-search" />
-    </InputIcon>
+  <div class="w-full">
     <AutoComplete
       v-model="inputValue"
       optionLabel="title"
+      placeholder="Search"
+      class="w-full"
+      :pt="{
+        input: {
+          class: 'flex-grow-1',
+        },
+      }"
       :suggestions="suggestions"
       @complete="search"
       @item-select="$emit('update', $event.value.tmdbMovieId)"
-      placeholder="Search"
     />
-  </IconField>
+  </div>
 </template>

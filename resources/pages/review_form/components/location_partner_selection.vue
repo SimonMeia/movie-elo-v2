@@ -58,10 +58,11 @@ function search(event) {
       v-model:model-value="selectedValues"
       placeholder="Search"
       :suggestions="suggestions"
+      class="w-full"
       :pt="{
-        root: {
-          class: 'w-full',
-        },
+        container: {
+          class: 'flex-grow-1',
+        }
       }"
       @complete="search"
       @item-select="select"
