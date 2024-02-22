@@ -18,7 +18,7 @@ defineProps<{
       <div class="w-screen h-full absolute top-0 left-0 bg-black-alpha-90 opacity-50"></div>
     </div>
     <div class="flex flex-column justify-content-end h-12rem relative">
-      <h1 class="text-white text-2xl font-normal">Movie {{ title }}</h1>
+      <h1 class="text-white text-2xl font-normal">{{ title }}</h1>
     </div>
   </div>
 </template>
