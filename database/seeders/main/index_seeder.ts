@@ -22,29 +22,31 @@ export default class extends BaseSeeder {
      */
     if (app.inProduction) return
 
-    const genres = await GenreFactory.makeMany(10)
-    const actors = await MoviePersonFactory.makeMany(10)
-    const directors = await MoviePersonFactory.makeMany(10)
-    const composers = await MoviePersonFactory.makeMany(10)
-    const countries = await CountryFactory.makeMany(10)
-    const locations = await LocationFactory.makeMany(10)
-    const partners = await PartnerFactory.makeMany(10)
+    await UserFactory.create()
 
-    await UserFactory.with('reviews', 5, (review) =>
-      review.with('movie', 1).with('viewngs', 3)
-    ).createMany(10)
+    // const genres = await GenreFactory.makeMany(10)
+    // const actors = await MoviePersonFactory.makeMany(10)
+    // const directors = await MoviePersonFactory.makeMany(10)
+    // const composers = await MoviePersonFactory.makeMany(10)
+    // const countries = await CountryFactory.makeMany(10)
+    // const locations = await LocationFactory.makeMany(10)
+    // const partners = await PartnerFactory.makeMany(10)
 
-    for (const viewing of await Viewing.all()) {
-      await viewing.related('locations').saveMany(this.selectRandomElements(locations))
-      await viewing.related('partners').saveMany(this.selectRandomElements(partners))
-    }
+    // await UserFactory.with('reviews', 5, (review) =>
+    //   review.with('movie', 1).with('viewngs', 3)
+    // ).createMany(10)
 
-    for (const movie of await Movie.all()) {
-      await movie.related('genres').saveMany(this.selectRandomElements(genres))
-      await movie.related('actors').saveMany(this.selectRandomElements(actors))
-      await movie.related('directors').saveMany(this.selectRandomElements(directors))
-      await movie.related('composers').saveMany(this.selectRandomElements(composers))
-      await movie.related('countries').saveMany(this.selectRandomElements(countries))
-    }
+    // for (const viewing of await Viewing.all()) {
+    //   await viewing.related('locations').saveMany(this.selectRandomElements(locations))
+    //   await viewing.related('partners').saveMany(this.selectRandomElements(partners))
+    // }
+
+    // for (const movie of await Movie.all()) {
+    //   await movie.related('genres').saveMany(this.selectRandomElements(genres))
+    //   await movie.related('actors').saveMany(this.selectRandomElements(actors))
+    //   await movie.related('directors').saveMany(this.selectRandomElements(directors))
+    //   await movie.related('composers').saveMany(this.selectRandomElements(composers))
+    //   await movie.related('countries').saveMany(this.selectRandomElements(countries))
+    // }
   }
 }

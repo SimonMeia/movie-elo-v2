@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasOne, manyToMany } from '@adonisjs/lucid/orm'
-import type { HasOne, ManyToMany } from '@adonisjs/lucid/types/relations'
+import { BaseModel, belongsTo, column, manyToMany } from '@adonisjs/lucid/orm'
+import type { BelongsTo, ManyToMany } from '@adonisjs/lucid/types/relations'
 import Viewing from '#models/viewing'
 import User from './user.js'
 
@@ -20,8 +20,8 @@ export default class Location extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @hasOne(() => User)
-  declare user: HasOne<typeof User>
+  @belongsTo(() => User)
+  declare user: BelongsTo<typeof User>
 
   @manyToMany(() => Viewing)
   declare viewings: ManyToMany<typeof Viewing>

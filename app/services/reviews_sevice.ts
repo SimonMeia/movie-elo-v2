@@ -40,7 +40,7 @@ class ReviewService {
         viewings: review.viewngs.map((v) => {
           return {
             id: v.id,
-            date: v.viewingDate.toJSDate(),
+            date: v.viewingDate.toString(),
             locations: v.locations.map((l) => {
               return {
                 id: l.id,

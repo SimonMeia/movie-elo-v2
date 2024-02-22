@@ -9,11 +9,10 @@ services:
       MARIADB_DATABASE: ${DB_DATABASE}
       MARIADB_USER: ${DB_USER}
       MARIADB_PASSWORD: ${DB_PASSWORD}
-      HOSTNAME: ${DB_PASSWORD}
     ports:
       - '${DB_PORT}:${DB_PORT}'
     volumes:
       - mariadb_data:/var/lib/mysql
-
+      
 volumes:
   mariadb_data:

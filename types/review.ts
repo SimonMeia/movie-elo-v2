@@ -14,7 +14,7 @@ export type Review = {
 
 export type Viewing = {
   id: number
-  date: Date
+  date: string
   locations: Location[]
   partners: Partner[]
 }
