@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, belongsTo, column, manyToMany } from '@adonisjs/lucid/orm'
 import type { BelongsTo, ManyToMany } from '@adonisjs/lucid/types/relations'
 import Viewing from '#models/viewing'
-import User from './user.js'
+import User, { type UserId } from '#models/user'
 
 export default class Partner extends BaseModel {
   @column({ isPrimary: true })
@@ -12,7 +12,7 @@ export default class Partner extends BaseModel {
   declare name: string
 
   @column()
-  declare userId: number
+  declare userId: UserId
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

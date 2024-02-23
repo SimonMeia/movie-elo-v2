@@ -11,16 +11,19 @@ import Partner from '#models/partner'
 
 export default class ReviewsController {
   @inject()
-  async index({ inertia }: HttpContext) {
-    const reviews = await ReviewService.getReviewsResponse(1)
+  async index({ inertia, auth }: HttpContext) {
+    const user = auth.user!
+    console.log(user)
+    const reviews = await ReviewService.getReviewsResponse(user.id)
     return inertia.render<ReviewsResponse>('reviews/main', reviews)
   }
 
   @inject()
-  async create({ inertia, request }: HttpContext) {
-    console.log('create')
-    const locations = await Location.query().where('userId', 1)
-    const partners = await Partner.query().where('userId', 1)
+  async create({ inertia, request, auth }: HttpContext) {
+    const user = auth.user!
+
+    const locations = await Location.query().where('userId', user.id)
+    const partners = await Partner.query().where('userId', user.id)
 
     return inertia.render<{}>('review_form/main', {
       csrfToken: request.csrfToken,
@@ -30,16 +33,17 @@ export default class ReviewsController {
   }
 
   @inject()
-  async store({ request, response }: HttpContext) {
-    console.log('store')
+  async store({ request, response, auth }: HttpContext) {
     const payload = await createReviewValidator.validate(request.all())
+
+    const user = auth.user!
 
     // 1. Check si le film existe, sinon le créer
     const movie = await MovieService.createIfNotExists(payload.tmdbMovieId)
 
     // 2. Créer la review et link le film
     const review = await Review.create({
-      userId: 1,
+      userId: user.id,
       acting: payload.grades.acting,
       story: payload.grades.story,
       music: payload.grades.music,
@@ -52,7 +56,7 @@ export default class ReviewsController {
 
     // 3. Créer un viewing pour le film, créer des locations et des partners si necessaire
     await ViewingService.createViewing(
-      1,
+      user.id,
       payload.date,
       review.id,
       payload.locations,
@@ -64,10 +68,10 @@ export default class ReviewsController {
   }
 
   @inject()
-  async show({ inertia, params }: HttpContext) {
-    console.log('show')
+  async show({ inertia, params, auth }: HttpContext) {
+    const user = auth.user!
     console.log(params.id)
-    const responseData: ReviewResponse = await ReviewService.getReviewResponse(params.id, 1)
+    const responseData: ReviewResponse = await ReviewService.getReviewResponse(params.id, user.id)
 
     return inertia.render<ReviewResponse>('review/main', responseData)
   }

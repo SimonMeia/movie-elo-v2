@@ -1,10 +1,11 @@
 import Location from '#models/location'
 import Partner from '#models/partner'
+import { type UserId } from '#models/user'
 import Viewing from '#models/viewing'
 import { DateTime } from 'luxon'
 class ViewingService {
   async createViewing(
-    userId: number,
+    userId: UserId,
     date: Date,
     reviewId: number,
     locations: string[],

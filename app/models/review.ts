@@ -3,7 +3,7 @@ import { BaseModel, belongsTo, column, hasMany } from '@adonisjs/lucid/orm'
 import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
 import Movie from '#models/movie'
 import Viewing from '#models/viewing'
-import User from '#models/user'
+import User, { type UserId } from '#models/user'
 
 export default class Review extends BaseModel {
   @column({ isPrimary: true })
@@ -37,7 +37,7 @@ export default class Review extends BaseModel {
   declare movieId: number
 
   @column()
-  declare userId: number
+  declare userId: UserId
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

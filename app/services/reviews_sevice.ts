@@ -1,8 +1,9 @@
 import Review from '#models/review'
+import { type UserId } from '#models/user'
 import { ReviewResponse, ReviewsResponse } from '#types/response'
 
 class ReviewService {
-  async getReview(reviewId: number, userId: number): Promise<Review> {
+  async getReview(reviewId: number, userId: UserId): Promise<Review> {
     const review: Review = await Review.query()
       .preload('movie', (movie) => {
         movie.preload('actors')
@@ -22,7 +23,7 @@ class ReviewService {
     return review
   }
 
-  async getAllReviews(userId: number) {
+  async getAllReviews(userId: UserId) {
     const review: Review[] = await Review.query()
       .preload('movie', (movie) => {
         movie.preload('actors')
@@ -40,7 +41,7 @@ class ReviewService {
     return review
   }
 
-  async getReviewsResponse(userId: number) {
+  async getReviewsResponse(userId: UserId) {
     const reviews = await this.getAllReviews(userId)
     const reviewsResponse: ReviewsResponse = {
       reviews: reviews.map((review) => {
@@ -96,7 +97,7 @@ class ReviewService {
     return reviewsResponse
   }
 
-  async getReviewResponse(reviewId: number, userId: number) {
+  async getReviewResponse(reviewId: number, userId: UserId) {
     const review = await this.getReview(reviewId, userId)
 
     const responsData: ReviewResponse = {
