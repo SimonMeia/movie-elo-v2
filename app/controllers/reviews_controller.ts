@@ -1,7 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
 import { createReviewValidator } from '#validators/review'
-import { ReviewResponse, ReviewsResponse } from '../../types/response.js'
+import { ReviewResponse, ReviewsResponse } from '#types/response'
 import MovieService from '#services/movie_service'
 import Review from '#models/review'
 import ReviewService from '#services/reviews_sevice'

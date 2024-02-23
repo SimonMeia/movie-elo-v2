@@ -1,5 +1,5 @@
 import env from '#start/env'
-import { TmdbMovieCredits, TmdbMovieDetails, TmdbSearchResponse } from '../../types/tmdb.js'
+import { TmdbMovieCredits, TmdbMovieDetails, TmdbSearchResponse } from '#types/tmdb'
 
 class TmdbService {
   private baseUrl = 'https://api.themoviedb.org/3'

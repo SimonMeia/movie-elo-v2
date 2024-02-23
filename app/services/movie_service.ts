@@ -2,7 +2,7 @@ import Movie from '#models/movie'
 import MoviePerson from '#models/movie_person'
 import TmdbService from '#services/tmdb_service'
 import { DateTime } from 'luxon'
-import { TmdbCast, TmdbCrew, TmdbGenre, TmdbProductionCountry } from '../../types/tmdb.js'
+import { TmdbCast, TmdbCrew, TmdbGenre, TmdbProductionCountry } from '#types/tmdb'
 import Country from '#models/country'
 import Genre from '#models/genre'
 
