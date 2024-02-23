@@ -16,7 +16,7 @@ export default class extends BaseSchema {
       table.string('comment').nullable()
       table.integer('elo').defaultTo(1000)
 
-      table.integer('user_id').unsigned().references('users.id').onDelete('cascade').notNullable()
+      table.uuid('user_id').references('users.id').onDelete('cascade').notNullable()
       table.integer('movie_id').unsigned().references('movies.id').onDelete('cascade').notNullable()
 
       table.timestamp('created_at')

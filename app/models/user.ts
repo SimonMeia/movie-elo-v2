@@ -7,15 +7,18 @@ import type { HasMany } from '@adonisjs/lucid/types/relations'
 import Review from '#models/review'
 import Location from '#models/location'
 import Partner from '#models/partner'
+import { Opaque } from '@adonisjs/core/types/helpers'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
   passwordColumnName: 'password',
 })
 
+export type UserId = Opaque<'UserId', string>
+
 export default class User extends compose(BaseModel, AuthFinder) {
   @column({ isPrimary: true })
-  declare id: number
+  declare id: UserId
 
   @column()
   declare firstName: string
