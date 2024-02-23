@@ -1,7 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
 import { createReviewValidator } from '#validators/review'
-import { ReviewResponse } from '../../types/response.js'
+import { ReviewResponse, ReviewsResponse } from '../../types/response.js'
 import MovieService from '#services/movie_service'
 import Review from '#models/review'
 import ReviewService from '#services/reviews_sevice'
@@ -12,8 +12,8 @@ import Partner from '#models/partner'
 export default class ReviewsController {
   @inject()
   async index({ inertia }: HttpContext) {
-    console.log('index')
-    return inertia.render<{}>('review/main', {})
+    const reviews = await ReviewService.getReviewsResponse(1)
+    return inertia.render<ReviewsResponse>('reviews/main', reviews)
   }
 
   @inject()

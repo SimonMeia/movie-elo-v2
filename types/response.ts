@@ -5,3 +5,5 @@ export type ReviewResponse = {
   review: Review
   movie: Movie
 }
+
+export type ReviewsResponse = Review[]

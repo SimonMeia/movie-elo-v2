@@ -1,5 +1,5 @@
 import Review from '#models/review'
-import { ReviewResponse } from '../../types/response.js'
+import { ReviewResponse, ReviewsResponse } from '../../types/response.js'
 
 class ReviewService {
   async getReview(reviewId: number, userId: number): Promise<Review> {
@@ -20,6 +20,43 @@ class ReviewService {
       .firstOrFail()
 
     return review
+  }
+
+  async getReviewsResponse(userId: number) {
+    const reviews = await Review.query().where('userId', userId).preload('movie').preload('viewngs')
+    const reviewsResponse: ReviewsResponse = reviews.map((review) => {
+      return {
+        id: review.id,
+        grades: {
+          acting: review.acting,
+          story: review.story,
+          music: review.music,
+          directing: review.directing,
+          feeling: review.feeling,
+          personal: review.personal,
+        },
+        comment: review.comment,
+        viewings: review.viewngs.map((v) => {
+          return {
+            id: v.id,
+            date: v.viewingDate.toString(),
+            locations: v.locations.map((l) => {
+              return {
+                id: l.id,
+                name: l.name,
+              }
+            }),
+            partners: v.partners.map((p) => {
+              return {
+                id: p.id,
+                name: p.name,
+              }
+            }),
+          }
+        }),
+      }
+    })
+    return reviewsResponse
   }
 
   async getReviewResponse(reviewId: number, userId: number) {
