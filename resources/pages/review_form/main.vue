@@ -41,7 +41,7 @@ function submit() {
     comment: comment.value === '' ? null : comment.value,
   }
 
-  router.visit('/review', {
+  router.visit('/reviews', {
     method: 'post',
     data: review,
     headers: { 'X-CSRF-Token': props.csrfToken },

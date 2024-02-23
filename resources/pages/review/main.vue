@@ -2,7 +2,6 @@
 import type { ReviewResponse } from '@/types'
 import Chip from 'primevue/chip'
 import Divider from 'primevue/divider'
-import { computed } from 'vue'
 import Accordion from 'primevue/accordion'
 import AccordionTab from 'primevue/accordiontab'
 import ReviewHeader from './components/review_header.vue'

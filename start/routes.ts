@@ -15,9 +15,9 @@ const ReviewsController = () => import('#controllers/reviews_controller')
 
 router.get('/', [HomeController, 'index'])
 
-router.post('/review', [ReviewsController, 'store'])
-router.get('/review', [ReviewsController, 'index'])
-router.get('/review/:id', [ReviewsController, 'show']).as('reviews.show')
+router.post('/reviews', [ReviewsController, 'store'])
+router.get('/reviews', [ReviewsController, 'index'])
+router.get('/reviews/:id', [ReviewsController, 'show']).as('reviews.show')
 
 router.get('/review-form', [ReviewsController, 'create'])
 

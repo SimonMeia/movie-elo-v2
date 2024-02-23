@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Review } from '@/types'
-import { defineProps, computed } from 'vue'
+import { computed } from 'vue'
 import ReviewGrade from './review_grade.vue'
 
 const props = defineProps<{

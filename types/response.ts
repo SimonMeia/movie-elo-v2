@@ -6,4 +6,6 @@ export type ReviewResponse = {
   movie: Movie
 }
 
-export type ReviewsResponse = Review[]
+export type ReviewsResponse = {
+  reviews: ReviewResponse[]
+}
