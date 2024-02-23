@@ -62,7 +62,7 @@ function search(event) {
       :pt="{
         container: {
           class: 'flex-grow-1',
-        }
+        },
       }"
       @complete="search"
       @item-select="select"

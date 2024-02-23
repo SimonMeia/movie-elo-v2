@@ -13,6 +13,6 @@ services:
       - '${DB_PORT}:${DB_PORT}'
     volumes:
       - mariadb_data:/var/lib/mysql
-      
+
 volumes:
   mariadb_data:

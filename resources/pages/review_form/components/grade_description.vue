@@ -2,7 +2,6 @@
 const props = defineProps<{
   maxGrade: number
 }>()
-
 </script>
 
 <template>
