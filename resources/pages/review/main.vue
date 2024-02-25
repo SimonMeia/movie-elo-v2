@@ -6,18 +6,19 @@ import Accordion from 'primevue/accordion'
 import AccordionTab from 'primevue/accordiontab'
 import ReviewHeader from './components/review_header.vue'
 import ReviewGrades from './components/review_grades.vue'
+import Layout from '@/layouts/default.vue'
 
 const props = defineProps<ReviewResponse>()
 </script>
 
 <template>
   <Layout>
+    <ReviewHeader
+      :backdrop-path="props.movie.backdropPath"
+      :title="props.movie.title"
+      :synopsis="props.movie.synopsis"
+    ></ReviewHeader>
     <div class="p-container">
-      <ReviewHeader
-        :backdrop-path="props.movie.backdropPath"
-        :title="props.movie.title"
-        :synopsis="props.movie.synopsis"
-      ></ReviewHeader>
       <ReviewGrades :review="props.review"></ReviewGrades>
       <Divider />
       <Accordion>
