@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SearchTmdbMovieBar from '@/components/SearchTmdbMovieBar.vue'
+import SearchTmdbMovieBar from '@/components/search_tmdb_movie_bar.vue'
 import CategoryRating from './components/category_rating.vue'
 import Calendar from 'primevue/calendar'
 import Textarea from 'primevue/textarea'
@@ -7,6 +7,7 @@ import Button from 'primevue/button'
 import { ref } from 'vue'
 import { router } from '@inertiajs/vue3'
 import LocationPartnerSelection from './components/location_partner_selection.vue'
+import Layout from '@/layouts/default.vue'
 
 const props = defineProps<{
   csrfToken: string
@@ -50,54 +51,56 @@ function submit() {
 </script>
 
 <template>
-  <div>
-    <form @submit.prevent="submit">
-      <h1>Rate a movie</h1>
-      <div class="flex flex-column gap-4">
-        <div>
-          <label for="">Movie</label>
-          <SearchTmdbMovieBar @update="tmdbMovieId = $event" />
-        </div>
-        <CategoryRating category-name="Histoire" :max-grade="5" @update="grades.story = $event" />
-        <CategoryRating category-name="Acting" :max-grade="3" @update="grades.acting = $event" />
-        <CategoryRating category-name="Musique" :max-grade="3" @update="grades.music = $event" />
-        <CategoryRating
-          category-name="Réalisation"
-          :max-grade="3"
-          @update="grades.directing = $event"
-        />
-        <CategoryRating
-          category-name="Feeling à la fin du film"
-          :max-grade="2"
-          @update="grades.feeling = $event"
-        />
-        <CategoryRating
-          category-name="Appréciation personnelle"
-          :max-grade="4"
-          @update="grades.personal = $event"
-        />
-        <div>
-          <label for="">Date de visionnage</label><br />
-          <Calendar inline v-model="date" :max-date="new Date()" class="w-full" />
+  <Layout>
+    <div class="p-container">
+      <form @submit.prevent="submit">
+        <h1>Rate a movie</h1>
+        <div class="flex flex-column gap-4">
+          <div>
+            <label for="">Movie</label>
+            <SearchTmdbMovieBar @update="tmdbMovieId = $event" />
+          </div>
+          <CategoryRating category-name="Histoire" :max-grade="5" @update="grades.story = $event" />
+          <CategoryRating category-name="Acting" :max-grade="3" @update="grades.acting = $event" />
+          <CategoryRating category-name="Musique" :max-grade="3" @update="grades.music = $event" />
+          <CategoryRating
+            category-name="Réalisation"
+            :max-grade="3"
+            @update="grades.directing = $event"
+          />
+          <CategoryRating
+            category-name="Feeling à la fin du film"
+            :max-grade="2"
+            @update="grades.feeling = $event"
+          />
+          <CategoryRating
+            category-name="Appréciation personnelle"
+            :max-grade="4"
+            @update="grades.personal = $event"
+          />
+          <div>
+            <label for="">Date de visionnage</label><br />
+            <Calendar inline v-model="date" :max-date="new Date()" class="w-full" />
+          </div>
+
+          <LocationPartnerSelection
+            location-or-partner="location"
+            :items="dbLocations"
+            @update="locations = $event"
+          />
+          <LocationPartnerSelection
+            location-or-partner="partner"
+            :items="dbPartners"
+            @update="partners = $event"
+          />
+          <div>
+            <label for="">Commentaire</label><br />
+            <Textarea class="w-full" rows="5" v-model="comment" autoResize />
+          </div>
         </div>
 
-        <LocationPartnerSelection
-          location-or-partner="location"
-          :items="dbLocations"
-          @update="locations = $event"
-        />
-        <LocationPartnerSelection
-          location-or-partner="partner"
-          :items="dbPartners"
-          @update="partners = $event"
-        />
-        <div>
-          <label for="">Commentaire</label><br />
-          <Textarea class="w-full" rows="5" v-model="comment" autoResize />
-        </div>
-      </div>
-
-      <Button type="submit" class="my-2 w-full" label="Ajouter la review"></Button>
-    </form>
-  </div>
+        <Button type="submit" class="my-2 w-full" label="Ajouter la review"></Button>
+      </form>
+    </div>
+  </Layout>
 </template>

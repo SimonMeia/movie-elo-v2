@@ -43,7 +43,7 @@ function submit() {
 </script>
 
 <template>
-  <div>
+  <div class="p-container">
     <h1>Auth</h1>
     <form @submit.prevent="submit" class="flex flex-column gap-2 w-6">
       <div v-if="!isLoginFormDisplayed">

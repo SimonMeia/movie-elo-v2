@@ -1,17 +1,44 @@
+
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
 html,
 body {
-  margin: 0 auto;
-  padding: 0 0.5rem;
-  @media screen and (min-width: 576px) {
-    width: 576px;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.p-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media screen and (min-width: 576px) {
+  .p-container {
+    max-width: 576px;
   }
-  @media screen and (min-width: 768px) {
-    width: 768px;
+}
+@media screen and (min-width: 768px) {
+  .p-container {
+    max-width: 768px;
   }
-  @media screen and (min-width: 992px) {
-    width: 992px;
+}
+@media screen and (min-width: 992px) {
+  .p-container {
+    max-width: 992px;
   }
-  @media screen and (min-width: 1200px) {
-    width: 1200px;
+}
+@media screen and (min-width: 1200px) {
+  .p-container {
+    max-width: 1200px;
   }
 }

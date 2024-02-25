@@ -10,7 +10,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div>
+  <div class="p-container">
     <ul>
       <li v-for="review of props.reviews">
         {{ review.movie.title }}
