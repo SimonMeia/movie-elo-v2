@@ -38,6 +38,7 @@ function submit() {
   router.visit(`/auth/${destination}`, {
     method: 'post',
     data: userData,
+    preserveState: true,
   })
 }
 </script>

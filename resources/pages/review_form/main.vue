@@ -45,7 +45,8 @@ function submit() {
   router.visit('/reviews', {
     method: 'post',
     data: review,
-    headers: { 'X-CSRF-Token': props.csrfToken },
+    preserveState: true,
+    // headers: { 'X-CSRF-Token': props.csrfToken },
   })
 }
 </script>
