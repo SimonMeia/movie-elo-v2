@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Link } from '@inertiajs/vue3'
+import { Link, router } from '@inertiajs/vue3'
 import MovieEloLogo from '@/icons/movieelo_logo.vue'
 import Avatar from 'primevue/avatar'
 </script>
@@ -15,6 +15,7 @@ import Avatar from 'primevue/avatar'
         label="V"
         style="background-color: #ece9fc; color: #2a1261"
         shape="circle"
+        @click="router.get('/auth/logout')"
       />
     </div>
   </header>

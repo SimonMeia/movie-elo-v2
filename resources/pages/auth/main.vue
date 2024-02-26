@@ -45,36 +45,36 @@ function submit() {
 <template>
   <div class="p-container">
     <h1>Auth</h1>
-    <form @submit.prevent="submit" class="flex flex-column gap-2 w-6">
+    <form @submit.prevent="submit" class="flex flex-column gap-2 w-full md:w-8 lg:w-6">
       <div v-if="!isLoginFormDisplayed">
         <label for="">Prénom</label><br />
-        <InputText v-model="firstName" class="w-6" />
+        <InputText v-model="firstName" class="w-full" />
       </div>
       <div v-if="!isLoginFormDisplayed">
         <label for="">Nom</label><br />
-        <InputText v-model="lastName" class="w-6" />
+        <InputText v-model="lastName" class="w-full" />
       </div>
       <div v-if="!isLoginFormDisplayed">
         <label for="">Nom d'utilisateur</label><br />
-        <InputText v-model="username" class="w-6" />
+        <InputText v-model="username" class="w-full" />
       </div>
       <div>
         <label for="">Email</label><br />
-        <InputText v-model="email" class="w-6" />
+        <InputText v-model="email" class="w-full" />
       </div>
       <div>
         <label for="">Password</label><br />
-        <InputText type="password" v-model="password" class="w-6" />
+        <InputText type="password" v-model="password" class="w-full" />
       </div>
       <div>
-        <div class="flex flex-row gap-2 align-items-center">
+        <Button type="submit"  class="w-full" :label="sumbitButtonLabel"></Button>
+        <div class="flex flex-row gap-2 align-items-center mt-2">
           <span>{{ changeFormLabel }}</span>
           <Button
             link
             :label="changeFormButtonLabel"
             @click="isLoginFormDisplayed = !isLoginFormDisplayed"
           ></Button>
-          <Button type="submit" :label="sumbitButtonLabel"></Button>
         </div>
       </div>
     </form>
