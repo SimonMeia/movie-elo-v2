@@ -56,12 +56,12 @@ function submit() {
       />
     </div>
     <div
-      class="w-full lg:w-6 lg:h-full flex flex-column px-4 md:px-8"
+      class="w-full lg:w-6 lg:h-full flex flex-column px-4 sm:px-6 md:px-8"
       :style="{ height: formHeight }"
     >
       <form @submit.prevent="submit" class="flex flex-column w-full flex-grow-1 my-3 md:my0">
         <h1
-          class="text-2xl md:text-4xl font-bold pt-1 mb-0 md:flex-grow-1 flex flex-column justify-content-end"
+          class="text-2xl md:text-4xl font-bold pt-1 mb-0 flex-grow-1 flex flex-column justify-content-end"
         >
           Welcome back
         </h1>
@@ -87,7 +87,7 @@ function submit() {
             <InputText type="password" v-model="password" class="w-full" />
           </div>
         </div>
-        <div class="flex flex-column align-items-center md:flex-grow-1">
+        <div class="flex flex-column align-items-center flex-grow-1">
           <Button type="submit" class="w-full" :label="sumbitButtonLabel"></Button>
           <div class="flex flex-row gap-2 align-items-center mt-2">
             <span>{{ changeFormLabel }}</span>
