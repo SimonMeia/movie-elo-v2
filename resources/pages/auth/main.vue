@@ -49,7 +49,7 @@ function submit() {
   <div class="flex flex-column lg:flex-row h-screen">
     <div class="w-full lg:w-6 lg:h-full overflow-hidden" :style="{ height: coverHeight }">
       <img
-        src="https://fr.web.img3.acsta.net/pictures/22/05/16/16/32/4176595.jpg"
+        src="@/images/the-trueman-show-poster.png"
         alt="hero"
         class="w-full h-full"
         style="object-fit: cover"
