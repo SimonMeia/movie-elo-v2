@@ -3,9 +3,10 @@ import { TmdbMovieCredits, TmdbMovieDetails, TmdbSearchResponse } from '#types/t
 
 class TmdbService {
   private baseUrl = 'https://api.themoviedb.org/3'
+  private language = 'fr-FR'
 
   async searchMovies(id: number) {
-    const url = `${this.baseUrl}/search/movie?query=${id}&include_adult=false&language=en-US&page=1`
+    const url = `${this.baseUrl}/search/movie?query=${id}&include_adult=false&language=${this.language}&page=1`
     const options = {
       method: 'GET',
       headers: {
@@ -19,7 +20,7 @@ class TmdbService {
   }
 
   async getMovieDetails(id: number) {
-    const url = `${this.baseUrl}/movie/${id}?language=en-US`
+    const url = `${this.baseUrl}/movie/${id}?language=${this.language}`
     const options = {
       method: 'GET',
       headers: {
@@ -33,7 +34,7 @@ class TmdbService {
   }
 
   async getPeople(id: number) {
-    const url = `${this.baseUrl}/movie/${id}/credits?language=en-US`
+    const url = `${this.baseUrl}/movie/${id}/credits?language=${this.language}`
     const options = {
       method: 'GET',
       headers: {
@@ -52,7 +53,7 @@ class TmdbService {
   }
 
   async isMovieIdValid(id: number) {
-    const url = `${this.baseUrl}/movie/${id}?language=en-US`
+    const url = `${this.baseUrl}/movie/${id}?language=${this.language}`
     const options = {
       method: 'GET',
       headers: {
