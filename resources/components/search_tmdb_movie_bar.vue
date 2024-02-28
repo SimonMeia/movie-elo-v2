@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import IconField from 'primevue/iconfield'
-import InputIcon from 'primevue/inputicon'
 import AutoComplete from 'primevue/autocomplete'
 import type { TmdbSearchResponse } from '@/types'
 
@@ -32,11 +30,6 @@ function search() {
       optionLabel="title"
       placeholder="Search"
       class="w-full"
-      :pt="{
-        input: {
-          class: 'flex-grow-1',
-        },
-      }"
       :suggestions="suggestions"
       @complete="search"
       @item-select="$emit('update', $event.value.tmdbMovieId)"

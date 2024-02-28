@@ -5,8 +5,8 @@ import Avatar from 'primevue/avatar'
 </script>
 
 <template>
-  <header class="sticky top-0 z-5 bg-primary-reverse border-bottom-1">
-    <div class="flex align-items-center justify-content-between py-3 p-container">
+  <header class="sticky top-0 z-50 border-b bg-surface-0">
+    <div class="flex items-center justify-between py-3 p-container">
       <Link href="/" :preserve-scroll="true" :preserve-state="true" aria-label="Homepage">
         <MovieEloLogo></MovieEloLogo>
       </Link>

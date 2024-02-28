@@ -56,7 +56,7 @@ function submit() {
     <div class="p-container">
       <form @submit.prevent="submit">
         <h1>Rate a movie</h1>
-        <div class="flex flex-column gap-4">
+        <div class="flex flex-col gap-4">
           <div>
             <label for="">Movie</label>
             <SearchTmdbMovieBar @update="tmdbMovieId = $event" />
@@ -100,7 +100,7 @@ function submit() {
           </div>
         </div>
 
-        <Button type="submit" class="my-2 w-full" label="Ajouter la review"></Button>
+        <Button type="submit" class="w-full my-2" label="Ajouter la review"></Button>
       </form>
     </div>
   </Layout>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AutoComplete from 'primevue/autocomplete'
 import type { Ref } from 'vue'
+import { mergeProps } from 'vue';
 import { ref } from 'vue'
 
 const props = defineProps<{
@@ -59,11 +60,6 @@ function search(event) {
       placeholder="Search"
       :suggestions="suggestions"
       class="w-full"
-      :pt="{
-        container: {
-          class: 'flex-grow-1',
-        },
-      }"
       @complete="search"
       @item-select="select"
     ></AutoComplete>

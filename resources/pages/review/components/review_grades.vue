@@ -13,7 +13,7 @@ const finalGrade = computed(
 </script>
 
 <template>
-  <div class="flex flex-row flex-wrap my-4 justify-content-between">
+  <div class="flex flex-row flex-wrap justify-between my-4">
     <ReviewGrade
       v-for="(grade, name) in props.review.grades"
       :key="name"

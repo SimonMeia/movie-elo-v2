@@ -22,8 +22,8 @@ const changeFormButtonLabel = computed(() =>
   isLoginFormDisplayed.value ? "S'inscrire" : 'Se connecter'
 )
 
-const coverHeight = computed(() => (isLoginFormDisplayed.value ? '30%' : '15%'))
-const formHeight = computed(() => (isLoginFormDisplayed.value ? '70%' : '85%'))
+const coverHeight = computed(() => (isLoginFormDisplayed.value ? 'h-1/3' : 'h-1/6'))
+const formHeight = computed(() => (isLoginFormDisplayed.value ? 'h-2/3' : 'h-5/6'))
 
 function submit() {
   const destination = isLoginFormDisplayed.value ? 'login' : 'register'
@@ -46,26 +46,20 @@ function submit() {
 </script>
 
 <template>
-  <div class="flex flex-column lg:flex-row h-screen">
-    <div class="w-full lg:w-6 lg:h-full overflow-hidden" :style="{ height: coverHeight }">
+  <div class="flex flex-col h-screen lg:flex-row">
+    <div :class="coverHeight" class="w-full overflow-hidden lg:w-1/2 lg:h-full">
       <img
         src="@/images/the-trueman-show-poster.png"
         alt="hero"
-        class="w-full h-full"
-        style="object-fit: cover"
+        class="object-cover w-full h-full"
       />
     </div>
-    <div
-      class="w-full lg:w-6 lg:h-full flex flex-column px-4 sm:px-6 md:px-8"
-      :style="{ height: formHeight }"
-    >
-      <form @submit.prevent="submit" class="flex flex-column w-full flex-grow-1 my-3 md:my0">
-        <h1
-          class="text-2xl md:text-4xl font-bold pt-1 mb-0 flex-grow-1 flex flex-column justify-content-end"
-        >
+    <div :class="formHeight" class="flex flex-col w-full px-4 lg:w-1/2 lg:h-full sm:px-6 md:px-8">
+      <form @submit.prevent="submit" class="flex flex-col w-full h-full my-3 md:my0">
+        <h1 class="flex flex-col justify-end pt-1 mb-0 text-2xl font-bold md:text-4xl grow">
           Welcome back
         </h1>
-        <div class="flex-grow-1 flex justify-content-center flex-column gap-3 md:gap-4">
+        <div class="flex flex-col justify-center gap-3 grow md:gap-4">
           <div v-if="!isLoginFormDisplayed">
             <label for="">Prénom</label><br />
             <InputText v-model="firstName" class="w-full" />
@@ -87,9 +81,9 @@ function submit() {
             <InputText type="password" v-model="password" class="w-full" />
           </div>
         </div>
-        <div class="flex flex-column align-items-center flex-grow-1">
+        <div class="flex flex-col items-center grow">
           <Button type="submit" class="w-full" :label="sumbitButtonLabel"></Button>
-          <div class="flex flex-row gap-2 align-items-center mt-2">
+          <div class="flex flex-row items-center gap-2 mt-2">
             <span>{{ changeFormLabel }}</span>
             <Button
               link

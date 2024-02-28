@@ -26,15 +26,15 @@ const props = defineProps<ReviewResponse>()
           v-for="viewing of props.review.viewings"
           :header="new Date(viewing.date).toLocaleDateString('fr-CH')"
         >
-          <div class="flex flex-column gap-2">
-            <div class="h-2rem flex flex-row justify-center align-items-center gap-2">
+          <div class="flex flex-col gap-2">
+            <div class="flex flex-row items-center justify-start gap-2 h-2rem">
               <span>Endroit : </span>
               <Chip
                 v-for="location in props.review.viewings[0].locations"
                 :label="location.name"
               ></Chip>
             </div>
-            <div class="h-2rem flex flex-row justify-center align-items-center gap-2">
+            <div class="flex flex-row items-center justify-start gap-2 h-2rem">
               <span>Partners : </span>
               <Chip
                 v-for="partner in props.review.viewings[0].partners"
