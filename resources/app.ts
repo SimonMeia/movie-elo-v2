@@ -4,9 +4,8 @@ import { createApp, h, ref } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 
 import PrimeVue from 'primevue/config'
-import 'primevue/resources/themes/aura-light-green/theme.css'
 import 'primeicons/primeicons.css'
-import 'primeflex/primeflex.css'
+import Lara from '@/presets/lara'
 
 void createInertiaApp({
   progress: { color: '#5468FF' },
@@ -19,7 +18,10 @@ void createInertiaApp({
   setup({ el, App, props, plugin }) {
     const app = createApp({ render: () => h(App, props) })
       .use(plugin)
-      .use(PrimeVue)
+      .use(PrimeVue, {
+        unstyled: true,
+        pt: Lara,
+      })
 
     const modelViewerScriptLoaded = ref(false)
 
