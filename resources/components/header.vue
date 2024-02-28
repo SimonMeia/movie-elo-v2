@@ -17,6 +17,7 @@ import Divider from 'primevue/divider';
         <Button label="Ajouter une review" link @click="router.get('/review-form')" />
         <Button label="Mes reviews" link @click="router.get('/reviews')" />
         <Button label="Elo ranking" link disabled @click="router.get('/elo-ranking')" />
+        <Button label="Rewind" link disabled @click="router.get('/rewind')" />
       </div>
 
       <Avatar
