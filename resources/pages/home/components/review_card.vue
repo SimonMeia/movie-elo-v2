@@ -11,7 +11,7 @@ const props = defineProps<{ review: ReviewResponse }>()
 </script>
 
 <template>
-  <div class="relative border border-gray-200 rounded-lg shadow">
+  <div class="relative border border-gray-200 rounded-lg shadow flex flex-col">
     <Tag
       :value="calculateTotalGrade(review.review.grades)"
       severity="info"
@@ -22,7 +22,7 @@ const props = defineProps<{ review: ReviewResponse }>()
       alt="movie poster"
       class="object-cover w-full rounded-t-lg"
     />
-    <div class="flex flex-col justify-between p-5 h-26">
+    <div class="flex flex-col justify-between p-5 h-full">
       <h2 class="mb-2 font-bold text-l">
         {{ review.movie.title }}
       </h2>
