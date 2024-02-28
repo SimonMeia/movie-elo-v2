@@ -8,15 +8,13 @@ import Tag from 'primevue/tag'
 const { calculateTotalGrade } = useGrades()
 
 const props = defineProps<{ review: ReviewResponse }>()
+const totalGrade = calculateTotalGrade(props.review.review.grades)
+const tagColor = totalGrade > 80 ? 'success' : totalGrade <= 50 ? 'danger' : 'warning'
 </script>
 
 <template>
   <div class="relative border border-gray-200 rounded-lg shadow flex flex-col">
-    <Tag
-      :value="calculateTotalGrade(review.review.grades)"
-      severity="info"
-      class="absolute top-2 right-2"
-    />
+    <Tag :value="totalGrade" :severity="tagColor" class="absolute top-2 right-2" />
     <img
       :src="`https://image.tmdb.org/t/p/original${review.movie.posterPath}`"
       alt="movie poster"
