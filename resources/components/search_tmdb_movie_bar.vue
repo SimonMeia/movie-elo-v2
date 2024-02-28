@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import AutoComplete from 'primevue/autocomplete'
 import type { TmdbSearchResponse } from '@/types'
-import { watchEffect } from 'vue';
+import { watchEffect } from 'vue'
 
 const props = defineProps<{
   initialValue?: string
@@ -22,9 +22,13 @@ function search() {
     .then((response) => response.json())
     .then((data: TmdbSearchResponse) => {
       suggestions.value = data.results
-        .sort((a, b) => b.vote_average - a.vote_average)
+        .sort((a, b) => b.popularity - a.popularity)
         .map((movie) => {
-          return { title: movie.title, tmdbMovieId: movie.id }
+          return {
+            title: movie.title,
+            tmdbMovieId: movie.id,
+            releaseYear: new Date(movie.release_date).getFullYear(),
+          }
         })
     })
 }
@@ -41,5 +45,10 @@ function search() {
     @item-select="
       $emit('update', { tmdbMovieId: $event.value.tmdbMovieId, title: $event.value.title })
     "
-  />
+  >
+    <template #option="slotProps">
+        <p>{{ slotProps.option.title }}</p>
+        <p class="text-xs">{{ slotProps.option.releaseYear }}</p>
+    </template>
+  </AutoComplete>
 </template>
