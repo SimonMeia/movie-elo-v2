@@ -183,7 +183,7 @@ export default {
     label: ({ props }) => ({
         class: [
             'duration-200',
-            'font-bold',
+            'font-medium',
             {
                 'hover:underline': props.link
             },
