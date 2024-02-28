@@ -14,7 +14,7 @@ const tagColor = totalGrade > 80 ? 'success' : totalGrade <= 50 ? 'danger' : 'wa
 
 <template>
   <div
-    class="card relative border border-gray-200 rounded-lg shadow flex flex-col"
+    class="card relative border border-gray-200 rounded-lg shadow flex flex-col cursor-pointer"
     @click="router.get(`/reviews/${review.review.id}`)"
   >
     <Tag :value="totalGrade" :severity="tagColor" class="absolute top-2 right-2" />
@@ -29,7 +29,6 @@ const tagColor = totalGrade > 80 ? 'success' : totalGrade <= 50 ? 'danger' : 'wa
           {{ review.movie.title }}
         </h2>
       </span>
-      <Button label="Voir la review" link @click="router.get(`/reviews/${review.review.id}`)" />
     </div>
   </div>
 </template>
