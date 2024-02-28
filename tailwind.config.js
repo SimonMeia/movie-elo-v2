@@ -4,6 +4,10 @@ export default {
   content: ['./resources/**/*.edge', './resources/**/*.{js,ts,jsx,tsx,vue}'],
   theme: {
     extend: {
+      fontFamily: {
+        content: ['Satoshi', 'sans-serif'],
+        titles: ['CabinetGrotesk-Extrabold', 'sans-serif'],
+      },
       colors: {
         'primary-50': 'rgb(var(--primary-50))',
         'primary-100': 'rgb(var(--primary-100))',

@@ -7,14 +7,23 @@
 
 @layer base {
   html {
-    font-family: 'Satoshi-Medium', system-ui, sans-serif;
+    @apply font-content;
   }
   h1,
   h2,
   h3,
   h4,
   h5 {
-    font-family: 'CabinetGrotesk-Extrabold', system-ui, sans-serif;
+    @apply font-titles;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-lg;
   }
 }
 
