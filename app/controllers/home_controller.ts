@@ -8,7 +8,7 @@ export default class HomeController {
   async index({ inertia, auth }: HttpContext) {
     const user = auth.user!
 
-    const reviews = await ReviewService.get5LastReviews(user.id)
+    const reviews = await ReviewService.getLastReviews(user.id, 3)
 
     return inertia.render<ReviewsResponse>('home/main', reviews)
   }

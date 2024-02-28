@@ -43,7 +43,7 @@ class ReviewService {
     return this.transformReviewToResponse(review)
   }
 
-  async get5LastReviews(userId: UserId): Promise<ReviewsResponse> {
+  async getLastReviews(userId: UserId, limit: number): Promise<ReviewsResponse> {
     const reviews: Review[] = await Review.query()
       .preload('movie', (movie) => {
         movie.preload('actors')
@@ -58,7 +58,7 @@ class ReviewService {
       })
       .where('userId', userId)
       .orderBy('createdAt', 'desc')
-      .limit(5)
+      .limit(limit)
 
     return {
       reviews: reviews.map(this.transformReviewToResponse),
