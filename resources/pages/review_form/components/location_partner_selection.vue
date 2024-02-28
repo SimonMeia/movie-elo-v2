@@ -49,8 +49,7 @@ function search(event) {
 
 <template>
   <div>
-    <label for="">{{ label }}</label>
-    <br />
+    <label class="font-titles text-lg mb-1 block" for="">{{ label }}</label>
     <AutoComplete
       multiple
       dropdown

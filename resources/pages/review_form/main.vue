@@ -59,7 +59,7 @@ function submit() {
         <h1>Rate a movie</h1>
         <div class="flex flex-col gap-4">
           <div>
-            <label for="">Movie</label>
+            <label class="font-titles text-lg mb-1 block" for="">Movie</label>
             <SearchTmdbMovieBar
               @update="tmdbMovieId = $event.tmdbMovieId"
               :initial-value="homeTmdbMovieTitle"
@@ -84,7 +84,7 @@ function submit() {
             @update="grades.personal = $event"
           />
           <div>
-            <label for="">Date de visionnage</label><br />
+            <label class="font-titles text-lg mb-1 block" for="">Date de visionnage</label>
             <Calendar inline v-model="date" :max-date="new Date()" class="w-full" />
           </div>
 
@@ -99,7 +99,7 @@ function submit() {
             @update="partners = $event"
           />
           <div>
-            <label for="">Commentaire</label><br />
+            <label class="font-titles text-lg mb-1 block" for="">Commentaire</label>
             <Textarea class="w-full" rows="5" v-model="comment" autoResize />
           </div>
         </div>

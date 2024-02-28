@@ -267,7 +267,7 @@ export default {
   weekday: {
     class: [
       // Colors
-      'text-surface-500 dark:text-white/60'
+      'text-surface-950 dark:text-white/60'
     ]
   },
   day: {
