@@ -38,7 +38,7 @@ function onRowSelect(event) {
         selectionMode="single"
         @rowSelect="onRowSelect"
       >
-        <Column field="title"></Column>
+        <Column field="title" header="Film"></Column>
       </DataTable>
     </div>
   </Layout>
