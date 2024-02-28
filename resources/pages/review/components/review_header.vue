@@ -1,13 +1,13 @@
 <script setup lang="ts">
 defineProps<{
-  backdropPath: string
+  backdropPath: string | null
   title: string
   synopsis: string
 }>()
 </script>
 
 <template>
-  <div class="relative w-full h-48">
+  <div class="relative w-full h-56">
     <img
       :src="`https://image.tmdb.org/t/p/original${backdropPath}`"
       alt="movie poster"

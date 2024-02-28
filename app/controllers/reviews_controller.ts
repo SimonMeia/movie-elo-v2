@@ -14,7 +14,7 @@ export default class ReviewsController {
   async index({ inertia, auth }: HttpContext) {
     const user = auth.user!
     console.log(user)
-    const reviews = await ReviewService.getReviewsResponse(user.id)
+    const reviews = await ReviewService.getAllReviews(user.id)
     return inertia.render<ReviewsResponse>('reviews/main', reviews)
   }
 
@@ -26,7 +26,8 @@ export default class ReviewsController {
     const partners = await Partner.query().where('userId', user.id)
 
     return inertia.render<{}>('review_form/main', {
-      csrfToken: request.csrfToken,
+      homeTmdbMovieId: request.input('homeTmdbMovieId'),
+      homeTmdbMovieTitle: request.input('homeTmdbMovieTitle'),
       dbLocations: locations.map((l) => l.name),
       dbPartners: partners.map((p) => p.name),
     })
@@ -70,8 +71,7 @@ export default class ReviewsController {
   @inject()
   async show({ inertia, params, auth }: HttpContext) {
     const user = auth.user!
-    console.log(params.id)
-    const responseData: ReviewResponse = await ReviewService.getReviewResponse(params.id, user.id)
+    const responseData: ReviewResponse = await ReviewService.getReview(params.id, user.id)
 
     return inertia.render<ReviewResponse>('review/main', responseData)
   }

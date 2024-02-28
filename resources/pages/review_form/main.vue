@@ -10,14 +10,16 @@ import LocationPartnerSelection from './components/location_partner_selection.vu
 import Layout from '@/layouts/default.vue'
 
 const props = defineProps<{
-  csrfToken: string
+  homeTmdbMovieId: string
+  homeTmdbMovieTitle: string
   dbLocations: string[]
   dbPartners: string[]
 }>()
 
 console.log(props)
 
-const tmdbMovieId = ref(0)
+const tmdbMovieId = ref(parseInt(props.homeTmdbMovieId))
+
 const grades = ref({
   story: 1,
   acting: 1,
@@ -46,7 +48,6 @@ function submit() {
     method: 'post',
     data: review,
     preserveState: true,
-    // headers: { 'X-CSRF-Token': props.csrfToken },
   })
 }
 </script>
@@ -59,7 +60,10 @@ function submit() {
         <div class="flex flex-col gap-4">
           <div>
             <label for="">Movie</label>
-            <SearchTmdbMovieBar @update="tmdbMovieId = $event" />
+            <SearchTmdbMovieBar
+              @update="tmdbMovieId = $event.tmdbMovieId"
+              :initial-value="homeTmdbMovieTitle"
+            />
           </div>
           <CategoryRating category-name="Histoire" :max-grade="5" @update="grades.story = $event" />
           <CategoryRating category-name="Acting" :max-grade="3" @update="grades.acting = $event" />
