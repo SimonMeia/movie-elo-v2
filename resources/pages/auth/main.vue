@@ -49,7 +49,7 @@ function submit() {
   <div class="flex flex-col h-screen lg:flex-row">
     <div :class="coverHeight" class="w-full overflow-hidden lg:w-1/2 lg:h-full">
       <img
-        src="@/images/the-trueman-show-poster.png"
+        src="@/assets/images/the-trueman-show-poster.png"
         alt="hero"
         class="object-cover w-full h-full"
       />
