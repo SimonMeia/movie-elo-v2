@@ -19,7 +19,7 @@ const tagColor = totalGrade > 80 ? 'success' : totalGrade <= 50 ? 'danger' : 'wa
   >
     <Tag :value="totalGrade" :severity="tagColor" class="absolute top-2 right-2" />
     <img
-      :src="`https://image.tmdb.org/t/p/original${review.movie.posterPath}`"
+      :src="`https://image.tmdb.org/t/p/original${review.movie.backdropPath}`"
       alt="movie poster"
       class="object-cover w-full rounded-t-lg"
     />

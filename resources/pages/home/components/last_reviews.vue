@@ -10,7 +10,7 @@ const props = defineProps<ReviewsResponse>()
 <template>
   <div class="relative">
     <h2 class="text-3xl font-bold mb-4">Dernières reviews</h2>
-    <div class="grid grid-cols-5 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <ReviewCard v-for="review in props.reviews" :key="review.review.id" :review="review" />
     </div>
     <div class="flex justify-end mt-4">
