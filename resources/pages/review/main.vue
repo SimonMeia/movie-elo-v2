@@ -17,7 +17,7 @@ const props = defineProps<ReviewResponse>()
       :backdrop-path="props.movie.backdropPath"
       :title="props.movie.title"
       :synopsis="props.movie.synopsis"
-    ></ReviewHeader>
+    />
     <div class="p-container">
       <ReviewGrades :review="props.review"></ReviewGrades>
       <Divider />

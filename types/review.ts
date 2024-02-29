@@ -1,13 +1,6 @@
 export type Review = {
   id: number
-  grades: {
-    story: number
-    acting: number
-    music: number
-    directing: number
-    feeling: number
-    personal: number
-  }
+  grades: Grade[]
   viewings: Viewing[]
   comment: string | null
 }
@@ -27,4 +20,12 @@ export type Location = {
 export type Partner = {
   id: number
   name: string
+}
+
+export type Grade = {
+  id: number
+  grade: number
+  maxGrade: number
+  gradeTypeName: string
+  gradeTypeId: number
 }

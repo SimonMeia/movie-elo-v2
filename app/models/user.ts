@@ -6,6 +6,7 @@ import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
 import type { HasMany } from '@adonisjs/lucid/types/relations'
 import Review from '#models/review'
 import Location from '#models/location'
+import GradeType from '#models/grade_type'
 import Partner from '#models/partner'
 import { Opaque } from '@adonisjs/core/types/helpers'
 
@@ -49,4 +50,7 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @hasMany(() => Partner)
   declare partners: HasMany<typeof Partner>
+
+  @hasMany(() => GradeType)
+  declare gradeTypes: HasMany<typeof GradeType>
 }

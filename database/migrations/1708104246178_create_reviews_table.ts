@@ -7,12 +7,12 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
 
-      table.integer('story').notNullable()
-      table.integer('acting').notNullable()
-      table.integer('music').notNullable()
-      table.integer('directing').notNullable()
-      table.integer('feeling').notNullable()
-      table.integer('personal').notNullable()
+      // table.integer('story').notNullable()
+      // table.integer('acting').notNullable()
+      // table.integer('music').notNullable()
+      // table.integer('directing').notNullable()
+      // table.integer('feeling').notNullable()
+      // table.integer('personal').notNullable()
       table.string('comment').nullable()
       table.integer('elo').defaultTo(1000)
 

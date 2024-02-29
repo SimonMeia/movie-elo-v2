@@ -2,28 +2,29 @@
 import type { Review } from '@/types'
 import { computed } from 'vue'
 import ReviewGrade from './review_grade.vue'
+import { useGrades } from '@/composables/useGrades'
 
 const props = defineProps<{
   review: Review
 }>()
 
-const finalGrade = computed(
-  () => (Object.values(props.review.grades).reduce((total, grade) => total + grade, 0) / 20) * 100
-)
+const { calculateTotalGrade } = useGrades()
+
+const totalGrade = calculateTotalGrade(props.review.grades)
 </script>
 
 <template>
   <div class="flex flex-row flex-wrap justify-between my-4">
     <ReviewGrade
-      v-for="(grade, name) in props.review.grades"
-      :key="name"
-      :name="name"
-      :max-grade="5"
-      :grade="grade"
+      v-for="grade in props.review.grades"
+      :key="grade.id"
+      :name="grade.gradeTypeName"
+      :max-grade="grade.maxGrade"
+      :grade="grade.grade"
     ></ReviewGrade>
   </div>
   <div>
-    <span class="text-4xl font-bold">Note finale : {{ finalGrade.toFixed(0) }}%</span>
+    <span class="text-4xl font-bold">Note finale : {{ totalGrade.toFixed(0) }}%</span>
   </div>
 </template>
 

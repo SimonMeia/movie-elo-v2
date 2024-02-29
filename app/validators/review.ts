@@ -20,14 +20,14 @@ const movieIdValidityRule = vine.createRule(isTmdbMovieIdValid, {
 export const createReviewValidator = vine.compile(
   vine.object({
     tmdbMovieId: vine.number().use(movieIdValidityRule()),
-    grades: vine.object({
-      story: vine.number(),
-      acting: vine.number(),
-      music: vine.number(),
-      directing: vine.number(),
-      feeling: vine.number(),
-      personal: vine.number(),
-    }),
+    grades: vine
+      .array(
+        vine.object({
+          gradeTypeId: vine.number(),
+          grade: vine.number().min(1),
+        })
+      )
+      .minLength(1),
     locations: vine.array(vine.string()).minLength(1),
     partners: vine.array(vine.string()).minLength(1),
     date: vine.date(),

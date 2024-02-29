@@ -8,26 +8,15 @@ import { ref } from 'vue'
 import { router } from '@inertiajs/vue3'
 import LocationPartnerSelection from './components/location_partner_selection.vue'
 import Layout from '@/layouts/default.vue'
+import type { ReviewFormResponse } from '@/types'
 
-const props = defineProps<{
-  homeTmdbMovieId: string
-  homeTmdbMovieTitle: string
-  dbLocations: string[]
-  dbPartners: string[]
-}>()
+const props = defineProps<ReviewFormResponse>()
 
 console.log(props)
 
 const tmdbMovieId = ref(parseInt(props.homeTmdbMovieId))
 
-const grades = ref({
-  story: 1,
-  acting: 1,
-  music: 1,
-  directing: 1,
-  feeling: 1,
-  personal: 1,
-})
+const grades = ref(props.dbGradeTypes.map((grade) => ({ gradeTypeId: grade.id, grade: 1 })))
 const locations = ref([])
 const partners = ref([])
 const date = ref(new Date())
@@ -54,37 +43,26 @@ function submit() {
 
 <template>
   <Layout>
-    <div class="p-container mt-8">
+    <div class="mt-8 p-container">
       <form @submit.prevent="submit">
         <h1>Rate a movie</h1>
         <div class="flex flex-col gap-4">
           <div>
-            <label class="font-titles text-lg mb-1 block" for="">Movie</label>
+            <label class="block mb-1 text-lg font-titles" for="">Movie</label>
             <SearchTmdbMovieBar
               @update="tmdbMovieId = $event.tmdbMovieId"
               :initial-value="homeTmdbMovieTitle"
             />
           </div>
-          <CategoryRating category-name="Histoire" :max-grade="5" @update="grades.story = $event" />
-          <CategoryRating category-name="Acting" :max-grade="3" @update="grades.acting = $event" />
-          <CategoryRating category-name="Musique" :max-grade="3" @update="grades.music = $event" />
           <CategoryRating
-            category-name="Réalisation"
-            :max-grade="3"
-            @update="grades.directing = $event"
-          />
-          <CategoryRating
-            category-name="Feeling à la fin du film"
-            :max-grade="2"
-            @update="grades.feeling = $event"
-          />
-          <CategoryRating
-            category-name="Appréciation personnelle"
-            :max-grade="4"
-            @update="grades.personal = $event"
+            v-for="gradeType in dbGradeTypes"
+            :key="gradeType.id"
+            :category-name="gradeType.name"
+            :max-grade="gradeType.maxGrade"
+            @update="grades.find((g) => g.gradeTypeId === gradeType.id).grade = $event"
           />
           <div>
-            <label class="font-titles text-lg mb-1 block" for="">Date de visionnage</label>
+            <label class="block mb-1 text-lg font-titles" for="">Date de visionnage</label>
             <Calendar inline v-model="date" :max-date="new Date()" class="w-full" />
           </div>
 
@@ -99,7 +77,7 @@ function submit() {
             @update="partners = $event"
           />
           <div>
-            <label class="font-titles text-lg mb-1 block" for="">Commentaire</label>
+            <label class="block mb-1 text-lg font-titles" for="">Commentaire</label>
             <Textarea class="w-full" rows="5" v-model="comment" autoResize />
           </div>
         </div>

@@ -9,3 +9,19 @@ export type ReviewResponse = {
 export type ReviewsResponse = {
   reviews: ReviewResponse[]
 }
+
+export type HomeResponse = {
+  reviews: ReviewResponse[]
+}
+
+export type ReviewFormResponse = {
+  homeTmdbMovieId?: string
+  homeTmdbMovieTitle?: string
+  dbLocations: string[]
+  dbPartners: string[]
+  dbGradeTypes: {
+    id: number
+    name: string
+    maxGrade: number
+  }[]
+}

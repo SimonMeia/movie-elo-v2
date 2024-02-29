@@ -16,6 +16,7 @@ class ReviewService {
         viewing.preload('locations')
         viewing.preload('partners')
       })
+      .preload('grades', (grades) => grades.preload('gradeType'))
       .where('userId', userId)
 
     return {
@@ -36,6 +37,7 @@ class ReviewService {
         viewing.preload('locations')
         viewing.preload('partners')
       })
+      .preload('grades', (grades) => grades.preload('gradeType'))
       .where('id', reviewId)
       .where('userId', userId)
       .firstOrFail()
@@ -56,6 +58,7 @@ class ReviewService {
         viewing.preload('locations')
         viewing.preload('partners')
       })
+      .preload('grades', (grades) => grades.preload('gradeType'))
       .where('userId', userId)
       .orderBy('createdAt', 'desc')
       .limit(limit)
@@ -65,18 +68,17 @@ class ReviewService {
     }
   }
 
-  private transformReviewToResponse(review: Review) {
+  private transformReviewToResponse(review: Review): ReviewResponse {
     return {
       review: {
         id: review.id,
-        grades: {
-          acting: review.acting,
-          story: review.story,
-          music: review.music,
-          directing: review.directing,
-          feeling: review.feeling,
-          personal: review.personal,
-        },
+        grades: review.grades.map((g) => ({
+          id: g.id,
+          grade: g.grade,
+          maxGrade: g.gradeType.maxGrade,
+          gradeTypeName: g.gradeType.name,
+          gradeTypeId: g.gradeTypeId,
+        })),
         comment: review.comment,
         viewings: review.viewngs.map((v) => ({
           id: v.id,
