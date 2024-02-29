@@ -1,6 +1,4 @@
-// useGrades.ts
 import type { Grade } from '@/types'
-import { ref } from 'vue'
 
 export function useGrades() {
   function calculateTotalGrade(grades: Grade[]) {

@@ -35,7 +35,7 @@ const props = defineProps<{
             :key="partner.id"
             class="inline-block mb-1 mr-1 grow"
           >
-            <Chip :label="partner.name"/>
+            <Chip :label="partner.name" />
           </div>
         </div>
       </div>

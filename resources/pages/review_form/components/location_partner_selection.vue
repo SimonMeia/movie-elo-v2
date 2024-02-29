@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AutoComplete from 'primevue/autocomplete'
 import type { Ref } from 'vue'
-import { mergeProps } from 'vue';
+import { mergeProps } from 'vue'
 import { ref } from 'vue'
 
 const props = defineProps<{

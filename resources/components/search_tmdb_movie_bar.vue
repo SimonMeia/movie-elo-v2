@@ -47,8 +47,8 @@ function search() {
     "
   >
     <template #option="slotProps">
-        <p>{{ slotProps.option.title }}</p>
-        <p class="text-xs">{{ slotProps.option.releaseYear }}</p>
+      <p>{{ slotProps.option.title }}</p>
+      <p class="text-xs">{{ slotProps.option.releaseYear }}</p>
     </template>
   </AutoComplete>
 </template>

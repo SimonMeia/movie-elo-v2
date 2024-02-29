@@ -2,7 +2,7 @@
 import type { ReviewResponse } from '@/types'
 import { router } from '@inertiajs/vue3'
 import Button from 'primevue/button'
-import { useGrades } from '@/composables/useGrades'
+import { useGrades } from '@/composables/use_grades'
 import Tag from 'primevue/tag'
 
 const { calculateTotalGrade } = useGrades()

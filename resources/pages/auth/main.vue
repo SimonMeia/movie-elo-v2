@@ -54,9 +54,7 @@ function submit() {
         class="object-cover w-full h-full"
       />
     </div>
-    <div
-      class="flex flex-col w-full px-4 lg:w-1/2 lg:h-screen sm:px-6 md:px-8"
-    >
+    <div class="flex flex-col w-full px-4 lg:w-1/2 lg:h-screen sm:px-6 md:px-8">
       <form @submit.prevent="submit" class="flex flex-col w-full h-full gap-4 my-3 md:my0">
         <h1 class="flex flex-col justify-end my-4 text-2xl font-bold lg:mb-0 md:text-4xl grow">
           Welcome back

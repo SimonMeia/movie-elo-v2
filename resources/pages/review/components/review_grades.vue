@@ -2,7 +2,7 @@
 import type { Review } from '@/types'
 import { computed } from 'vue'
 import ReviewGrade from './review_grade.vue'
-import { useGrades } from '@/composables/useGrades'
+import { useGrades } from '@/composables/use_grades'
 
 const props = defineProps<{
   review: Review
