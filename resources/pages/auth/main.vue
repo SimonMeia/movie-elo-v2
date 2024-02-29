@@ -46,17 +46,19 @@ function submit() {
 </script>
 
 <template>
-  <div class="flex flex-col h-screen lg:flex-row">
-    <div :class="coverHeight" class="w-full overflow-hidden lg:w-1/2 lg:h-full">
+  <div class="flex flex-col lg:flex-row">
+    <div class="w-full h-56 overflow-hidden ease-in-out lg:w-1/2 lg:h-screen">
       <img
         src="@/assets/images/the-trueman-show-poster.png"
         alt="hero"
         class="object-cover w-full h-full"
       />
     </div>
-    <div :class="formHeight" class="flex flex-col w-full px-4 lg:w-1/2 lg:h-full sm:px-6 md:px-8">
-      <form @submit.prevent="submit" class="flex flex-col w-full h-full my-3 md:my0">
-        <h1 class="flex flex-col justify-end pt-1 mb-0 text-2xl font-bold md:text-4xl grow">
+    <div
+      class="flex flex-col w-full px-4 lg:w-1/2 lg:h-screen sm:px-6 md:px-8"
+    >
+      <form @submit.prevent="submit" class="flex flex-col w-full h-full gap-4 my-3 md:my0">
+        <h1 class="flex flex-col justify-end my-4 text-2xl font-bold lg:mb-0 md:text-4xl grow">
           Welcome back
         </h1>
         <div class="flex flex-col justify-center gap-3 grow md:gap-4">
