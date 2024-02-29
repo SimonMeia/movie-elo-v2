@@ -43,7 +43,7 @@ function submit() {
 
 <template>
   <Layout>
-    <div class="mt-8 p-container">
+    <div class="mt-8 container">
       <form @submit.prevent="submit">
         <h1>Rate a movie</h1>
         <div class="flex flex-col gap-4">

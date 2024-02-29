@@ -18,7 +18,7 @@ const props = defineProps<ReviewResponse>()
       :title="props.movie.title"
       :synopsis="props.movie.synopsis"
     />
-    <div class="p-container">
+    <div class="container">
       <ReviewGrades :review="props.review"></ReviewGrades>
       <Divider />
       <Accordion>

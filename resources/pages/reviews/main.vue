@@ -31,7 +31,7 @@ function onRowSelect(event) {
 
 <template>
   <Layout>
-    <div class="p-container">
+    <div class="container">
       <DataTable
         :value="reviewsList"
         v-model:selection="selectedReview"

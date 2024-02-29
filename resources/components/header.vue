@@ -8,7 +8,7 @@ import Divider from 'primevue/divider';
 
 <template>
   <header class="sticky top-0 z-50 border-b bg-surface-0 border-accent">
-    <div class="flex items-center justify-between py-3 p-container">
+    <div class="flex items-center justify-between py-3 container">
       <Link href="/" :preserve-scroll="true" :preserve-state="true" aria-label="Homepage">
         <MovieEloLogo></MovieEloLogo>
       </Link>

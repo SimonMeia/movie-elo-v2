@@ -15,7 +15,7 @@ const tmdbMovieTitle = ref('')
 
 <template>
   <Layout>
-    <div class="p-container">
+    <div class="container">
       <div class="flex flex-col gap-2 sm:flex-row my-12">
         <SearchTmdbMovieBar
           @update="

@@ -13,10 +13,12 @@ defineProps<{
       alt="movie poster"
       class="object-cover w-full h-full"
     />
-    <div class="absolute top-0 left-0 w-screen h-full opacity-50 bg-black-alpha-90"></div>
-    <h1 class="absolute bottom-0 left-0 pb-6 text-2xl font-normal text-white p-container z-5">
-      {{ title }}
-    </h1>
+    <div class="absolute top-0 left-0 w-screen h-full bg-black opacity-20"></div>
+    <div class="absolute bottom-0 left-0 w-full">
+      <h1 class="container pb-6 font-normal text-white">
+        {{ title }}
+      </h1>
+    </div>
   </div>
 </template>
 
