@@ -10,6 +10,7 @@ const props = defineProps<{
 </script>
 
 <template>
+  <h2 class="my-6">Derniers visionnages</h2>
   <Accordion>
     <AccordionTab
       v-for="viewing of viewings"
@@ -17,17 +18,25 @@ const props = defineProps<{
       :header="new Date(viewing.date).toLocaleDateString('fr-CH')"
     >
       <div class="flex flex-col gap-2">
-        <div class="flex flex-row items-center justify-start gap-2 h-2rem">
-          <span>Endroit : </span>
-          <Chip
+        <div>
+          <h3>Endroit :</h3>
+          <div
             v-for="location in viewing.locations"
             :key="location.id"
-            :label="location.name"
-          ></Chip>
+            class="inline-block mb-1 mr-1 grow"
+          >
+            <Chip :label="location.name" />
+          </div>
         </div>
-        <div class="flex flex-row items-center justify-start gap-2 h-2rem">
-          <span>Partners : </span>
-          <Chip v-for="partner in viewing.partners" :key="partner.id" :label="partner.name"></Chip>
+        <div>
+          <h3>Partners :</h3>
+          <div
+            v-for="partner in viewing.partners"
+            :key="partner.id"
+            class="inline-block mb-1 mr-1 grow"
+          >
+            <Chip :label="partner.name"/>
+          </div>
         </div>
       </div>
     </AccordionTab>
