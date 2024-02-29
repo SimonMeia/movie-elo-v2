@@ -1,5 +1,5 @@
 import User from '#models/user'
-import vine from '@vinejs/vine'
+import vine, { SimpleMessagesProvider } from '@vinejs/vine'
 import { FieldContext } from '@vinejs/vine/types'
 
 type Options = {
@@ -12,7 +12,11 @@ async function isUnique(value: unknown, options: Options, field: FieldContext) {
   }
   const row = await User.query().where(options.column, value).first()
   if (row) {
-    field.report('The movie id is not valid', 'movieIdValidityRule', field)
+    if (options.column === 'username') {
+      field.report("Le nom d'utilisateur est déjà utilisé", 'username', field)
+    } else if (options.column === 'email') {
+      field.report("L'adresse email est déjà utilisée", 'email', field)
+    }
   }
 }
 
@@ -40,3 +44,13 @@ export const createUserValidator = vine.compile(
     password: vine.string().trim(),
   })
 )
+
+createUserValidator.messagesProvider = new SimpleMessagesProvider({
+  'firstName.required': 'Le prénom est obligatoire',
+  'lastName.required': 'Le nom est obligatoire',
+  'username.required': "Le nom d'utilisateur est obligatoire",
+  'username.uniqueRule': "Le nom d'utilisateur est déjà utilisé",
+  'email.required': "L'adresse email est obligatoire",
+  'email.uniqueRule': "L'adresse email est déjà utilisée",
+  'password.required': 'Le mot de passe est obligatoire',
+})

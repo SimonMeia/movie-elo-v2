@@ -5,8 +5,19 @@ import { createUserValidator } from '#validators/users'
 
 export default class SessionController {
   @inject()
-  async create({ inertia }: HttpContext) {
-    return inertia.render<{}>('auth/main', {})
+  async create({ inertia, session }: HttpContext) {
+    console.log(session.flashMessages.all())
+
+    if (
+      session.flashMessages.all().errorsBag &&
+      session.flashMessages.all().errorsBag.hasOwnProperty('E_INVALID_CREDENTIALS')
+    ) {
+      return inertia.render<{}>('auth/main', {
+        errors: { password: ["Le nom d'utilisateur ou le mot de passe est invalide"] },
+      })
+    } else {
+      return inertia.render<{}>('auth/main')
+    }
   }
 
   @inject()

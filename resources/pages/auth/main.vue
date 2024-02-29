@@ -2,8 +2,19 @@
 import { router } from '@inertiajs/vue3'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
+import { watch } from 'vue'
 import { computed } from 'vue'
 import { ref } from 'vue'
+
+const props = defineProps<{
+  errors?: {
+    email?: string
+    password?: string
+    username?: string
+    firstName?: string
+    lastName?: string
+  }
+}>()
 
 const email = ref('simon@me.com')
 const password = ref('1234')
@@ -21,9 +32,9 @@ const changeFormLabel = computed(() =>
 const changeFormButtonLabel = computed(() =>
   isLoginFormDisplayed.value ? "S'inscrire" : 'Se connecter'
 )
-
-const coverHeight = computed(() => (isLoginFormDisplayed.value ? 'h-1/3' : 'h-1/6'))
-const formHeight = computed(() => (isLoginFormDisplayed.value ? 'h-2/3' : 'h-5/6'))
+watch(isLoginFormDisplayed, () => {
+  resetErrors()
+})
 
 function submit() {
   const destination = isLoginFormDisplayed.value ? 'login' : 'register'
@@ -42,6 +53,16 @@ function submit() {
     data: userData,
     preserveState: true,
   })
+}
+
+function resetErrors() {
+  if (props.errors) {
+    props.errors.email = undefined
+    props.errors.password = undefined
+    props.errors.username = undefined
+    props.errors.firstName = undefined
+    props.errors.lastName = undefined
+  }
 }
 </script>
 
@@ -63,22 +84,37 @@ function submit() {
           <div v-if="!isLoginFormDisplayed">
             <label for="">Prénom</label><br />
             <InputText v-model="firstName" class="w-full" />
+            <small v-if="props.errors?.firstName" class="text-red-500">
+              {{ props.errors.firstName[0] }}
+            </small>
           </div>
           <div v-if="!isLoginFormDisplayed">
             <label for="">Nom</label><br />
             <InputText v-model="lastName" class="w-full" />
+            <small v-if="props.errors?.lastName" class="text-red-500">
+              {{ props.errors.lastName[0] }}
+            </small>
           </div>
           <div v-if="!isLoginFormDisplayed">
             <label for="">Nom d'utilisateur</label><br />
             <InputText v-model="username" class="w-full" />
+            <small v-if="props.errors?.username" class="text-red-500">
+              {{ props.errors.username[0] }}
+            </small>
           </div>
           <div>
             <label for="">Email</label><br />
             <InputText v-model="email" class="w-full" />
+            <small v-if="props.errors?.email" class="text-red-500">
+              {{ props.errors.email[0] }}
+            </small>
           </div>
           <div>
             <label for="">Password</label><br />
             <InputText type="password" v-model="password" class="w-full" />
+            <small v-if="props.errors?.password" class="text-red-500">
+              {{ props.errors.password[0] }}
+            </small>
           </div>
         </div>
         <div class="flex flex-col items-center grow">
