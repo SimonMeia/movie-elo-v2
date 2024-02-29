@@ -10,26 +10,24 @@ import Badge from 'primevue/badge'
 const items = ref([
   {
     label: 'Home',
-    icon: 'pi pi-home',
+    action: () => router.get('/'),
   },
   {
     label: 'Ajouter une review',
-    icon: 'pi pi-star',
+    action: () => router.get('/review-form'),
   },
   {
     label: 'Mes reviews',
-    icon: 'pi pi-search',
+    action: () => router.get('/reviews'),
   },
-  {
-    label: 'Elo ranking',
-    icon: 'pi pi-envelope',
-    badge: 3,
-  },
-  {
-    label: 'Rewind',
-    icon: 'pi pi-envelope',
-    badge: 3,
-  },
+  // {
+  //   label: 'Elo ranking',
+  //   action: () => router.get('/elo-rankings'),
+  // },
+  // {
+  //   label: 'Rewind',
+  //   action: () => router.get('/rewind'),
+  // },
 ])
 </script>
 
@@ -42,8 +40,7 @@ const items = ref([
         </Link>
       </template>
       <template #item="{ item, props, hasSubmenu, root }">
-        <a class="flex items-center" v-bind="props.action">
-          <!-- <span :class="item.icon" /> -->
+        <a class="flex items-center" @click="item.action()" v-bind="props.action">
           <span>{{ item.label }}</span>
         </a>
       </template>
