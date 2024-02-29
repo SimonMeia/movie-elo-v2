@@ -14,17 +14,19 @@ const totalGrade = calculateTotalGrade(props.review.grades)
 </script>
 
 <template>
-  <div class="flex flex-row flex-wrap justify-between my-4">
+  <h2 class="my-6">Notes</h2>
+  <div class="grid grid-cols-2 gap-4 my-6 md:grid-cols-3">
     <ReviewGrade
       v-for="grade in props.review.grades"
       :key="grade.id"
       :name="grade.gradeTypeName"
       :max-grade="grade.maxGrade"
       :grade="grade.grade"
-    ></ReviewGrade>
+    />
   </div>
-  <div>
-    <span class="text-4xl font-bold">Note finale : {{ totalGrade.toFixed(0) }}%</span>
+  <div class="my-8 text-center">
+    <span class="text-2xl">Note finale : </span>
+    <span class="text-4xl font-bold text-accent font-titles">{{ totalGrade.toFixed(0) }}%</span>
   </div>
 </template>
 

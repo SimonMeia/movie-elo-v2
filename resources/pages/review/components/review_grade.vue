@@ -7,12 +7,12 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="flex flex-row items-center w-1/2 my-2 text-sm md:w-1/3">
-    <span class="w-20"> {{ name.charAt(0).toUpperCase() + name.slice(1) }} : </span>
+  <div class="text-center">
     <div>
-      <span class="text-xl font-bold"> {{ grade }}</span>
+      <span class="text-3xl font-bold font-titles text-accent"> {{ grade }}</span>
       <span> / {{ maxGrade }}</span>
     </div>
+    <span class="w-20"> {{ name.charAt(0).toUpperCase() + name.slice(1) }}</span>
   </div>
 </template>
 
