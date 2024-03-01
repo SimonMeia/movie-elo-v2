@@ -1,45 +1,38 @@
 <script setup lang="ts">
 import type { ReviewsResponse } from '@/types'
-import { watchEffect } from 'vue'
 import Layout from '@/layouts/default.vue'
-import DataTable from 'primevue/datatable'
-import Column from 'primevue/column'
-import { computed } from 'vue'
-import type { Ref } from 'vue'
 import { ref } from 'vue'
 import { router } from '@inertiajs/vue3'
+import TabMenu from 'primevue/tabmenu'
+import { watchEffect } from 'vue'
+import GradesTable from './components/grades_table.vue'
+import ViewingsTable from './components/viewings_table.vue'
 
-interface ReviewListItem {
-  reviewId: number
-  title: string
-}
 
 const props = defineProps<ReviewsResponse>()
-const selectedReview: Ref<ReviewListItem | null> = ref(null)
 
-const reviewsList = computed(() =>
-  props.reviews.map((review): ReviewListItem => {
-    return { reviewId: review.review.id, title: review.movie.title }
-  })
-)
 
-function onRowSelect(event) {
-  console.log(event.data.title)
-  router.get('/reviews/' + event.data.reviewId)
+const active = ref(0)
+watchEffect(() => console.log(active.value))
+
+const viewsItems = ref([
+  { label: 'Notes', icon: 'pi pi-star', command: () => (active.value = 0) },
+  { label: 'Visionnages', icon: 'pi pi-calendar', command: () => (active.value = 1) },
+])
+
+const menu = ref()
+const toggle = (event: any) => {
+  menu.value.toggle(event)
 }
 </script>
 
 <template>
   <Layout>
     <div class="container">
-      <DataTable
-        :value="reviewsList"
-        v-model:selection="selectedReview"
-        selectionMode="single"
-        @rowSelect="onRowSelect"
-      >
-        <Column field="title" header="Film"></Column>
-      </DataTable>
+      <h1 class="my-8">Mes reviews</h1>
+      <TabMenu v-model:activeIndex="active" :model="viewsItems" />
+      <GradesTable :reviews="props.reviews" v-if="active === 0"></GradesTable>
+      <ViewingsTable :reviews="props.reviews" v-if="active === 1"></ViewingsTable>
     </div>
   </Layout>
 </template>

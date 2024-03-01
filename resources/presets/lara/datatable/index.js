@@ -68,6 +68,7 @@ export default {
       {
         'bg-surface-50 top-0 z-40 sticky': context.scrollable,
       },
+      'h-16',
     ],
   }),
   tbody: ({ instance, context }) => ({
@@ -122,8 +123,8 @@ export default {
 
         // Color
         (props.sortable === '' || props.sortable) && context.sorted
-          ? 'bg-primary-50 text-primary-700'
-          : 'bg-surface-50 text-surface-700',
+          ? 'bg-primary-50 text-primary-950'
+          : 'bg-surface-50 text-surface-950',
         (props.sortable === '' || props.sortable) && context.sorted
           ? 'dark:text-white dark:bg-primary-400/30'
           : 'dark:text-white/80 dark:bg-surface-800',
@@ -1176,10 +1177,10 @@ export default {
       // Color
       'dark:text-white/80',
       { 'bg-primary-50 text-primary-700 dark:bg-primary-400/30': context.selected },
-      { 'bg-surface-0 text-surface-600 dark:bg-surface-800': !context.selected },
+      { 'bg-white text-surface-800 dark:bg-surface-800': !context.selected },
       { 'font-bold bg-surface-0 dark:bg-surface-800': props.frozenRow },
       {
-        'odd:bg-surface-0 odd:text-surface-600 dark:odd:bg-surface-800 even:bg-surface-50 even:text-surface-600 dark:even:bg-surface-900/50':
+        'odd:bg-white odd:text-surface-800 dark:odd:bg-surface-800 even:bg-surface-0 even:text-surface-800 dark:even:bg-surface-900/50':
           context.stripedRows,
       },
 
@@ -1189,7 +1190,7 @@ export default {
           context.selectable,
       },
       {
-        'hover:bg-surface-300/20 hover:text-surface-600': props.selectionMode && !context.selected,
+        'hover:bg-surface-300/20': props.selectionMode && !context.selected,
       },
 
       // Transition
