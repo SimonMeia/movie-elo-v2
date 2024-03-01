@@ -48,7 +48,7 @@ function submit() {
     <div class="container mt-8">
       <h1 class="mb-4">Ajout d'une nouvelle review</h1>
       <div class="flex flex-row justify-center gap-8 md:justify-evenly">
-        <form @submit.prevent="submit" class="flex flex-col w-full max-w-lg gap-4">
+        <form @submit.prevent="submit" class="flex flex-col w-full max-w-lg gap-4 md:gap-8">
           <div>
             <label class="block mb-1 text-lg font-titles" for="">Movie</label>
             <SearchTmdbMovieBar
@@ -66,7 +66,13 @@ function submit() {
           />
           <div>
             <label class="block mb-1 text-lg font-titles" for="">Date de visionnage</label>
-            <Calendar inline v-model="date" :max-date="new Date()" class="w-full" />
+            <Calendar
+              inline
+              selectOtherMonths
+              v-model="date"
+              :max-date="new Date()"
+              class="w-full"
+            />
           </div>
 
           <LocationPartnerSelection
