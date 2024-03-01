@@ -9,6 +9,9 @@ import { router } from '@inertiajs/vue3'
 import LocationPartnerSelection from './components/location_partner_selection.vue'
 import Layout from '@/layouts/default.vue'
 import type { ReviewFormResponse } from '@/types'
+import Card from 'primevue/card'
+import Accordion from 'primevue/accordion'
+import AccordionTab from 'primevue/accordiontab'
 
 const props = defineProps<ReviewFormResponse>()
 
@@ -43,9 +46,9 @@ function submit() {
 <template>
   <Layout>
     <div class="container mt-8">
-      <form @submit.prevent="submit">
-        <h1 class="mb-4">Ajout d'une nouvelle review</h1>
-        <div class="flex flex-col gap-4">
+      <h1 class="mb-4">Ajout d'une nouvelle review</h1>
+      <div class="flex flex-row justify-center gap-8 md:justify-evenly">
+        <form @submit.prevent="submit" class="flex flex-col w-full max-w-lg gap-4">
           <div>
             <label class="block mb-1 text-lg font-titles" for="">Movie</label>
             <SearchTmdbMovieBar
@@ -82,10 +85,28 @@ function submit() {
             <label class="block mb-1 text-lg font-titles" for="">Commentaire</label>
             <Textarea class="w-full" rows="5" v-model="comment" autoResize />
           </div>
-        </div>
 
-        <Button type="submit" class="w-full my-2" label="Ajouter la review"></Button>
-      </form>
+          <Button type="submit" class="w-full my-2" label="Ajouter la review"></Button>
+        </form>
+        <Card class="sticky hidden w-full max-w-lg top-24 lg:block h-fit">
+          <template #title>Système de notes</template>
+          <template #content>
+            <Accordion>
+              <AccordionTab v-for="gradeType in dbGradeTypes" :key="gradeType.id">
+                <template #header>
+                  {{ gradeType.name }}
+                </template>
+                <div class="grid grid-cols-1 gap-2">
+                  <div v-for="grade in gradeType.maxGrade" :key="grade">
+                    <h4 class="text-accent">{{ grade }} - {{ gradeType.name }}</h4>
+                    <p>Le Seigneur des anneaux : La Communauté de l'Anneau</p>
+                  </div>
+                </div>
+              </AccordionTab>
+            </Accordion>
+          </template>
+        </Card>
+      </div>
     </div>
   </Layout>
 </template>
