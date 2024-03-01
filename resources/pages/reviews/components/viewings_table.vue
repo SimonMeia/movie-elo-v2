@@ -17,18 +17,17 @@ interface ViewingListItem {
 
 const selectedReview: Ref<ViewingListItem | null> = ref(null)
 
-const viewingsList: ViewingListItem[] = []
-for (const review of props.reviews) {
-  for (const viewing of review.review.viewings) {
-    viewingsList.push({
+const viewingsList: ViewingListItem[] = props.reviews
+  .flatMap((review) =>
+    review.review.viewings.map((viewing) => ({
       reviewId: review.review.id,
       movieTitle: review.movie.title,
       date: new Date(viewing.date),
       locations: viewing.locations.map((location) => location.name),
       partners: viewing.partners.map((partner) => partner.name),
-    })
-  }
-}
+    }))
+  )
+  .sort((a, b) => b.date.getTime() - a.date.getTime())
 </script>
 
 <template>
@@ -55,7 +54,13 @@ for (const review of props.reviews) {
 
     <Column field="date" header="Date">
       <template #body="slotProps">
-        <span>{{ slotProps.data.date.toLocaleDateString('fr-CH', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>
+        <span>{{
+          slotProps.data.date.toLocaleDateString('fr-CH', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })
+        }}</span>
       </template>
     </Column>
 
