@@ -24,4 +24,10 @@ export type ReviewFormResponse = {
     name: string
     maxGrade: number
   }[]
+  errors?: {
+    tmdbMovieId: string
+    grades: string
+    locations: string
+    partners: string
+  }
 }

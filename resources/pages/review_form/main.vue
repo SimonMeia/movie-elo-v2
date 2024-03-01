@@ -12,8 +12,6 @@ import type { ReviewFormResponse } from '@/types'
 
 const props = defineProps<ReviewFormResponse>()
 
-console.log(props)
-
 const tmdbMovieId = ref(parseInt(props.homeTmdbMovieId))
 
 const grades = ref(props.dbGradeTypes.map((grade) => ({ gradeTypeId: grade.id, grade: 1 })))
@@ -45,6 +43,7 @@ function submit() {
   <Layout>
     <div class="mt-8 container">
       <form @submit.prevent="submit">
+        <pre v-if="props.errors">{{ props.errors }}</pre>
         <h1>Rate a movie</h1>
         <div class="flex flex-col gap-4">
           <div>
