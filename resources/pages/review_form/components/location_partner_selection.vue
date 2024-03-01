@@ -6,7 +6,7 @@ import { ref } from 'vue'
 const props = defineProps<{
   locationOrPartner: 'location' | 'partner'
   items: string[]
-  error?: string
+  error?: string[]
 }>()
 
 const emit = defineEmits<{
@@ -63,7 +63,7 @@ function search(event) {
       @item-select="select"
     ></AutoComplete>
     <small v-if="props.error" class="text-red-500">
-      {{ props.error }}
+      {{ props.error[0] }}
     </small>
   </div>
 </template>

@@ -36,6 +36,7 @@ export const createReviewValidator = vine.compile(
 )
 
 createReviewValidator.messagesProvider = new SimpleMessagesProvider({
+  'tmdbMovieId.required': 'Veuillez selectionner un film',
   'locations.array.minLength': 'Veuillez selectionner au moins un lieu',
   'partners.array.minLength': 'Veuillez selectionner au moins un partenaire',
 })

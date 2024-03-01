@@ -6,7 +6,7 @@ import { watchEffect } from 'vue'
 
 const props = defineProps<{
   initialValue?: string
-  error?: string
+  error?: string[]
 }>()
 
 watchEffect(() => console.log(props.initialValue))
@@ -53,6 +53,6 @@ function search() {
     </template>
   </AutoComplete>
   <small v-if="props.error" class="text-red-500">
-    {{ props.error }}
+    {{ props.error[0] }}
   </small>
 </template>

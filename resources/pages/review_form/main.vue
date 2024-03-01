@@ -51,7 +51,7 @@ function submit() {
             <SearchTmdbMovieBar
               @update="tmdbMovieId = $event.tmdbMovieId"
               :initial-value="homeTmdbMovieTitle"
-              :error="props.errors?.tmdbMovieId[0]"
+              :error="props.errors?.tmdbMovieId"
             />
           </div>
           <CategoryRating
@@ -69,13 +69,13 @@ function submit() {
           <LocationPartnerSelection
             location-or-partner="location"
             :items="dbLocations"
-            :error="props.errors?.locations[0]"
+            :error="props.errors?.locations"
             @update="locations = $event"
           />
           <LocationPartnerSelection
             location-or-partner="partner"
             :items="dbPartners"
-            :error="props.errors?.partners[0]"
+            :error="props.errors?.partners"
             @update="partners = $event"
           />
           <div>
