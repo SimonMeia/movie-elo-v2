@@ -42,9 +42,13 @@ export default class ReviewsController {
 
   @inject()
   async store({ request, response, auth }: HttpContext) {
-    const payload = await createReviewValidator.validate(request.all())
-
     const user = auth.user!
+
+    const payload = await createReviewValidator.validate(request.all(), {
+      meta: {
+        userId: user.id,
+      },
+    })
 
     // 1. Check si le film existe, sinon le créer
     const movie = await MovieService.createIfNotExists(payload.tmdbMovieId)

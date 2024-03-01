@@ -1,3 +1,4 @@
+import Review from '#models/review'
 import TmdbService from '#services/tmdb_service'
 import vine, { SimpleMessagesProvider } from '@vinejs/vine'
 import { FieldContext } from '@vinejs/vine/types'
@@ -12,14 +13,34 @@ async function isTmdbMovieIdValid(value: unknown, _option: unknown, field: Field
   }
 }
 
+async function isMovieUnique(value: unknown, _option: unknown, field: FieldContext) {
+  if (typeof value !== 'number') {
+    return
+  }
+
+  const movie = await Review.query()
+    .where('user_id', field.meta.userId)
+    .join('movies', 'movies.id', 'reviews.movie_id')
+    .where('movies.tmdb_id', value)
+    .first()
+
+  if (movie) {
+    field.report('Vous avez déjà un review pour ce film', 'movieIdValidityRule', field)
+  }
+}
+
 const movieIdValidityRule = vine.createRule(isTmdbMovieIdValid, {
+  implicit: true,
+  isAsync: true,
+})
+const isMovieUniqueRule = vine.createRule(isMovieUnique, {
   implicit: true,
   isAsync: true,
 })
 
 export const createReviewValidator = vine.compile(
   vine.object({
-    tmdbMovieId: vine.number().use(movieIdValidityRule()),
+    tmdbMovieId: vine.number().use(movieIdValidityRule()).use(isMovieUniqueRule()),
     grades: vine
       .array(
         vine.object({
