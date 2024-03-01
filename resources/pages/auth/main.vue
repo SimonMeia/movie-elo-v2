@@ -33,16 +33,6 @@ const changeFormButtonLabel = computed(() =>
   isLoginFormDisplayed.value ? "S'inscrire" : 'Se connecter'
 )
 
-const areErrorsDisplayed = computed(() => {
-  return (
-    props.errors?.email ||
-    props.errors?.password ||
-    props.errors?.username ||
-    props.errors?.firstName ||
-    props.errors?.lastName
-  )
-})
-
 watch(isLoginFormDisplayed, () => {
   resetErrors()
 })

@@ -6,6 +6,7 @@ import { computed, ref } from 'vue'
 const props = defineProps<{
   maxGrade: number
   categoryName: string
+  error?: string
 }>()
 
 const emit = defineEmits<{
@@ -19,7 +20,7 @@ const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-
 
 <template>
   <div>
-    <label class="font-titles text-lg mb-1 block" :for="fieldId">{{ categoryName }}</label>
+    <label class="block mb-1 text-lg font-titles" :for="fieldId">{{ categoryName }}</label>
     <!-- <GradeDescription :max-grade="maxGrade" /> -->
     <SelectButton
       :id="fieldId"
@@ -34,5 +35,8 @@ const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-
         button: { style: { 'flex-grow': 1, 'justify-content': 'center' } },
       }"
     />
+    <small v-if="props.error" class="text-red-500">
+      {{ props.error }}
+    </small>
   </div>
 </template>

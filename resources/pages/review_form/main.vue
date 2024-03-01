@@ -35,22 +35,23 @@ function submit() {
     method: 'post',
     data: review,
     preserveState: true,
+    preserveScroll: true,
   })
 }
 </script>
 
 <template>
   <Layout>
-    <div class="mt-8 container">
+    <div class="container mt-8">
       <form @submit.prevent="submit">
-        <pre v-if="props.errors">{{ props.errors }}</pre>
-        <h1>Rate a movie</h1>
+        <h1 class="mb-4">Ajout d'une nouvelle review</h1>
         <div class="flex flex-col gap-4">
           <div>
             <label class="block mb-1 text-lg font-titles" for="">Movie</label>
             <SearchTmdbMovieBar
               @update="tmdbMovieId = $event.tmdbMovieId"
               :initial-value="homeTmdbMovieTitle"
+              :error="props.errors?.tmdbMovieId[0]"
             />
           </div>
           <CategoryRating
@@ -68,11 +69,13 @@ function submit() {
           <LocationPartnerSelection
             location-or-partner="location"
             :items="dbLocations"
+            :error="props.errors?.locations[0]"
             @update="locations = $event"
           />
           <LocationPartnerSelection
             location-or-partner="partner"
             :items="dbPartners"
+            :error="props.errors?.partners[0]"
             @update="partners = $event"
           />
           <div>

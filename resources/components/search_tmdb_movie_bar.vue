@@ -6,6 +6,7 @@ import { watchEffect } from 'vue'
 
 const props = defineProps<{
   initialValue?: string
+  error?: string
 }>()
 
 watchEffect(() => console.log(props.initialValue))
@@ -51,4 +52,7 @@ function search() {
       <p class="text-xs">{{ slotProps.option.releaseYear }}</p>
     </template>
   </AutoComplete>
+  <small v-if="props.error" class="text-red-500">
+    {{ props.error }}
+  </small>
 </template>

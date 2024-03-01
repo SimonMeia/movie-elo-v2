@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import AutoComplete from 'primevue/autocomplete'
 import type { Ref } from 'vue'
-import { mergeProps } from 'vue'
 import { ref } from 'vue'
 
 const props = defineProps<{
   locationOrPartner: 'location' | 'partner'
   items: string[]
+  error?: string
 }>()
 
 const emit = defineEmits<{
@@ -49,7 +49,7 @@ function search(event) {
 
 <template>
   <div>
-    <label class="font-titles text-lg mb-1 block" for="">{{ label }}</label>
+    <label class="block mb-1 text-lg font-titles" for="">{{ label }}</label>
     <AutoComplete
       multiple
       dropdown
@@ -62,5 +62,8 @@ function search(event) {
       @complete="search"
       @item-select="select"
     ></AutoComplete>
+    <small v-if="props.error" class="text-red-500">
+      {{ props.error }}
+    </small>
   </div>
 </template>
