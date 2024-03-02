@@ -10,7 +10,16 @@ const props = defineProps<{
 
 const { calculateTotalGrade } = useGrades()
 
-const totalGrade = calculateTotalGrade(props.review.grades)
+const totalGrade = calculateTotalGrade(
+  props.review.grades.map((grade) => {
+    return {
+      grade: grade.givenGrade,
+      maxGrade: grade.gradeType.maxGrade,
+    }
+  })
+)
+
+console.log(props.review)
 </script>
 
 <template>
@@ -18,10 +27,10 @@ const totalGrade = calculateTotalGrade(props.review.grades)
   <div class="grid grid-cols-2 gap-4 my-6 md:grid-cols-3">
     <ReviewGrade
       v-for="grade in props.review.grades"
-      :key="grade.id"
-      :name="grade.gradeTypeName"
-      :max-grade="grade.maxGrade"
-      :grade="grade.grade"
+      :key="grade.gradeType.id"
+      :name="grade.gradeType.name"
+      :max-grade="grade.gradeType.maxGrade"
+      :grade="grade.givenGrade"
     />
   </div>
   <div class="my-8 text-center">

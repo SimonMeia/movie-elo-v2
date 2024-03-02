@@ -2,7 +2,6 @@
 import type { ReviewsResponse } from '@/types'
 import Layout from '@/layouts/default.vue'
 import { ref } from 'vue'
-import { router } from '@inertiajs/vue3'
 import TabMenu from 'primevue/tabmenu'
 import { watchEffect } from 'vue'
 import GradesTable from './components/grades_table.vue'
@@ -13,17 +12,12 @@ const props = defineProps<ReviewsResponse>()
 
 
 const active = ref(0)
-watchEffect(() => console.log(active.value))
 
 const viewsItems = ref([
   { label: 'Notes', icon: 'pi pi-star', command: () => (active.value = 0) },
   { label: 'Visionnages', icon: 'pi pi-calendar', command: () => (active.value = 1) },
 ])
 
-const menu = ref()
-const toggle = (event: any) => {
-  menu.value.toggle(event)
-}
 </script>
 
 <template>

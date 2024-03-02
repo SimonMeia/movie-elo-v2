@@ -8,13 +8,20 @@ import Tag from 'primevue/tag'
 const { calculateTotalGrade } = useGrades()
 
 const props = defineProps<{ review: ReviewResponse }>()
-const totalGrade = calculateTotalGrade(props.review.review.grades)
+const totalGrade = calculateTotalGrade(
+  props.review.review.grades.map((grade) => {
+    return {
+      grade: grade.givenGrade,
+      maxGrade: grade.gradeType.maxGrade,
+    }
+  })
+)
 const tagColor = totalGrade > 80 ? 'success' : totalGrade <= 50 ? 'danger' : 'warning'
 </script>
 
 <template>
   <div
-    class="card relative border border-gray-200 rounded-lg shadow flex flex-col cursor-pointer"
+    class="relative flex flex-col border border-gray-200 rounded-lg shadow cursor-pointer card"
     @click="router.get(`/reviews/${review.review.id}`)"
   >
     <Tag :value="totalGrade" :severity="tagColor" class="absolute top-2 right-2" />
@@ -23,9 +30,9 @@ const tagColor = totalGrade > 80 ? 'success' : totalGrade <= 50 ? 'danger' : 'wa
       alt="movie poster"
       class="object-cover w-full rounded-t-lg"
     />
-    <div class="flex flex-col justify-between p-5 h-full">
+    <div class="flex flex-col justify-between h-full p-5">
       <span>
-        <h2 class="mb-2 inline link-underline link-underline-black">
+        <h2 class="inline mb-2 link-underline link-underline-black">
           {{ review.movie.title }}
         </h2>
       </span>

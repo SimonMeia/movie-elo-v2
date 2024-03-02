@@ -1,4 +1,4 @@
-import type { Review } from './review.ts'
+import type { Review, GradeType } from './review.ts'
 import type { Movie } from './movie.ts'
 
 export type ReviewResponse = {
@@ -19,11 +19,7 @@ export type ReviewFormResponse = {
   homeTmdbMovieTitle?: string
   dbLocations: string[]
   dbPartners: string[]
-  dbGradeTypes: {
-    id: number
-    name: string
-    maxGrade: number
-  }[]
+  dbGradeTypes: GradeType[]
   errors?: {
     tmdbMovieId?: string[]
     locations?: string[]

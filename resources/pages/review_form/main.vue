@@ -17,7 +17,7 @@ const props = defineProps<ReviewFormResponse>()
 
 const tmdbMovieId = ref(parseInt(props.homeTmdbMovieId))
 
-const grades = ref(props.dbGradeTypes.map((grade) => ({ gradeTypeId: grade.id, grade: 1 })))
+const grades = ref(props.dbGradeTypes.map((type) => ({ gradeTypeId: type.id, grade: 1 })))
 const locations = ref([])
 const partners = ref([])
 const date = ref(new Date())
@@ -103,9 +103,9 @@ function submit() {
                   {{ gradeType.name }}
                 </template>
                 <div class="grid grid-cols-1 gap-2">
-                  <div v-for="grade in gradeType.maxGrade" :key="grade">
-                    <h4 class="text-accent">{{ grade }} - {{ gradeType.name }}</h4>
-                    <p>Le Seigneur des anneaux : La Communauté de l'Anneau</p>
+                  <div v-for="grade in gradeType.grades" :key="grade.id">
+                    <h4 class="text-accent">{{ grade.grade }} - {{ grade.description }}</h4>
+                    <p>Pas encore de film</p>
                   </div>
                 </div>
               </AccordionTab>

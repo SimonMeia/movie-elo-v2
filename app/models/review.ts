@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, belongsTo, column, hasMany } from '@adonisjs/lucid/orm'
-import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
+import { BaseModel, belongsTo, column, hasMany, manyToMany } from '@adonisjs/lucid/orm'
+import type { BelongsTo, HasMany, ManyToMany } from '@adonisjs/lucid/types/relations'
 import Movie from '#models/movie'
 import Viewing from '#models/viewing'
 import Grade from '#models/grade'
@@ -31,8 +31,8 @@ export default class Review extends BaseModel {
   @hasMany(() => Viewing)
   declare viewngs: HasMany<typeof Viewing>
 
-  @hasMany(() => Grade)
-  declare grades: HasMany<typeof Grade>
+  @manyToMany(() => Grade)
+  declare grades: ManyToMany<typeof Grade>
 
   @belongsTo(() => Movie)
   declare movie: BelongsTo<typeof Movie>

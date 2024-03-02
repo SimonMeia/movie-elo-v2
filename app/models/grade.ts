@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column, manyToMany } from '@adonisjs/lucid/orm'
 import Review from '#models/review'
 import GradeType from '#models/grade_type'
-import { type BelongsTo } from '@adonisjs/lucid/types/relations'
+import type { BelongsTo, ManyToMany } from '@adonisjs/lucid/types/relations'
 
 export default class Grade extends BaseModel {
   @column({ isPrimary: true })
@@ -12,10 +12,10 @@ export default class Grade extends BaseModel {
   declare grade: number
 
   @column()
-  declare gradeTypeId: number
+  declare description: string
 
   @column()
-  declare reviewId: number
+  declare gradeTypeId: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -23,8 +23,8 @@ export default class Grade extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @belongsTo(() => Review)
-  declare review: BelongsTo<typeof Review>
+  @manyToMany(() => Review)
+  declare reviews: ManyToMany<typeof Review>
 
   @belongsTo(() => GradeType)
   declare gradeType: BelongsTo<typeof GradeType>

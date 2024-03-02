@@ -25,17 +25,22 @@ export default class ReviewsController {
 
     const locations = await Location.query().where('userId', user.id)
     const partners = await Partner.query().where('userId', user.id)
-    const gradesTypes = await GradeType.query().where('user_id', user.id)
+    const gradesTypes = await GradeType.query().where('user_id', user.id).preload('grades')
 
     return inertia.render<ReviewFormResponse>('review_form/main', {
       homeTmdbMovieId: request.input('homeTmdbMovieId'),
       homeTmdbMovieTitle: request.input('homeTmdbMovieTitle'),
-      dbLocations: locations.map((l) => l.name),
-      dbPartners: partners.map((p) => p.name),
-      dbGradeTypes: gradesTypes.map((g) => ({
-        id: g.id,
-        name: g.name,
-        maxGrade: g.maxGrade,
+      dbLocations: locations.map((location) => location.name),
+      dbPartners: partners.map((partner) => partner.name),
+      dbGradeTypes: gradesTypes.map((type) => ({
+        id: type.id,
+        name: type.name,
+        maxGrade: type.maxGrade,
+        grades: type.grades.map((grade) => ({
+          id: grade.id,
+          description: grade.description,
+          grade: grade.grade,
+        })),
       })),
     })
   }
@@ -60,14 +65,18 @@ export default class ReviewsController {
       movieId: movie.id,
     })
 
-    //3. Créer les notes
-    await Grade.createMany(
-      payload.grades.map((g) => ({
-        reviewId: review.id,
-        gradeTypeId: g.gradeTypeId,
-        grade: g.grade,
-      }))
-    )
+    //3. Ajouter les notes
+    const gradesIdPromises = payload.grades.map(async (payloadGrade) => {
+      const grade = await Grade.query()
+        .where('grade_type_id', payloadGrade.gradeTypeId)
+        .firstOrFail()
+
+      return grade.id
+    })
+
+    const gradesId = await Promise.all(gradesIdPromises)
+
+    await review.related('grades').attach(gradesId)
 
     // 4. Créer un viewing pour le film, créer des locations et des partners si necessaire
     await ViewingService.createViewing(

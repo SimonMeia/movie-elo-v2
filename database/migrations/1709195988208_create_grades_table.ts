@@ -8,8 +8,8 @@ export default class extends BaseSchema {
       table.increments('id')
 
       table.integer('grade').notNullable()
+      table.string('description').nullable()
 
-      table.integer('review_id').unsigned().references('reviews.id').onDelete('cascade')
       table.integer('grade_type_id').unsigned().references('grade_types.id').onDelete('cascade')
 
       table.timestamp('created_at')

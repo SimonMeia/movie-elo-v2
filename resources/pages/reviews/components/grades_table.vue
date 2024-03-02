@@ -22,26 +22,31 @@ const { calculateTotalGrade } = useGrades()
 
 const selectedReview: Ref<ReviewListItem | null> = ref(null)
 
-let gradeTypes = []
-if (props.reviews.length > 0) {
-  const firstReviewGrades = props.reviews[0].review.grades
-  gradeTypes = firstReviewGrades.map((grade) => ({
-    gradeTypeId: grade.gradeTypeId,
-    gradeTypeName: grade.gradeTypeName,
-  }))
-}
+const gradeTypes = props.reviews[0]?.review.grades.map((grade) => {
+  return {
+    gradeTypeId: grade.gradeType.id,
+    gradeTypeName: grade.gradeType.name,
+  }
+})
 
 const reviewsList = props.reviews
   .map((review): ReviewListItem => {
     const line = {
       reviewId: review.review.id,
       title: review.movie.title,
-      totalGrade: calculateTotalGrade(review.review.grades),
+      totalGrade: calculateTotalGrade(
+        review.review.grades.map((grade) => {
+          return {
+            grade: grade.givenGrade,
+            maxGrade: grade.gradeType.maxGrade,
+          }
+        })
+      ),
     }
     for (const grade of review.review.grades) {
-      line[grade.gradeTypeId] = {
-        gradeTypeName: grade.gradeTypeName,
-        grade: grade.grade,
+      line[grade.gradeType.id] = {
+        gradeTypeName: grade.gradeType.name,
+        grade: grade.givenGrade,
       }
     }
     return line
