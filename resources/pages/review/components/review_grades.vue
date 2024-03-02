@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Review } from '@/types'
-import { computed } from 'vue'
 import ReviewGrade from './review_grade.vue'
 import { useGrades } from '@/composables/use_grades'
 

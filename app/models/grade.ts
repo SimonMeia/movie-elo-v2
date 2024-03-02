@@ -9,7 +9,7 @@ export default class Grade extends BaseModel {
   declare id: number
 
   @column()
-  declare grade: number
+  declare value: number
 
   @column()
   declare description: string

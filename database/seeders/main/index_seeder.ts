@@ -24,11 +24,11 @@ export default class extends BaseSeeder {
       userId: user.id,
     })
     story.related('grades').createMany([
-      { gradeTypeId: story.id, grade: 1, description: 'Mauvaise' },
-      { gradeTypeId: story.id, grade: 2, description: 'Sans plus' },
-      { gradeTypeId: story.id, grade: 3, description: 'Bien' },
-      { gradeTypeId: story.id, grade: 4, description: 'Tres bien' },
-      { gradeTypeId: story.id, grade: 5, description: 'Excellent / Légendaire' },
+      { gradeTypeId: story.id, value: 1, description: 'Mauvaise' },
+      { gradeTypeId: story.id, value: 2, description: 'Sans plus' },
+      { gradeTypeId: story.id, value: 3, description: 'Bien' },
+      { gradeTypeId: story.id, value: 4, description: 'Tres bien' },
+      { gradeTypeId: story.id, value: 5, description: 'Excellent / Légendaire' },
     ])
 
     const acting = await GradeType.create({
@@ -37,9 +37,9 @@ export default class extends BaseSeeder {
       userId: user.id,
     })
     acting.related('grades').createMany([
-      { gradeTypeId: acting.id, grade: 1, description: 'Mauvaise / Sans plus' },
-      { gradeTypeId: acting.id, grade: 2, description: 'Bon / Bien' },
-      { gradeTypeId: acting.id, grade: 3, description: 'Excellent' },
+      { gradeTypeId: acting.id, value: 1, description: 'Mauvaise / Sans plus' },
+      { gradeTypeId: acting.id, value: 2, description: 'Bon / Bien' },
+      { gradeTypeId: acting.id, value: 3, description: 'Excellent' },
     ])
 
     const directing = await GradeType.create({
@@ -48,9 +48,9 @@ export default class extends BaseSeeder {
       userId: user.id,
     })
     directing.related('grades').createMany([
-      { gradeTypeId: directing.id, grade: 1, description: 'Mauvaise / Sans plus' },
-      { gradeTypeId: directing.id, grade: 2, description: 'Bon / Bien' },
-      { gradeTypeId: directing.id, grade: 3, description: 'Excellent' },
+      { gradeTypeId: directing.id, value: 1, description: 'Mauvaise / Sans plus' },
+      { gradeTypeId: directing.id, value: 2, description: 'Bon / Bien' },
+      { gradeTypeId: directing.id, value: 3, description: 'Excellent' },
     ])
 
     const music = await GradeType.create({
@@ -59,9 +59,9 @@ export default class extends BaseSeeder {
       userId: user.id,
     })
     music.related('grades').createMany([
-      { gradeTypeId: music.id, grade: 1, description: 'Mauvaise / Sans plus' },
-      { gradeTypeId: music.id, grade: 2, description: 'Bon / Bien' },
-      { gradeTypeId: music.id, grade: 3, description: 'Excellent' },
+      { gradeTypeId: music.id, value: 1, description: 'Mauvaise / Sans plus' },
+      { gradeTypeId: music.id, value: 2, description: 'Bon / Bien' },
+      { gradeTypeId: music.id, value: 3, description: 'Excellent' },
     ])
 
     const feeling = await GradeType.create({
@@ -70,8 +70,8 @@ export default class extends BaseSeeder {
       userId: user.id,
     })
     feeling.related('grades').createMany([
-      { gradeTypeId: feeling.id, grade: 1, description: 'Sans plus' },
-      { gradeTypeId: feeling.id, grade: 2, description: 'Scotché / Touché / Marqué / Hypé' },
+      { gradeTypeId: feeling.id, value: 1, description: 'Sans plus' },
+      { gradeTypeId: feeling.id, value: 2, description: 'Scotché / Touché / Marqué / Hypé' },
     ])
 
     const personnal = await GradeType.create({
@@ -80,10 +80,10 @@ export default class extends BaseSeeder {
       userId: user.id,
     })
     personnal.related('grades').createMany([
-      { gradeTypeId: personnal.id, grade: 1, description: "J'ai pas aimé" },
-      { gradeTypeId: personnal.id, grade: 2, description: 'Pas mal' },
-      { gradeTypeId: personnal.id, grade: 3, description: 'A revoir / Bien aimé' },
-      { gradeTypeId: personnal.id, grade: 4, description: 'Vraiment insane' },
+      { gradeTypeId: personnal.id, value: 1, description: "J'ai pas aimé" },
+      { gradeTypeId: personnal.id, value: 2, description: 'Pas mal' },
+      { gradeTypeId: personnal.id, value: 3, description: 'A revoir / Bien aimé' },
+      { gradeTypeId: personnal.id, value: 4, description: 'Vraiment insane' },
     ])
   }
 }

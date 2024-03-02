@@ -3,7 +3,6 @@ import type { ReviewsResponse } from '@/types'
 import Layout from '@/layouts/default.vue'
 import { ref } from 'vue'
 import TabMenu from 'primevue/tabmenu'
-import { watchEffect } from 'vue'
 import GradesTable from './components/grades_table.vue'
 import ViewingsTable from './components/viewings_table.vue'
 

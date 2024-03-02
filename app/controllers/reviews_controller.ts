@@ -39,7 +39,7 @@ export default class ReviewsController {
         grades: type.grades.map((grade) => ({
           id: grade.id,
           description: grade.description,
-          grade: grade.grade,
+          grade: grade.value,
         })),
       })),
     })
@@ -69,7 +69,7 @@ export default class ReviewsController {
     const gradesIdPromises = payload.grades.map(async (payloadGrade) => {
       const grade = await Grade.query()
         .where('grade_type_id', payloadGrade.gradeTypeId)
-        .where('grade', payloadGrade.grade)
+        .where('value', payloadGrade.grade)
         .firstOrFail()
       return grade.id
     })

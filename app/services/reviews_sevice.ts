@@ -70,7 +70,7 @@ class ReviewService {
 
   private transformReviewToResponse(review: Review): ReviewResponse {
     const grades = review.grades.map((grade) => ({
-      givenGrade: grade.grade,
+      givenGrade: grade.value,
       gradeType: {
         id: grade.gradeType.id,
         name: grade.gradeType.name,
@@ -78,7 +78,7 @@ class ReviewService {
         grades: grade.gradeType.grades.map((g) => ({
           id: g.id,
           description: g.description,
-          grade: g.grade,
+          grade: g.value,
         })),
       },
     }))
