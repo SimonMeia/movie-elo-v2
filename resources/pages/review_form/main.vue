@@ -34,6 +34,8 @@ function submit() {
     comment: comment.value === '' ? null : comment.value,
   }
 
+  console.log(review)
+
   router.visit('/reviews', {
     method: 'post',
     data: review,

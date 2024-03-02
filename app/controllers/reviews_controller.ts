@@ -69,8 +69,8 @@ export default class ReviewsController {
     const gradesIdPromises = payload.grades.map(async (payloadGrade) => {
       const grade = await Grade.query()
         .where('grade_type_id', payloadGrade.gradeTypeId)
+        .where('grade', payloadGrade.grade)
         .firstOrFail()
-
       return grade.id
     })
 
