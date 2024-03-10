@@ -1,0 +1,2882 @@
+[
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Film de de cuisine incroyable, BO hyper cool",
+    "watch_date": "02.11.2021",
+    "tmdb_id": 212778,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Comédie assez drôle, le duo “mec musclé / nerd” un peu réinventé passe bien.",
+    "watch_date": "02.01.2022",
+    "tmdb_id": 64688,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "02.02.2024",
+    "tmdb_id": 14161,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 1,
+      "directing": 1,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Franchement pas ouf, Jim Carrey abuse de son acting et de son personnage",
+    "watch_date": "06.01.2022",
+    "tmdb_id": 9273,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, Neuchatel",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Très drôle, un peu de peine a rentrer dedans au début mais la sur-enchère constante rend le rire inévitable.",
+    "watch_date": "04.02.2023",
+    "tmdb_id": 967585,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "La duo Hanks-caprio est grandiose, le film tient en haleine pendant tout le long",
+    "watch_date": "10.03.2021",
+    "tmdb_id": 640,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, Neuchatel",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Légendaire. Du grand cinéma à sensations avec non seulement un histoire incroyable mais aussi des FX et une musique remarquable.",
+    "watch_date": "25.09.2022",
+    "tmdb_id": 19995,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, Neuchatel",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Époustouflant, même s’il manque un petit quelque chose à l’histoire, les graphisme, l’univers et la musique rendent se film unique et remaquablement bien",
+    "watch_date": "14.12.2022",
+    "tmdb_id": 76600,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Epic, grandiose et extravagant, ce film est une claque sur tout les points de vues, un gros coup de cœur",
+    "watch_date": "19.02.2023",
+    "tmdb_id": 615777,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Marrant, histoire complétement délirante. Se regarde légèrement",
+    "watch_date": "19.01.2023",
+    "tmdb_id": 730769,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, Neuchatel",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Léger, sympa, plutôt drôle. Soutenu par l’acting incroyable de Margot Robbie et Ryan Gosling, le film ne tombe jamais dans le cringe ce qui aurait vraiment pu être le cas",
+    "watch_date": "25.07.2023",
+    "tmdb_id": 346698,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Anzère",
+    "grades": {
+      "story": 2,
+      "directing": 1,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Petite comédie américaine. Passe bien mais reste assez “classique”",
+    "watch_date": "28.12.2021",
+    "tmdb_id": 339846,
+    "partners": "Etienne, Virgil"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Film très prenant sur les conflit religieux en Irlande. Acting et réal au top.",
+    "watch_date": "01.04.2022",
+    "tmdb_id": 777270,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "",
+    "watch_date": "27.10.2023",
+    "tmdb_id": 19908,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un classique français. Se regarde avec plaisir et on rigole toujours bien",
+    "watch_date": "07.11.2022",
+    "tmdb_id": 8265,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Plutôt sympa. Sur un concept un peu similaire au dents de la mer ou on ne voit jamais le méchant, la tension est très bien gérée.",
+    "watch_date": "02.01.2023",
+    "tmdb_id": 405774,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Moins prenant que le premier, il manque un peu des choses à l’histoire pour y croire vraiment.",
+    "watch_date": "26.08.2023",
+    "tmdb_id": 805320,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Très sympa, film en plan-séquence qui montre la dernière ligne droite d’une première d’une ancienne gloire d’hollywood à broadway. Acting exceptionnel",
+    "watch_date": "14.06.2023",
+    "tmdb_id": 194662,
+    "partners": "-"
+  },
+  {
+    "locations": "",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Sympa mais pas embalé. Je n’ai pas vraiment été pris dedans.",
+    "watch_date": "07.12.2022",
+    "tmdb_id": 284054,
+    "partners": ""
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Nul, jeu d’acteur inexistant. On a plus le charisme de Chadwick Bowsman et ça se resent. CGI assez insane par contre",
+    "watch_date": "11.12.2022",
+    "tmdb_id": 505642,
+    "partners": "-"
+  },
+  {
+    "locations": "Anzere",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Génial, satire des USA excellente avec un très bon et hillarant Sacha Baron Cohen",
+    "watch_date": "29.12.2022",
+    "tmdb_id": 496,
+    "partners": "Etienne, Virgil"
+  },
+  {
+    "locations": "Anzere",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Dommage, ils ont voulu refaire le premier mais ça ne prend pas. Le doubleur français à changer ça peut aussi jouer un rôle",
+    "watch_date": "28.12.2022",
+    "tmdb_id": 740985,
+    "partners": "Etienne, Virgil"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 2,
+      "directing": 1,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Classique, drôle et léger",
+    "watch_date": "20.06.2022",
+    "tmdb_id": 38277,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 1,
+      "acting": 2,
+      "music": 3,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Musique vraiment incroyable, je pense que la version longues n'apporte rien au film et le dessert même un peu, dommage... L'histoire garde néanmoins un certain charme",
+    "watch_date": "23.09.2021",
+    "tmdb_id": 11216,
+    "partners": "-"
+  },
+  {
+    "locations": "Paris, Train",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Commence gentiment mais fini de manière puissant et émouvante. Un des dessins animées les plus touchant que j’ai vu",
+    "watch_date": "27.07.2022",
+    "tmdb_id": 354912,
+    "partners": "-"
+  },
+  {
+    "locations": "Bienne, Cinéma",
+    "grades": {
+      "story": 2,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Histoire un peu en dessous des 2 autres mais les scènes de combats apportent un beau renouveau au film",
+    "watch_date": "17.03.2023",
+    "tmdb_id": 677179,
+    "partners": "Bruno, Diogo"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "10.12.2023",
+    "tmdb_id": 152532,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "13.11.2023",
+    "tmdb_id": 763165,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 3,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Film sur l’explosion d’une plateforme pétrolière. FX au top mais acting un peu moins bien",
+    "watch_date": "13.02.2022",
+    "tmdb_id": 296524,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Train",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Effets spéciaux incroyable mis au service d’un histoire tout autant splendide",
+    "watch_date": "15.12.2021",
+    "tmdb_id": 284052,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "On prend une petite claque en regardant ce film. Très bonne mise en abime du réchauffement climatique.",
+    "watch_date": "24.07.2022",
+    "tmdb_id": 646380,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Très bon film, il donne beaucoup à réfléchir sur notre relation à l'alcool. Il transmet toutes les émotion possibles.",
+    "watch_date": "24.08.2021",
+    "tmdb_id": 580175,
+    "partners": "Etienne, Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Très moyen, on y crois pas vraiment le dosage fiction / réalité est pas très bien géré",
+    "watch_date": "30.12.2022",
+    "tmdb_id": 329996,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Univers sci-fi assez immense, CGI et musique au top mais un peu de peine à entrer dans l'histoire",
+    "watch_date": "29.09.2021",
+    "tmdb_id": 438631,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Aurait pu être incroyable mais l'ajout de la romance en fait presque une petit amourette... Cependant le film est très beau et les scène sur la construction sont très bien",
+    "watch_date": "27.10.2021",
+    "tmdb_id": 655082,
+    "partners": "-"
+  },
+  {
+    "locations": "Bienne, Cinéma",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Très bon biopic, on en apprend beaucoup. Montage et réal peu commun mais très réussi",
+    "watch_date": "30.07.2022",
+    "tmdb_id": 614934,
+    "partners": "Bruno, Vasco"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Histoire à la fois assez touchante et rigolote à la fois, les personnages sont attachants mais l’univers manque un peu folie et de couleurs",
+    "watch_date": "01.02.2023",
+    "tmdb_id": 508439,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, Paris",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 1,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Magnifique documentaire sur le Maestro, réalisation et storytelling vraiment au top. On se laisse emporter.",
+    "watch_date": "26.07.2022",
+    "tmdb_id": 396194,
+    "partners": "-"
+  },
+  {
+    "locations": "Paris, Train",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "A un peu vieilli mais l’histoire reste intéressante à suivre et la réalisation est peu commune, presque une sorte de huis-clos",
+    "watch_date": "27.07.2022",
+    "tmdb_id": 567,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Histoire vraiment bien avec un super dénouement et des super scènes de bagarres",
+    "watch_date": "02.11.2020",
+    "tmdb_id": 550,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "",
+    "watch_date": "05.01.2024",
+    "tmdb_id": 45317,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Légendaire et poignant, même en ayant vu le film presque 10 fois je ne me lasse pas. Génial",
+    "watch_date": "05.01.2022",
+    "tmdb_id": 13,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Je n’ai pas compris et je ne suis pas entré dedans, je trouve le lien entre les 2 partie trop faible et il n’y a pas vraiment d’histoire",
+    "watch_date": "20.06.2023",
+    "tmdb_id": 600,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "",
+    "watch_date": "11.11.2023",
+    "tmdb_id": 64682,
+    "partners": "Etienne, Leah, Virgil"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Très bon acting et histoire innovante. Pour moi ça devient presque un peu trop fantastique à la fin ce qui m’a un peu fait sortir du film",
+    "watch_date": "12.04.2023",
+    "tmdb_id": 419430,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "On espérait que le 3ème volet de la série s’inspire du second mais malheureusement c’est au premier qu’il ressemble le plus… Histoire à nouveau avec du potentiel mais mal exploitées et une fin complétement foirée.",
+    "watch_date": "13.07.2023",
+    "tmdb_id": 450465,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Milan, Train",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Très bonne suite à Knives Out ! On y retrouve l’ambiance et le type de storrytelling mais sans tomber dans le copier-coller",
+    "watch_date": "08.07.2023",
+    "tmdb_id": 661374,
+    "partners": "-"
+  },
+  {
+    "locations": "Train",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Incroyable ! Histoire vraiment prenante et très touchante. Clint Eastwood joue vraiment bien",
+    "watch_date": "12.11.2020",
+    "tmdb_id": 13223,
+    "partners": "-"
+  },
+  {
+    "locations": "Etienne",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Film qui aborde la ségrégation raciale aux US dans les années 50. Vraiment très touchant / \"eye opening\" tout en gardant des petites pointes d'humour qui rende l'ambiance du film pas trop pesante.",
+    "watch_date": "07.02.2021",
+    "tmdb_id": 490132,
+    "partners": "Edouard, Etienne, Vasco, Virgil"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Storytelling incroyable, on est transporté dans l’univers des sorciers. Le tout accompagné d’un musique exceptionnelle",
+    "watch_date": "20.03.2022",
+    "tmdb_id": 671,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Les films deviennent de plus en plus mature et l’avènement du réel voldemort y est pour quelquechose",
+    "watch_date": "03.04.2022",
+    "tmdb_id": 675,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Pas le meilleur à mon goût, on entre gentiment dans l’univers de la saga",
+    "watch_date": "20.03.2022",
+    "tmdb_id": 672,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Avec ce film la série commence son virage vers un côté plus dramatique avec les premiers personnages à mourir à l’écran",
+    "watch_date": "24.03.2022",
+    "tmdb_id": 674,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Sublime, les personnages prennent beaucoup en maturité avec ce film. La saga continue dans la dimension dramatique prise avec l’ordre du phénix",
+    "watch_date": "07.04.2022",
+    "tmdb_id": 767,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Pas mon préféré mais les nouveaux personnages amenés et la musique rendent tout de même le film exceptionnel",
+    "watch_date": "24.03.2022",
+    "tmdb_id": 673,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un peu longuet par moment mais met en place le décor pour le grand final",
+    "watch_date": "09.04.2022",
+    "tmdb_id": 12444,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Conclusion épique et brillamment réalisée à la saga légendaire. Les scène de batailles et la musique subliment le film",
+    "watch_date": "14.04.2022",
+    "tmdb_id": 12445,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Sci-Fi assez avant-gardiste sur ce que pourrait devenir nos relation avec les machines avec le temps. Très bon acting et DA",
+    "watch_date": "24.05.2022",
+    "tmdb_id": 152601,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Film retraçant l'arrivée de Maurizio Gucci et de sa femme à la tête de Gucci. Bon biopic, bon DA et bon jeu d'acteur. A voir en VO je pense",
+    "watch_date": "10.12.2021",
+    "tmdb_id": 644495,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Plutôt cool, on a parfois l’impression de revoir le premier mais l’enjeu différent fait que ça se laisse quand même bien regarder",
+    "watch_date": "23.02.2023",
+    "tmdb_id": 101299,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 1,
+      "directing": 1,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "",
+    "watch_date": "17.12.2023",
+    "tmdb_id": 695721,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Dommage, l’idée du scénario est bonne mais le film ne décolle jamais. On y croit pas trop et même le cliff hanger final ne rattrape pas le reste",
+    "watch_date": "04.07.2023",
+    "tmdb_id": 9741,
+    "partners": "Leah"
+  },
+  {
+    "locations": "La Neuveville, Open air",
+    "grades": {
+      "story": 1,
+      "directing": 1,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Je m’attendais pas à grand chose mais je suis quand même déçu. Le film est un courses poursuite interminable qui dure 2h30 accompagnée de grand n’importe quoi à bien des moments.",
+    "watch_date": "26.08.2023",
+    "tmdb_id": 335977,
+    "partners": "Alan, Edouard, Etienne, Floriana, Leah, Marie"
+  },
+  {
+    "locations": "KKL, Lucerne",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Certains aspect du film ont un peu vieilli mais la réalisation et le storytelling restent remarquables et chaque plan est un tableau. La musique légendaire apporte une couche supplémentaire pour rendre les scène mémorables",
+    "watch_date": "25.03.2023",
+    "tmdb_id": 85,
+    "partners": "Diego, Leah, Maman, Naïmé, Papa"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "J’ai beaucoup aimé, film de guerre dans un style un peu décalé par rapport à ce qui peut se faire. On retrouve bien la style de Tarantino",
+    "watch_date": "02.03.2022",
+    "tmdb_id": 16869,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Film de magie incroyable, cast incroyable, histoire et fx incroyable, bref film au top du top",
+    "watch_date": "02.01.2022",
+    "tmdb_id": 75656,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "08.10.2023",
+    "tmdb_id": 715385,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Même en l'ayant vu de nombreuses fois, toujours aussi incroyable a regarder",
+    "watch_date": "13.07.2021",
+    "tmdb_id": 22954,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Moins bien que le premier. L’histoire est linéaire et sans rebondissement mais l’ambiance du film reste bien.",
+    "watch_date": "13.01.2023",
+    "tmdb_id": 474350,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Scénario hyper cool avec en plus Johnny dans son propre rôle et un fabrice luchini autant barré qu’à son habitude.",
+    "watch_date": "30.03.2023",
+    "tmdb_id": 13713,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Acting exceptionnel, à voir en VO absolument. Il manque cependant pour moi une mise en avant de pourquoi le “Chairman” effraie tant le gouvernement tout au long du film",
+    "watch_date": "13.04.2023",
+    "tmdb_id": 583406,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville, Neuchatel",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Retour de Kaamelott franchement bien réussi. On y retrouve bien l'esprit de la série tout en ayant un côté serieux aussi",
+    "watch_date": "24.07.2021",
+    "tmdb_id": 577242,
+    "partners": "Bruno, Edouard, Etienne"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "01.11.2023",
+    "tmdb_id": 466420,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Très très cool, le storytelling, l’ambiance et les personnages nous font plonger à 100% dans le film",
+    "watch_date": "26.07.2023",
+    "tmdb_id": 546554,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Très bien dans l’ensemble, heros attachants, méchants effrayants, musique parfaite et scénario et dialogues très bien. Les graphismes ont peut-être un peu vieilli par contre",
+    "watch_date": "25.06.2023",
+    "tmdb_id": 9502,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "15.11.2023",
+    "tmdb_id": 944117,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Exactement ce qu’il faut. Une suite à une classique mais sans rentrer dans la redondance et le cliché du premier. Très bien",
+    "watch_date": "07.02.2023",
+    "tmdb_id": 950,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Pas le meilleur, on commence à tomber dans la surenchère et le surjeu des personnages",
+    "watch_date": "29.12.2022",
+    "tmdb_id": 8355,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Bon film de sport, bonne immersion dans les matchs mais l’histoire en dehors est parfois un peu longuette.",
+    "watch_date": "15.09.2022",
+    "tmdb_id": 9563,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "16.12.2023",
+    "tmdb_id": 9479,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Pas mal du tout. Un bon thriller français avec des bon retournement de situation",
+    "watch_date": "18.06.2023",
+    "tmdb_id": 663260,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Pas mal mais un peu “simple”. Le fait de savoir directement qu’il est innocent permet d’avoir de l’empathie mais donne au film un storytelling linéaire et sans réel surprise",
+    "watch_date": "22.08.2023",
+    "tmdb_id": 103663,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Pas mal, on voit un peu les backstages du parlement américains ainsi que les conflits d’intérêts. Un bon Tom Hanks",
+    "watch_date": "11.01.2023",
+    "tmdb_id": 6538,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un grand sans faute, des personnages à la musique en passant par l’histoire et la DA, tout est réussi",
+    "watch_date": "01.02.2023",
+    "tmdb_id": 14160,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Comédie romantique sous forme de comédie musicale. Musique trop bien, histoire trop bien, Direction photographique trop bien",
+    "watch_date": "12.12.2020",
+    "tmdb_id": 313369,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Pas le meilleur Tom Hanks mais ça se laisse regarder malgré tout… Hanks un peu dans son rôle d’héro seul face à une aventure a laquelle il ne s’attendait pas",
+    "watch_date": "17.09.2022",
+    "tmdb_id": 581032,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Excellent concept. Génial de découvrir ce musée qui prend vie. Ben Stiller est très bon dans son rôle",
+    "watch_date": "25.12.2022",
+    "tmdb_id": 1593,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Suite plutôt ratée… On est dans la sur-sur-enchère. On y croit plus du tout, ils cassent tout, burlesque",
+    "watch_date": "25.12.2022",
+    "tmdb_id": 18360,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un peu longuet et prends quelques simplicité scénaristiques. La réal n’a pas pris une ride et les 15-20 dernières valent la peine d’attendre tout ce temps pour y arriver avec en plus la musique légendaire d’Ennio Moricone",
+    "watch_date": "02.03.2023",
+    "tmdb_id": 429,
+    "partners": "Maman, Papa"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Très très cool. Décalé, drole, bonne histoir et bonne musique",
+    "watch_date": "07.01.2023",
+    "tmdb_id": 417859,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Bluffant, les personnages et en particulier celui du loup sont très bien construits. Les graphisme à la spiderman sont grandioses",
+    "watch_date": "16.03.2023",
+    "tmdb_id": 315162,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Très bon filme et fin très puissante. Met en scène l'histoire d'un viol au moyen-age vu par 3 personne. → Story-telling très réussi",
+    "watch_date": "14.11.2021",
+    "tmdb_id": 617653,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "17.11.2023",
+    "tmdb_id": 508883,
+    "partners": "Nash"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "30.12.2023",
+    "tmdb_id": 4553,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "04.01.2024",
+    "tmdb_id": 359724,
+    "partners": "-"
+  },
+  {
+    "locations": "Milan, Train",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Pas mal du tout. Bon thriller qui monte en tension tout au long du film. La fin est peut-être un poil exagérée mais le film reste très bon.",
+    "watch_date": "09.07.2023",
+    "tmdb_id": 593643,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "",
+    "watch_date": "11.10.2023",
+    "tmdb_id": 12,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Bouleversant par sa tristesse et l’horreur qu’on subit les juifs pendant la seconde guerre mondiale. Ne prend pas de pincettes",
+    "watch_date": "26.05.2022",
+    "tmdb_id": 423,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Nul, une sorte de remake de Gran Torino mais complétement ratée",
+    "watch_date": "08.02.2023",
+    "tmdb_id": 937278,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "26.08.2023",
+    "tmdb_id": 296098,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Toujours autant appréciable à regarder même en connaissant le dénouement. Storytelling et acting vraiment de très haut niveau",
+    "watch_date": "12.07.2022",
+    "tmdb_id": 1124,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "",
+    "watch_date": "09.12.2023",
+    "tmdb_id": 8587,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Epique ! Grandiose ! Magique ! Toujours la même émotion, la musique, l’univers, les personnages, l’histoire, tout est parfait £",
+    "watch_date": "05.03.2022",
+    "tmdb_id": 120,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Fin légendaire de l’épopée. Grandiose de a à z",
+    "watch_date": "12.03.2022",
+    "tmdb_id": 122,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Toujours autant impressionnant à quel point le film est bon",
+    "watch_date": "11.03.2022",
+    "tmdb_id": 121,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Films sur la Syrie sous Bachar El-Assad. Bon film pour se rendre compte de la situation là-bas. Fait réfléchir",
+    "watch_date": "19.10.2021",
+    "tmdb_id": 743532,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Plutôt cool, Jean Reno assez bon dans le rôle du tueur à gage qui perd petit a petit sa carapace",
+    "watch_date": "15.01.2023",
+    "tmdb_id": 101,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Bon film de mafia italienne aux US, Acteur / personnages classes",
+    "watch_date": "07.11.2020",
+    "tmdb_id": 769,
+    "partners": "Maman, Papa"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 1
+    },
+    "comment": "Boring, je ne comprends en rien la hype de ce film. Il ne se passe rien du tout, l’histoire est inexistante.",
+    "watch_date": "14.01.2023",
+    "tmdb_id": 674324,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Raconte le moment où Churchill à été remis au pouvoir en 39-45. Se passe au même moment que Dunkerque de Nolan. Garry Oldman méconnaissable et brillant",
+    "watch_date": "11.04.2021",
+    "tmdb_id": 399404,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "",
+    "watch_date": "14.01.2024",
+    "tmdb_id": 82695,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Film sur une bavure policière en banlieu parisienne. Vraiment poignant.",
+    "watch_date": "20.12.2020",
+    "tmdb_id": 586863,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Pas hyper bien vieilli donc un peu \"lent\" mais je comprends que c'est un classique",
+    "watch_date": "06.11.2020",
+    "tmdb_id": 571,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Superbe comédie française au casting génial.",
+    "watch_date": "26.12.2021",
+    "tmdb_id": 133469,
+    "partners": "-"
+  },
+  {
+    "locations": "Train",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Incroyable film de procès. La narration est vraiment bien faite et on est pris dedans du début à la fin",
+    "watch_date": "18.11.2021",
+    "tmdb_id": 556984,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 1,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "27.12.2023",
+    "tmdb_id": 11544,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Grand classique des comédie musicales. On est conquis par les chanson et l'ambiance de la Grèce",
+    "watch_date": "21.10.2021",
+    "tmdb_id": 11631,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Raconte l'histoire du scénario de Citizen Kane, interessant mais assez compliqué. Je pense qu0il faudrait avoir vu citizen kane pour apprécier pleinement",
+    "watch_date": "12.04.2021",
+    "tmdb_id": 614560,
+    "partners": "Maman, Papa"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Très perché, je ne suis pas entrée dedans. Je n’ai donc pas ressenti la tension ou le malaise voulu. VF Pas ouf",
+    "watch_date": "23.07.2023",
+    "tmdb_id": 530385,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 2,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Pas mal, fini bien la série. Histoire tirée par les cheveux mais on apprécie quand même car c'est James Bond. Dernière scène ratée à mon goût",
+    "watch_date": "13.10.2021",
+    "tmdb_id": 370172,
+    "partners": "Etienne"
+  },
+  {
+    "locations": "Train",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Histoire d'un tueur psychopathe qui poursuit un homme pour récupérer son argent. Acting brillant ! Mais j'ai eu un peu peine avec la fin de l'histoire",
+    "watch_date": "21.11.2021",
+    "tmdb_id": 6977,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Je ne comprends pas comment il a pu gagner l'Oscar. Film très lent, je n'ai pas du tout croché à l'histoire. La VF n'est pas ouf",
+    "watch_date": "25.08.2021",
+    "tmdb_id": 581734,
+    "partners": "-"
+  },
+  {
+    "locations": "Milan, Train",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Je ne comprends pas tout l’engouement pour ce film, même si l’acting est pas mal l’histoire ne m’a pas captivé du tout et je l’ai trouvée vide.",
+    "watch_date": "10.04.2023",
+    "tmdb_id": 466272,
+    "partners": "-"
+  },
+  {
+    "locations": "Berne, Cinéma",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Bouleversant. Un très grand film sur tout les aspects",
+    "watch_date": "26.07.2023",
+    "tmdb_id": 872585,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, Neuchatel",
+    "grades": {
+      "story": 2,
+      "directing": 1,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Retour d'OSS 117 réussi mais sans plus, quand même en dessous des 2 autres",
+    "watch_date": "10.08.2021",
+    "tmdb_id": 604563,
+    "partners": "Edouard, Leah, Virgil"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Génialissime, un grand Tom Hanks qui accompagne une grande Meryl Streep dans une histoire complétement folle.",
+    "watch_date": "21.08.2023",
+    "tmdb_id": 446354,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un peu une vibe de Joker mais en Suisse. Très bon et très prennant",
+    "watch_date": "03.02.2023",
+    "tmdb_id": 1020400,
+    "partners": "Etienne"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Très très touchant.... Hanks a eu l'Oscars pour ce rôle et on comprend pourquoi.",
+    "watch_date": "03.03.2021",
+    "tmdb_id": 9800,
+    "partners": "-"
+  },
+  {
+    "locations": "",
+    "grades": {
+      "story": 1,
+      "directing": 1,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Horrible, un navet sans nom, Que ça soit l’acting, l’histoire les FX, les musiques, rien ne va",
+    "watch_date": "22.01.2023",
+    "tmdb_id": 532639,
+    "partners": ""
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un grand classique, tout est incroyable de la musique aux batailles en passant par l'histoire et les dialogues",
+    "watch_date": "28.07.2021",
+    "tmdb_id": 285,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 1,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "",
+    "watch_date": "23.09.2023",
+    "tmdb_id": 1865,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "18.09.2023",
+    "tmdb_id": 22,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "28.09.2023",
+    "tmdb_id": 166426,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "18.09.2023",
+    "tmdb_id": 58,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Milan",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 1,
+      "music": 3,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Pas fou. Un film sans histoire et sans réelle construction",
+    "watch_date": "09.07.2023",
+    "tmdb_id": 391,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Pas mal... Petit film romantique",
+    "watch_date": "24.02.2022",
+    "tmdb_id": 114,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Gênes, Train",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Très très bon thriller, l’acting est légendaire et la tension arrive vraiment à vous mettre mal à l’aise.",
+    "watch_date": "12.04.2023",
+    "tmdb_id": 146233,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Mitigé... Je comprends qu'il puisse être compté comme un classique mais je reste sur ma fin. J'ai l'impression qu'il ne c'est rien passé du film au final. Musique ++",
+    "watch_date": "01.11.2020",
+    "tmdb_id": 680,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un des meilleurs films d’animation. Tout y est",
+    "watch_date": "30.12.2022",
+    "tmdb_id": 2062,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Blockbuster de Netflix. Pas mauvais mais pas incroyable. Ils ont fait beaucoup d'efforts dans le scénographie et les mouvements de caméra",
+    "watch_date": "11.12.2021",
+    "tmdb_id": 512195,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Ok, une sorte de huis-clos de gangster. Bien sans plus",
+    "watch_date": "18.10.2021",
+    "tmdb_id": 500,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "27.10.2023",
+    "tmdb_id": 338967,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, Lyon",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un classique de Stallone, musique incroyable, on est bien pris dans le film.",
+    "watch_date": "18.11.2021",
+    "tmdb_id": 1366,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Très bon film de gangsters. Al Pacino fait le film a lui tout seul quasiment",
+    "watch_date": "23.02.2021",
+    "tmdb_id": 111,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Du grand Tom Hanks, l’immersion sur avec lui sur l’île est très réussite et la fin très émouvante",
+    "watch_date": "18.09.2022",
+    "tmdb_id": 8358,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Marrant, léger, se regarde avec plaisir. La 3d à un peu vieilli par contre.",
+    "watch_date": "03.11.2022",
+    "tmdb_id": 808,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "",
+    "watch_date": "15.10.2023",
+    "tmdb_id": 508442,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Anzere",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Excellent, réal grandiose et musique au top",
+    "watch_date": "28.12.2022",
+    "tmdb_id": 559,
+    "partners": "Etienne, Virgil"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "",
+    "watch_date": "15.10.2023",
+    "tmdb_id": 569094,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Très bon Marvel. Encore une fois, manque un peu de mise en contexte par rapporté à l'histoire globale des Avengers. Les effets spéciaux sont vraiment incroyble.",
+    "watch_date": "14.12.2021",
+    "tmdb_id": 429617,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Pas mal. Encore une nouvelle manière d'interpréter Spiderman qui passe plutôt bien. Les effets spéciaux sont incroyables. Manque un peu de mise en contexte et d'indépendance par rapport aux autres films.",
+    "watch_date": "14.12.2021",
+    "tmdb_id": 315635,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Dingue ! Graphisme incroyable style \"Comics\". Dialogues marrant personnages cool, musique on point. Top tier",
+    "watch_date": "22.11.2020",
+    "tmdb_id": 324857,
+    "partners": "-"
+  },
+  {
+    "locations": "Bienne, Cinéma",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Dinguerie, 100% de fan service mais réalisé de manière excellente. Malgré tout une fois le “wow effect passé”, je pense que le film perd un peu en intérêt les fois suivantes",
+    "watch_date": "15.12.2021",
+    "tmdb_id": 634649,
+    "partners": "Dan, Lyam"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "In-cro-yable. James McAvoy est monstrueux. Couplé à une réal magnifique et un scénario en béton c’est un sans-fautes",
+    "watch_date": "29.06.2023",
+    "tmdb_id": 381288,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "03.01.2024",
+    "tmdb_id": 1893,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "03.01.2024",
+    "tmdb_id": 1894,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "03.01.2024",
+    "tmdb_id": 1895,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, Yverdon-Les-Bains",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Pas mal du tout, malgré un scénario assez simple et sans rebondissement l’utilisation de l’univers de Mario est très bien réalisé et mise à profit dans ce film",
+    "watch_date": "19.04.2023",
+    "tmdb_id": 502356,
+    "partners": "Alex, Emile, Sylvain"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 1,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Nul, il ne se passe rien, l’histoire n’a ni queue ni tête",
+    "watch_date": "15.03.2023",
+    "tmdb_id": 817758,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un peu facile et linéaire mais se laisse voir sans trop de soucis",
+    "watch_date": "05.01.2023",
+    "tmdb_id": 936074,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 1,
+      "music": 3,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Esthétiquement un sans faute mais l’histoire est un peu longuette et l’acting pas incroyable",
+    "watch_date": "27.03.2022",
+    "tmdb_id": 414906,
+    "partners": "Etienne, Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Un peu déçu, le cliff-hanger n’a pas été utilisé à son maximum selon moi. L’acting de Jim Broadbent est vraiment génial",
+    "watch_date": "17.06.2022",
+    "tmdb_id": 645689,
+    "partners": "Etienne"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Très cool, acting, réal, musique, tout est on point.",
+    "watch_date": "19.03.2023",
+    "tmdb_id": 804095,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Incroyable !! Raconte l'histoire d'un vieux ayant Alzheimer, le montage est novateur et brillant.  Anthony Hopkins est bluffant",
+    "watch_date": "17.08.2021",
+    "tmdb_id": 600354,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un grand classique des comédies musicales, chanson réussies, chorégraphies et réalisation au top.",
+    "watch_date": "17.09.2022",
+    "tmdb_id": 316029,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Pas mal, bon concept de huis-clos d’un agent de police qui veut résoudre une enquête sans sortir de la centrale téléphonique",
+    "watch_date": "06.08.2022",
+    "tmdb_id": 486947,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 1,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "",
+    "watch_date": "16.11.2023",
+    "tmdb_id": 800158,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Petite comédie gentille. Kevin Hart dans son rôle. A voir en VO",
+    "watch_date": "25.07.2022",
+    "tmdb_id": 667739,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "La puissance Viking à son paroxysme, musique excellentes. A voir en VO",
+    "watch_date": "29.05.2022",
+    "tmdb_id": 639933,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "21.11.2023",
+    "tmdb_id": 970348,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "",
+    "watch_date": "03.11.2023",
+    "tmdb_id": 5955,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 1,
+      "directing": 3,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Nul. Il ne se passe rien, on s’ennuie mais c’est joli",
+    "watch_date": "18.04.2022",
+    "tmdb_id": 600583,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Remake d'Intouchables. Pas mal sans plus",
+    "watch_date": "11.12.2020",
+    "tmdb_id": 440472,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "10.11.2023",
+    "tmdb_id": 298312,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Train",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Très bonne comédie musical à l’histoire très bien amenée mise en scène.",
+    "watch_date": "31.05.2022",
+    "tmdb_id": 537116,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Dommage, on nous le vendait comme un film de guerre parlant de choses qui n’avaient jamais été mentionnées au part avant. Malheureusement j’ai eu l’impression de ne voir ni plus ni moins qu’un film de guerre “classique”",
+    "watch_date": "05.02.2023",
+    "tmdb_id": 967874,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, Neuchatel",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un immense classique qui n’a pas pris une ride, les effets spéciaux sont spectaculaires et la musique légendaire",
+    "watch_date": "08.02.2023",
+    "tmdb_id": 597,
+    "partners": "-"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 1,
+      "directing": 3,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Mauvais acting, plat et sans surprise la seule plus value est les scènes dans les avions qui sont très bien réalisée",
+    "watch_date": "10.06.2022",
+    "tmdb_id": 361743,
+    "partners": "Etienne"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "25.01.2024",
+    "tmdb_id": 1858,
+    "partners": "-"
+  },
+  {
+    "locations": "Milan, Train",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Génial et poignant. Les scène de bataille sont très crues et les musique immersives. Andrew Garfield signe une performance légendaire.",
+    "watch_date": "12.04.2023",
+    "tmdb_id": 324786,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Bon film sur un groupe d'ulrtas napolitains. A voire en VO",
+    "watch_date": "04.09.2021",
+    "tmdb_id": 668195,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "",
+    "watch_date": "18.01.2024",
+    "tmdb_id": 648579,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Cinéma, La Neuveville",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Belle histoire et assez prenant, Kad Merad joue vachement bien",
+    "watch_date": "20.10.2021",
+    "tmdb_id": 712152,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Grandiose. L’histoire de Stephen Hawking brillement interprété par Eddie Redmayne qui à eu l’Oscar pour son rôle. Felicity Jones est aussi excellente",
+    "watch_date": "19.07.2023",
+    "tmdb_id": 266856,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Pas mal, En soit il n'y a pas vraiment d'histoire mais on est quand même tenu en haleine pendant 1h30",
+    "watch_date": "15.10.2021",
+    "tmdb_id": 516486,
+    "partners": "Maman, Papa"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Superbe Disney avec une animation et des graphisme au top. La DA change un peu des autres Disney j’ai l’impression",
+    "watch_date": "13.02.2022",
+    "tmdb_id": 277834,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Excellent ! Jack Nicholson est incroyable, l'histoire de même",
+    "watch_date": "05.11.2020",
+    "tmdb_id": 510,
+    "partners": "-"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un peu long au début et on ne voit pas trop ou ça va mais la fin rattrape le tout. JK Simmons joue a la perfection",
+    "watch_date": "22.02.2021",
+    "tmdb_id": 244786,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 2,
+      "directing": 1,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "",
+    "watch_date": "22.02.2024",
+    "tmdb_id": 800939,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "17.02.2024",
+    "tmdb_id": 37165,
+    "partners": "Leah"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "",
+    "watch_date": "11.02.2024",
+    "tmdb_id": 8373,
+    "partners": "-"
+  },
+  {
+    "locations": "Leah",
+    "grades": {
+      "story": 5,
+      "acting": 3,
+      "directing": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "",
+    "watch_date": "15.02.2024",
+    "tmdb_id": 118,
+    "partners": "Leah"
+  }
+]
