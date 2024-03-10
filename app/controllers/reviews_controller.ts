@@ -23,8 +23,14 @@ export default class ReviewsController {
   async create({ inertia, request, auth }: HttpContext) {
     const user = auth.user!
 
-    const locations = await Location.query().where('userId', user.id)
-    const partners = await Partner.query().where('userId', user.id)
+    const locations = await Location.query()
+      .where('userId', user.id)
+      .distinct('name')
+      .orderBy('name', 'asc')
+    const partners = await Partner.query()
+      .where('userId', user.id)
+      .distinct('name')
+      .orderBy('name', 'asc')
     const gradesTypes = await GradeType.query().where('user_id', user.id).preload('grades')
 
     return inertia.render<ReviewFormResponse>('review_form/main', {
