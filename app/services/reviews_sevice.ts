@@ -60,7 +60,8 @@ class ReviewService {
       })
       .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
       .where('userId', userId)
-      .orderBy('createdAt', 'desc')
+      .join('viewings', 'viewings.review_id', 'reviews.id')
+      .orderBy('viewings.viewing_date', 'desc')
       .limit(limit)
 
     return {
