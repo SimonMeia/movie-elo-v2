@@ -51,6 +51,7 @@ const reviewsList = props.reviews
     }
     return line
   })
+  .sort((a, b) => a.title.localeCompare(b.title))
   .sort((a, b) => b.totalGrade - a.totalGrade)
 </script>
 
@@ -86,7 +87,7 @@ const reviewsList = props.reviews
       </template>
       <template #body="slotProps">
         <div class="mr-4">
-          <span class="font-bold">{{ slotProps.data.totalGrade }}%</span>
+          <span class="font-bold">{{ slotProps.data.totalGrade.toFixed(0) }}%</span>
         </div>
       </template>
     </Column>
