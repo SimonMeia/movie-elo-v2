@@ -18,7 +18,7 @@ jobs:
           node-version: '20.10.0'
 
       - name: Build the app
-        run: npm run build
+        run: node ace build
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v5.0.0
