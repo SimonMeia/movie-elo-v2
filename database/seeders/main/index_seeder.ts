@@ -7,7 +7,6 @@ import path from 'node:path'
 import MovieService from '#services/movie_service'
 import Review from '#models/review'
 import ViewingService from '#services/viewing_service'
-import Grade from '#models/grade'
 
 export default class extends BaseSeeder {
   async run() {
