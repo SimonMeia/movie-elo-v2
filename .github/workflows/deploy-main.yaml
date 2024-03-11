@@ -10,12 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@latest
 
       - name: Set up Node.js
         uses: actions/setup-node@v4.0.1
         with:
           node-version: '20.10.0'
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Build the app
         run: node ace build
