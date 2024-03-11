@@ -35,4 +35,4 @@ jobs:
 
       - name: Install dependencies and run server
         run: |
-          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "cd ${{ secrets.TARGET }} && npm install --omit=dev && node bin/server.js"
+          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} -p ${{ secrets.PASSWORD }} "cd ${{ secrets.TARGET }} && npm install --omit=dev && node bin/server.js"
