@@ -10,6 +10,7 @@ import Location from '#models/location'
 import Partner from '#models/partner'
 import Grade from '#models/grade'
 import GradeType from '#models/grade_type'
+import grade_service from '#services/grade_service'
 
 export default class ReviewsController {
   @inject()
@@ -22,6 +23,8 @@ export default class ReviewsController {
   @inject()
   async create({ inertia, request, auth }: HttpContext) {
     const user = auth.user!
+
+    const comparisonGrades = await grade_service.getMovieForEachGrade(user.id)
 
     const locations = await Location.query()
       .where('userId', user.id)
@@ -42,11 +45,16 @@ export default class ReviewsController {
         id: type.id,
         name: type.name,
         maxGrade: type.maxGrade,
-        grades: type.grades.map((grade) => ({
-          id: grade.id,
-          description: grade.description,
-          grade: grade.value,
-        })),
+        grades: type.grades
+          .map((grade) => ({
+            id: grade.id,
+            description: grade.description,
+            grade: grade.value,
+            movie:
+              comparisonGrades.find((c) => c.id === type.id)?.grades.find((g) => g.id === grade.id)
+                ?.movie || 'Pas de film',
+          }))
+          .sort((a, b) => b.grade - a.grade),
       })),
     })
   }

@@ -107,7 +107,7 @@ function submit() {
                 <div class="grid grid-cols-1 gap-2">
                   <div v-for="grade in gradeType.grades" :key="grade.id">
                     <h4 class="text-accent">{{ grade.grade }} - {{ grade.description }}</h4>
-                    <p>Pas encore de film</p>
+                    <p>{{ grade.movie }}</p>
                   </div>
                 </div>
               </AccordionTab>
