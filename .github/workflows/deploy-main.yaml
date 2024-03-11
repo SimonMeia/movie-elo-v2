@@ -33,6 +33,14 @@ jobs:
           REMOTE_PORT: ${{ secrets.PORT }}
           TARGET: '${{ secrets.TARGET }}'
 
-      - name: Install dependencies and run server
-        run: |
-          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} -p ${{ secrets.PASSWORD }} "cd ${{ secrets.TARGET }} && npm install --omit=dev && node bin/server.js"
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ${{ secrets.TARGET }}
+            npm install --omit=dev
+            node bin/server.js
