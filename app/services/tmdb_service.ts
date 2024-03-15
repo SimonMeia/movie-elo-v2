@@ -45,7 +45,7 @@ class TmdbService {
     const response = await fetch(url, options)
     const data = (await response.json()) as TmdbMovieCredits
 
-    const actors = data.cast ? data.cast.splice(0, 20) : []
+    const actors = data.cast.splice(0, 20)
     const directors = data.crew.filter((person) => person.job === 'Director')
     const composers = data.crew.filter((person) => person.job === 'Original Music Composer')
 

@@ -15,15 +15,15 @@ export default class extends BaseSeeder {
      */
     if (app.inProduction) return
 
-    // await User.create({
-    //   firstName: 'Simon',
-    //   lastName: 'Meia',
-    //   username: 'simon-meia',
-    //   email: 'simon@me.com',
-    //   password: '1234',
-    // })
+    await User.create({
+      firstName: 'Simon',
+      lastName: 'Meia',
+      username: 'simon-meia',
+      email: 'simon@me.com',
+      password: '1234',
+    })
 
-    const user = await User.findByOrFail('username', 'Simboy')
+    const user = await User.findByOrFail('username', 'simon-meia')
 
     const story = await GradeType.create({
       name: 'Histoire',
