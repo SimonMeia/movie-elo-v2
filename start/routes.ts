@@ -14,6 +14,8 @@ const HomeController = () => import('#controllers/home_controller')
 const MoviesController = () => import('#controllers/movies_controller')
 const ReviewsController = () => import('#controllers/reviews_controller')
 const SessionController = () => import('#controllers/session_controller')
+const ProfileController = () => import('#controllers/profiles_controller')
+const GradeCategoriesController = () => import('#controllers/grade_categories_controller')
 
 router.get('/', [HomeController, 'index']).use(middleware.auth())
 
@@ -22,6 +24,10 @@ router.get('/reviews', [ReviewsController, 'index']).use(middleware.auth())
 router.get('/reviews/:id', [ReviewsController, 'show']).as('reviews.show').use(middleware.auth())
 
 router.get('/review-form', [ReviewsController, 'create']).use(middleware.auth())
+
+router.get('/profile', [ProfileController, 'index']).use(middleware.auth())
+
+router.get('/grade-categories', [GradeCategoriesController, 'create']).use(middleware.auth())
 
 router.get('/api/tmdb/search', [MoviesController, 'search']).use(middleware.auth())
 

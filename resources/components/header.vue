@@ -49,20 +49,11 @@ const items = ref([
           label="V"
           style="background-color: #ece9fc; color: #2a1261"
           shape="circle"
-          @click="router.get('/auth/logout')"
+          @click="router.get('/profile')"
         />
       </template>
     </Menubar>
   </header>
-
-  <!-- <div class="container flex items-center justify-between py-3">
-    <div class="flex justify-end mr-12 grow">
-      <Button label="Ajouter une review" link @click="router.get('/review-form')" />
-      <Button label="Mes reviews" link @click="router.get('/reviews')" />
-      <Button label="Elo ranking" link disabled @click="router.get('/elo-ranking')" />
-      <Button label="Rewind" link disabled @click="router.get('/rewind')" />
-    </div>
-  </div> -->
 </template>
 
 <style scoped></style>
