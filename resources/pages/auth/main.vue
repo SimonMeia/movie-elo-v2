@@ -16,8 +16,8 @@ const props = defineProps<{
   }
 }>()
 
-const email = ref('simon@me.com')
-const password = ref('1234')
+const email = ref('')
+const password = ref('')
 const username = ref('')
 const firstName = ref('')
 const lastName = ref('')
