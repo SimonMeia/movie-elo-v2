@@ -5,8 +5,8 @@ export default {
 
       // Size
       {
-        'h-1 w-60': props.orientation == 'horizontal',
-        'w-1 h-56': props.orientation == 'vertical',
+        'h-1 w-60': props.orientation === 'horizontal',
+        'w-1 h-56': props.orientation === 'vertical',
       },
 
       // Shape
@@ -24,14 +24,14 @@ export default {
       // Position
       'block absolute',
       {
-        'top-0 left-0': props.orientation == 'horizontal',
-        'bottom-0 left-0': props.orientation == 'vertical',
+        'top-0 left-0': props.orientation === 'horizontal',
+        'bottom-0 left-0': props.orientation === 'vertical',
       },
 
       //Size
       {
-        'h-full': props.orientation == 'horizontal',
-        'w-full': props.orientation == 'vertical',
+        'h-full': props.orientation === 'horizontal',
+        'w-full': props.orientation === 'vertical',
       },
 
       // Colors
@@ -46,8 +46,8 @@ export default {
       'h-[1.143rem]',
       'w-[1.143rem]',
       {
-        'top-[50%] mt-[-0.5715rem] ml-[-0.5715rem]': props.orientation == 'horizontal',
-        'left-[50%] mb-[-0.5715rem] ml-[-0.5715rem]': props.orientation == 'vertical',
+        'top-[50%] mt-[-0.5715rem] ml-[-0.5715rem]': props.orientation === 'horizontal',
+        'left-[50%] mb-[-0.5715rem] ml-[-0.5715rem]': props.orientation === 'vertical',
       },
 
       // Shape
@@ -79,8 +79,8 @@ export default {
       'h-[1.143rem]',
       'w-[1.143rem]',
       {
-        'top-[50%] mt-[-0.5715rem] ml-[-0.5715rem]': props.orientation == 'horizontal',
-        'left-[50%] mb-[-0.5715rem] ml-[-0.4715rem]': props.orientation == 'vertical',
+        'top-[50%] mt-[-0.5715rem] ml-[-0.5715rem]': props.orientation === 'horizontal',
+        'left-[50%] mb-[-0.5715rem] ml-[-0.4715rem]': props.orientation === 'vertical',
       },
 
       // Shape
@@ -112,8 +112,8 @@ export default {
       'h-[1.143rem]',
       'w-[1.143rem]',
       {
-        'top-[50%] mt-[-0.5715rem] ml-[-0.5715rem]': props.orientation == 'horizontal',
-        'left-[50%] mb-[-0.5715rem] ml-[-0.4715rem]': props.orientation == 'vertical',
+        'top-[50%] mt-[-0.5715rem] ml-[-0.5715rem]': props.orientation === 'horizontal',
+        'left-[50%] mb-[-0.5715rem] ml-[-0.4715rem]': props.orientation === 'vertical',
       },
 
       // Shape

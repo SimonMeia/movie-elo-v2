@@ -13,13 +13,13 @@ export default {
         'font-sans leading-none',
 
         // Flex & Alignment
-        { 'flex-1 w-[1%]': parent.instance.$name == 'InputGroup' },
+        { 'flex-1 w-[1%]': parent.instance.$name === 'InputGroup' },
         'text-center',
 
         // Spacing
         'm-0',
         {
-          'p-3': props.size == null,
+          'p-3': props.size === null,
         },
 
         // Size
@@ -29,10 +29,10 @@ export default {
         { 'rounded-md': parent.instance.$name !== 'InputGroup' },
         {
           'first:rounded-l-md rounded-none last:rounded-r-md':
-            parent.instance.$name == 'InputGroup',
+            parent.instance.$name === 'InputGroup',
         },
-        { 'border-0 border-y border-l last:border-r': parent.instance.$name == 'InputGroup' },
-        { 'first:ml-0 ml-[-1px]': parent.instance.$name == 'InputGroup' && !props.showButtons },
+        { 'border-0 border-y border-l last:border-r': parent.instance.$name === 'InputGroup' },
+        { 'first:ml-0 ml-[-1px]': parent.instance.$name === 'InputGroup' && !props.showButtons },
 
         // Colors
         'text-surface-600 dark:text-surface-200',
@@ -54,7 +54,7 @@ export default {
         },
 
         // Filled State *for FloatLabel
-        { filled: parent.instance?.$name == 'FloatLabel' && context.filled },
+        { filled: parent.instance?.$name === 'FloatLabel' && context.filled },
 
         // Misc
         'appearance-none',

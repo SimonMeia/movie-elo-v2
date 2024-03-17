@@ -4,10 +4,10 @@ export default {
       // Positioning
       'absolute z-1',
       {
-        'left-0 bottom-0 w-full': props.position == 'bottom',
-        'left-0 top-0 w-full': props.position == 'top',
-        'left-0 top-0 h-full': props.position == 'left',
-        'right-0 top-0 h-full': props.position == 'right',
+        'left-0 bottom-0 w-full': props.position === 'bottom',
+        'left-0 top-0 w-full': props.position === 'top',
+        'left-0 top-0 h-full': props.position === 'left',
+        'right-0 top-0 h-full': props.position === 'right',
       },
 
       // Flexbox & Alignment
@@ -41,7 +41,7 @@ export default {
       // Flexbox & Alignment
       'flex items-center justify-center',
       {
-        'flex-col': props.position == 'left' || props.position == 'right',
+        'flex-col': props.position === 'left' || props.position === 'right',
       },
 
       // List Style
@@ -69,10 +69,10 @@ export default {
 
       // Positioning & Hover States
       {
-        'origin-bottom hover:mx-6': props.position == 'bottom',
-        'origin-top hover:mx-6': props.position == 'top',
-        'origin-left hover:my-6': props.position == 'left',
-        'origin-right hover:my-6': props.position == 'right',
+        'origin-bottom hover:mx-6': props.position === 'bottom',
+        'origin-top hover:mx-6': props.position === 'top',
+        'origin-left hover:my-6': props.position === 'left',
+        'origin-right hover:my-6': props.position === 'right',
       },
 
       // Transitions & Transform

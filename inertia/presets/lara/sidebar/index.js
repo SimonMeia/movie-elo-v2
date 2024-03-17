@@ -8,13 +8,13 @@ export default {
       'relative',
       {
         '!transition-none !transform-none !w-screen !h-screen !max-h-full !top-0 !left-0':
-          props.position == 'full',
+          props.position === 'full',
       },
 
       // Size
       {
-        'h-full w-80': props.position == 'left' || props.position == 'right',
-        'h-auto w-full': props.position == 'top' || props.position == 'bottom',
+        'h-full w-80': props.position === 'left' || props.position === 'right',
+        'h-auto w-full': props.position === 'top' || props.position === 'bottom',
       },
 
       // Shape
@@ -115,7 +115,7 @@ export default {
       // Transitions
       'transition-all',
       'duration-300',
-      { 'p-5': !props.position == 'full' },
+      { 'p-5': !props.position === 'full' },
 
       // Background and Effects
       {

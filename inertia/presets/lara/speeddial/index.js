@@ -313,17 +313,17 @@ export default {
         {
           'hover:underline': props.link,
         },
-        { 'flex-1': props.label !== null, 'invisible w-0': props.label == null },
+        { 'flex-1': props.label !== null, 'invisible w-0': props.label === null },
       ],
     }),
     icon: ({ props }) => ({
       class: [
         'mx-0',
         {
-          'mr-2': props.iconPos == 'left' && props.label != null,
-          'ml-2 order-1': props.iconPos == 'right' && props.label != null,
-          'mb-2': props.iconPos == 'top' && props.label != null,
-          'mt-2': props.iconPos == 'bottom' && props.label != null,
+          'mr-2': props.iconPos === 'left' && props.label === null,
+          'ml-2 order-1': props.iconPos === 'right' && props.label === null,
+          'mb-2': props.iconPos === 'top' && props.label === null,
+          'mt-2': props.iconPos === 'bottom' && props.label === null,
         },
       ],
     }),
@@ -332,10 +332,10 @@ export default {
         'h-4 w-4',
         'mx-0',
         {
-          'mr-2': props.iconPos == 'left' && props.label != null,
-          'ml-2 order-1': props.iconPos == 'right' && props.label != null,
-          'mb-2': props.iconPos == 'top' && props.label != null,
-          'mt-2': props.iconPos == 'bottom' && props.label != null,
+          'mr-2': props.iconPos === 'left' && props.label === null,
+          'ml-2 order-1': props.iconPos === 'right' && props.label === null,
+          'mb-2': props.iconPos === 'top' && props.label === null,
+          'mt-2': props.iconPos === 'bottom' && props.label === null,
         },
         'animate-spin',
       ],
@@ -368,10 +368,10 @@ export default {
 
       // Conditional Spacing
       {
-        'my-1 first:mb-2': props.direction == 'up' && props.type == 'linear',
-        'my-1 first:mt-2': props.direction == 'down' && props.type == 'linear',
-        'mx-1 first:mr-2': props.direction == 'left' && props.type == 'linear',
-        'mx-1 first:ml-2': props.direction == 'right' && props.type == 'linear',
+        'my-1 first:mb-2': props.direction === 'up' && props.type === 'linear',
+        'my-1 first:mt-2': props.direction === 'down' && props.type === 'linear',
+        'mx-1 first:mr-2': props.direction === 'left' && props.type === 'linear',
+        'mx-1 first:ml-2': props.direction === 'right' && props.type === 'linear',
       },
 
       // Conditional Positioning

@@ -26,7 +26,7 @@ export default {
           'text-xl py-3 px-4': parent.props.size === 'large',
         },
         {
-          'min-w-12 p-0 py-3': parent.props.label == null && parent.props.icon !== null,
+          'min-w-12 p-0 py-3': parent.props.label === null && parent.props.icon !== null,
         },
 
         // Shape
@@ -447,7 +447,7 @@ export default {
           'text-xl py-3 px-4': parent.props.size === 'large',
         },
         {
-          'min-w-12 p-0 py-3': parent.props.label == null && parent.props.icon !== null,
+          'min-w-12 p-0 py-3': parent.props.label === null && parent.props.icon !== null,
         },
 
         // Shape

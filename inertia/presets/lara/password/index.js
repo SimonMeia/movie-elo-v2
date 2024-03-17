@@ -46,9 +46,9 @@ export default {
 
       // Colors
       {
-        'bg-red-500 dark:bg-red-400/50': instance?.meter?.strength == 'weak',
-        'bg-orange-500 dark:bg-orange-400/50': instance?.meter?.strength == 'medium',
-        'bg-green-500 dark:bg-green-400/50': instance?.meter?.strength == 'strong',
+        'bg-red-500 dark:bg-red-400/50': instance?.meter?.strength === 'weak',
+        'bg-orange-500 dark:bg-orange-400/50': instance?.meter?.strength === 'medium',
+        'bg-green-500 dark:bg-green-400/50': instance?.meter?.strength === 'strong',
       },
 
       // Transitions
@@ -68,14 +68,14 @@ export default {
         'font-sans leading-none',
 
         // Flex
-        { 'flex-1 w-[1%]': parent.instance.$name == 'InputGroup' },
+        { 'flex-1 w-[1%]': parent.instance.$name === 'InputGroup' },
 
         // Spacing
         'm-0',
         {
-          'px-4 py-4': props.size == 'large',
-          'px-2 py-2': props.size == 'small',
-          'p-3': props.size == null,
+          'px-4 py-4': props.size === 'large',
+          'px-2 py-2': props.size === 'small',
+          'p-3': props.size === null,
         },
         'w-full',
 
@@ -83,10 +83,10 @@ export default {
         { 'rounded-md': parent.instance.$name !== 'InputGroup' },
         {
           'first:rounded-l-md rounded-none last:rounded-r-md':
-            parent.instance.$name == 'InputGroup',
+            parent.instance.$name === 'InputGroup',
         },
-        { 'border-0 border-y border-l last:border-r': parent.instance.$name == 'InputGroup' },
-        { 'first:ml-0 -ml-px': parent.instance.$name == 'InputGroup' && !props.showButtons },
+        { 'border-0 border-y border-l last:border-r': parent.instance.$name === 'InputGroup' },
+        { 'first:ml-0 -ml-px': parent.instance.$name === 'InputGroup' && !props.showButtons },
 
         // Colors
         'text-surface-600 dark:text-surface-200',

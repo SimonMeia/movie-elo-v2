@@ -147,7 +147,7 @@ export default {
         // States
         {
           'hover:bg-surface-50 dark:hover:bg-surface-700/40':
-            (props.selectionMode == 'single' || props.selectionMode == 'multiple') &&
+            (props.selectionMode === 'single' || props.selectionMode === 'multiple') &&
             !context.selected,
         },
 
@@ -156,7 +156,7 @@ export default {
 
         {
           'cursor-pointer select-none':
-            props.selectionMode == 'single' || props.selectionMode == 'multiple',
+            props.selectionMode === 'single' || props.selectionMode === 'multiple',
         },
       ],
     }),

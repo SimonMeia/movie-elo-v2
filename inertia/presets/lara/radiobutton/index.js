@@ -39,9 +39,9 @@ export default {
         'border-surface-300 dark:border-surface-700':
           props.value !== props.modelValue && props.value !== undefined && !props.invalid,
         'border-primary-500 dark:border-primary-400':
-          props.value == props.modelValue && props.value !== undefined,
+          props.value === props.modelValue && props.value !== undefined,
         'bg-primary-500 dark:bg-primary-400':
-          props.value == props.modelValue && props.value !== undefined,
+          props.value === props.modelValue && props.value !== undefined,
       },
       // Invalid State
       { 'border-red-500 dark:border-red-400': props.invalid },
@@ -51,7 +51,7 @@ export default {
         'peer-hover:border-primary-500 dark:peer-hover:border-primary-400':
           !props.disabled && !props.invalid,
         'peer-hover:border-primary-600 dark:peer-hover:border-primary-300 peer-hover:bg-primary-600 dark:peer-hover:bg-primary-300':
-          !props.disabled && props.value == props.modelValue && props.value !== undefined,
+          !props.disabled && props.value === props.modelValue && props.value !== undefined,
         'peer-focus-visible:border-primary-500 dark:peer-focus-visible:border-primary-400 peer-focus-visible:ring-2 peer-focus-visible:ring-primary-400/20 dark:peer-focus-visible:ring-primary-300/20':
           !props.disabled,
         'opacity-60 cursor-default': props.disabled,
@@ -102,7 +102,7 @@ export default {
       // Conditions
       {
         'backface-hidden scale-10 invisible': props.value !== props.modelValue,
-        'transform visible scale-[1.1]': props.value == props.modelValue,
+        'transform visible scale-[1.1]': props.value === props.modelValue,
       },
 
       // Transition

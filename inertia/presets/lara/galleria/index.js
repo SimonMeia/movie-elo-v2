@@ -175,10 +175,10 @@ export default {
 
       // Indicators Position
       {
-        'order-2': parent.props.indicatorsPosition == 'bottom',
-        'order-1': parent.props.indicatorsPosition == 'top',
-        'order-1 flex-col': parent.props.indicatorsPosition == 'left',
-        'flex-col order-2': parent.props.indicatorsPosition == 'right',
+        'order-2': parent.props.indicatorsPosition === 'bottom',
+        'order-1': parent.props.indicatorsPosition === 'top',
+        'order-1 flex-col': parent.props.indicatorsPosition === 'left',
+        'flex-col order-2': parent.props.indicatorsPosition === 'right',
       },
       {
         'absolute z-10 bg-black/50': parent.props.showIndicatorsOnItem,
@@ -186,13 +186,13 @@ export default {
 
       {
         'bottom-0 left-0 w-full items-start':
-          parent.props.indicatorsPosition == 'bottom' && parent.props.showIndicatorsOnItem,
+          parent.props.indicatorsPosition === 'bottom' && parent.props.showIndicatorsOnItem,
         'top-0 left-0 w-full items-start':
-          parent.props.indicatorsPosition == 'top' && parent.props.showIndicatorsOnItem,
+          parent.props.indicatorsPosition === 'top' && parent.props.showIndicatorsOnItem,
         'left-0 top-0 h-full items-start':
-          parent.props.indicatorsPosition == 'left' && parent.props.showIndicatorsOnItem,
+          parent.props.indicatorsPosition === 'left' && parent.props.showIndicatorsOnItem,
         'right-0 top-0 h-full items-start':
-          parent.props.indicatorsPosition == 'right' && parent.props.showIndicatorsOnItem,
+          parent.props.indicatorsPosition === 'right' && parent.props.showIndicatorsOnItem,
       },
     ],
   }),
@@ -200,9 +200,9 @@ export default {
     class: [
       {
         'mr-2':
-          parent.props.indicatorsPosition == 'bottom' || parent.props.indicatorsPosition == 'top',
+          parent.props.indicatorsPosition === 'bottom' || parent.props.indicatorsPosition === 'top',
         'mb-2':
-          parent.props.indicatorsPosition == 'left' || parent.props.indicatorsPosition == 'right',
+          parent.props.indicatorsPosition === 'left' || parent.props.indicatorsPosition === 'right',
       },
     ],
   }),

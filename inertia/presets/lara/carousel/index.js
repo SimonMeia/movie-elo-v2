@@ -19,7 +19,7 @@ export default {
       // Orientation
       {
         'flex-row': props.orientation !== 'vertical',
-        'flex-col': props.orientation == 'vertical',
+        'flex-col': props.orientation === 'vertical',
       },
     ],
   }),
@@ -85,7 +85,7 @@ export default {
       // Orientation & Sizing
       {
         'flex-row': props.orientation !== 'vertical',
-        'flex-col h-full': props.orientation == 'vertical',
+        'flex-col h-full': props.orientation === 'vertical',
       },
     ],
   }),
@@ -98,7 +98,7 @@ export default {
       {
         'w-full sm:w-[50%] md:w-[33.333333333333336%]': props.orientation !== 'vertical',
 
-        'w-full h-full': props.orientation == 'vertical',
+        'w-full h-full': props.orientation === 'vertical',
       },
     ],
   }),
@@ -112,7 +112,7 @@ export default {
       {
         'w-full sm:w-[50%] md:w-[33.333333333333336%]': props.orientation !== 'vertical',
 
-        'w-full h-full': props.orientation == 'vertical',
+        'w-full h-full': props.orientation === 'vertical',
       },
     ],
   }),
