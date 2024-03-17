@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'selector',
-  content: ['./resources/**/*.edge', './resources/**/*.{js,ts,jsx,tsx,vue}'],
+  content: ['./resources/**/*.edge', './inertia/**/*.{js,ts,jsx,tsx,vue}'],
   theme: {
     container: {
       center: true,

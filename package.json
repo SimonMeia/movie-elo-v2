@@ -57,13 +57,13 @@
   "dependencies": {
     "@adonisjs/auth": "^9.1.1",
     "@adonisjs/core": "^6.2.2",
-    "@adonisjs/inertia": "^1.0.0-7",
+    "@adonisjs/inertia": "1.0.0-19",
     "@adonisjs/lucid": "^20.1.0",
     "@adonisjs/session": "^7.1.1",
     "@adonisjs/shield": "^8.1.1",
     "@adonisjs/static": "^1.1.1",
-    "@adonisjs/vite": "^3.0.0-6",
-    "@inertiajs/vue3": "^1.0.14",
+    "@adonisjs/vite": "3.0.0-8",
+    "@inertiajs/vue3": "^1.0.15",
     "@vinejs/vine": "^1.7.1",
     "edge.js": "^6.0.1",
     "luxon": "^3.4.4",
@@ -72,14 +72,14 @@
     "primeicons": "^6.0.1",
     "primevue": "^3.49.0",
     "reflect-metadata": "^0.2.1",
-    "vue": "^3.4.18"
+    "vue": "^3.4.21"
   },
   "eslintConfig": {
     "extends": "@adonisjs/eslint-config/app",
     "parserOptions": {
       "project": [
         "tsconfig.json",
-        "resources/tsconfig.json"
+        "inertia/tsconfig.json"
       ]
     }
   },
