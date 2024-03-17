@@ -3,7 +3,7 @@ name: Deploy to Server
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   deploy:
@@ -42,5 +42,5 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd ${{ secrets.TARGET }}
-            npm install --omit=dev
-            node bin/server.js
+            /home/nfs-clients/7e26bdcf361b61adebb48e70d8daaeaf/.nvm/versions/node/v20.4.0/bin/npm install --omit=dev
+            /home/nfs-clients/7e26bdcf361b61adebb48e70d8daaeaf/.nvm/versions/node/v20.4.0/bin/node bin/server.js
