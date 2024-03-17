@@ -23,6 +23,14 @@ jobs:
       - name: Build the app
         run: node ace build
 
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa 
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan ${{ secrets.DOMAIN }} >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v5.0.0
         env:
@@ -33,14 +41,6 @@ jobs:
           REMOTE_PORT: ${{ secrets.PORT }}
           TARGET: '${{ secrets.TARGET }}'
 
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-            cd ${{ secrets.TARGET }}
-            /home/nfs-clients/7e26bdcf361b61adebb48e70d8daaeaf/.nvm/versions/node/v20.4.0/bin/npm install --omit=dev
-            /home/nfs-clients/7e26bdcf361b61adebb48e70d8daaeaf/.nvm/versions/node/v20.4.0/bin/node bin/server.js
+      - name: Start the app
+        run: |
+          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "cd ${{ secrets.TARGET }} && source ~/.nvm/nvm.sh && npm install --omit=dev && systemctl --user daemon-reload && systemctl --user restart ${{ secrets.SYSTEMD }}"
