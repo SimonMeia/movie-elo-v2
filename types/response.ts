@@ -1,5 +1,6 @@
-import type { Review, GradeType, Grade } from './review.ts'
+import type { Review } from './review.ts'
 import type { Movie } from './movie.ts'
+import { Grade, GradeType } from './grade.js'
 
 export type ReviewResponse = {
   review: Review
@@ -28,4 +29,8 @@ export type ReviewFormResponse = {
     locations?: string[]
     partners?: string[]
   }
+}
+
+export type GradeTypesResponse = {
+  gradeTypes: GradeType[]
 }

@@ -6,9 +6,10 @@ import DataTable from 'primevue/datatable'
 import Dialog from 'primevue/dialog'
 import InputText from 'primevue/inputtext'
 import SelectButton from 'primevue/selectbutton'
+import { GradeTypesResponse } from '@/app/types'
 import { ref } from 'vue'
 
-const props = defineProps<{ gradeCategories: { name: string; maxGrade: number }[] }>()
+const props = defineProps<GradeTypesResponse>()
 
 const isDialogVisible = ref(false)
 
@@ -62,7 +63,7 @@ function submitNewGradeCategory() {
           <div class="flex flex-col gap-2">
             <div v-for="i in modalGradeMax" :key="i" class="grid grid-cols-12 gap-4">
               <div class="flex items-center w-full col-span-1">
-                <label>{{ i }}</label>
+                <label class="w-full font-bold text-center">{{ i }}</label>
               </div>
               <InputText class="w-full col-span-11" />
             </div>
@@ -92,7 +93,7 @@ function submitNewGradeCategory() {
         Pour terminer la création de votre compte, vous devez choisir des catégorie pour vos notes.
       </p>
 
-      <DataTable :value="props.gradeCategories">
+      <DataTable :value="props.gradeTypes">
         <Column field="name" header="Nom de la catégorie"></Column>
         <Column field="maxGrade">
           <template #header>

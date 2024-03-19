@@ -1,3 +1,5 @@
+import { GradeType } from './grade.js'
+
 export type Review = {
   id: number
   grades: {
@@ -24,17 +26,4 @@ export type Location = {
 export type Partner = {
   id: number
   name: string
-}
-
-export type Grade = {
-  id: number
-  grade: number
-  description: string
-}
-
-export type GradeType = {
-  id: number
-  name: string
-  maxGrade: number
-  grades: Grade[]
 }
