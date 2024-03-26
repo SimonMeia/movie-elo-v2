@@ -7,16 +7,69 @@ import Dialog from 'primevue/dialog'
 import InputText from 'primevue/inputtext'
 import SelectButton from 'primevue/selectbutton'
 import { GradeTypesResponse } from '@/app/types'
-import { ref } from 'vue'
+import { Ref, ref } from 'vue'
+import { router } from '@inertiajs/vue3'
 
 const props = defineProps<GradeTypesResponse>()
 
 const isDialogVisible = ref(false)
 
-const modalGradeMax = ref(2)
+let newGradeCategory: Ref<GradeCategoryModal> = initNewGradeCategory()
 
 function submitNewGradeCategory() {
-  console.log('submit')
+  router.visit(`/grade-types`, {
+    method: 'post',
+    data: newGradeCategory.value,
+    preserveState: true,
+    preserveScroll: true,
+    onSuccess: () => {
+      isDialogVisible.value = false
+    },
+  })
+}
+
+type GradeCategoryModal = {
+  name: string
+  maxGrade: number
+  grades: { description: string; value: number }[]
+}
+
+function openModal() {
+  isDialogVisible.value = true
+  newGradeCategory = initNewGradeCategory()
+}
+
+function initNewGradeCategory(): Ref<GradeCategoryModal> {
+  return ref({
+    name: '',
+    maxGrade: 2,
+    grades: [
+      {
+        description: '',
+        value: 1,
+      },
+      {
+        description: '',
+        value: 2,
+      },
+    ],
+  })
+}
+
+function updateGradeInputList() {
+  if (newGradeCategory.value.grades.length < newGradeCategory.value.maxGrade) {
+    for (let i = newGradeCategory.value.grades.length; i < newGradeCategory.value.maxGrade; i++) {
+      newGradeCategory.value.grades.push({
+        description: '',
+        value: newGradeCategory.value.grades.length + 1,
+      })
+    }
+  } else {
+    newGradeCategory.value.grades = newGradeCategory.value.grades.slice(
+      0,
+      newGradeCategory.value.maxGrade
+    )
+  }
 }
 </script>
 
@@ -39,12 +92,15 @@ function submitNewGradeCategory() {
       <div class="flex flex-col gap-6">
         <div class="flex flex-col gap-1">
           <label>Nom de la catégorie</label>
-          <InputText class="w-full" />
+          <InputText class="w-full" v-model="newGradeCategory.name" />
+          <small v-if="props.errors?.name" class="text-red-500">
+            {{ props.errors?.name[0] }}
+          </small>
         </div>
         <div class="flex flex-col gap-1">
           <label>Note maximale</label>
           <SelectButton
-            v-model="modalGradeMax"
+            v-model="newGradeCategory.maxGrade"
             :options="Array.from({ length: 9 }, (_, i) => i + 2)"
             :allowEmpty="false"
             :pt="{
@@ -56,16 +112,24 @@ function submitNewGradeCategory() {
                 },
               },
             }"
+            @update:modelValue="updateGradeInputList"
           />
         </div>
         <div class="flex flex-col gap-1">
           <label>Description</label>
+          <small v-if="props.errors?.['grades.*.description']" class="text-red-500">
+            {{ props.errors?.['grades.*.description'][0] }}
+          </small>
           <div class="flex flex-col gap-2">
-            <div v-for="i in modalGradeMax" :key="i" class="grid grid-cols-12 gap-4">
+            <div v-for="i in newGradeCategory.maxGrade" :key="i" class="grid grid-cols-12 gap-4">
               <div class="flex items-center w-full col-span-1">
                 <label class="w-full font-bold text-center">{{ i }}</label>
               </div>
-              <InputText class="w-full col-span-11" />
+              <InputText
+                class="w-full col-span-11"
+                placeholder="Description"
+                v-model="newGradeCategory.grades[i - 1].description"
+              />
             </div>
           </div>
         </div>
@@ -77,12 +141,7 @@ function submitNewGradeCategory() {
           severity="contrast"
           @click="isDialogVisible = false"
         />
-        <Button
-          label="Créer"
-          class="p-button-text"
-          @click="isDialogVisible = false"
-          type="submit"
-        />
+        <Button label="Créer" class="p-button-text" type="submit" />
       </div>
     </form>
   </Dialog>
@@ -99,13 +158,12 @@ function submitNewGradeCategory() {
           <template #header>
             <div class="flex items-center justify-between w-full h-full gap-4">
               <div class="font-bold">Note maximale</div>
-              <Button label="+" rounded class="w-10 h-10 text-xl" @click="isDialogVisible = true">
-              </Button>
+              <Button label="+" rounded class="w-10 h-10 text-xl" @click="openModal" />
             </div>
           </template>
         </Column>
       </DataTable>
-      <Button label="Valider" class="my-2"></Button>
+      <Button label="Valider" class="my-2" @click="router.get('/')" />
     </div>
   </Layout>
 </template>

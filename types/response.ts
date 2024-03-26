@@ -32,5 +32,8 @@ export type ReviewFormResponse = {
 }
 
 export type GradeTypesResponse = {
+  errors?: {
+    [key: string]: string[]
+  }
   gradeTypes: GradeType[]
 }

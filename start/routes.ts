@@ -28,6 +28,7 @@ router.get('/review-form', [ReviewsController, 'create']).use(middleware.auth())
 router.get('/profile', [ProfileController, 'index']).use(middleware.auth())
 
 router.get('/grade-types', [GradeTypesController, 'create']).use(middleware.auth())
+router.post('/grade-types', [GradeTypesController, 'store']).use(middleware.auth())
 
 router.get('/api/tmdb/search', [MoviesController, 'search']).use(middleware.auth())
 
