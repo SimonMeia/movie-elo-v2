@@ -40,14 +40,12 @@ watch(isLoginFormDisplayed, () => {
 function submit() {
   const destination = isLoginFormDisplayed.value ? 'login' : 'register'
   const userData = {
+    firstName: firstName.value,
+    lastName: lastName.value,
+    username: username.value,
     email: email.value,
     password: password.value,
   }
-  // if (!isLoginFormDisplayed.value) {
-  //   userData['username'] = username.value
-  //   userData['firstName'] = firstName.value
-  //   userData['lastName'] = lastName.value
-  // }
 
   router.visit(`/auth/${destination}`, {
     method: 'post',
@@ -120,14 +118,14 @@ function resetErrors() {
           </div>
         </div>
         <div class="flex flex-col items-center grow">
-          <Button type="submit" class="w-full" :label="sumbitButtonLabel"></Button>
+          <Button type="submit" class="w-full" :label="sumbitButtonLabel" />
           <div class="flex flex-row items-center gap-2 mt-2">
             <span>{{ changeFormLabel }}</span>
             <Button
               link
               :label="changeFormButtonLabel"
               @click="isLoginFormDisplayed = !isLoginFormDisplayed"
-            ></Button>
+            />
           </div>
         </div>
       </form>
