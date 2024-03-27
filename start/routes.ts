@@ -15,7 +15,7 @@ const MoviesController = () => import('#controllers/movies_controller')
 const ReviewsController = () => import('#controllers/reviews_controller')
 const SessionController = () => import('#controllers/session_controller')
 const ProfileController = () => import('#controllers/profiles_controller')
-const GradeCategoriesController = () => import('#controllers/grade_categories_controller')
+const GradeTypesController = () => import('#controllers/grade_types_controller')
 
 router
   .group(() => {
@@ -29,7 +29,8 @@ router
 
     router.get('/profile', [ProfileController, 'index'])
 
-    router.get('/grade-categories', [GradeCategoriesController, 'create'])
+    router.get('/grade-types', [GradeTypesController, 'create']).use(middleware.auth())
+    router.post('/grade-types', [GradeTypesController, 'store']).use(middleware.auth())
 
     router.get('/api/tmdb/search', [MoviesController, 'search'])
 
