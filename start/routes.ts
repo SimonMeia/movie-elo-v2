@@ -17,21 +17,30 @@ const SessionController = () => import('#controllers/session_controller')
 const ProfileController = () => import('#controllers/profiles_controller')
 const GradeCategoriesController = () => import('#controllers/grade_categories_controller')
 
-router.get('/', [HomeController, 'index']).use(middleware.auth())
+router
+  .group(() => {
+    router.get('/', [HomeController, 'index'])
 
-router.post('/reviews', [ReviewsController, 'store']).use(middleware.auth())
-router.get('/reviews', [ReviewsController, 'index']).use(middleware.auth())
-router.get('/reviews/:id', [ReviewsController, 'show']).as('reviews.show').use(middleware.auth())
+    router.post('/reviews', [ReviewsController, 'store'])
+    router.get('/reviews', [ReviewsController, 'index'])
+    router.get('/reviews/:id', [ReviewsController, 'show']).as('reviews.show')
 
-router.get('/review-form', [ReviewsController, 'create']).use(middleware.auth())
+    router.get('/review-form', [ReviewsController, 'create'])
 
-router.get('/profile', [ProfileController, 'index']).use(middleware.auth())
+    router.get('/profile', [ProfileController, 'index'])
 
-router.get('/grade-categories', [GradeCategoriesController, 'create']).use(middleware.auth())
+    router.get('/grade-categories', [GradeCategoriesController, 'create'])
 
-router.get('/api/tmdb/search', [MoviesController, 'search']).use(middleware.auth())
+    router.get('/api/tmdb/search', [MoviesController, 'search'])
 
-router.get('/auth', [SessionController, 'create']).use(middleware.guest())
-router.post('/auth/login', [SessionController, 'login']).use(middleware.guest())
-router.post('/auth/register', [SessionController, 'signUp']).use(middleware.guest())
-router.get('/auth/logout', [SessionController, 'logout']).use(middleware.auth())
+    router.get('/auth/logout', [SessionController, 'logout'])
+  })
+  .use(middleware.auth())
+
+router
+  .group(() => {
+    router.get('/auth', [SessionController, 'create'])
+    router.post('/auth/login', [SessionController, 'login'])
+    router.post('/auth/register', [SessionController, 'signUp'])
+  })
+  .use(middleware.guest())
