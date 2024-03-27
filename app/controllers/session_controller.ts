@@ -29,7 +29,7 @@ export default class SessionController {
 
     await auth.use('web').login(user)
 
-    return response.redirect().toRoute('/')
+    return response.redirect().toRoute('/grade-categories')
   }
 
   @inject()
