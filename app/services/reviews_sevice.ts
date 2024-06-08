@@ -12,7 +12,7 @@ class ReviewService {
         movie.preload('countries')
         movie.preload('genres')
       })
-      .preload('viewngs', (viewing) => {
+      .preload('viewings', (viewing) => {
         viewing.preload('locations')
         viewing.preload('partners')
       })
@@ -33,7 +33,7 @@ class ReviewService {
         movie.preload('countries')
         movie.preload('genres')
       })
-      .preload('viewngs', (viewing) => {
+      .preload('viewings', (viewing) => {
         viewing.preload('locations')
         viewing.preload('partners')
       })
@@ -45,30 +45,30 @@ class ReviewService {
     return this.transformReviewToResponse(review)
   }
 
-  async getLastReviews(userId: UserId, limit: number): Promise<ReviewsResponse> {
-    const reviews: Review[] = await Review.query()
-      .preload('movie', (movie) => {
-        movie.preload('actors')
-        movie.preload('directors')
-        movie.preload('composers')
-        movie.preload('countries')
-        movie.preload('genres')
-      })
-      .preload('viewngs', (viewing) => {
-        viewing.preload('locations')
-        viewing.preload('partners')
-      })
-      .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
-      .where('userId', userId)
-      .join('viewings', 'viewings.review_id', 'reviews.id')
-      .orderBy('viewings.viewing_date', 'desc')
-      .limit(limit)
+async getLastReviews(userId: UserId, limit: number): Promise<ReviewsResponse> {
 
-    return {
-      reviews: reviews.map(this.transformReviewToResponse),
-    }
-  }
+  const reviews = await Review.query().join('viewings', 'viewings.review_id', 'reviews.id')
+    .where('reviews.user_id', userId)
+    .orderBy('viewings.viewing_date', 'desc')
+    .limit(limit)
+    .preload('movie', (movie) => {
+      movie.preload('actors')
+      movie.preload('directors')
+      movie.preload('composers')
+      movie.preload('countries')
+      movie.preload('genres')
+    })
+    .preload('viewings', (viewing) => {
+      viewing.preload('locations')
+      viewing.preload('partners')
+    })
+    .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
 
+  
+  return {
+    reviews: reviews.map(this.transformReviewToResponse),
+  };
+}
   private transformReviewToResponse(review: Review): ReviewResponse {
     const grades = review.grades.map((grade) => ({
       givenGrade: grade.value,
@@ -84,7 +84,7 @@ class ReviewService {
       },
     }))
 
-    const viewings = review.viewngs.map((v) => ({
+    const viewings = review.viewings.map((v) => ({
       id: v.id,
       date: v.viewingDate.toString(),
       locations: v.locations.map((l) => ({

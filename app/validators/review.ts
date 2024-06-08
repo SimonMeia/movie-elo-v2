@@ -51,7 +51,7 @@ export const createReviewValidator = vine.compile(
       .minLength(1),
     locations: vine.array(vine.string()).minLength(1),
     partners: vine.array(vine.string()).minLength(1),
-    date: vine.date(),
+    date: vine.date().beforeOrEqual('today'),
     comment: vine.string().nullable(),
   })
 )
@@ -60,4 +60,6 @@ createReviewValidator.messagesProvider = new SimpleMessagesProvider({
   'tmdbMovieId.required': 'Veuillez selectionner un film',
   'locations.array.minLength': 'Veuillez selectionner au moins un lieu',
   'partners.array.minLength': 'Veuillez selectionner au moins un partenaire',
+  'date.required': 'Veuillez selectionner une date',
+  'date.beforeOrEqual': 'Veuillez selectionner une date valide',
 })

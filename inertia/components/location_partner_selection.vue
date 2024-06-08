@@ -61,6 +61,11 @@ function search(event) {
       class="w-full"
       @complete="search"
       @item-select="select"
+      :pt="{
+        // inputtoken: {
+        //   class: 'inline!',
+        // }
+      }"
     ></AutoComplete>
     <small v-if="props.error" class="text-red-500">
       {{ props.error[0] }}

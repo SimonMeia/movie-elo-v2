@@ -29,7 +29,7 @@ export default class Review extends BaseModel {
   declare updatedAt: DateTime
 
   @hasMany(() => Viewing)
-  declare viewngs: HasMany<typeof Viewing>
+  declare viewings: HasMany<typeof Viewing>
 
   @manyToMany(() => Grade)
   declare grades: ManyToMany<typeof Grade>
