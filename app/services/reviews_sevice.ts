@@ -1,6 +1,5 @@
 import Review from '#models/review'
 import { type UserId } from '#models/user'
-import Viewing from '#models/viewing'
 import { ReviewResponse, ReviewsResponse } from '#types/response'
 
 class ReviewService {
@@ -47,14 +46,12 @@ class ReviewService {
   }
 
   async getLastReviews(userId: UserId, limit: number): Promise<ReviewsResponse> {
-    const viewings = await Viewing.query()
-      .join('reviews', 'viewings.review_id', 'reviews.id')
+    const reviews = await Review.query()
+      .join('viewings', 'viewings.review_id', 'reviews.id')
       .where('reviews.user_id', userId)
       .orderBy('viewings.viewing_date', 'desc')
       .limit(limit)
-      .select('viewings.*')
-
-    const reviews = await Review.query()
+      .select('reviews.*')
       .preload('movie', (movie) => {
         movie.preload('actors')
         movie.preload('directors')
@@ -67,10 +64,6 @@ class ReviewService {
         viewing.preload('partners')
       })
       .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
-      .whereIn(
-        'id',
-        viewings.map((v) => v.reviewId)
-      )
 
     return {
       reviews: reviews.map(this.transformReviewToResponse),
@@ -91,18 +84,20 @@ class ReviewService {
       },
     }))
 
-    const viewings = review.viewings.map((v) => ({
-      id: v.id,
-      date: v.viewingDate.toString(),
-      locations: v.locations.map((l) => ({
-        id: l.id,
-        name: l.name,
-      })),
-      partners: v.partners.map((p) => ({
-        id: p.id,
-        name: p.name,
-      })),
-    }))
+    const viewings = review.viewings
+      .sort((a, b) => b.viewingDate.toMillis() - a.viewingDate.toMillis())
+      .map((v) => ({
+        id: v.id,
+        date: v.viewingDate.toString(),
+        locations: v.locations.map((l) => ({
+          id: l.id,
+          name: l.name,
+        })),
+        partners: v.partners.map((p) => ({
+          id: p.id,
+          name: p.name,
+        })),
+      }))
 
     const movies = {
       actors: review.movie.actors,
