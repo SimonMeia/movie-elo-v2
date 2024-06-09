@@ -1,5 +1,6 @@
 import Review from '#models/review'
 import { type UserId } from '#models/user'
+import Viewing from '#models/viewing'
 import { ReviewResponse, ReviewsResponse } from '#types/response'
 
 class ReviewService {
@@ -45,30 +46,36 @@ class ReviewService {
     return this.transformReviewToResponse(review)
   }
 
-async getLastReviews(userId: UserId, limit: number): Promise<ReviewsResponse> {
+  async getLastReviews(userId: UserId, limit: number): Promise<ReviewsResponse> {
+    const viewings = await Viewing.query()
+      .join('reviews', 'viewings.review_id', 'reviews.id')
+      .where('reviews.user_id', userId)
+      .orderBy('viewings.viewing_date', 'desc')
+      .limit(limit)
+      .select('viewings.*')
 
-  const reviews = await Review.query().join('viewings', 'viewings.review_id', 'reviews.id')
-    .where('reviews.user_id', userId)
-    .orderBy('viewings.viewing_date', 'desc')
-    .limit(limit)
-    .preload('movie', (movie) => {
-      movie.preload('actors')
-      movie.preload('directors')
-      movie.preload('composers')
-      movie.preload('countries')
-      movie.preload('genres')
-    })
-    .preload('viewings', (viewing) => {
-      viewing.preload('locations')
-      viewing.preload('partners')
-    })
-    .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
+    const reviews = await Review.query()
+      .preload('movie', (movie) => {
+        movie.preload('actors')
+        movie.preload('directors')
+        movie.preload('composers')
+        movie.preload('countries')
+        movie.preload('genres')
+      })
+      .preload('viewings', (viewing) => {
+        viewing.preload('locations')
+        viewing.preload('partners')
+      })
+      .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
+      .whereIn(
+        'id',
+        viewings.map((v) => v.reviewId)
+      )
 
-  
-  return {
-    reviews: reviews.map(this.transformReviewToResponse),
-  };
-}
+    return {
+      reviews: reviews.map(this.transformReviewToResponse),
+    }
+  }
   private transformReviewToResponse(review: Review): ReviewResponse {
     const grades = review.grades.map((grade) => ({
       givenGrade: grade.value,
