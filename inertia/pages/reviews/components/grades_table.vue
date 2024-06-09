@@ -29,9 +29,9 @@ const gradeTypes = props.reviews[0]?.review.grades.map((grade) => {
   }
 })
 
-const reviewsList = props.reviews
-  .map((review): ReviewListItem => {
-    const line = {
+const reviewsList: ReviewListItem[] = props.reviews
+  .map((review) => {
+    const line: ReviewListItem = {
       reviewId: review.review.id,
       title: review.movie.title,
       totalGrade: calculateTotalGrade(
