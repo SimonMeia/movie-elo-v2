@@ -10,8 +10,6 @@ export default class ViewingsController {
 
     const payload = await createViewingValidator.validate(request.all())
 
-    console.log(payload)
-
     await ViewingService.createViewing(
       user.id,
       payload.date,

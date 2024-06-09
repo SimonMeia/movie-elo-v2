@@ -125,8 +125,6 @@ export default class ReviewsController {
     const locationNames = dbLocations.map((location) => location.name)
     const partnerNames = dbPartners.map((partner) => partner.name)
 
-    console.log(dbLocations, dbPartners)
-
     return inertia.render<{ review: ReviewResponse; dbLocations: string[]; dbPartners: string[] }>(
       'review/main',
       { review: responseData, dbLocations: locationNames, dbPartners: partnerNames }

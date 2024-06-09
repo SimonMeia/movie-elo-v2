@@ -17,8 +17,6 @@ const totalGrade = calculateTotalGrade(
     }
   })
 )
-
-console.log(props.review)
 </script>
 
 <template>

@@ -33,7 +33,6 @@ function updateGrade(gradeTypeId: number, grade: number) {
 }
 
 function submit() {
-  console.log('submit')
   const review = {
     tmdbMovieId: tmdbMovieId.value,
     grades: grades.value,
@@ -42,8 +41,6 @@ function submit() {
     date: date.value.toISOString().split('T')[0],
     comment: comment.value === '' ? null : comment.value,
   }
-
-  console.log(review)
 
   router.visit('/reviews', {
     method: 'post',

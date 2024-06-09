@@ -37,15 +37,12 @@ const locations: Ref<string[]> = ref([])
 const date = ref(new Date())
 
 function submitNewViewing() {
-  console.log('submit')
   const review = {
     reviewId: props.reviewId,
     locations: locations.value,
     partners: partners.value,
     date: date.value.toISOString().split('T')[0],
   }
-
-  console.log(review)
 
   router.visit('/viewings', {
     method: 'post',

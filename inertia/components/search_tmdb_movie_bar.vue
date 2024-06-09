@@ -9,8 +9,6 @@ const props = defineProps<{
   error?: string[]
 }>()
 
-watchEffect(() => console.log(props.initialValue))
-
 const emit = defineEmits<{
   (event: 'update', tmdbMovie: { tmdbMovieId: number; title: string }): void
 }>()
