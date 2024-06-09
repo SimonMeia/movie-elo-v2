@@ -110,6 +110,26 @@ export default class ReviewsController {
     const user = auth.user!
     const responseData: ReviewResponse = await ReviewService.getReview(params.id, user.id)
 
-    return inertia.render<ReviewResponse>('review/main', responseData)
+    const dbLocations = await Location.query()
+      .where('userId', user.id)
+      .distinct('name')
+      .orderBy('name', 'asc')
+      .select('name')
+
+    const dbPartners = await Partner.query()
+      .where('userId', user.id)
+      .distinct('name')
+      .orderBy('name', 'asc')
+      .select('name')
+
+    const locationNames = dbLocations.map((location) => location.name)
+    const partnerNames = dbPartners.map((partner) => partner.name)
+
+    console.log(dbLocations, dbPartners)
+
+    return inertia.render<{ review: ReviewResponse; dbLocations: string[]; dbPartners: string[] }>(
+      'review/main',
+      { review: responseData, dbLocations: locationNames, dbPartners: partnerNames }
+    )
   }
 }

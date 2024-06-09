@@ -4,9 +4,9 @@ import CategoryRating from './components/category_rating.vue'
 import Calendar from 'primevue/calendar'
 import Textarea from 'primevue/textarea'
 import Button from 'primevue/button'
-import { ref } from 'vue'
+import { Ref, ref } from 'vue'
 import { router } from '@inertiajs/vue3'
-import LocationPartnerSelection from './components/location_partner_selection.vue'
+import LocationPartnerSelection from '@/components/location_partner_selection.vue'
 import Layout from '@/layouts/default.vue'
 import type { ReviewFormResponse } from '@/app/types'
 import Card from 'primevue/card'
@@ -15,13 +15,22 @@ import AccordionTab from 'primevue/accordiontab'
 
 const props = defineProps<ReviewFormResponse>()
 
-const tmdbMovieId = ref(parseInt(props.homeTmdbMovieId))
+const tmdbMovieId = ref(parseInt(props.homeTmdbMovieId ?? '0'))
 
 const grades = ref(props.dbGradeTypes.map((type) => ({ gradeTypeId: type.id, grade: 1 })))
-const locations = ref([])
-const partners = ref([])
+const locations: Ref<string[]> = ref([])
+const partners: Ref<string[]> = ref([])
 const date = ref(new Date())
 const comment = ref('')
+
+function updateGrade(gradeTypeId: number, grade: number) {
+  const index = grades.value.findIndex((g) => g.gradeTypeId === gradeTypeId)
+  if (index === -1) {
+    grades.value.push({ gradeTypeId, grade })
+  } else {
+    grades.value[index].grade = grade
+  }
+}
 
 function submit() {
   console.log('submit')
@@ -64,7 +73,7 @@ function submit() {
             :key="gradeType.id"
             :category-name="gradeType.name"
             :max-grade="gradeType.maxGrade"
-            @update="grades.find((g) => g.gradeTypeId === gradeType.id).grade = $event"
+            @update="updateGrade(gradeType.id, $event)"
           />
           <div>
             <label class="block mb-1 text-lg font-titles" for="">Date de visionnage</label>
