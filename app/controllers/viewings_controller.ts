@@ -18,6 +18,6 @@ export default class ViewingsController {
       payload.partners
     )
 
-    return response.redirect().toRoute('reviews.show', { id: 1 })
+    return response.redirect().toRoute('reviews.show', { id: payload.reviewId })
   }
 }
