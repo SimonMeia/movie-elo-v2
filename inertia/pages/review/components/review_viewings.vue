@@ -22,7 +22,6 @@ const props = defineProps<{
   }
 }>()
 
-
 const isDialogVisible = ref(false)
 
 const localErrors = ref(props.errors || {})
@@ -124,7 +123,7 @@ function submitNewViewing() {
       <div class="flex flex-col gap-6">
         <div class="flex flex-col gap-1">
           <label class="block mb-1 text-lg font-titles" for="">Date </label>
-          <Calendar v-model="date" :max-date="new Date()"/>
+          <Calendar v-model="date" :max-date="new Date()" />
           <small v-if="localErrors?.date" class="text-red-500">{{ localErrors?.date[0] }}</small>
         </div>
         <div class="flex flex-col gap-1">
