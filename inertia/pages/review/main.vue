@@ -4,7 +4,6 @@ import ReviewHeader from './components/review_header.vue'
 import ReviewGrades from './components/review_grades.vue'
 import ReviewViewings from './components/review_viewings.vue'
 import Layout from '@/layouts/default.vue'
-import { watch, watchEffect } from 'vue'
 
 const props = defineProps<{
   review: ReviewResponse
