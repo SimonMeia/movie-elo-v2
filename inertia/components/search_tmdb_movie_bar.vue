@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { Ref, ref } from 'vue'
 import AutoComplete from 'primevue/autocomplete'
 import type { TmdbSearchResponse } from '@/app/types'
-import { watchEffect } from 'vue'
 
 const props = defineProps<{
   initialValue?: string
@@ -14,7 +13,7 @@ const emit = defineEmits<{
 }>()
 
 const inputValue = ref(props.initialValue || '')
-const suggestions = ref([])
+const suggestions: Ref<{ title: string; tmdbMovieId: number; releaseYear: number }[]> = ref([])
 
 function search() {
   fetch(`/api/tmdb/search?id=${inputValue.value}`)
