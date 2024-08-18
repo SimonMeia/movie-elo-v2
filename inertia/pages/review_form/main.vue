@@ -4,7 +4,7 @@ import CategoryRating from './components/category_rating.vue'
 import Calendar from 'primevue/calendar'
 import Textarea from 'primevue/textarea'
 import Button from 'primevue/button'
-import { Ref, ref } from 'vue'
+import { Ref, ref, watchEffect } from 'vue'
 import { router } from '@inertiajs/vue3'
 import LocationPartnerSelection from '@/components/location_partner_selection.vue'
 import Layout from '@/layouts/default.vue'
@@ -23,6 +23,9 @@ const partners: Ref<string[]> = ref([])
 const date = ref(new Date())
 const comment = ref('')
 
+watchEffect(() => console.log(date.value))
+watchEffect(() => console.log(new Date(date.value)))
+
 function updateGrade(gradeTypeId: number, grade: number) {
   const index = grades.value.findIndex((g) => g.gradeTypeId === gradeTypeId)
   if (index === -1) {
@@ -33,12 +36,19 @@ function updateGrade(gradeTypeId: number, grade: number) {
 }
 
 function submit() {
+  const formatedDate =
+    date.value.getFullYear() +
+    '-' +
+    String(date.value.getMonth() + 1).padStart(2, '0') +
+    '-' +
+    String(date.value.getDate()).padStart(2, '0')
+
   const review = {
     tmdbMovieId: tmdbMovieId.value,
     grades: grades.value,
     locations: locations.value,
     partners: partners.value,
-    date: date.value.toISOString().split('T')[0],
+    date: formatedDate,
     comment: comment.value === '' ? null : comment.value,
   }
 
