@@ -109,6 +109,7 @@ function submitNewViewing() {
     modal
     :pt="{
       content: '!pb-6',
+      root: '!max-w-2xl',
     }"
     :ptOptions="{
       mergeProps: true,
