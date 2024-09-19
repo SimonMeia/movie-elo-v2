@@ -11,6 +11,7 @@ import Partner from '#models/partner'
 import Grade from '#models/grade'
 import GradeType from '#models/grade_type'
 import grade_service from '#services/grade_service'
+import { updateGradesValidator } from '#validators/update_grades'
 
 export default class ReviewsController {
   @inject()
@@ -129,5 +130,20 @@ export default class ReviewsController {
       'review/main',
       { review: responseData, dbLocations: locationNames, dbPartners: partnerNames }
     )
+  }
+
+  @inject()
+  async updateGrades({ request, response, params }: HttpContext) {
+    const review = await Review.findOrFail(params.id)
+    const payload = await updateGradesValidator.validate(request.all())
+
+    const grades = await review.related('grades').query()
+
+    for (const grade of grades) {
+      grade.value = payload.grades.find((g) => g.gradeTypeId === grade.gradeTypeId)!.grade
+      grade.save()
+    }
+
+    return response.redirect().toRoute('reviews.show', { id: review.id })
   }
 }

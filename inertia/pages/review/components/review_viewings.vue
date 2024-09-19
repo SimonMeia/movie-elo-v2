@@ -37,11 +37,18 @@ const locations: Ref<string[]> = ref([])
 const date = ref(new Date())
 
 function submitNewViewing() {
+  const formatedDate =
+    date.value.getFullYear() +
+    '-' +
+    String(date.value.getMonth() + 1).padStart(2, '0') +
+    '-' +
+    String(date.value.getDate()).padStart(2, '0')
+
   const review = {
     reviewId: props.reviewId,
     locations: locations.value,
     partners: partners.value,
-    date: date.value.toISOString().split('T')[0],
+    date: formatedDate,
   }
 
   router.visit('/viewings', {
@@ -60,15 +67,11 @@ function submitNewViewing() {
 </script>
 
 <template>
-  <div class="flex flex-row items-center gap-2">
+  <div class="flex flex-row items-center gap-1">
     <h2 class="my-6">Derniers visionnages</h2>
-    <Button
-      label="+"
-      rounded
-      :pt="{ root: { class: 'w-6 h-6 !p-0' } }"
-      :pt-options="{ mergeProps: true }"
-      @click="isDialogVisible = true"
-    />
+    <div class="flex items-center p-2 cursor-pointer" @click="isDialogVisible = true">
+      <i class="pi pi-plus-circle text-accent" @click="isDialogVisible = true" />
+    </div>
   </div>
   <Accordion>
     <AccordionTab
@@ -114,7 +117,7 @@ function submitNewViewing() {
     @hide="localErrors = {}"
   >
     <template #header>
-      <h3>Ajouter un visionnage</h3>
+      <h3 class="text-xl">Ajouter un visionnage</h3>
     </template>
     <form @submit.prevent="submitNewViewing">
       <div class="flex flex-col gap-6">

@@ -5,6 +5,7 @@ import { computed, ref } from 'vue'
 const props = defineProps<{
   maxGrade: number
   categoryName: string
+  grade?: number
   error?: string
 }>()
 
@@ -12,7 +13,7 @@ const emit = defineEmits<{
   update: [grade: number]
 }>()
 
-const value = ref(1)
+const value = ref(props.grade ?? 1)
 const options = computed(() => Array.from({ length: props.maxGrade }, (_, i) => i + 1))
 const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-input`)
 </script>

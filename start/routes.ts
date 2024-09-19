@@ -25,6 +25,7 @@ router
     router.post('/reviews', [ReviewsController, 'store'])
     router.get('/reviews', [ReviewsController, 'index'])
     router.get('/reviews/:id', [ReviewsController, 'show']).as('reviews.show')
+    router.patch('/reviews/:id/grades', [ReviewsController, 'updateGrades'])
 
     router.get('/review-form', [ReviewsController, 'create'])
 
