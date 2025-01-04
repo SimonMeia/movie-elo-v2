@@ -22,8 +22,9 @@ router
   .group(() => {
     router.get('/', [HomeController, 'index'])
 
-    router.post('/reviews', [ReviewsController, 'store'])
+    router.post('/create-reviews', [ReviewsController, 'store'])
     router.get('/reviews', [ReviewsController, 'index'])
+    router.post('/reviews', [ReviewsController, 'index'])
     router.get('/reviews/:id', [ReviewsController, 'show']).as('reviews.show')
     router.patch('/reviews/:id/grades', [ReviewsController, 'updateGrades'])
 
