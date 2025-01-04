@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import Chip from 'primevue/chip'
 import Accordion from 'primevue/accordion'
-import AccordionTab from 'primevue/accordiontab'
+import AccordionPanel from 'primevue/accordionpanel'
+import AccordionHeader from 'primevue/accordionheader'
+import AccordionContent from 'primevue/accordioncontent'
 import type { Viewing } from '@/app/types'
 import { Ref, ref, watch } from 'vue'
 import Button from 'primevue/button'
 import Dialog from 'primevue/dialog'
-import Calendar from 'primevue/calendar'
+import DatePicker from 'primevue/calendar'
 import LocationPartnerSelection from '@/components/location_partner_selection.vue'
 import { router } from '@inertiajs/vue3'
 
@@ -74,34 +76,33 @@ function submitNewViewing() {
     </div>
   </div>
   <Accordion>
-    <AccordionTab
-      v-for="viewing of viewings"
-      :key="viewing.id"
-      :header="new Date(viewing.date).toLocaleDateString('fr-CH')"
-    >
-      <div class="flex flex-col gap-2">
-        <div>
-          <h3>Endroit :</h3>
-          <div
-            v-for="location in viewing.locations"
-            :key="location.id"
-            class="inline-block mb-1 mr-1 grow"
-          >
-            <Chip :label="location.name" />
+    <AccordionPanel v-for="viewing of viewings" :key="viewing.id" :value="viewing.id">
+      <AccordionHeader>{{ new Date(viewing.date).toLocaleDateString('fr-CH') }}</AccordionHeader>
+      <AccordionContent>
+        <div class="flex flex-col gap-2">
+          <div>
+            <h3>Endroit :</h3>
+            <div
+              v-for="location in viewing.locations"
+              :key="location.id"
+              class="inline-block mb-1 mr-1 grow"
+            >
+              <Chip :label="location.name" />
+            </div>
+          </div>
+          <div>
+            <h3>Partners :</h3>
+            <div
+              v-for="partner in viewing.partners"
+              :key="partner.id"
+              class="inline-block mb-1 mr-1 grow"
+            >
+              <Chip :label="partner.name" />
+            </div>
           </div>
         </div>
-        <div>
-          <h3>Partners :</h3>
-          <div
-            v-for="partner in viewing.partners"
-            :key="partner.id"
-            class="inline-block mb-1 mr-1 grow"
-          >
-            <Chip :label="partner.name" />
-          </div>
-        </div>
-      </div>
-    </AccordionTab>
+      </AccordionContent>
+    </AccordionPanel>
   </Accordion>
 
   <Dialog
@@ -124,7 +125,7 @@ function submitNewViewing() {
       <div class="flex flex-col gap-6">
         <div class="flex flex-col gap-1">
           <label class="block mb-1 text-lg font-titles" for="">Date </label>
-          <Calendar v-model="date" :max-date="new Date()" />
+          <DatePicker v-model="date" :max-date="new Date()" />
           <small v-if="localErrors?.date" class="text-red-500">{{ localErrors?.date[0] }}</small>
         </div>
         <div class="flex flex-col gap-1">

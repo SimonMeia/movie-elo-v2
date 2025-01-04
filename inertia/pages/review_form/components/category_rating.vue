@@ -14,7 +14,13 @@ const emit = defineEmits<{
 }>()
 
 const value = ref(props.grade ?? 1)
-const options = computed(() => Array.from({ length: props.maxGrade }, (_, i) => i + 1))
+const options = computed(() =>
+  Array.from({ length: props.maxGrade }, (_, i) => ({
+    label: (i + 1).toString(),
+    value: i + 1,
+  }))
+)
+
 const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-input`)
 </script>
 
@@ -22,15 +28,13 @@ const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-
   <div>
     <label class="block mb-1 text-lg font-titles" :for="fieldId">{{ categoryName }}</label>
     <SelectButton
-      :id="fieldId"
+      :id="fieldId.toString()"
       v-model="value"
       :options="options"
+      optionLabel="label"
+      optionValue="value"
       :allowEmpty="false"
       @change="emit('update', value)"
-      :pt="{
-        root: 'flex w-full h-10',
-        button: { style: { 'flex-grow': 1, 'justify-content': 'center' } },
-      }"
     />
     <small v-if="props.error" class="text-red-500">
       {{ props.error }}

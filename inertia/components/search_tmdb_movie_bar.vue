@@ -8,7 +8,7 @@ const props = defineProps<{
   error?: string[]
 }>()
 
-const emit = defineEmits<{
+defineEmits<{
   (event: 'update', tmdbMovie: { tmdbMovieId: number; title: string }): void
 }>()
 
@@ -36,7 +36,8 @@ function search() {
   <AutoComplete
     v-model="inputValue"
     optionLabel="title"
-    placeholder="Search"
+    placeholder="Rechercher un film"
+    fluid
     class="w-full"
     :suggestions="suggestions"
     @complete="search"
@@ -45,8 +46,10 @@ function search() {
     "
   >
     <template #option="slotProps">
-      <p>{{ slotProps.option.title }}</p>
-      <p class="text-xs">{{ slotProps.option.releaseYear }}</p>
+      <p>
+        {{ slotProps.option.title }}
+        <span class="mr-2 text-xs">({{ slotProps.option.releaseYear }})</span>
+      </p>
     </template>
   </AutoComplete>
   <small v-if="props.error" class="text-red-500">

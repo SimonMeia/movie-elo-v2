@@ -32,10 +32,16 @@ const items = ref([
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 py-1 border-b bg-surface-0 border-accent">
+  <header class="sticky top-0 z-50 border-b bg-surface-0 border-accent">
     <Menubar :model="items">
       <template #start>
-        <Link href="/" :preserve-scroll="true" :preserve-state="true" aria-label="Homepage">
+        <Link
+          href="/"
+          :preserve-scroll="true"
+          :preserve-state="true"
+          aria-label="Homepage"
+          class="mr-4"
+        >
           <MovieEloLogo></MovieEloLogo>
         </Link>
       </template>

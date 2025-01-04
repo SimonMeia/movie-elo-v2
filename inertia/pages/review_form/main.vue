@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import SearchTmdbMovieBar from '@/components/search_tmdb_movie_bar.vue'
 import CategoryRating from './components/category_rating.vue'
-import Calendar from 'primevue/calendar'
 import Textarea from 'primevue/textarea'
 import Button from 'primevue/button'
 import { Ref, ref, watchEffect } from 'vue'
@@ -11,7 +10,10 @@ import Layout from '@/layouts/default.vue'
 import type { ReviewFormResponse } from '@/app/types'
 import Card from 'primevue/card'
 import Accordion from 'primevue/accordion'
-import AccordionTab from 'primevue/accordiontab'
+import AccordionPanel from 'primevue/accordionpanel'
+import AccordionHeader from 'primevue/accordionheader'
+import AccordionContent from 'primevue/accordioncontent'
+import DatePicker from 'primevue/datepicker'
 
 const props = defineProps<ReviewFormResponse>()
 
@@ -65,7 +67,7 @@ function submit() {
   <Layout>
     <div class="container mt-8">
       <h1 class="mb-4">Ajout d'une nouvelle review</h1>
-      <div class="flex flex-row justify-center gap-8 md:justify-evenly">
+      <div class="flex flex-row gap-8">
         <form @submit.prevent="submit" class="flex flex-col w-full max-w-lg gap-4 md:gap-8">
           <div>
             <label class="block mb-1 text-lg font-titles" for="">Movie</label>
@@ -84,7 +86,7 @@ function submit() {
           />
           <div>
             <label class="block mb-1 text-lg font-titles" for="">Date de visionnage</label>
-            <Calendar
+            <DatePicker
               inline
               selectOtherMonths
               v-model="date"
@@ -116,17 +118,21 @@ function submit() {
           <template #title>Système de notes</template>
           <template #content>
             <Accordion>
-              <AccordionTab v-for="gradeType in dbGradeTypes" :key="gradeType.id">
-                <template #header>
-                  {{ gradeType.name }}
-                </template>
-                <div class="grid grid-cols-1 gap-2">
-                  <div v-for="grade in gradeType.grades" :key="grade.id">
-                    <h4 class="text-accent">{{ grade.grade }} - {{ grade.description }}</h4>
-                    <p>{{ grade.movie }}</p>
+              <AccordionPanel
+                v-for="gradeType in dbGradeTypes"
+                :key="gradeType.id"
+                :value="gradeType.id"
+              >
+                <AccordionHeader>{{ gradeType.name }}</AccordionHeader>
+                <AccordionContent>
+                  <div class="grid grid-cols-1 gap-2">
+                    <div v-for="grade in gradeType.grades" :key="grade.id">
+                      <h4 class="text-accent">{{ grade.grade }} - {{ grade.description }}</h4>
+                      <p>{{ grade.movie }}</p>
+                    </div>
                   </div>
-                </div>
-              </AccordionTab>
+                </AccordionContent>
+              </AccordionPanel>
             </Accordion>
           </template>
         </Card>

@@ -15,7 +15,7 @@ const totalGrade = calculateTotalGrade(
     }
   })
 )
-const tagColor = totalGrade > 80 ? 'success' : totalGrade <= 50 ? 'danger' : 'warning'
+const tagColor = totalGrade > 80 ? 'success' : totalGrade <= 50 ? 'danger' : 'warn'
 </script>
 
 <template>
