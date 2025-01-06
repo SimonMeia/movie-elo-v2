@@ -25,7 +25,7 @@ const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-
 </script>
 
 <template>
-  <div>
+  <div class="category-rating">
     <label class="block mb-1 text-lg font-titles" :for="fieldId">{{ categoryName }}</label>
     <SelectButton
       :id="fieldId.toString()"
@@ -35,6 +35,7 @@ const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-
       optionValue="value"
       :allowEmpty="false"
       @change="emit('update', value)"
+      :pt="{ root: 'flex w-full h-10' }"
     />
     <small v-if="props.error" class="text-red-500">
       {{ props.error }}

@@ -32,8 +32,8 @@ const items = ref([
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 border-b bg-surface-0 border-accent">
-    <Menubar :model="items">
+  <header class="sticky top-0 z-50 border-b border-accent">
+    <Menubar :model="items" :pt="{ root: '!bg-white' }">
       <template #start>
         <Link
           href="/"
