@@ -39,6 +39,7 @@ router.use([
   () => import('@adonisjs/shield/shield_middleware'),
   () => import('@adonisjs/auth/initialize_auth_middleware'),
   () => import('@adonisjs/inertia/inertia_middleware'),
+  () => import('#middleware/share_inertia_flash'),
 ])
 
 /**

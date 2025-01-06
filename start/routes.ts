@@ -22,10 +22,10 @@ router
   .group(() => {
     router.get('/', [HomeController, 'index'])
 
-    router.post('/create-reviews', [ReviewsController, 'store'])
-    router.get('/reviews', [ReviewsController, 'index'])
-    router.post('/reviews', [ReviewsController, 'index'])
+    router.get('/reviews', [ReviewsController, 'index']).as('reviews.index')
+    router.post('/reviews', [ReviewsController, 'store']).as('reviews.store')
     router.get('/reviews/:id', [ReviewsController, 'show']).as('reviews.show')
+    router.delete('/reviews/:id', [ReviewsController, 'delete']).as('reviews.delete')
     router.patch('/reviews/:id/grades', [ReviewsController, 'updateGrades'])
 
     router.get('/review-form', [ReviewsController, 'create'])

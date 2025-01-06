@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import {FormGradeType, ReviewResponse} from '@/app/types'
+import { FormGradeType, ReviewResponse } from '@/app/types'
 import ReviewHeader from './components/review_header.vue'
 import ReviewGrades from './components/review_grades.vue'
 import ReviewViewings from './components/review_viewings.vue'
 import Layout from '@/layouts/default.vue'
+import ConfirmDialog from 'primevue/confirmdialog'
+import { useConfirm } from 'primevue/useconfirm'
+import Button from 'primevue/button'
+import {router} from "@inertiajs/vue3";
 
-defineProps<{
+const props = defineProps<{
   review: ReviewResponse
   dbLocations: string[]
   dbPartners: string[]
@@ -16,6 +20,35 @@ defineProps<{
     partners?: string[]
   }
 }>()
+
+const confirm = useConfirm()
+
+const confirmDelete = () => {
+  confirm.require({
+    message: 'Êtes-vous sûr de vouloir supprimer la review ?',
+    header: 'Confirmation',
+    icon: 'pi pi-exclamation-triangle',
+    rejectProps: {
+      label: 'Annuler',
+      severity: 'secondary',
+      outlined: true,
+    },
+    acceptProps: {
+      label: 'Supprimer',
+      severity: 'danger',
+    },
+    accept: () => {
+      router.visit('/reviews/' + props.review.review.id, {
+        method: 'delete',
+        preserveState: true,
+        preserveScroll: true,
+      })
+    },
+    reject: () => {
+
+    },
+  })
+}
 </script>
 
 <template>
@@ -34,9 +67,11 @@ defineProps<{
         :db-partners="dbPartners"
         :errors="errors"
       ></ReviewViewings>
+
+      <Button @click="confirmDelete" label="Supprimer la review" outlined severity="danger" class="mt-8 w-full sm:w-fit"></Button>
+      <ConfirmDialog />
     </div>
   </Layout>
 </template>
 
 <style scoped></style>
-@/app/types

@@ -6,6 +6,8 @@ import { resolvePageComponent } from '@adonisjs/inertia/helpers'
 
 import PrimeVue from 'primevue/config'
 import 'primeicons/primeicons.css'
+import ConfirmationService from 'primevue/confirmationservice'
+import ToastService from 'primevue/toastservice'
 import { movieEloTheme } from './presets'
 import { movieEloLocale } from './locale'
 
@@ -26,6 +28,8 @@ void createInertiaApp({
         theme: movieEloTheme,
         locale: movieEloLocale,
       })
+      .use(ConfirmationService)
+      .use(ToastService)
 
     app.mount(el)
   },

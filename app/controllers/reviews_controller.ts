@@ -169,4 +169,17 @@ export default class ReviewsController {
 
     return response.redirect().toRoute('reviews.show', { id: review.id })
   }
+
+  @inject()
+  async delete({ session, params, response }: HttpContext) {
+    const review = await Review.findOrFail(params.id)
+    await review.delete()
+
+    session.flash('notification', {
+      type: 'success',
+      message: 'La review a bien été supprimée',
+    })
+
+    return response.redirect().toRoute('reviews.index')
+  }
 }

@@ -54,7 +54,7 @@ function submit() {
     comment: comment.value === '' ? null : comment.value,
   }
 
-  router.visit('/create-reviews', {
+  router.visit('/reviews', {
     method: 'post',
     data: review,
     preserveState: true,
