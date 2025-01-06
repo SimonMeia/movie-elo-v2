@@ -1,10 +1,19 @@
 import Review from '#models/review'
 import { type UserId } from '#models/user'
 import { ReviewResponse, ReviewsResponse } from '#types/response'
+import db from '@adonisjs/lucid/services/db'
+import { PaginationMeta } from '#types/pagination'
 
 class ReviewService {
-  async getAllReviews(userId: UserId): Promise<ReviewsResponse> {
-    const reviews: Review[] = await Review.query()
+  async getAllReviews(userId: UserId): Promise<{ data: ReviewResponse[]; meta: PaginationMeta }> {
+    let reviews = await Review.query()
+      .where('userId', userId)
+      .select('reviews.*')
+      .join('grade_review', 'reviews.id', '=', 'grade_review.review_id')
+      .join('grades', 'grade_review.grade_id', '=', 'grades.id')
+      .groupBy('reviews.id')
+      .select(db.raw('SUM(grades.value) as total_grade'))
+      .orderBy('total_grade', 'desc')
       .preload('movie', (movie) => {
         movie.preload('actors')
         movie.preload('directors')
@@ -17,10 +26,19 @@ class ReviewService {
         viewing.preload('partners')
       })
       .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
-      .where('userId', userId)
+      .paginate(1, 4)
+
+    // console.log(reviews)
+    const data: ReviewResponse[] = []
+    for (let d of reviews) {
+      data.push(this.transformReviewToResponse(d))
+    }
+
+    const paginationJSON = reviews.toJSON()
 
     return {
-      reviews: reviews.map(this.transformReviewToResponse),
+      data: data,
+      meta: paginationJSON.meta as PaginationMeta,
     }
   }
 
@@ -69,6 +87,7 @@ class ReviewService {
       reviews: reviews.map(this.transformReviewToResponse),
     }
   }
+
   private transformReviewToResponse(review: Review): ReviewResponse {
     const grades = review.grades.map((grade) => ({
       givenGrade: grade.value,

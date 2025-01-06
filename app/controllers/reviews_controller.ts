@@ -1,7 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
 import { createReviewValidator } from '#validators/review'
-import { FormGradeType, ReviewFormResponse, ReviewResponse, ReviewsResponse } from '#types/response'
+import { FormGradeType, ReviewFormResponse, ReviewResponse } from '#types/response'
 import MovieService from '#services/movie_service'
 import Review from '#models/review'
 import ReviewService from '#services/reviews_sevice'
@@ -12,13 +12,14 @@ import Grade from '#models/grade'
 import GradeType from '#models/grade_type'
 import grade_service from '#services/grade_service'
 import { updateGradesValidator } from '#validators/update_grades'
+import { PaginationMeta } from '#types/pagination'
 
 export default class ReviewsController {
   @inject()
   async index({ inertia, auth }: HttpContext) {
     const user = auth.user!
     const reviews = await ReviewService.getAllReviews(user.id)
-    return inertia.render<ReviewsResponse>('reviews/main', reviews)
+    return inertia.render<{ meta: PaginationMeta; data: ReviewResponse[] }>('reviews/main', reviews)
   }
 
   @inject()

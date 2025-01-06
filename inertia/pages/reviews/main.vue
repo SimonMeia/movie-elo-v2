@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ReviewsResponse } from '@/app/types'
+import type { PaginatedReviewsResponse, ReviewResponse, ReviewsResponse } from '@/app/types'
 import Layout from '@/layouts/default.vue'
 import GradesTable from './components/grades_table.vue'
 import ViewingsTable from './components/viewings_table.vue'
@@ -9,14 +9,8 @@ import TabList from 'primevue/tablist'
 import TabPanels from 'primevue/tabpanels'
 import TabPanel from 'primevue/tabpanel'
 
-const props = defineProps<ReviewsResponse>()
+defineProps<{ data: ReviewResponse[]; meta: PaginatedReviewsResponse }>()
 
-// const active = ref(0)
-
-// const viewsItems = ref([
-//   { label: 'Notes', icon: 'pi pi-star', command: () => (active.value = 0) },
-//   { label: 'Visionnages', icon: 'pi pi-calendar', command: () => (active.value = 1) },
-// ])
 </script>
 
 <template>
@@ -30,10 +24,10 @@ const props = defineProps<ReviewsResponse>()
         </TabList>
         <TabPanels :pt="{ root: '!p-0' }">
           <TabPanel value="0">
-            <GradesTable :reviews="props.reviews" />
+            <GradesTable :reviews="data" />
           </TabPanel>
           <TabPanel value="1">
-            <ViewingsTable :reviews="props.reviews" />
+            <ViewingsTable :reviews="data" />
           </TabPanel>
         </TabPanels>
       </Tabs>

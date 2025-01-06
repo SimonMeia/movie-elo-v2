@@ -6,8 +6,6 @@ import { createUserValidator } from '#validators/users'
 export default class SessionController {
   @inject()
   async create({ inertia, session }: HttpContext) {
-    console.log(session.flashMessages.all())
-
     if (
       session.flashMessages.all().errorsBag &&
       session.flashMessages.all().errorsBag.hasOwnProperty('E_INVALID_CREDENTIALS')
