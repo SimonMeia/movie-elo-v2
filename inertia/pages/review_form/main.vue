@@ -82,6 +82,7 @@ function submit() {
             :key="gradeType.id"
             :category-name="gradeType.name"
             :max-grade="gradeType.maxGrade"
+            :form-grade-type="dbGradeTypes.find((g) => g.id === gradeType.id)"
             @update="updateGrade(gradeType.id, $event)"
           />
           <div>
@@ -114,30 +115,32 @@ function submit() {
 
           <Button type="submit" class="w-full my-2" label="Ajouter la review"></Button>
         </form>
-        <Card class="sticky hidden w-full max-w-lg top-24 lg:block h-fit">
-          <template #title>Système de notes</template>
-          <template #content>
-            <Accordion>
-              <AccordionPanel
-                v-for="gradeType in dbGradeTypes"
-                :key="gradeType.id"
-                :value="gradeType.id"
-              >
-                <AccordionHeader>{{ gradeType.name }}</AccordionHeader>
-                <AccordionContent>
-                  <div class="grid grid-cols-1 gap-2">
-                    <div v-for="grade in gradeType.grades" :key="grade.id">
-                      <h4 class="text-accent">{{ grade.grade }} - {{ grade.description }}</h4>
-                      <p>{{ grade.movie }}</p>
+
+        <div class="sticky hidden w-full max-w-lg top-24 lg:block h-fit">
+          <Card>
+            <template #title>Système de notes</template>
+            <template #content>
+              <Accordion>
+                <AccordionPanel
+                  v-for="gradeType in dbGradeTypes"
+                  :key="gradeType.id"
+                  :value="gradeType.id"
+                >
+                  <AccordionHeader>{{ gradeType.name }}</AccordionHeader>
+                  <AccordionContent>
+                    <div class="grid grid-cols-1 gap-2">
+                      <div v-for="grade in gradeType.grades" :key="grade.id">
+                        <h4 class="text-accent">{{ grade.grade }} - {{ grade.description }}</h4>
+                        <p>{{ grade.movie }}</p>
+                      </div>
                     </div>
-                  </div>
-                </AccordionContent>
-              </AccordionPanel>
-            </Accordion>
-          </template>
-        </Card>
+                  </AccordionContent>
+                </AccordionPanel>
+              </Accordion>
+            </template>
+          </Card>
+        </div>
       </div>
     </div>
   </Layout>
 </template>
-@/app/types

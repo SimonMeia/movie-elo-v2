@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import SelectButton from 'primevue/selectbutton'
+import Dialog from 'primevue/dialog'
 import { computed, ref } from 'vue'
+import type { FromGradeType } from '@/app/types'
 
 const props = defineProps<{
   maxGrade: number
   categoryName: string
   grade?: number
   error?: string
+  formGradeType: FromGradeType
 }>()
 
 const emit = defineEmits<{
@@ -20,13 +23,18 @@ const options = computed(() =>
     value: i + 1,
   }))
 )
-
+const isDialogVisible = ref(false)
 const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-input`)
 </script>
 
 <template>
   <div class="category-rating">
-    <label class="block mb-1 text-lg font-titles" :for="fieldId">{{ categoryName }}</label>
+    <div class="flex flex-row items-center gap-1 mb-1">
+      <label class="block text-lg font-titles" :for="fieldId">{{ categoryName }}</label>
+      <div class="flex items-center p-2 cursor-pointer" @click="isDialogVisible = true">
+        <i class="pi pi-eye text-accent" @click="isDialogVisible = true" />
+      </div>
+    </div>
     <SelectButton
       :id="fieldId.toString()"
       v-model="value"
@@ -40,5 +48,23 @@ const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-
     <small v-if="props.error" class="text-red-500">
       {{ props.error }}
     </small>
+
+    <Dialog
+      v-model:visible="isDialogVisible"
+      modal
+      :draggable="false"
+      @hide="localErrors = {}"
+      :pt="{ root: 'w-[95%] !max-w-lg', header: '!pb-2' }"
+    >
+      <template #header>
+        <h3 class="text-xl">{{ categoryName }}</h3>
+      </template>
+      <div class="grid grid-cols-1 gap-2">
+        <div v-for="grade in formGradeType.grades" :key="grade.id">
+          <h4 class="text-accent">{{ grade.grade }} - {{ grade.description }}</h4>
+          <p>{{ grade.movie }}</p>
+        </div>
+      </div>
+    </Dialog>
   </div>
 </template>
