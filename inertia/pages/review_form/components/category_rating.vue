@@ -2,14 +2,14 @@
 import SelectButton from 'primevue/selectbutton'
 import Dialog from 'primevue/dialog'
 import { computed, ref } from 'vue'
-import type { FromGradeType } from '@/app/types'
+import type { FormGradeType } from '@/app/types'
 
 const props = defineProps<{
   maxGrade: number
   categoryName: string
   grade?: number
   error?: string
-  formGradeType: FromGradeType
+  formGradeType?: FormGradeType
 }>()
 
 const emit = defineEmits<{
@@ -31,7 +31,7 @@ const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-
   <div class="category-rating">
     <div class="flex flex-row items-center gap-1 mb-1">
       <label class="block text-lg font-titles" :for="fieldId">{{ categoryName }}</label>
-      <div class="flex items-center p-2 cursor-pointer" @click="isDialogVisible = true">
+      <div class="flex items-center p-2 cursor-pointer lg:hidden" @click="isDialogVisible = true">
         <i class="pi pi-eye text-accent" @click="isDialogVisible = true" />
       </div>
     </div>
@@ -53,14 +53,13 @@ const fieldId = computed(() => `${props.categoryName.toLocaleLowerCase()}-grade-
       v-model:visible="isDialogVisible"
       modal
       :draggable="false"
-      @hide="localErrors = {}"
       :pt="{ root: 'w-[95%] !max-w-lg', header: '!pb-2' }"
     >
       <template #header>
         <h3 class="text-xl">{{ categoryName }}</h3>
       </template>
       <div class="grid grid-cols-1 gap-2">
-        <div v-for="grade in formGradeType.grades" :key="grade.id">
+        <div v-for="grade in formGradeType?.grades" :key="grade.id">
           <h4 class="text-accent">{{ grade.grade }} - {{ grade.description }}</h4>
           <p>{{ grade.movie }}</p>
         </div>

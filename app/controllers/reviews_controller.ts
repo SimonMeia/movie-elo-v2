@@ -1,7 +1,7 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
 import { createReviewValidator } from '#validators/review'
-import { ReviewFormResponse, ReviewResponse, ReviewsResponse } from '#types/response'
+import { FormGradeType, ReviewFormResponse, ReviewResponse, ReviewsResponse } from '#types/response'
 import MovieService from '#services/movie_service'
 import Review from '#models/review'
 import ReviewService from '#services/reviews_sevice'
@@ -123,13 +123,36 @@ export default class ReviewsController {
       .orderBy('name', 'asc')
       .select('name')
 
+    const comparisonGrades = await grade_service.getMovieForEachGrade(user.id)
     const locationNames = dbLocations.map((location) => location.name)
     const partnerNames = dbPartners.map((partner) => partner.name)
+    const gradesTypes = await GradeType.query().where('user_id', user.id).preload('grades')
 
-    return inertia.render<{ review: ReviewResponse; dbLocations: string[]; dbPartners: string[] }>(
-      'review/main',
-      { review: responseData, dbLocations: locationNames, dbPartners: partnerNames }
-    )
+    return inertia.render<{
+      review: ReviewResponse
+      dbLocations: string[]
+      dbPartners: string[]
+      dbGradeTypes: FormGradeType[]
+    }>('review/main', {
+      review: responseData,
+      dbLocations: locationNames,
+      dbPartners: partnerNames,
+      dbGradeTypes: gradesTypes.map((type) => ({
+        id: type.id,
+        name: type.name,
+        maxGrade: type.maxGrade,
+        grades: type.grades
+          .map((grade) => ({
+            id: grade.id,
+            description: grade.description,
+            grade: grade.value,
+            movie:
+              comparisonGrades.find((c) => c.id === type.id)?.grades.find((g) => g.id === grade.id)
+                ?.movie || 'Pas de film',
+          }))
+          .sort((a, b) => b.grade - a.grade),
+      })),
+    })
   }
 
   @inject()

@@ -16,14 +16,14 @@ export type HomeResponse = {
 }
 
 export type FormGrade = Grade & { movie: string }
-export type FormGradeTyoe = GradeType & { grades: FormGrade[] }
+export type FormGradeType = GradeType & { grades: FormGrade[] }
 
 export type ReviewFormResponse = {
   homeTmdbMovieId?: string
   homeTmdbMovieTitle?: string
   dbLocations: string[]
   dbPartners: string[]
-  dbGradeTypes: FormGradeTyoe[]
+  dbGradeTypes: FormGradeType[]
   errors?: {
     tmdbMovieId?: string[]
     locations?: string[]

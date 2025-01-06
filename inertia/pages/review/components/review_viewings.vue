@@ -108,13 +108,7 @@ function submitNewViewing() {
   <Dialog
     v-model:visible="isDialogVisible"
     modal
-    :pt="{
-      content: '!pb-6',
-      root: '!max-w-2xl',
-    }"
-    :ptOptions="{
-      mergeProps: true,
-    }"
+    :pt="{ root: 'w-[95%] !max-w-lg', header: '!pb-2' }"
     :draggable="false"
     @hide="localErrors = {}"
   >
@@ -148,11 +142,10 @@ function submitNewViewing() {
       <div class="flex justify-end gap-4 mt-6">
         <Button
           label="Annuler"
-          class="p-button-text"
-          severity="contrast"
+          severity="secondary"
           @click="isDialogVisible = false"
         />
-        <Button label="Créer" class="p-button-text" type="submit" />
+        <Button label="Créer" type="submit" />
       </div>
     </form>
   </Dialog>

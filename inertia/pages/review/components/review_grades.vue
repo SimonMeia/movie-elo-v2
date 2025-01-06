@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Review } from '@/app/types'
+import type {FormGradeType, Review} from '@/app/types'
 import ReviewGrade from './review_grade.vue'
 import { useGrades } from '@/composables/use_grades'
 import { ref } from 'vue'
@@ -10,6 +10,7 @@ import { router } from '@inertiajs/vue3'
 
 const props = defineProps<{
   review: Review
+  formGradeTypes: FormGradeType[]
 }>()
 
 const { calculateTotalGrade } = useGrades()
@@ -77,22 +78,17 @@ function applyChanges() {
   <Dialog
     v-model:visible="isDialogVisible"
     modal
-    :pt="{
-      root: '!max-w-2xl',
-      content: '!pb-6',
-    }"
-    :ptOptions="{
-      mergeProps: true,
-    }"
+    :pt="{ root: 'w-[95%] !max-w-lg', header: '!pb-2' }"
     :draggable="false"
   >
     <template #header>
       <h3 class="text-xl">Créer une catégorie</h3>
     </template>
-    <form @submit.prevent="applyChanges">
+    <form @submit.prevent="applyChanges" class="flex flex-col w-full max-w-lg gap-4">
       <CategoryRating
         v-for="gradeType in dbGradeTypes"
         :key="gradeType.id"
+        :form-grade-type="formGradeTypes.find((g) => g.id === gradeType.id)"
         :category-name="gradeType.name"
         :max-grade="gradeType.maxGrade"
         :grade="grades.find((g) => g.gradeTypeId === gradeType.id)?.grade"
@@ -101,15 +97,12 @@ function applyChanges() {
       <div class="flex justify-end gap-4 mt-6">
         <Button
           label="Annuler"
-          class="p-button-text"
-          severity="contrast"
+          severity="secondary"
           @click="isDialogVisible = false"
         />
-        <Button label="Modifier" class="p-button-text" type="submit" />
+        <Button label="Modifier" type="submit" />
       </div>
     </form>
   </Dialog>
 </template>
 
-<style scoped></style>
-@/app/types

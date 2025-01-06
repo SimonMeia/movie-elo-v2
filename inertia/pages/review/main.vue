@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import type { ReviewResponse } from '@/app/types'
+import {FormGradeType, ReviewResponse} from '@/app/types'
 import ReviewHeader from './components/review_header.vue'
 import ReviewGrades from './components/review_grades.vue'
 import ReviewViewings from './components/review_viewings.vue'
 import Layout from '@/layouts/default.vue'
 
-const props = defineProps<{
+defineProps<{
   review: ReviewResponse
   dbLocations: string[]
   dbPartners: string[]
+  dbGradeTypes: FormGradeType[]
   errors?: {
     tmdbMovieId?: string[]
     locations?: string[]
@@ -20,18 +21,18 @@ const props = defineProps<{
 <template>
   <Layout>
     <ReviewHeader
-      :backdrop-path="props.review.movie.backdropPath"
-      :title="props.review.movie.title"
-      :synopsis="props.review.movie.synopsis"
+      :backdrop-path="review.movie.backdropPath"
+      :title="review.movie.title"
+      :synopsis="review.movie.synopsis"
     />
     <div class="container">
-      <ReviewGrades :review="props.review.review"></ReviewGrades>
+      <ReviewGrades :review="review.review" :form-grade-types="dbGradeTypes"></ReviewGrades>
       <ReviewViewings
-        :review-id="props.review.review.id"
-        :viewings="props.review.review.viewings"
-        :db-locations="props.dbLocations"
-        :db-partners="props.dbPartners"
-        :errors="props.errors"
+        :review-id="review.review.id"
+        :viewings="review.review.viewings"
+        :db-locations="dbLocations"
+        :db-partners="dbPartners"
+        :errors="errors"
       ></ReviewViewings>
     </div>
   </Layout>
