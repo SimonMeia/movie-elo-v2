@@ -75,6 +75,7 @@ function loadMore() {
           <TabPanel value="0">
             <GradesTable :reviews="data" />
             <div
+              v-if="meta.currentPage < meta.lastPage"
               v-element-visibility="onElementVisibility"
               class="h-24 text-center flex items-center justify-center"
             >
