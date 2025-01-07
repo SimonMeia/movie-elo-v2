@@ -28,7 +28,7 @@
 }
 
 :root {
-  --accent: 194 19 19;
+  --accent: 194, 19, 19;
 }
 
 .category-rating .p-togglebutton {

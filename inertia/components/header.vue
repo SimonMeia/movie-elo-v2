@@ -3,10 +3,8 @@ import { Link, router } from '@inertiajs/vue3'
 import MovieEloLogo from '@/assets/icons/movieelo_logo.vue'
 import MovieEloLogoSmall from '@/assets/icons/movieelo_logo_small.vue'
 import Avatar from 'primevue/avatar'
-import Button from 'primevue/button'
 import Menubar from 'primevue/menubar'
 import { ref } from 'vue'
-import Badge from 'primevue/badge'
 
 const items = ref([
   {
@@ -45,17 +43,16 @@ const items = ref([
           </div>
         </Link>
       </template>
-      <template #item="{ item, props, hasSubmenu, root }">
+      <template #item="{ item, props }">
         <a class="flex items-center" @click="item.action()" v-bind="props.action">
           <span>{{ item.label }}</span>
         </a>
       </template>
       <template #end>
         <Avatar
-          label="V"
-          style="background-color: #ece9fc; color: #2a1261"
-          shape="circle"
+          icon="pi pi-user"
           @click="router.get('/profile')"
+          class="cursor-pointer"
         />
       </template>
     </Menubar>

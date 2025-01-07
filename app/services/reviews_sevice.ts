@@ -147,7 +147,7 @@ class ReviewService {
   private calculateTotalGrade(review: Review): number {
     const maxGradeSum = review.grades.reduce((total, grade) => total + grade.gradeType.maxGrade, 0)
     const gradeSum = review.grades.reduce((total, grade) => total + grade.value, 0)
-    return (gradeSum / maxGradeSum) * 100
+    return Math.round((gradeSum / maxGradeSum) * 100)
   }
 
   private transformReviewToResponse(review: Review): ReviewResponse {
