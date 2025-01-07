@@ -10,23 +10,27 @@ import TabPanels from 'primevue/tabpanels'
 import TabPanel from 'primevue/tabpanel'
 import { router } from '@inertiajs/vue3'
 import { vElementVisibility } from '@vueuse/components'
+import { ref } from 'vue'
 
 const props = defineProps<{ data: ReviewResponse[]; meta: PaginationMeta }>()
+const isLoaderVisible = ref(false)
 
-function onElementVisibility(state: boolean) {
-  if (state) loadMore()
+function onElementVisibility(divVisiblity: boolean) {
+  if (divVisiblity && props.meta.currentPage < props.meta.lastPage) {
+    isLoaderVisible.value = true
+    loadMore()
+  } else {
+    isLoaderVisible.value = false
+  }
 }
 
 function loadMore() {
-  console.log('load more')
-  if (props.meta.currentPage < props.meta.lastPage) {
-    router.visit(`/reviews?page=${props.meta.currentPage + 1}`, {
-      method: 'get',
-      only: ['data', 'meta'],
-      replace: true,
-      preserveScroll: true,
-    })
-  }
+  router.visit(`/reviews?page=${props.meta.currentPage + 1}`, {
+    method: 'get',
+    only: ['data', 'meta'],
+    replace: true,
+    preserveScroll: true,
+  })
 }
 </script>
 
@@ -42,7 +46,9 @@ function loadMore() {
         <TabPanels :pt="{ root: '!p-0' }">
           <TabPanel value="0">
             <GradesTable :reviews="data" />
-            <div v-element-visibility="onElementVisibility" class="h-12"></div>
+            <div v-element-visibility="onElementVisibility" class="h-24 text-center flex items-center justify-center">
+              <i class="pi pi-spinner animate-spin text-accent" style="font-size: 2rem"></i>
+            </div>
           </TabPanel>
           <TabPanel value="1">
             <ViewingsTable :reviews="data" />
