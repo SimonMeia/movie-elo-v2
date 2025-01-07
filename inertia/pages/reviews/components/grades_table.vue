@@ -12,6 +12,7 @@ interface ReviewListItem {
   reviewId: number
   title: string
   totalGrade: number
+
   [key: number]: {
     gradeTypeName: string
     grade: number

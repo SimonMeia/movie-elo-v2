@@ -10,10 +10,38 @@ import TabPanels from 'primevue/tabpanels'
 import TabPanel from 'primevue/tabpanel'
 import { router } from '@inertiajs/vue3'
 import { vElementVisibility } from '@vueuse/components'
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 const props = defineProps<{ data: ReviewResponse[]; meta: PaginationMeta }>()
 const isLoaderVisible = ref(false)
+
+const STORAGE_KEY = 'scrollPosition'
+
+// ✅ Fonction pour sauvegarder la position du scroll
+const saveScrollPosition = () => {
+  localStorage.setItem(STORAGE_KEY, window.scrollY.toString())
+}
+
+// ✅ Fonction pour restaurer la position du scroll
+const restoreScrollPosition = () => {
+  const savedPosition = localStorage.getItem(STORAGE_KEY)
+  if (savedPosition) {
+    window.scrollTo(0, parseInt(savedPosition, 10))
+  }
+}
+
+onMounted(() => {
+  // Restaurer la position du scroll au montage
+  restoreScrollPosition()
+
+  // Sauvegarder la position lors du scroll
+  window.addEventListener('scroll', saveScrollPosition)
+})
+
+onUnmounted(() => {
+  // Nettoyer l'événement au démontage
+  window.removeEventListener('scroll', saveScrollPosition)
+})
 
 function onElementVisibility(divVisiblity: boolean) {
   if (divVisiblity && props.meta.currentPage < props.meta.lastPage) {
