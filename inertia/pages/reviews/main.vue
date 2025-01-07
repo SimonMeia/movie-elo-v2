@@ -46,8 +46,15 @@ function loadMore() {
         <TabPanels :pt="{ root: '!p-0' }">
           <TabPanel value="0">
             <GradesTable :reviews="data" />
-            <div v-element-visibility="onElementVisibility" class="h-24 text-center flex items-center justify-center">
-              <i class="pi pi-spinner animate-spin text-accent" style="font-size: 2rem"></i>
+            <div
+              v-element-visibility="onElementVisibility"
+              class="h-24 text-center flex items-center justify-center"
+            >
+              <i
+                v-if="isLoaderVisible"
+                class="pi pi-spinner animate-spin text-accent"
+                style="font-size: 2rem"
+              ></i>
             </div>
           </TabPanel>
           <TabPanel value="1">
