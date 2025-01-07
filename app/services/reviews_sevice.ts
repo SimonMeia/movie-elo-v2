@@ -8,7 +8,7 @@ class ReviewService {
   async getReviewsSortedByGrade(
     userId: UserId,
     page = 1,
-    perPage = 2
+    perPage = 20
   ): Promise<{
     data: ReviewResponse[]
     meta: PaginationMeta

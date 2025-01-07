@@ -68,6 +68,8 @@
     "@inertiajs/vue3": "2.0",
     "@primevue/themes": "^4.2.5",
     "@vinejs/vine": "^3.0.0",
+    "@vueuse/components": "^12.3.0",
+    "@vueuse/core": "^12.3.0",
     "edge.js": "^6.0.1",
     "luxon": "^3.4.4",
     "mysql2": "^3.9.1",
