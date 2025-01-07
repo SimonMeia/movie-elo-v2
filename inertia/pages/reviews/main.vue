@@ -60,7 +60,7 @@ function onElementVisibility(divVisiblity: boolean) {
 
 function loadMore() {
   router.visit(`?page=${props.meta.currentPage + 1}&tab=${props.tab}`, {
-    only: ['gradesTabData', 'viewingTabData', 'meta'],
+    only: ['gradesTabData', 'viewingsTabData', 'meta'],
     replace: true,
     preserveScroll: true,
   })
