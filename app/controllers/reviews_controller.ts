@@ -1,7 +1,14 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
 import { createReviewValidator } from '#validators/review'
-import { FormGradeType, ReviewFormResponse, ReviewResponse } from '#types/response'
+import {
+  FormGradeType,
+  GradedReview,
+  GradedReviews,
+  ReviewFormResponse,
+  ReviewResponse,
+  ViewingWithMovieTitle,
+} from '#types/response'
 import MovieService from '#services/movie_service'
 import Review from '#models/review'
 import ReviewService from '#services/reviews_sevice'
@@ -22,19 +29,34 @@ export default class ReviewsController {
     const page = request.qs().page
     let tab = request.qs().tab as string
     if (!['grades', 'viewings'].includes(tab)) tab = 'grades'
-    const { data, meta } =
-      tab === 'viewings'
-        ? await ReviewService.getReviewsSortedByViewing(user.id, page)
-        : await ReviewService.getReviewsSortedByGrade(user.id, page)
 
-    return inertia.render<{ meta: PaginationMeta; data: ReviewResponse[]; tab: string }>(
-      'reviews/main',
-      {
-        data: inertia.merge(() => data) as unknown as ReviewResponse[], // Pas propre mais fonctionne pour le moment
+    if (tab === 'viewings') {
+      const { data, meta } = await ReviewService.getReviewsSortedByViewing(user.id, page)
+      return inertia.render<{
+        meta: PaginationMeta
+        gradesTabData: GradedReview[]
+        viewingsTabData: ViewingWithMovieTitle[]
+        tab: string
+      }>('reviews/main', {
+        viewingsTabData: inertia.merge(() => data) as unknown as ViewingWithMovieTitle[], // Pas propre mais fonctionne pour le moment
+        gradesTabData: [],
         meta: meta,
         tab: tab,
-      }
-    )
+      })
+    } else {
+      const { data, meta } = await ReviewService.getReviewsSortedByGrade(user.id, page)
+      return inertia.render<{
+        meta: PaginationMeta
+        gradesTabData?: GradedReview[]
+        viewingsTabData?: ViewingWithMovieTitle[]
+        tab: string
+      }>('reviews/main', {
+        gradesTabData: inertia.merge(() => data) as unknown as GradedReview[], // Pas propre mais fonctionne pour le moment
+        viewingsTabData: [],
+        meta: meta,
+        tab: tab,
+      })
+    }
   }
 
   @inject()

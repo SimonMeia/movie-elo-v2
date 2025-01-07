@@ -7,6 +7,22 @@ export type ReviewResponse = {
   movie: Movie
 }
 
+export type ViewingWithMovieTitle = {
+  reviewId: number
+  title: string
+  date: string
+  locations: string[]
+  partners: string[]
+}
+export type GradedReview = {
+  id: number
+  title: string
+  grades: {
+    givenGrade: number
+    gradeType: GradeType
+  }[]
+}
+
 export type ReviewsResponse = {
   reviews: ReviewResponse[]
 }

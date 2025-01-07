@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useGrades } from '@/composables/use_grades'
-import type { ReviewsResponse } from '@/app/types'
+import type { GradedReview } from '@/app/types'
 import { router } from '@inertiajs/vue3'
 import Column from 'primevue/column'
 import DataTable from 'primevue/datatable'
 import { type Ref, ref } from 'vue'
 
-const props = defineProps<ReviewsResponse>()
+const props = defineProps<{ data: GradedReview[] }>()
 
 interface ReviewListItem {
   reviewId: number
@@ -23,35 +23,34 @@ const { calculateTotalGrade } = useGrades()
 
 const selectedReview: Ref<ReviewListItem | null> = ref(null)
 
-const gradeTypes = props.reviews[0]?.review.grades.map((grade) => {
+const gradeTypes = props.data[0]?.grades.map((grade) => {
   return {
     gradeTypeId: grade.gradeType.id,
     gradeTypeName: grade.gradeType.name,
   }
 })
 
-const reviewsList: ReviewListItem[] = props.reviews
-  .map((review) => {
-    const line: ReviewListItem = {
-      reviewId: review.review.id,
-      title: review.movie.title,
-      totalGrade: calculateTotalGrade(
-        review.review.grades.map((grade) => {
-          return {
-            grade: grade.givenGrade,
-            maxGrade: grade.gradeType.maxGrade,
-          }
-        })
-      ),
+const reviewsList: ReviewListItem[] = props.data.map((review) => {
+  const line: ReviewListItem = {
+    reviewId: review.id,
+    title: review.title,
+    totalGrade: calculateTotalGrade(
+      review.grades.map((grade) => {
+        return {
+          grade: grade.givenGrade,
+          maxGrade: grade.gradeType.maxGrade,
+        }
+      })
+    ),
+  }
+  for (const grade of review.grades) {
+    line[grade.gradeType.id] = {
+      gradeTypeName: grade.gradeType.name,
+      grade: grade.givenGrade,
     }
-    for (const grade of review.review.grades) {
-      line[grade.gradeType.id] = {
-        gradeTypeName: grade.gradeType.name,
-        grade: grade.givenGrade,
-      }
-    }
-    return line
-  })
+  }
+  return line
+})
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { PaginationMeta, ReviewResponse } from '@/app/types'
+import { GradedReview, PaginationMeta, ReviewResponse, ViewingWithMovieTitle } from '@/app/types'
 import Layout from '@/layouts/default.vue'
 import GradesTable from './components/grades_table.vue'
 import ViewingsTable from './components/viewings_table.vue'
@@ -12,8 +12,14 @@ import { router } from '@inertiajs/vue3'
 import { vElementVisibility } from '@vueuse/components'
 import { onMounted, onUnmounted, ref } from 'vue'
 
-const props = defineProps<{ data: ReviewResponse[]; meta: PaginationMeta; tab?: string }>()
+const props = defineProps<{
+  meta: PaginationMeta
+  gradesTabData: GradedReview[]
+  viewingsTabData: ViewingWithMovieTitle[]
+  tab: string
+}>()
 const isLoaderVisible = ref(false)
+const isChangingTab = ref(false)
 
 const STORAGE_KEY = 'scrollPosition'
 
@@ -61,6 +67,7 @@ function loadMore() {
 }
 
 function changeTab(newTab: string) {
+  isChangingTab.value = true
   router.visit(`/reviews?tab=${newTab}`, {
     replace: true,
   })
@@ -78,15 +85,15 @@ function changeTab(newTab: string) {
         </TabList>
         <TabPanels :pt="{ root: '!p-0' }">
           <TabPanel value="grades">
-            <GradesTable :reviews="data" />
+            <GradesTable :data="gradesTabData" />
           </TabPanel>
           <TabPanel value="viewings">
-            <ViewingsTable :reviews="data" />
+            <ViewingsTable :data="viewingsTabData" />
           </TabPanel>
         </TabPanels>
       </Tabs>
       <div
-        v-if="meta.currentPage < meta.lastPage"
+        v-if="meta.currentPage < meta.lastPage && !isChangingTab"
         v-element-visibility="onElementVisibility"
         class="h-24 text-center flex items-center justify-center"
       >

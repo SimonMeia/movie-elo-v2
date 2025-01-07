@@ -1,8 +1,14 @@
 import Review from '#models/review'
 import { type UserId } from '#models/user'
-import { ReviewResponse, ReviewsResponse } from '#types/response'
+import {
+  GradedReview,
+  ReviewResponse,
+  ReviewsResponse,
+  ViewingWithMovieTitle,
+} from '#types/response'
 import db from '@adonisjs/lucid/services/db'
 import { PaginationMeta } from '#types/pagination'
+import Viewing from '#models/viewing'
 
 class ReviewService {
   async getReviewsSortedByGrade(
@@ -10,7 +16,7 @@ class ReviewService {
     page = 1,
     perPage = 20
   ): Promise<{
-    data: ReviewResponse[]
+    data: GradedReview[]
     meta: PaginationMeta
   }> {
     let reviews = await Review.query()
@@ -23,24 +29,30 @@ class ReviewService {
       .select(db.raw('SUM(grades.value) as total_grade'))
       .orderBy('total_grade', 'desc')
       .orderBy('movies.title', 'asc')
-      .preload('movie', (movie) => {
-        movie.preload('actors')
-        movie.preload('directors')
-        movie.preload('composers')
-        movie.preload('countries')
-        movie.preload('genres')
-      })
-      .preload('viewings', (viewing) => {
-        viewing.preload('locations')
-        viewing.preload('partners')
-      })
+      .preload('movie')
       .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
       .paginate(page, perPage)
 
     // console.log(reviews)
-    const data: ReviewResponse[] = []
-    for (let d of reviews) {
-      data.push(this.transformReviewToResponse(d))
+    const data: GradedReview[] = []
+    for (let review of reviews) {
+      data.push({
+        id: review.id,
+        title: review.movie.title,
+        grades: review.grades.map((grade) => ({
+          givenGrade: grade.value,
+          gradeType: {
+            id: grade.gradeType.id,
+            name: grade.gradeType.name,
+            maxGrade: grade.gradeType.maxGrade,
+            grades: grade.gradeType.grades.map((g) => ({
+              id: g.id,
+              description: g.description,
+              grade: g.value,
+            })),
+          },
+        })),
+      })
     }
 
     const paginationJSON = reviews.toJSON()
@@ -56,38 +68,36 @@ class ReviewService {
     page = 1,
     perPage = 20
   ): Promise<{
-    data: ReviewResponse[]
+    data: ViewingWithMovieTitle[]
     meta: PaginationMeta
   }> {
-    let reviews = await Review.query()
-      .where('userId', userId)
-      .select('reviews.*')
+    let viewings = await Viewing.query()
+      .select('reviews.*', 'viewings.*')
+      .join('reviews', 'reviews.id', '=', 'viewings.review_id')
       .join('movies', 'reviews.movie_id', '=', 'movies.id')
-      .join('viewings', 'reviews.id', '=', 'viewings.review_id')
-      .groupBy('reviews.id')
+      .where('reviews.user_id', userId)
       .orderBy('viewings.viewing_date', 'desc')
       .orderBy('movies.title', 'asc')
-      .preload('movie', (movie) => {
-        movie.preload('actors')
-        movie.preload('directors')
-        movie.preload('composers')
-        movie.preload('countries')
-        movie.preload('genres')
+      .preload('review', (review) => {
+        review.preload('movie')
       })
-      .preload('viewings', (viewing) => {
-        viewing.preload('locations')
-        viewing.preload('partners')
-      })
-      .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
+      .preload('partners')
+      .preload('locations')
       .paginate(page, perPage)
 
     // console.log(reviews)
-    const data: ReviewResponse[] = []
-    for (let d of reviews) {
-      data.push(this.transformReviewToResponse(d))
+    const data: ViewingWithMovieTitle[] = []
+    for (let viewing of viewings) {
+      data.push({
+        title: viewing.review.movie.title,
+        reviewId: viewing.review.id,
+        date: viewing.viewingDate.toString(),
+        locations: viewing.locations.map((l) => l.name),
+        partners: viewing.partners.map((p) => p.name),
+      })
     }
 
-    const paginationJSON = reviews.toJSON()
+    const paginationJSON = viewings.toJSON()
 
     return {
       data: data,
