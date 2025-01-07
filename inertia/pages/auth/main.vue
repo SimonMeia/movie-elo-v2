@@ -2,9 +2,11 @@
 import { router } from '@inertiajs/vue3'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
+import Checkbox from 'primevue/checkbox'
 import { watch } from 'vue'
 import { computed } from 'vue'
 import { ref } from 'vue'
+import rem = CSS.rem
 
 const props = defineProps<{
   errors?: {
@@ -21,6 +23,7 @@ const password = ref('')
 const username = ref('')
 const firstName = ref('')
 const lastName = ref('')
+const rememberMe = ref(true)
 
 const isLoginFormDisplayed = ref(true)
 const sumbitButtonLabel = computed(() =>
@@ -45,6 +48,7 @@ function submit() {
     username: username.value,
     email: email.value,
     password: password.value,
+    rememberMe: isLoginFormDisplayed ? rememberMe.value : false,
   }
 
   router.visit(`/auth/${destination}`, {
@@ -115,6 +119,16 @@ function resetErrors() {
             <small v-if="props.errors?.password" class="text-red-500">
               {{ props.errors.password[0] }}
             </small>
+          </div>
+          <div v-if="isLoginFormDisplayed" class="flex gap-2 items-center">
+            <Checkbox
+              type="checkbox"
+              inputId="remember-me"
+              v-model="rememberMe"
+              binary
+              size="small"
+            />
+            <label for="remember-me">Se souvenir de moi</label>
           </div>
         </div>
         <div class="flex flex-col items-center grow">

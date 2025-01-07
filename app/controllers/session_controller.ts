@@ -36,7 +36,7 @@ export default class SessionController {
 
     const user = await User.verifyCredentials(email, password)
 
-    await auth.use('web').login(user)
+    await auth.use('web').login(user, !!request.input('rememberMe'))
 
     return response.redirect().toRoute('/')
   }

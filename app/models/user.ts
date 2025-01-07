@@ -9,6 +9,7 @@ import Location from '#models/location'
 import GradeType from '#models/grade_type'
 import Partner from '#models/partner'
 import { Opaque } from '@adonisjs/core/types/helpers'
+import { DbRememberMeTokensProvider } from '@adonisjs/auth/session'
 
 const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
   uids: ['email'],
@@ -53,4 +54,6 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @hasMany(() => GradeType)
   declare gradeTypes: HasMany<typeof GradeType>
+
+  static rememberMeTokens = DbRememberMeTokensProvider.forModel(User)
 }
