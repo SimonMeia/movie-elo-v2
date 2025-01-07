@@ -10,23 +10,30 @@ import Location from '#models/location'
 import Partner from '#models/partner'
 import Grade from '#models/grade'
 import GradeType from '#models/grade_type'
-import grade_service from '#services/grade_service'
+import GradeService from '#services/grade_service'
 import { updateGradesValidator } from '#validators/update_grades'
 import { PaginationMeta } from '#types/pagination'
 
 export default class ReviewsController {
   @inject()
-  async index({ inertia, auth }: HttpContext) {
+  async index({ inertia, auth, request }: HttpContext) {
     const user = auth.user!
-    const reviews = await ReviewService.getAllReviews(user.id)
-    return inertia.render<{ meta: PaginationMeta; data: ReviewResponse[] }>('reviews/main', reviews)
+
+    const page = request.qs().page
+
+    const { data, meta } = await ReviewService.getReviewsSortedByGrade(user.id, page)
+
+    return inertia.render<{ meta: PaginationMeta; data: ReviewResponse[] }>('reviews/main', {
+      data: inertia.merge(() => data) as unknown as ReviewResponse[], // Pas propre mais fonctionne pour le moment
+      meta: meta,
+    })
   }
 
   @inject()
   async create({ inertia, request, auth }: HttpContext) {
     const user = auth.user!
 
-    const comparisonGrades = await grade_service.getMovieForEachGrade(user.id)
+    const comparisonGrades = await GradeService.getMovieForEachGrade(user.id)
 
     const locations = await Location.query()
       .where('userId', user.id)
@@ -124,7 +131,7 @@ export default class ReviewsController {
       .orderBy('name', 'asc')
       .select('name')
 
-    const comparisonGrades = await grade_service.getMovieForEachGrade(user.id)
+    const comparisonGrades = await GradeService.getMovieForEachGrade(user.id)
     const locationNames = dbLocations.map((location) => location.name)
     const partnerNames = dbPartners.map((partner) => partner.name)
     const gradesTypes = await GradeType.query().where('user_id', user.id).preload('grades')

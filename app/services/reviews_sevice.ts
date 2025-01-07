@@ -5,15 +5,24 @@ import db from '@adonisjs/lucid/services/db'
 import { PaginationMeta } from '#types/pagination'
 
 class ReviewService {
-  async getAllReviews(userId: UserId): Promise<{ data: ReviewResponse[]; meta: PaginationMeta }> {
+  async getReviewsSortedByGrade(
+    userId: UserId,
+    page = 1,
+    perPage = 2
+  ): Promise<{
+    data: ReviewResponse[]
+    meta: PaginationMeta
+  }> {
     let reviews = await Review.query()
       .where('userId', userId)
       .select('reviews.*')
       .join('grade_review', 'reviews.id', '=', 'grade_review.review_id')
       .join('grades', 'grade_review.grade_id', '=', 'grades.id')
+      .join('movies', 'reviews.movie_id', '=', 'movies.id')
       .groupBy('reviews.id')
       .select(db.raw('SUM(grades.value) as total_grade'))
       .orderBy('total_grade', 'desc')
+      .orderBy('movies.title', 'asc')
       .preload('movie', (movie) => {
         movie.preload('actors')
         movie.preload('directors')
@@ -26,7 +35,7 @@ class ReviewService {
         viewing.preload('partners')
       })
       .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
-      .paginate(1, 4)
+      .paginate(page, perPage)
 
     // console.log(reviews)
     const data: ReviewResponse[] = []
