@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { GradedReview, ReviewsResponse, ViewingWithMovieTitle } from '@/app/types'
+import type { ViewingWithMovieTitle } from '@/app/types'
 import { router } from '@inertiajs/vue3'
 import Column from 'primevue/column'
 import DataTable from 'primevue/datatable'

@@ -5,7 +5,7 @@ class GradeService {
   async getMovieForEachGrade(userId: UserId) {
     const gradesTypes = await GradeType.query().where('user_id', userId).preload('grades')
 
-    const jsp = await Promise.all(
+    return await Promise.all(
       gradesTypes.map(async (gradeType) => {
         const gradesWithMovies = await gradeType
           .related('grades')
@@ -29,7 +29,6 @@ class GradeService {
         }
       })
     )
-    return jsp
   }
 }
 

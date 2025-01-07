@@ -5,9 +5,9 @@ import LastReviews from './components/last_reviews.vue'
 import { router } from '@inertiajs/vue3'
 import Button from 'primevue/button'
 import { ref } from 'vue'
-import type { ReviewsResponse } from '@/app/types'
+import type { ReviewCard } from '@/app/types'
 
-const props = defineProps<ReviewsResponse>()
+defineProps<{ lastReviews: ReviewCard[] }>()
 
 const tmdbMovieId = ref(0)
 const tmdbMovieTitle = ref('')
@@ -19,8 +19,9 @@ const tmdbMovieTitle = ref('')
       <div class="flex flex-col gap-2 my-12 sm:flex-row">
         <SearchTmdbMovieBar
           @update="
-            {
-              ;(tmdbMovieId = $event.tmdbMovieId), (tmdbMovieTitle = $event.title)
+            (event) => {
+              tmdbMovieId = event.tmdbMovieId
+              tmdbMovieTitle = event.title
             }
           "
         />
@@ -35,7 +36,7 @@ const tmdbMovieTitle = ref('')
           "
         ></Button>
       </div>
-      <LastReviews :reviews="props.reviews" />
+      <LastReviews :last-reviews="lastReviews" />
     </div>
   </Layout>
 </template>

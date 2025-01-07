@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GradedReview, PaginationMeta, ReviewResponse, ViewingWithMovieTitle } from '@/app/types'
+import { GradedReview, PaginationMeta, ViewingWithMovieTitle } from '@/app/types'
 import Layout from '@/layouts/default.vue'
 import GradesTable from './components/grades_table.vue'
 import ViewingsTable from './components/viewings_table.vue'

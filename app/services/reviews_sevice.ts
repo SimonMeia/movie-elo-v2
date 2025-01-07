@@ -1,11 +1,6 @@
 import Review from '#models/review'
 import { type UserId } from '#models/user'
-import {
-  GradedReview,
-  ReviewResponse,
-  ReviewsResponse,
-  ViewingWithMovieTitle,
-} from '#types/response'
+import { GradedReview, ReviewCard, ReviewResponse, ViewingWithMovieTitle } from '#types/response'
 import db from '@adonisjs/lucid/services/db'
 import { PaginationMeta } from '#types/pagination'
 import Viewing from '#models/viewing'
@@ -126,29 +121,33 @@ class ReviewService {
     return this.transformReviewToResponse(review)
   }
 
-  async getLastReviews(userId: UserId, limit: number): Promise<ReviewsResponse> {
+  async getLastReviews(userId: UserId, limit: number): Promise<ReviewCard[]> {
     const reviews = await Review.query()
       .join('viewings', 'viewings.review_id', 'reviews.id')
       .where('reviews.user_id', userId)
       .orderBy('viewings.viewing_date', 'desc')
       .limit(limit)
       .select('reviews.*')
-      .preload('movie', (movie) => {
-        movie.preload('actors')
-        movie.preload('directors')
-        movie.preload('composers')
-        movie.preload('countries')
-        movie.preload('genres')
-      })
-      .preload('viewings', (viewing) => {
-        viewing.preload('locations')
-        viewing.preload('partners')
-      })
+      .preload('movie')
       .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
 
-    return {
-      reviews: reviews.map(this.transformReviewToResponse),
+    const data: ReviewCard[] = []
+    for (let review of reviews) {
+      data.push({
+        reviewId: review.id,
+        backdropPath: review.movie.backdropPath ?? '',
+        title: review.movie.title,
+        grade: this.calculateTotalGrade(review),
+      })
     }
+
+    return data
+  }
+
+  private calculateTotalGrade(review: Review): number {
+    const maxGradeSum = review.grades.reduce((total, grade) => total + grade.gradeType.maxGrade, 0)
+    const gradeSum = review.grades.reduce((total, grade) => total + grade.value, 0)
+    return (gradeSum / maxGradeSum) * 100
   }
 
   private transformReviewToResponse(review: Review): ReviewResponse {
