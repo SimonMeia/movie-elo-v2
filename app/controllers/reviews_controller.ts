@@ -20,13 +20,21 @@ export default class ReviewsController {
     const user = auth.user!
 
     const page = request.qs().page
+    let tab = request.qs().tab as string
+    if (!['grades', 'viewings'].includes(tab)) tab = 'grades'
+    const { data, meta } =
+      tab === 'viewings'
+        ? await ReviewService.getReviewsSortedByViewing(user.id, page)
+        : await ReviewService.getReviewsSortedByGrade(user.id, page)
 
-    const { data, meta } = await ReviewService.getReviewsSortedByGrade(user.id, page)
-
-    return inertia.render<{ meta: PaginationMeta; data: ReviewResponse[] }>('reviews/main', {
-      data: inertia.merge(() => data) as unknown as ReviewResponse[], // Pas propre mais fonctionne pour le moment
-      meta: meta,
-    })
+    return inertia.render<{ meta: PaginationMeta; data: ReviewResponse[]; tab: string }>(
+      'reviews/main',
+      {
+        data: inertia.merge(() => data) as unknown as ReviewResponse[], // Pas propre mais fonctionne pour le moment
+        meta: meta,
+        tab: tab,
+      }
+    )
   }
 
   @inject()

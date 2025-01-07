@@ -52,8 +52,6 @@ const reviewsList: ReviewListItem[] = props.reviews
     }
     return line
   })
-  .sort((a, b) => a.title.localeCompare(b.title))
-  .sort((a, b) => b.totalGrade - a.totalGrade)
 </script>
 
 <template>

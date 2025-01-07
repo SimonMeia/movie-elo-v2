@@ -51,6 +51,50 @@ class ReviewService {
     }
   }
 
+  async getReviewsSortedByViewing(
+    userId: UserId,
+    page = 1,
+    perPage = 20
+  ): Promise<{
+    data: ReviewResponse[]
+    meta: PaginationMeta
+  }> {
+    let reviews = await Review.query()
+      .where('userId', userId)
+      .select('reviews.*')
+      .join('movies', 'reviews.movie_id', '=', 'movies.id')
+      .join('viewings', 'reviews.id', '=', 'viewings.review_id')
+      .groupBy('reviews.id')
+      .orderBy('viewings.viewing_date', 'desc')
+      .orderBy('movies.title', 'asc')
+      .preload('movie', (movie) => {
+        movie.preload('actors')
+        movie.preload('directors')
+        movie.preload('composers')
+        movie.preload('countries')
+        movie.preload('genres')
+      })
+      .preload('viewings', (viewing) => {
+        viewing.preload('locations')
+        viewing.preload('partners')
+      })
+      .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
+      .paginate(page, perPage)
+
+    // console.log(reviews)
+    const data: ReviewResponse[] = []
+    for (let d of reviews) {
+      data.push(this.transformReviewToResponse(d))
+    }
+
+    const paginationJSON = reviews.toJSON()
+
+    return {
+      data: data,
+      meta: paginationJSON.meta as PaginationMeta,
+    }
+  }
+
   async getReview(reviewId: number, userId: UserId): Promise<ReviewResponse> {
     const review: Review = await Review.query()
       .preload('movie', (movie) => {

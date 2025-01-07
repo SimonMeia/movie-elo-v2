@@ -27,7 +27,6 @@ const viewingsList: ViewingListItem[] = props.reviews
       partners: viewing.partners.map((partner) => partner.name),
     }))
   )
-  .sort((a, b) => b.date.getTime() - a.date.getTime())
 </script>
 
 <template>

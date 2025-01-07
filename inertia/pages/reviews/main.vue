@@ -12,7 +12,7 @@ import { router } from '@inertiajs/vue3'
 import { vElementVisibility } from '@vueuse/components'
 import { onMounted, onUnmounted, ref } from 'vue'
 
-const props = defineProps<{ data: ReviewResponse[]; meta: PaginationMeta }>()
+const props = defineProps<{ data: ReviewResponse[]; meta: PaginationMeta; tab?: string }>()
 const isLoaderVisible = ref(false)
 
 const STORAGE_KEY = 'scrollPosition'
@@ -53,11 +53,16 @@ function onElementVisibility(divVisiblity: boolean) {
 }
 
 function loadMore() {
-  router.visit(`/reviews?page=${props.meta.currentPage + 1}`, {
-    method: 'get',
+  router.visit(`?page=${props.meta.currentPage + 1}&tab=${props.tab}`, {
     only: ['data', 'meta'],
     replace: true,
     preserveScroll: true,
+  })
+}
+
+function changeTab(newTab: string) {
+  router.visit(`/reviews?tab=${newTab}`, {
+    replace: true,
   })
 }
 </script>
@@ -66,31 +71,31 @@ function loadMore() {
   <Layout>
     <div class="container">
       <h1 class="my-8">Mes reviews</h1>
-      <Tabs value="0">
+      <Tabs :value="tab ?? 'grades'" @update:value="changeTab($event as string)">
         <TabList>
-          <Tab value="0"><i class="mr-2 pi pi-star"></i>Notes</Tab>
-          <!--          <Tab value="1"><i class="mr-2 pi pi-calendar"></i>Visionnages</Tab>-->
+          <Tab value="grades"><i class="mr-2 pi pi-star"></i>Notes</Tab>
+          <Tab value="viewings"><i class="mr-2 pi pi-calendar"></i>Visionnages</Tab>
         </TabList>
         <TabPanels :pt="{ root: '!p-0' }">
-          <TabPanel value="0">
+          <TabPanel value="grades">
             <GradesTable :reviews="data" />
-            <div
-              v-if="meta.currentPage < meta.lastPage"
-              v-element-visibility="onElementVisibility"
-              class="h-24 text-center flex items-center justify-center"
-            >
-              <i
-                v-if="isLoaderVisible"
-                class="pi pi-spinner animate-spin text-accent"
-                style="font-size: 2rem"
-              ></i>
-            </div>
           </TabPanel>
-          <TabPanel value="1">
+          <TabPanel value="viewings">
             <ViewingsTable :reviews="data" />
           </TabPanel>
         </TabPanels>
       </Tabs>
+      <div
+        v-if="meta.currentPage < meta.lastPage"
+        v-element-visibility="onElementVisibility"
+        class="h-24 text-center flex items-center justify-center"
+      >
+        <i
+          v-if="isLoaderVisible"
+          class="pi pi-spinner animate-spin text-accent"
+          style="font-size: 2rem"
+        ></i>
+      </div>
     </div>
   </Layout>
 </template>
