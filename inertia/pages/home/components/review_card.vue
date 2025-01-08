@@ -20,9 +20,12 @@ const tagColor = props.review.grade > 80 ? 'success' : props.review.grade <= 50 
       class="object-cover w-full rounded-t-lg"
     />
     <div class="flex flex-col justify-between h-full p-5">
-      <h2 class="inline mb-2 link-underline link-underline-black">
-        {{ review.title }}
-      </h2>
+      <!--    The span is needed for the underline animation    -->
+      <span>
+        <h2 class="inline mb-2 link-underline link-underline-black">
+          {{ review.title }}
+        </h2>
+      </span>
     </div>
   </div>
 </template>
