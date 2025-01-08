@@ -8,7 +8,7 @@
 */
 
 import router from '@adonisjs/core/services/router'
-import { middleware } from './kernel.js'
+import {middleware} from './kernel.js'
 
 const HomeController = () => import('#controllers/home_controller')
 const MoviesController = () => import('#controllers/movies_controller')
@@ -17,6 +17,7 @@ const SessionController = () => import('#controllers/session_controller')
 const ProfileController = () => import('#controllers/profiles_controller')
 const GradeTypesController = () => import('#controllers/grade_types_controller')
 const ViewingsController = () => import('#controllers/viewings_controller')
+const RewindsController = () => import('#controllers/rewinds_controller')
 
 router
   .group(() => {
@@ -34,8 +35,10 @@ router
 
     router.post('/viewings', [ViewingsController, 'store'])
 
-    router.get('/grade-types', [GradeTypesController, 'create']).use(middleware.auth())
-    router.post('/grade-types', [GradeTypesController, 'store']).use(middleware.auth())
+    router.get('/rewind/:year', [RewindsController, 'index'])
+
+    router.get('/grade-types', [GradeTypesController, 'create'])
+    router.post('/grade-types', [GradeTypesController, 'store'])
 
     router.get('/api/tmdb/search', [MoviesController, 'search'])
 

@@ -9,6 +9,7 @@
   html {
     @apply font-content;
   }
+
   h1,
   h2,
   h3,
@@ -16,12 +17,15 @@
   h5 {
     @apply font-titles;
   }
+
   h1 {
     @apply text-3xl;
   }
+
   h2 {
     @apply text-2xl;
   }
+
   h3 {
     @apply text-lg;
   }
@@ -29,6 +33,14 @@
 
 :root {
   --accent: 194, 19, 19;
+
+  --vis-color-main: #c21313 !important;
+  --vis-color0: #c21313 !important;
+  --vis-color1: #f93a3a !important;
+  --vis-color2: #ffa0a0 !important;
+  --vis-color3: #851717 !important;
+  --vis-color4: #ffe0e0 !important;
+  --vis-color5: #6859BE !important;
 }
 
 .category-rating .p-togglebutton {

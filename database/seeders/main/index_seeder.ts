@@ -11,7 +11,7 @@ import ViewingService from '#services/viewing_service'
 export default class extends BaseSeeder {
   async run() {
     /**
-     * Do not run when not in a environment specified in Seeder
+     * Do not run when not in an environment specified in Seeder
      */
     if (app.inProduction) return
 
@@ -19,8 +19,8 @@ export default class extends BaseSeeder {
       firstName: 'Simon',
       lastName: 'Meia',
       username: 'simon-meia',
-      email: 'simon@me.com',
-      password: '1234',
+      email: 'simon@meia.dev',
+      password: '123456789',
     })
 
     const user = await User.findByOrFail('username', 'simon-meia')
@@ -110,80 +110,78 @@ export default class extends BaseSeeder {
       partners: string
     }[] = JSON.parse(fs.readFileSync(jsonPath, 'utf8'))
 
-    await Promise.all(
-      jsonReviews.map(async (jsonReview) => {
-        const movie = await MovieService.createIfNotExists(jsonReview.tmdb_id)
-        const dbReview = await Review.create({
-          userId: user.id,
-          comment: jsonReview.comment,
-          movieId: movie.id,
-        })
-
-        const gradeStoryType = await GradeType.findByOrFail('name', 'Histoire')
-        const gradeStory = await gradeStoryType
-          .related('grades')
-          .query()
-          .where('value', jsonReview.grades.story)
-          .firstOrFail()
-
-        const gradeActingType = await GradeType.findByOrFail('name', 'Acting')
-        const gradeActing = await gradeActingType
-          .related('grades')
-          .query()
-          .where('value', jsonReview.grades.acting)
-          .firstOrFail()
-
-        const gradeDirectingType = await GradeType.findByOrFail('name', 'Réalisation')
-        const gradeDirecting = await gradeDirectingType
-          .related('grades')
-          .query()
-          .where('value', jsonReview.grades.directing)
-          .firstOrFail()
-
-        const gradeMusicType = await GradeType.findByOrFail('name', 'Musique')
-        const gradeMusic = await gradeMusicType
-          .related('grades')
-          .query()
-          .where('value', jsonReview.grades.music)
-          .firstOrFail()
-
-        const gradeFeelingType = await GradeType.findByOrFail('name', 'Feeling à la fin du film')
-        const gradeFeeling = await gradeFeelingType
-          .related('grades')
-          .query()
-          .where('value', jsonReview.grades.feeling)
-          .firstOrFail()
-
-        const gradePersonalType = await GradeType.findByOrFail('name', 'Appréciation personelle')
-        const gradePersonal = await gradePersonalType
-          .related('grades')
-          .query()
-          .where('value', jsonReview.grades.personal)
-          .firstOrFail()
-
-        const gradesId = [
-          gradeStory.id,
-          gradeActing.id,
-          gradeDirecting.id,
-          gradeMusic.id,
-          gradeFeeling.id,
-          gradePersonal.id,
-        ]
-
-        await dbReview.related('grades').attach(gradesId)
-
-        await ViewingService.createViewing(
-          user.id,
-          new Date(
-            Number.parseInt(jsonReview.watch_date.split('.')[2]),
-            Number.parseInt(jsonReview.watch_date.split('.')[1]) - 1,
-            Number.parseInt(jsonReview.watch_date.split('.')[0])
-          ),
-          dbReview.id,
-          jsonReview.locations.split(', '),
-          jsonReview.partners.split(', ')
-        )
+    for (const jsonReview of jsonReviews) {
+      const movie = await MovieService.createIfNotExists(jsonReview.tmdb_id)
+      const dbReview = await Review.create({
+        userId: user.id,
+        comment: jsonReview.comment,
+        movieId: movie.id,
       })
-    )
+
+      const gradeStoryType = await GradeType.findByOrFail('name', 'Histoire')
+      const gradeStory = await gradeStoryType
+        .related('grades')
+        .query()
+        .where('value', jsonReview.grades.story)
+        .firstOrFail()
+
+      const gradeActingType = await GradeType.findByOrFail('name', 'Acting')
+      const gradeActing = await gradeActingType
+        .related('grades')
+        .query()
+        .where('value', jsonReview.grades.acting)
+        .firstOrFail()
+
+      const gradeDirectingType = await GradeType.findByOrFail('name', 'Réalisation')
+      const gradeDirecting = await gradeDirectingType
+        .related('grades')
+        .query()
+        .where('value', jsonReview.grades.directing)
+        .firstOrFail()
+
+      const gradeMusicType = await GradeType.findByOrFail('name', 'Musique')
+      const gradeMusic = await gradeMusicType
+        .related('grades')
+        .query()
+        .where('value', jsonReview.grades.music)
+        .firstOrFail()
+
+      const gradeFeelingType = await GradeType.findByOrFail('name', 'Feeling à la fin du film')
+      const gradeFeeling = await gradeFeelingType
+        .related('grades')
+        .query()
+        .where('value', jsonReview.grades.feeling)
+        .firstOrFail()
+
+      const gradePersonalType = await GradeType.findByOrFail('name', 'Appréciation personelle')
+      const gradePersonal = await gradePersonalType
+        .related('grades')
+        .query()
+        .where('value', jsonReview.grades.personal)
+        .firstOrFail()
+
+      const gradesId = [
+        gradeStory.id,
+        gradeActing.id,
+        gradeDirecting.id,
+        gradeMusic.id,
+        gradeFeeling.id,
+        gradePersonal.id,
+      ]
+
+      await dbReview.related('grades').attach(gradesId)
+
+      await ViewingService.createViewing(
+        user.id,
+        new Date(
+          Number.parseInt(jsonReview.watch_date.split('.')[2]),
+          Number.parseInt(jsonReview.watch_date.split('.')[1]) - 1,
+          Number.parseInt(jsonReview.watch_date.split('.')[0])
+        ),
+        dbReview.id,
+        jsonReview.locations.split(', '),
+        jsonReview.partners.split(', ')
+      )
+    }
   }
 }

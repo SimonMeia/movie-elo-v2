@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { Link, router } from '@inertiajs/vue3'
+import { Link, router, usePage } from '@inertiajs/vue3'
 import MovieEloLogo from '@/assets/icons/movieelo_logo.vue'
 import MovieEloLogoSmall from '@/assets/icons/movieelo_logo_small.vue'
 import Avatar from 'primevue/avatar'
 import Menubar from 'primevue/menubar'
-import { ref } from 'vue'
+import Message from 'primevue/message'
+import { computed, ref } from 'vue'
+
+const page = usePage()
+const environment = computed(() => page.props.environment as 'production' | 'development')
 
 const items = ref([
   {
@@ -49,11 +53,12 @@ const items = ref([
         </a>
       </template>
       <template #end>
-        <Avatar
-          icon="pi pi-user"
-          @click="router.get('/profile')"
-          class="cursor-pointer"
-        />
+        <div class="flex gap-2 items-center">
+          <Message severity="info" v-if="environment === 'development'" class="m-2" closable>
+            Environnement : {{ environment }}
+          </Message>
+          <Avatar icon="pi pi-user" @click="router.get('/profile')" class="cursor-pointer" />
+        </div>
       </template>
     </Menubar>
   </header>
