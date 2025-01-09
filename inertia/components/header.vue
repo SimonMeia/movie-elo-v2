@@ -27,10 +27,10 @@ const items = ref([
   //   label: 'Elo ranking',
   //   action: () => router.get('/elo-rankings'),
   // },
-  // {
-  //   label: 'Rewind',
-  //   action: () => router.get('/rewind'),
-  // },
+  {
+    label: 'Rewinds',
+    action: () => router.get('/rewinds'),
+  },
 ])
 </script>
 

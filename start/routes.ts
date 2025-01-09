@@ -35,7 +35,7 @@ router
 
     router.post('/viewings', [ViewingsController, 'store'])
 
-    router.get('/rewind/:year', [RewindsController, 'index'])
+    router.get('/rewinds', [RewindsController, 'index'])
 
     router.get('/grade-types', [GradeTypesController, 'create'])
     router.post('/grade-types', [GradeTypesController, 'store'])

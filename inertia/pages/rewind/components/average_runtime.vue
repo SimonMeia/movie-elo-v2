@@ -21,6 +21,6 @@ const minutes = duration.minutes % 60 // Récupère les minutes restantes après
       <h1 class="text-7xl text-accent">{{ minutes }}</h1>
       <span class="text-2xl">minutes</span>
     </div>
-    <span>est la durée moyenne des films que vous regardé</span>
+    <span>est la durée moyenne des films que vous regardez</span>
   </div>
 </template>

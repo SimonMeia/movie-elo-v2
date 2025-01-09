@@ -14,7 +14,7 @@ const shortestMinutes = longestDuration.minutes % 60
 </script>
 
 <template>
-  <div class="h-full flex items-center justify-center flex-col gap-24 mx-4">
+  <div class="h-full flex items-center justify-center flex-col gap-24">
     <div class="w-full flex gap-2 flex-col">
       <span>Film le plus long</span>
       <h1 class="text-5xl text-accent">{{ data.longestName }}</h1>
