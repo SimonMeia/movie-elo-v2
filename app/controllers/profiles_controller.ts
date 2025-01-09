@@ -8,9 +8,13 @@ export default class ProfilesController {
   async index({ inertia, auth }: HttpContext) {
     const user = auth.user!
 
-    const userMovies = await Movie.query().preload('reviews', (reviews) => {
-      reviews.where('user_id', user.id)
-    })
+    const userMovies = await Movie.query()
+      .whereHas('reviews', (reviews) => {
+        reviews.where('user_id', user.id)
+      })
+      .preload('reviews', (reviews) => {
+        reviews.where('user_id', user.id)
+      })
 
     const timeSpentMin = userMovies.reduce((acc, movie) => acc + movie.runtime, 0)
 

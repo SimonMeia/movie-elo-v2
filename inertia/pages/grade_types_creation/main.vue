@@ -9,10 +9,31 @@ import SelectButton from 'primevue/selectbutton'
 import { GradeTypesResponse } from '@/app/types'
 import { Ref, ref } from 'vue'
 import { router } from '@inertiajs/vue3'
+import Message from 'primevue/message'
+import ConfirmPopup from 'primevue/confirmpopup'
+import { useConfirm } from 'primevue/useconfirm'
 
 const props = defineProps<GradeTypesResponse>()
 
 const isDialogVisible = ref(false)
+const confirm = useConfirm()
+
+const confirmDeletion = (event: any, id: number) => {
+  confirm.require({
+    target: event.currentTarget,
+    message: 'Êtes-vous sûr de vouloir supprimer la catégorie ?',
+    icon: 'pi pi-exclamation-triangle',
+    rejectProps: {
+      label: 'Annuler',
+      severity: 'secondary',
+      outlined: true,
+    },
+    acceptProps: { label: 'Supprimer' },
+    accept: () => {
+      router.delete('/grade-types/' + id)
+    },
+  })
+}
 
 let newGradeCategory: Ref<GradeCategoryModal> = initNewGradeCategory()
 
@@ -38,6 +59,19 @@ function openModal() {
   isDialogVisible.value = true
   newGradeCategory = initNewGradeCategory()
 }
+
+const options = [
+  { label: '1', value: 1 },
+  { label: '2', value: 2 },
+  { label: '3', value: 3 },
+  { label: '4', value: 4 },
+  { label: '5', value: 5 },
+  { label: '6', value: 6 },
+  { label: '7', value: 7 },
+  { label: '8', value: 8 },
+  { label: '9', value: 9 },
+  { label: '10', value: 10 },
+]
 
 function initNewGradeCategory(): Ref<GradeCategoryModal> {
   return ref({
@@ -101,7 +135,9 @@ function updateGradeInputList() {
           <label>Note maximale</label>
           <SelectButton
             v-model="newGradeCategory.maxGrade"
-            :options="Array.from({ length: 9 }, (_, i) => i + 2)"
+            :options="options"
+            optionLabel="label"
+            optionValue="value"
             :allowEmpty="false"
             :pt="{
               root: 'flex w-full h-10',
@@ -117,8 +153,20 @@ function updateGradeInputList() {
         </div>
         <div class="flex flex-col gap-1">
           <label>Description</label>
-          <small v-if="props.errors?.['grades.*.description']" class="text-red-500">
-            {{ props.errors?.['grades.*.description'][0] }}
+          <small
+            v-if="
+              Object.keys(props.errors || {})
+                .filter((key) => key.startsWith('grades.') && key.endsWith('.description'))
+                .shift()
+            "
+            class="text-red-500"
+          >
+            {{
+              Object.keys(props.errors || {})
+                .filter((key) => key.startsWith('grades.') && key.endsWith('.description'))
+                .map((key) => (props.errors ? props.errors[key][0] : ''))
+                .shift()
+            }}
           </small>
           <div class="flex flex-col gap-2">
             <div v-for="i in newGradeCategory.maxGrade" :key="i" class="grid grid-cols-12 gap-4">
@@ -135,22 +183,24 @@ function updateGradeInputList() {
         </div>
       </div>
       <div class="flex justify-end gap-4 mt-6">
-        <Button
-          label="Annuler"
-          class="p-button-text"
-          severity="contrast"
-          @click="isDialogVisible = false"
-        />
-        <Button label="Créer" class="p-button-text" type="submit" />
+        <Button label="Annuler" severity="secondary" @click="isDialogVisible = false" />
+        <Button label="Créer" type="submit" />
       </div>
     </form>
   </Dialog>
   <Layout>
     <div class="container">
-      <h1 class="my-8">Une derniere étape...</h1>
+      <h1 class="my-8">Une dernière étape...</h1>
       <p>
-        Pour terminer la création de votre compte, vous devez choisir des catégorie pour vos notes.
+        Pour terminer la création de votre compte, vous devez créer votre système de notation de
+        films.
       </p>
+
+      <Message severity="warn" class="my-4">
+        <b>Attention : </b>Une fois le système créé, il ne sera plus possible de le modifier
+      </Message>
+
+      <ConfirmPopup></ConfirmPopup>
 
       <DataTable :value="props.gradeTypes">
         <Column field="name" header="Nom de la catégorie"></Column>
@@ -161,9 +211,20 @@ function updateGradeInputList() {
               <Button label="+" rounded class="w-10 h-10 text-xl" @click="openModal" />
             </div>
           </template>
+          <template #body="slotProps">
+            <div class="flex items-center justify-between w-full h-full gap-4">
+              <div>{{ slotProps.data.maxGrade }}</div>
+              <Button
+                icon="pi pi-trash"
+                @click="confirmDeletion($event, slotProps.data.id)"
+                severity="danger"
+                :pt="{ root: 'aspect-square !w-8' }"
+              />
+            </div>
+          </template>
         </Column>
       </DataTable>
-      <Button label="Valider" class="my-2" @click="router.get('/')" />
+      <Button label="Valider" class="my-2" @click="router.post('/grade-types/validate')" />
     </div>
   </Layout>
 </template>

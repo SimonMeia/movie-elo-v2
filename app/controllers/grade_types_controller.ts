@@ -14,7 +14,7 @@ export default class GradeTypesController {
   }
 
   @inject()
-  async store({ request, response, auth }: HttpContext) {
+  async store({ request, response, auth, session }: HttpContext) {
     const user = auth.user!
 
     const payload = await createGradeTypeValidator.validate(request.all(), {})
@@ -26,6 +26,44 @@ export default class GradeTypesController {
     })
 
     gradeType.related('grades').createMany(payload.grades)
+
+    session.flash('notification', {
+      type: 'success',
+      message: 'La catégorie a bien été ajoutée !',
+    })
+
+    return response.redirect().toRoute('/grade-types')
+  }
+
+  @inject()
+  async validate({ auth, response, session }: HttpContext) {
+    const user = auth.user!
+    user.gradeTypesValidated = true
+    await user.save()
+
+    session.flash('notification', {
+      type: 'success',
+      message: 'Bienvenue !',
+    })
+
+    return response.redirect().toRoute('/')
+  }
+
+  @inject()
+  async delete({ auth, response, request, session }: HttpContext) {
+    const user = auth.user!
+
+    const deletedRows = await GradeType.query()
+      .where('user_id', user.id)
+      .where('id', request.param('id'))
+      .delete()
+
+    if (deletedRows.length > 0) {
+      session.flash('notification', {
+        type: 'success',
+        message: 'La catégorie a bien été supprimée',
+      })
+    }
 
     return response.redirect().toRoute('/grade-types')
   }

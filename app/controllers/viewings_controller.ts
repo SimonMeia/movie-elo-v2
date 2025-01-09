@@ -5,7 +5,7 @@ import ViewingService from '#services/viewing_service'
 
 export default class ViewingsController {
   @inject()
-  async store({ request, response, auth }: HttpContext) {
+  async store({ request, response, auth, session }: HttpContext) {
     const user = auth.user!
 
     const payload = await createViewingValidator.validate(request.all())
@@ -17,6 +17,11 @@ export default class ViewingsController {
       payload.locations,
       payload.partners
     )
+
+    session.flash('notification', {
+      type: 'success',
+      message: 'Le visionnage à bien été ajouté !',
+    })
 
     return response.redirect().toRoute('reviews.show', { id: payload.reviewId })
   }

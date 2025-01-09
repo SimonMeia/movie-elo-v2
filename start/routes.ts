@@ -37,14 +37,20 @@ router
 
     router.get('/rewinds', [RewindsController, 'index'])
 
-    router.get('/grade-types', [GradeTypesController, 'create'])
-    router.post('/grade-types', [GradeTypesController, 'store'])
-
     router.get('/api/tmdb/search', [MoviesController, 'search'])
 
     router.get('/auth/logout', [SessionController, 'logout'])
   })
-  .use(middleware.auth())
+  .use([middleware.auth(), middleware.userHasGradeTypesValidated({ mustBeValidated: true })])
+
+router
+  .group(() => {
+    router.get('/grade-types', [GradeTypesController, 'create']).as('grade-types.create')
+    router.post('/grade-types', [GradeTypesController, 'store'])
+    router.post('/grade-types/validate', [GradeTypesController, 'validate'])
+    router.delete('/grade-types/:id', [GradeTypesController, 'delete'])
+  })
+  .use([middleware.auth(), middleware.userHasGradeTypesValidated({ mustBeValidated: false })])
 
 router
   .group(() => {

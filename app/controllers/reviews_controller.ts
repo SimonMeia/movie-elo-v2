@@ -96,7 +96,7 @@ export default class ReviewsController {
   }
 
   @inject()
-  async store({ request, response, auth }: HttpContext) {
+  async store({ request, response, auth, session }: HttpContext) {
     const user = auth.user!
 
     const payload = await createReviewValidator.validate(request.all(), {
@@ -138,6 +138,11 @@ export default class ReviewsController {
     )
 
     // 5. Rediriger vers la page du film
+    session.flash('notification', {
+      type: 'success',
+      message: 'La review a bien été ajoutée !',
+    })
+
     return response.redirect().toRoute('reviews.show', { id: review.id })
   }
 
@@ -191,7 +196,7 @@ export default class ReviewsController {
   }
 
   @inject()
-  async updateGrades({ request, response, params }: HttpContext) {
+  async updateGrades({ request, response, params, session }: HttpContext) {
     const review = await Review.findOrFail(params.id)
     const payload = await updateGradesValidator.validate(request.all())
 
@@ -201,6 +206,11 @@ export default class ReviewsController {
       grade.value = payload.grades.find((g) => g.gradeTypeId === grade.gradeTypeId)!.grade
       grade.save()
     }
+
+    session.flash('notification', {
+      type: 'success',
+      message: 'Les notes ont bien été mises à jour !',
+    })
 
     return response.redirect().toRoute('reviews.show', { id: review.id })
   }
