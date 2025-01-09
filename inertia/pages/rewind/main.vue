@@ -12,6 +12,7 @@ import PreferredLocations from '@/pages/rewind/components/preferred_locations.vu
 import PreferredPartners from '@/pages/rewind/components/preferred_partners.vue'
 import PreferredGenres from '@/pages/rewind/components/preferred_genres.vue'
 import AverageGrades from '@/pages/rewind/components/average_grades.vue'
+import Message from 'primevue/message'
 
 defineProps<{ rewinds: Rewind[] }>()
 
@@ -74,6 +75,10 @@ function stopTimer() {
   <Layout>
     <div class="container">
       <h1 class="my-8">Movie Elo rewinds</h1>
+      <div class="flex items-center gap-2 mb-8" v-if="rewinds.length === 0">
+        <span class="text-xl font-bold w-36"> Rewind {{ new Date().getFullYear() }} </span>
+        <Message severity="info">Pas assez de données </Message>
+      </div>
       <div v-for="rewind in rewinds" :key="rewind.year">
         <div class="flex items-center gap-2 mb-8">
           <span class="text-xl font-bold w-36">Rewind {{ rewind.year }}</span>

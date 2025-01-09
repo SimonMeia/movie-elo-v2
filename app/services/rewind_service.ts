@@ -16,7 +16,7 @@ import GradeType from '#models/grade_type'
 import Viewing from '#models/viewing'
 
 class RewindService {
-  async getRewindData(userId: UserId, year: number): Promise<Rewind> {
+  async getRewindData(userId: UserId, year: number): Promise<Rewind | null> {
     const moviesWatched = await Movie.query()
       .whereHas('reviews', (review) => {
         review.where('user_id', userId)
@@ -30,6 +30,8 @@ class RewindService {
         review.where('user_id', userId)
         review.preload('grades')
       })
+
+    if (moviesWatched.length < 5) return null
 
     const gradingSystem = await GradeType.query().where('user_id', userId)
 

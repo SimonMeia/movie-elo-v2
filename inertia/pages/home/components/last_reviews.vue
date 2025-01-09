@@ -12,6 +12,14 @@ defineProps<{ lastReviews: ReviewCardType[] }>()
     <h2 class="mb-4 text-3xl font-bold">Dernières reviews</h2>
     <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
       <ReviewCard v-for="review in lastReviews" :key="review.reviewId" :review="review" />
+      <div
+        v-if="lastReviews.length === 0"
+        class="relative text-center flex flex-col border border-gray-200 rounded-lg shadow cursor-pointer card h-48 p-4 justify-center items-center hover:shadow-lg transition-all"
+        @click="router.get(`/review-form`)"
+      >
+        <h3>Aucune reviews</h3>
+        <span>Cliquez pour ajouter votre première review</span>
+      </div>
     </div>
     <div class="flex justify-end mt-4">
       <Button

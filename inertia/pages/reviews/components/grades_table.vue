@@ -4,9 +4,10 @@ import type { GradedReview } from '@/app/types'
 import { router } from '@inertiajs/vue3'
 import Column from 'primevue/column'
 import DataTable from 'primevue/datatable'
+import Button from 'primevue/button'
 import { type Ref, ref } from 'vue'
 
-const props = defineProps<{ data: GradedReview[] }>()
+const props = defineProps<{ data: GradedReview[]; isChangingTab: boolean }>()
 
 interface ReviewListItem {
   reviewId: number
@@ -62,6 +63,16 @@ const reviewsList: ReviewListItem[] = props.data.map((review) => {
     :value="reviewsList"
     @rowSelect="router.get('/reviews/' + $event.data.reviewId)"
   >
+    <template #empty>
+      <div v-if="isChangingTab" class="text-center py-4">
+        <i class="pi pi-spinner animate-spin text-accent" style="font-size: 2rem"></i>
+      </div>
+      <div v-else class="text-center py-4 space-y-4">
+        Votre tableau de critiques est aussi vide qu'une salle de cinéma avant la projection.<br />
+        <Button label="Ajouter une review" @click="router.get(`/review-form`)" />
+      </div>
+    </template>
+
     <Column field="title">
       <template #header>
         <div class="ml-4">

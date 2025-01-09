@@ -85,10 +85,10 @@ function changeTab(newTab: string) {
         </TabList>
         <TabPanels :pt="{ root: '!p-0' }">
           <TabPanel value="grades">
-            <GradesTable :data="gradesTabData" />
+            <GradesTable :data="gradesTabData" :isChangingTab />
           </TabPanel>
           <TabPanel value="viewings">
-            <ViewingsTable :data="viewingsTabData" />
+            <ViewingsTable :data="viewingsTabData" :isChangingTab />
           </TabPanel>
         </TabPanels>
       </Tabs>

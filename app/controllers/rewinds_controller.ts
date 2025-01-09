@@ -25,9 +25,10 @@ export default class RewindsController {
 
     // Récupérer les données pour chaque année avec le service
     const rewinds = await Promise.all(
-      years.map(async (year) => await RewindService.getRewindData(user.id, year))
+      years.map((year) => RewindService.getRewindData(user.id, year))
     )
+    const filteredRewinds = rewinds.filter((r): r is Rewind => r !== null)
 
-    return inertia.render<{ rewinds: Rewind[] }>('rewind/main', { rewinds: rewinds })
+    return inertia.render<{ rewinds: Rewind[] }>('rewind/main', { rewinds: filteredRewinds })
   }
 }

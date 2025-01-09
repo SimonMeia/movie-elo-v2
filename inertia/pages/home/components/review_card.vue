@@ -5,7 +5,7 @@ import Tag from 'primevue/tag'
 
 const props = defineProps<{ review: ReviewCard }>()
 
-const tagColor = props.review.grade > 80 ? 'success' : props.review.grade <= 50 ? 'danger' : 'warn'
+const tagColor = props.review.grade >= 80 ? 'success' : props.review.grade <= 50 ? 'danger' : 'warn'
 </script>
 
 <template>

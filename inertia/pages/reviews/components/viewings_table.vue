@@ -4,8 +4,9 @@ import { router } from '@inertiajs/vue3'
 import Column from 'primevue/column'
 import DataTable from 'primevue/datatable'
 import { type Ref, ref } from 'vue'
+import Button from 'primevue/button'
 
-defineProps<{ data: ViewingWithMovieTitle[] }>()
+defineProps<{ data: ViewingWithMovieTitle[]; isChangingTab: boolean }>()
 
 // interface ViewingListItem {
 //   reviewId: number
@@ -27,6 +28,15 @@ const selectedReview: Ref<ViewingWithMovieTitle | null> = ref(null)
     :value="data"
     @rowSelect="router.get('/reviews/' + $event.data.reviewId)"
   >
+    <template #empty>
+      <div v-if="isChangingTab" class="text-center py-4">
+        <i class="pi pi-spinner animate-spin text-accent" style="font-size: 2rem"></i>
+      </div>
+      <div v-else class="text-center py-4 space-y-4">
+        Votre tableau de critiques est aussi vide qu'une salle de cinéma avant la projection.<br />
+        <Button label="Ajouter une review" @click="router.get(`/review-form`)" />
+      </div>
+    </template>
     <Column field="title">
       <template #header>
         <div class="ml-4">
