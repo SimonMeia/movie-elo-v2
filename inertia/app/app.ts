@@ -1,6 +1,6 @@
 import '../css/app.css'
 
-import { createApp, h, type DefineComponent } from 'vue'
+import { createApp, type DefineComponent, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from '@adonisjs/inertia/helpers'
 
@@ -12,7 +12,7 @@ import { movieEloTheme } from './presets'
 import { movieEloLocale } from './locale'
 
 void createInertiaApp({
-  progress: { color: '#5468FF' },
+  progress: { color: '#c21313' },
 
   resolve: (name) => {
     return resolvePageComponent(

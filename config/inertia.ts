@@ -13,6 +13,6 @@ export default defineConfig({
   sharedData: {
     environment: app.inProduction ? 'production' : 'development',
     user: (ctx) => ctx.auth?.user,
-    errors: (ctx) => ctx.session.flashMessages.get('errors'),
+    errors: (ctx) => ctx.session?.flashMessages.get('errors'),
   },
 })
