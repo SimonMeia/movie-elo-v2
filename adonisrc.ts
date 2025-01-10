@@ -101,6 +101,10 @@ export default defineConfig({
       pattern: 'logs/**',
       reloadServer: false,
     },
+    {
+      pattern: 'database/seeders/demo_user_data.json',
+      reloadServer: false,
+    },
   ],
 
   assetsBundler: false,
