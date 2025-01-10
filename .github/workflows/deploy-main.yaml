@@ -26,7 +26,7 @@ jobs:
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa 
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan ${{ secrets.DOMAIN }} >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
@@ -43,4 +43,4 @@ jobs:
 
       - name: Start the app
         run: |
-          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "cd ${{ secrets.TARGET }} && source ~/.nvm/nvm.sh && npm install --omit=dev && systemctl --user daemon-reload && systemctl --user restart ${{ secrets.SYSTEMD }}"
+          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "cd ${{ secrets.TARGET }} && source ~/.nvm/nvm.sh && npm install --omit=dev && systemctl --user daemon-reload && systemctl --user restart ${{ secrets.SYSTEMD }} && node ace scheduler:run"

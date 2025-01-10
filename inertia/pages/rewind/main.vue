@@ -55,7 +55,7 @@ function startTimer() {
   timer.value = 0 // Réinitialise le timer
   timerInterval.value = setInterval(() => {
     if (timer.value >= graphDuration.value) {
-      step.value++
+      move('forward')
       timer.value = 0
     } else {
       timer.value += 10

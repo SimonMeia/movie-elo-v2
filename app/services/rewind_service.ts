@@ -32,7 +32,7 @@ class RewindService {
       })
 
     if (moviesWatched.length < 5) return null
-
+    console.log(userId)
     const gradingSystem = await GradeType.query().where('user_id', userId)
 
     // Nombre de films vus
@@ -107,11 +107,15 @@ class RewindService {
       total: 0,
     }))
 
+    console.log(gradeTypesCumulated)
+
     for (const movie of moviesWatched) {
       for (const grade of movie.reviews[0].grades) {
+        console.log(grade.gradeTypeId)
         const index = gradeTypesCumulated.findIndex(
           (gradeType) => gradeType.id === grade.gradeTypeId
         )
+        // console.log(index)
         if (index !== -1) gradeTypesCumulated[index].total += grade.value
       }
     }

@@ -1,0 +1,1457 @@
+[
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "06.10.2024",
+    "tmdb_id": "8587",
+    "partners": "Brad Pickles, Anne Halfaway"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 3,
+      "directing": 1,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "14.06.2023",
+    "tmdb_id": "354912",
+    "partners": "Chris Pinetree"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 5,
+      "directing": 1,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "25.04.2024",
+    "tmdb_id": "286217",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "27.04.2024",
+    "tmdb_id": "244786",
+    "partners": "Gwyneth Patrol, Meryl Sheep, Morgan Fleeman"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "16.06.2024",
+    "tmdb_id": "13",
+    "partners": "Anne Halfaway, Chris Pinetree"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "27.01.2024",
+    "tmdb_id": "62",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 1,
+      "directing": 1,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "23.09.2024",
+    "tmdb_id": "120467",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 1,
+      "directing": 2,
+      "acting": 1,
+      "music": 3,
+      "feeling": 2,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "04.08.2023",
+    "tmdb_id": "424",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "27.07.2023",
+    "tmdb_id": "14160",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 1,
+      "directing": 3,
+      "acting": 1,
+      "music": 2,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "26.11.2024",
+    "tmdb_id": "550",
+    "partners": "Emma Stonebridge"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 3,
+      "directing": 1,
+      "acting": 1,
+      "music": 3,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "02.07.2023",
+    "tmdb_id": "149",
+    "partners": "Samuel L. Jaxx"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 1,
+      "directing": 1,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "27.02.2024",
+    "tmdb_id": "5255",
+    "partners": "Natalie Furtman, Emma Stonebridge"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 1,
+      "directing": 1,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "17.05.2023",
+    "tmdb_id": "671",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 1,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "17.09.2024",
+    "tmdb_id": "128",
+    "partners": "Samuel L. Jaxx, Anne Halfaway"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 2,
+      "directing": 1,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "06.04.2023",
+    "tmdb_id": "329",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 4,
+      "directing": 1,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "22.07.2024",
+    "tmdb_id": "497",
+    "partners": "Anne Halfaway"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "05.03.2023",
+    "tmdb_id": "106",
+    "partners": "Meryl Sheep, Johnny Departs, Charlize Theremin"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 1,
+      "music": 3,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "22.11.2023",
+    "tmdb_id": "680",
+    "partners": "Harrison Stork"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "02.11.2024",
+    "tmdb_id": "505642",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 1,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "02.04.2023",
+    "tmdb_id": "98",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "24.01.2024",
+    "tmdb_id": "45269",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 3,
+      "directing": 1,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "18.03.2024",
+    "tmdb_id": "1124",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 1,
+      "directing": 3,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "20.11.2024",
+    "tmdb_id": "129",
+    "partners": "Scarlett Johaunson, Harrison Stork"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "04.12.2023",
+    "tmdb_id": "2501",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 1,
+      "music": 2,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "19.06.2024",
+    "tmdb_id": "157336",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 2,
+      "directing": 1,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "08.03.2023",
+    "tmdb_id": "1402",
+    "partners": "Scarlett Johaunson, Tom Crux, Gwyneth Patrol"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "07.07.2024",
+    "tmdb_id": "857",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Paris)",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 1,
+      "music": 3,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "30.07.2024",
+    "tmdb_id": "348",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 3,
+      "directing": 1,
+      "acting": 1,
+      "music": 3,
+      "feeling": 2,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "22.04.2023",
+    "tmdb_id": "9806",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "11.11.2024",
+    "tmdb_id": "519182",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 1,
+      "directing": 1,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "27.11.2023",
+    "tmdb_id": "545611",
+    "partners": "Leonardo DeCabra"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 2,
+      "directing": 1,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "22.07.2024",
+    "tmdb_id": "32657",
+    "partners": "Mark Buffalo, Denzel Wash-a-ton"
+  },
+  {
+    "locations": "Cinéma (Paris)",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "23.07.2024",
+    "tmdb_id": "76341",
+    "partners": "Samuel L. Jaxx, Chris Pinetree, Scarlett Johaunson"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "01.04.2023",
+    "tmdb_id": "562",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 1,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "06.12.2024",
+    "tmdb_id": "9479",
+    "partners": "Samuel L. Jaxx, Denzel Wash-a-ton, Anne Halfaway"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 1,
+      "music": 3,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "24.12.2024",
+    "tmdb_id": "277834",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 2,
+      "directing": 3,
+      "acting": 1,
+      "music": 3,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "25.04.2024",
+    "tmdb_id": "808",
+    "partners": "Chris Pinetree"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 4,
+      "directing": 1,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "02.06.2024",
+    "tmdb_id": "68718",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 2,
+      "music": 3,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "30.05.2023",
+    "tmdb_id": "131631",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 2,
+      "directing": 3,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "24.09.2023",
+    "tmdb_id": "35",
+    "partners": "Keanu Leaves, Harrison Stork, Chris Pinetree"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 1,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "24.02.2023",
+    "tmdb_id": "12405",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "20.12.2023",
+    "tmdb_id": "269149",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 2,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "09.05.2024",
+    "tmdb_id": "205596",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "30.06.2024",
+    "tmdb_id": "5548",
+    "partners": "Chris Pinetree"
+  },
+  {
+    "locations": "Cinéma (Paris)",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "14.08.2023",
+    "tmdb_id": "157350",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 3,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "07.07.2024",
+    "tmdb_id": "10386",
+    "partners": "Natalie Furtman"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 1,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "18.06.2024",
+    "tmdb_id": "807",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "01.10.2023",
+    "tmdb_id": "18239",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Paris)",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "15.09.2023",
+    "tmdb_id": "11",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 2,
+      "directing": 1,
+      "acting": 1,
+      "music": 1,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "16.09.2024",
+    "tmdb_id": "603",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "16.03.2023",
+    "tmdb_id": "862",
+    "partners": "Gwyneth Patrol, Meryl Sheep, Anne Halfaway"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 1,
+      "directing": 2,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "18.01.2024",
+    "tmdb_id": "49047",
+    "partners": "Robert Downright Jr., Mark Buffalo, Brad Pickles"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "16.06.2023",
+    "tmdb_id": "585",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 2,
+      "directing": 3,
+      "acting": 1,
+      "music": 1,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "22.02.2024",
+    "tmdb_id": "78",
+    "partners": "Chris Pinetree"
+  },
+  {
+    "locations": "Cinéma (Paris)",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 1,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "09.07.2024",
+    "tmdb_id": "10719",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 1,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "17.02.2023",
+    "tmdb_id": "266856",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Paris)",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "23.08.2023",
+    "tmdb_id": "1422",
+    "partners": "Gwyneth Patrol, Mark Buffalo, Tom Crux"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "17.11.2023",
+    "tmdb_id": "475557",
+    "partners": "Jennifer Lawnrence, Samuel L. Jaxx"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 3,
+      "directing": 3,
+      "acting": 1,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "16.07.2023",
+    "tmdb_id": "218",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 2,
+      "directing": 1,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "12.12.2023",
+    "tmdb_id": "603692",
+    "partners": "Charlize Theremin, Natalie Furtman, Gwyneth Patrol"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "12.06.2023",
+    "tmdb_id": "76203",
+    "partners": "Harrison Stork"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "09.06.2023",
+    "tmdb_id": "19995",
+    "partners": "Emma Stonebridge"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 1,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "27.05.2024",
+    "tmdb_id": "18",
+    "partners": "Chris Pinetree"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 1,
+      "music": 2,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "08.04.2024",
+    "tmdb_id": "137106",
+    "partners": "Harrison Stork, Denzel Wash-a-ton, Tom Crux"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "06.02.2024",
+    "tmdb_id": "2062",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Paris)",
+    "grades": {
+      "story": 3,
+      "directing": 1,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "23.04.2023",
+    "tmdb_id": "1362",
+    "partners": "Tom Crux, Natalie Furtman, Chris Pinetree"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 2,
+      "directing": 1,
+      "acting": 2,
+      "music": 3,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "10.04.2024",
+    "tmdb_id": "37799",
+    "partners": "Morgan Fleeman, Johnny Departs"
+  },
+  {
+    "locations": "Cinéma (Paris)",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "29.11.2024",
+    "tmdb_id": "438148",
+    "partners": "Harrison Stork, Chris Pinetree, Robert Downright Jr."
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "17.05.2024",
+    "tmdb_id": "109445",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 1,
+      "music": 3,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "08.07.2024",
+    "tmdb_id": "27205",
+    "partners": "Emma Stonebridge"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 1,
+      "directing": 2,
+      "acting": 1,
+      "music": 3,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "07.10.2023",
+    "tmdb_id": "496243",
+    "partners": "Harrison Stork, Morgan Fleeman, Meryl Sheep"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 1,
+      "directing": 2,
+      "acting": 2,
+      "music": 3,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "28.05.2024",
+    "tmdb_id": "769",
+    "partners": "Denzel Wash-a-ton, Natalie Furtman"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 2,
+      "directing": 1,
+      "acting": 1,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "12.03.2024",
+    "tmdb_id": "299536",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 1,
+      "music": 3,
+      "feeling": 2,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "25.09.2023",
+    "tmdb_id": "597",
+    "partners": "Johnny Departs, Keanu Leaves"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "20.05.2023",
+    "tmdb_id": "568",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "12.03.2023",
+    "tmdb_id": "338953",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 1,
+      "directing": 1,
+      "acting": 2,
+      "music": 3,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "22.02.2023",
+    "tmdb_id": "278",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "29.04.2023",
+    "tmdb_id": "274",
+    "partners": "Jennifer Lawnrence, Denzel Wash-a-ton, Scarlett Johaunson"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 4,
+      "directing": 2,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "22.07.2023",
+    "tmdb_id": "839033",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 5,
+      "directing": 1,
+      "acting": 2,
+      "music": 3,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "06.08.2023",
+    "tmdb_id": "12",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 4,
+      "directing": 1,
+      "acting": 2,
+      "music": 2,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "16.11.2023",
+    "tmdb_id": "155",
+    "partners": "Meryl Sheep, Chris Pinetree, Denzel Wash-a-ton"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 5,
+      "directing": 2,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "25.04.2023",
+    "tmdb_id": "453",
+    "partners": "Meryl Sheep, Tom Crux"
+  },
+  {
+    "locations": "Cinéma (Neuchâtel)",
+    "grades": {
+      "story": 1,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "16.01.2023",
+    "tmdb_id": "313369",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 3,
+      "directing": 1,
+      "acting": 2,
+      "music": 1,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "10.08.2024",
+    "tmdb_id": "150540",
+    "partners": "Denzel Wash-a-ton, Meryl Sheep, Samuel L. Jaxx"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 1,
+      "directing": 2,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "27.12.2023",
+    "tmdb_id": "287948",
+    "partners": "Meryl Sheep, Chris Pinetree, Tom Crux"
+  },
+  {
+    "locations": "Cinéma (Paris)",
+    "grades": {
+      "story": 2,
+      "directing": 3,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "05.06.2023",
+    "tmdb_id": "328111",
+    "partners": "Brad Pickles, Scarlett Johaunson"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 2,
+      "music": 1,
+      "feeling": 1,
+      "personal": 4
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "21.09.2023",
+    "tmdb_id": "238",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 3,
+      "directing": 2,
+      "acting": 1,
+      "music": 1,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "10.01.2024",
+    "tmdb_id": "771",
+    "partners": "Brad Pickles, Emma Stonebridge"
+  },
+  {
+    "locations": "Dans le train",
+    "grades": {
+      "story": 4,
+      "directing": 1,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "17.10.2024",
+    "tmdb_id": "4935",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 3,
+      "directing": 1,
+      "acting": 1,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "22.03.2023",
+    "tmdb_id": "8392",
+    "partners": "Brad Pickles, Johnny Departs, Chris Pinetree"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 1,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "08.09.2024",
+    "tmdb_id": "389",
+    "partners": "Mark Buffalo"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 2,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "15.05.2023",
+    "tmdb_id": "575264",
+    "partners": "Meryl Sheep, Chris Pinetree"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 1,
+      "directing": 2,
+      "acting": 3,
+      "music": 1,
+      "feeling": 1,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "19.03.2023",
+    "tmdb_id": "411",
+    "partners": "Keanu Leaves, Morgan Fleeman, Denzel Wash-a-ton"
+  },
+  {
+    "locations": "Cinéma (Lausanne)",
+    "grades": {
+      "story": 5,
+      "directing": 3,
+      "acting": 3,
+      "music": 2,
+      "feeling": 1,
+      "personal": 1
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "24.12.2024",
+    "tmdb_id": "9799",
+    "partners": "Samuel L. Jaxx"
+  },
+  {
+    "locations": "Cinéma (Paris)",
+    "grades": {
+      "story": 2,
+      "directing": 3,
+      "acting": 3,
+      "music": 3,
+      "feeling": 2,
+      "personal": 2
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "16.03.2023",
+    "tmdb_id": "197",
+    "partners": "Solo"
+  },
+  {
+    "locations": "Maison",
+    "grades": {
+      "story": 5,
+      "directing": 1,
+      "acting": 2,
+      "music": 3,
+      "feeling": 2,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "09.01.2024",
+    "tmdb_id": "429",
+    "partners": "Brad Pickles"
+  },
+  {
+    "locations": "Dans l'avion",
+    "grades": {
+      "story": 4,
+      "directing": 3,
+      "acting": 2,
+      "music": 2,
+      "feeling": 1,
+      "personal": 3
+    },
+    "comment": "Un film mémorable avec une grande histoire et une réalisation exceptionnelle.",
+    "watch_date": "04.06.2024",
+    "tmdb_id": "198663",
+    "partners": "Keanu Leaves, Morgan Fleeman"
+  }
+]
