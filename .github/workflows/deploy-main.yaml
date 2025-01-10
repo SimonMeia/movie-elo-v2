@@ -43,4 +43,4 @@ jobs:
 
       - name: Start the app
         run: |
-          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "cd ${{ secrets.TARGET }} && source ~/.nvm/nvm.sh && nvm install 22.12.0 && nvm use 22.12.0 && npm install --omit=dev && systemctl --user daemon-reload && systemctl --user restart ${{ secrets.SYSTEMD }} && node ace scheduler:run"
+          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "cd ${{ secrets.TARGET }} && source ~/.nvm/nvm.sh && nvm install 22.12.0 && nvm use 22.12.0 && npm install --omit=dev && systemctl --user daemon-reload && systemctl --user restart ${{ secrets.SYSTEMD }}"
