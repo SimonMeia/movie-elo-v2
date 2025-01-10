@@ -14,6 +14,7 @@ export default defineConfig({
     () => import('@adonisjs/core/commands'),
     () => import('@adonisjs/lucid/commands'),
     () => import('adonisjs-scheduler/commands'),
+    () => import('@adonisjs/mail/commands'),
   ],
 
   /*
@@ -46,6 +47,7 @@ export default defineConfig({
       environment: ['console'],
     },
     () => import('@rlanz/sentry/provider'),
+    () => import('@adonisjs/mail/mail_provider'),
   ],
 
   /*

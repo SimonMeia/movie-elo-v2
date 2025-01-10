@@ -3,10 +3,7 @@ import { router } from '@inertiajs/vue3'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
 import Checkbox from 'primevue/checkbox'
-import { watch } from 'vue'
-import { computed } from 'vue'
-import { ref } from 'vue'
-import rem = CSS.rem
+import { computed, ref, watch } from 'vue'
 
 const props = defineProps<{
   errors?: {
@@ -108,7 +105,7 @@ function resetErrors() {
           </div>
           <div>
             <label for="">Email</label><br />
-            <InputText v-model="email" class="w-full" />
+            <InputText v-model="email" class="w-full" type="email" />
             <small v-if="props.errors?.email" class="text-red-500">
               {{ props.errors.email[0] }}
             </small>

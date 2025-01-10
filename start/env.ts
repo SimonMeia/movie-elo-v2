@@ -20,6 +20,9 @@ export default await Env.create(new URL('../', import.meta.url), {
 
   TMDB_BEARER_TOKEN: Env.schema.string(),
 
+  MAIL_FROM: Env.schema.string({ format: 'email' }),
+  MAIL_ADMIN: Env.schema.string({ format: 'email' }),
+
   /*
   |----------------------------------------------------------
   | Variables for configuring session package
@@ -45,4 +48,11 @@ export default await Env.create(new URL('../', import.meta.url), {
   |----------------------------------------------------------
   */
   SENTRY_DSN: Env.schema.string(),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for configuring the mail package
+  |----------------------------------------------------------
+  */
+  RESEND_API_KEY: Env.schema.string(),
 })

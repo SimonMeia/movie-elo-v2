@@ -40,7 +40,8 @@ export const createUserValidator = vine.compile(
     email: vine
       .string()
       .trim()
-      .use(uniqueRule({ column: 'email' })),
+      .use(uniqueRule({ column: 'email' }))
+      .email(),
     password: vine.string().trim(),
   })
 )
