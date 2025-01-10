@@ -8,6 +8,11 @@
 4. Run `node ace migration:run --seed`
 5. Run `node ace serve --watch`
 
+## Cron jobs
+
+The demo user uses de [adonisjs-scheduler](https://packages.adonisjs.com/packages/adonisjs-scheduler) package. So run
+`node ace scheduler:run` when deploying (or `node ace scheduler:run --watch` during dev if necessary)
+
 ## Documentation
 
 - [Adonis Documentation](https://docs.adonisjs.com)
