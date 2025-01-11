@@ -126,7 +126,7 @@ function updateGradeInputList() {
       <div class="flex flex-col gap-6">
         <div class="flex flex-col gap-1">
           <label>Nom de la catégorie</label>
-          <InputText class="w-full" v-model="newGradeCategory.name" />
+          <InputText class="w-full" v-model="newGradeCategory.name" placeholder="Ex. Histoire" />
           <small v-if="props.errors?.name" class="text-red-500">
             {{ props.errors?.name[0] }}
           </small>
@@ -175,7 +175,7 @@ function updateGradeInputList() {
               </div>
               <InputText
                 class="w-full col-span-11"
-                placeholder="Description"
+                placeholder="Ex. Mauvais, bien ou excellent"
                 v-model="newGradeCategory.grades[i - 1].description"
               />
             </div>
@@ -224,7 +224,12 @@ function updateGradeInputList() {
           </template>
         </Column>
       </DataTable>
-      <Button label="Valider" class="my-2" @click="router.post('/grade-types/validate')" />
+      <Button
+        label="Valider"
+        class="my-2"
+        @click="router.post('/grade-types/validate')"
+        :disabled="!props.gradeTypes.length"
+      />
     </div>
   </Layout>
 </template>

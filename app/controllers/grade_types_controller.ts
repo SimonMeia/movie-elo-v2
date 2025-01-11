@@ -38,6 +38,17 @@ export default class GradeTypesController {
   @inject()
   async validate({ auth, response, session }: HttpContext) {
     const user = auth.user!
+
+    await user.load('gradeTypes')
+
+    if (user.gradeTypes.length === 0) {
+      session.flash('notification', {
+        type: 'error',
+        message: 'Veuillez ajouter au moins une catégorie de notes !',
+      })
+      return response.redirect().toRoute('/grade-types')
+    }
+
     user.gradeTypesValidated = true
     await user.save()
 
