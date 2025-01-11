@@ -152,7 +152,7 @@ function updateGradeInputList() {
           />
         </div>
         <div class="flex flex-col gap-1">
-          <label>Description</label>
+          <label>Description des notes</label>
           <small
             v-if="
               Object.keys(props.errors || {})
@@ -203,6 +203,16 @@ function updateGradeInputList() {
       <ConfirmPopup></ConfirmPopup>
 
       <DataTable :value="props.gradeTypes">
+        <template #empty>
+          <div class="text-center py-4 space-y-4">
+            <p>Définissez les éléments des films que vous souhaitez noter.</p>
+            <p>
+              Par exemple, vous pourriez avoir envie de noter l'<b>histoire</b>, l'<b>acting</b>
+              ainsi que la <b>musique</b>.
+            </p>
+            <Button label="Créer une catégorie" @click="openModal" />
+          </div>
+        </template>
         <Column field="name" header="Nom de la catégorie"></Column>
         <Column field="maxGrade">
           <template #header>
