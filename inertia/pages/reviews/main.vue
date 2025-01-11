@@ -11,16 +11,19 @@ import TabPanel from 'primevue/tabpanel'
 import { router } from '@inertiajs/vue3'
 import { vElementVisibility } from '@vueuse/components'
 import { onMounted, onUnmounted, ref } from 'vue'
+import InputText from 'primevue/inputtext'
+import Button from 'primevue/button'
 
 const props = defineProps<{
   meta: PaginationMeta
   gradesTabData: GradedReview[]
   viewingsTabData: ViewingWithMovieTitle[]
   tab: string
+  searchQuery: string
 }>()
 const isLoaderVisible = ref(false)
 const isChangingTab = ref(false)
-
+const searchQuery = ref(props.searchQuery)
 const STORAGE_KEY = 'scrollPosition'
 
 // ✅ Fonction pour sauvegarder la position du scroll
@@ -59,7 +62,7 @@ function onElementVisibility(divVisiblity: boolean) {
 }
 
 function loadMore() {
-  router.visit(`?page=${props.meta.currentPage + 1}&tab=${props.tab}`, {
+  router.visit(`?page=${props.meta.currentPage + 1}&tab=${props.tab}&search=${searchQuery.value}`, {
     only: ['gradesTabData', 'viewingsTabData', 'meta'],
     replace: true,
     preserveScroll: true,
@@ -72,16 +75,50 @@ function changeTab(newTab: string) {
     replace: true,
   })
 }
+
+function search() {
+  router.visit(`/reviews?searchQuery=${searchQuery.value}&tab=${props.tab}`, {
+    replace: true,
+  })
+}
 </script>
 
 <template>
   <Layout>
     <div class="container">
       <h1 class="my-8">Mes reviews</h1>
+      <div class="items-center w-full justify-end md:hidden flex mb-4">
+        <InputText
+          size="small"
+          v-model="searchQuery"
+          placeholder="Rechercher un film"
+          class="w-full"
+        />
+        <Button
+          icon="pi pi-search"
+          class="ml-2"
+          :pt="{ root: 'aspect-square !min-w-10' }"
+          @click="search"
+        ></Button>
+      </div>
       <Tabs :value="tab ?? 'grades'" @update:value="changeTab($event as string)">
         <TabList>
           <Tab value="grades"><i class="mr-2 pi pi-star"></i>Notes</Tab>
           <Tab value="viewings"><i class="mr-2 pi pi-calendar"></i>Visionnages</Tab>
+          <div class="items-center w-full justify-end hidden md:flex">
+            <InputText
+              size="small"
+              v-model="searchQuery"
+              placeholder="Rechercher un film"
+              class="w-64"
+            />
+            <Button
+              icon="pi pi-search"
+              class="ml-2"
+              :pt="{ root: 'aspect-square !w-10' }"
+              @click="search"
+            ></Button>
+          </div>
         </TabList>
         <TabPanels :pt="{ root: '!p-0' }">
           <TabPanel value="grades">

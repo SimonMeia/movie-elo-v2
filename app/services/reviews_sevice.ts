@@ -9,13 +9,15 @@ class ReviewService {
   async getReviewsSortedByGrade(
     userId: UserId,
     page = 1,
-    perPage = 20
+    perPage = 20,
+    searchQuery = ''
   ): Promise<{
     data: GradedReview[]
     meta: PaginationMeta
   }> {
     let reviews = await Review.query()
       .where('userId', userId)
+      .whereILike('title', `%${searchQuery.toLowerCase()}%`)
       .select('reviews.*')
       .join('grade_review', 'reviews.id', '=', 'grade_review.review_id')
       .join('grades', 'grade_review.grade_id', '=', 'grades.id')
@@ -61,7 +63,8 @@ class ReviewService {
   async getReviewsSortedByViewing(
     userId: UserId,
     page = 1,
-    perPage = 20
+    perPage = 20,
+    searchQuery = ''
   ): Promise<{
     data: ViewingWithMovieTitle[]
     meta: PaginationMeta
@@ -71,6 +74,7 @@ class ReviewService {
       .join('reviews', 'reviews.id', '=', 'viewings.review_id')
       .join('movies', 'reviews.movie_id', '=', 'movies.id')
       .where('reviews.user_id', userId)
+      .whereILike('title', `%${searchQuery.toLowerCase()}%`)
       .orderBy('viewings.viewing_date', 'desc')
       .orderBy('movies.title', 'asc')
       .preload('review', (review) => {

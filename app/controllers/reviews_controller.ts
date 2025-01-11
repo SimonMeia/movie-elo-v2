@@ -29,16 +29,28 @@ export default class ReviewsController {
     let tab = request.qs().tab as string
     if (!['grades', 'viewings'].includes(tab)) tab = 'grades'
 
+    const searchQuery = request.qs().searchQuery
+
     let gradesTabData: GradedReview[] = []
     let viewingsTabData: ViewingWithMovieTitle[] = []
     let meta: PaginationMeta
 
     if (tab === 'viewings') {
-      const { data, meta: m } = await ReviewService.getReviewsSortedByViewing(user.id, page)
+      const { data, meta: m } = await ReviewService.getReviewsSortedByViewing(
+        user.id,
+        page,
+        20,
+        searchQuery
+      )
       viewingsTabData = data
       meta = m
     } else {
-      const { data, meta: m } = await ReviewService.getReviewsSortedByGrade(user.id, page)
+      const { data, meta: m } = await ReviewService.getReviewsSortedByGrade(
+        user.id,
+        page,
+        20,
+        searchQuery
+      )
       gradesTabData = data
       meta = m
     }
@@ -48,11 +60,13 @@ export default class ReviewsController {
       gradesTabData: GradedReview[]
       viewingsTabData: ViewingWithMovieTitle[]
       tab: string
+      searchQuery: string
     }>('reviews/main', {
       viewingsTabData: inertia.merge(() => viewingsTabData) as unknown as ViewingWithMovieTitle[], // Pas propre mais fonctionne pour le moment
       gradesTabData: inertia.merge(() => gradesTabData) as unknown as GradedReview[],
       meta: meta,
       tab: tab,
+      searchQuery: searchQuery ?? '',
     })
   }
 
