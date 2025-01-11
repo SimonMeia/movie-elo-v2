@@ -27,8 +27,6 @@ const uniqueRule = vine.createRule(isUnique, {
 
 export const createUserValidator = vine.compile(
   vine.object({
-    firstName: vine.string().trim(),
-    lastName: vine.string().trim(),
     username: vine
       .string()
       .trim()

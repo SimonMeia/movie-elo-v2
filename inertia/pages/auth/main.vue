@@ -18,8 +18,6 @@ const props = defineProps<{
 const email = ref('')
 const password = ref('')
 const username = ref('')
-const firstName = ref('')
-const lastName = ref('')
 const rememberMe = ref(true)
 
 const isLoginFormDisplayed = ref(true)
@@ -40,8 +38,6 @@ watch(isLoginFormDisplayed, () => {
 function submit() {
   const destination = isLoginFormDisplayed.value ? 'login' : 'register'
   const userData = {
-    firstName: firstName.value,
-    lastName: lastName.value,
     username: username.value,
     email: email.value,
     password: password.value,
@@ -61,8 +57,6 @@ function resetErrors() {
     props.errors.email = undefined
     props.errors.password = undefined
     props.errors.username = undefined
-    props.errors.firstName = undefined
-    props.errors.lastName = undefined
   }
 }
 </script>
@@ -82,20 +76,6 @@ function resetErrors() {
           Welcome back
         </h1>
         <div class="flex flex-col justify-center gap-3 grow md:gap-4">
-          <div v-if="!isLoginFormDisplayed">
-            <label for="">Prénom</label><br />
-            <InputText v-model="firstName" class="w-full" />
-            <small v-if="props.errors?.firstName" class="text-red-500">
-              {{ props.errors.firstName[0] }}
-            </small>
-          </div>
-          <div v-if="!isLoginFormDisplayed">
-            <label for="">Nom</label><br />
-            <InputText v-model="lastName" class="w-full" />
-            <small v-if="props.errors?.lastName" class="text-red-500">
-              {{ props.errors.lastName[0] }}
-            </small>
-          </div>
           <div v-if="!isLoginFormDisplayed">
             <label for="">Nom d'utilisateur</label><br />
             <InputText v-model="username" class="w-full" />

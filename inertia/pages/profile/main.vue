@@ -18,14 +18,15 @@ const user = computed(() => page.props.user as User)
     <div class="container">
       <h1 class="my-8">Mon profil</h1>
 
-      <div class="grid md:grid-cols-2 gap-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         <Card>
           <template #title>Mes infos</template>
           <template #content>
-            <div class="grid grid-cols-2 gap-2">
-              <span>Username</span> <span>{{ user.username }}</span>
-              <span>Nom</span> <span>{{ user.firstName }} {{ user.lastName }}</span>
-              <span>Email</span> <span>{{ user.email }}</span>
+            <div class="grid grid-cols-3 gap-2">
+              <span>Username</span>
+              <span class="col-span-2">{{ user.username }}</span>
+              <span>Email</span>
+              <span class="col-span-2">{{ user.email }}</span>
             </div>
           </template>
         </Card>
@@ -38,14 +39,14 @@ const user = computed(() => page.props.user as User)
               <span class="md:col-span-2">Nombre de films vus</span>
               <span>{{ statistics.movieCount }}</span>
               <span class="md:col-span-2">Temps passé sur les films</span>
-              <span>{{
-                Duration.fromObject({ minute: statistics.timeSpentMin }).toFormat("h'h'")
-              }}</span>
+              <span>
+                {{ Duration.fromObject({ minute: statistics.timeSpentMin }).toFormat("h'h'") }}
+              </span>
             </div>
           </template>
         </Card>
       </div>
-      <div class="grid md:grid-cols-2 gap-4 mt-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         <Button label="Deconnexion" @click="router.get('/auth/logout')"></Button>
       </div>
     </div>

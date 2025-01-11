@@ -4,6 +4,7 @@ import User from '#models/user'
 import { createUserValidator } from '#validators/users'
 import mail from '@adonisjs/mail/services/main'
 import env from '#start/env'
+import app from '@adonisjs/core/services/app'
 
 export default class SessionController {
   @inject()
@@ -27,19 +28,19 @@ export default class SessionController {
     await User.create(payload)
     const user = await User.findByOrFail('email', payload.email)
 
-    await mail.send((message) => {
-      message
-        .to(env.get('MAIL_ADMIN'))
-        .from(env.get('MAIL_FROM'))
-        .subject('New user on Movie Elo !')
-        .htmlView('emails/admin_new_user', {
-          username: user.username,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          date: new Date().toLocaleDateString(),
-        })
-    })
+    if (app.inProduction) {
+      await mail.send((message) => {
+        message
+          .to(env.get('MAIL_ADMIN'))
+          .from(env.get('MAIL_FROM'))
+          .subject('New user on Movie Elo !')
+          .htmlView('emails/admin_new_user', {
+            username: user.username,
+            email: user.email,
+            date: new Date().toLocaleDateString(),
+          })
+      })
+    }
 
     await auth.use('web').login(user)
 
