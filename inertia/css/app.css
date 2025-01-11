@@ -50,3 +50,7 @@
 .p-tab {
   background-color: transparent !important;
 }
+
+.p-password-input {
+  flex-grow: 1 !important;
+}

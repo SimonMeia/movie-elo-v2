@@ -20,27 +20,47 @@ async function isUnique(value: unknown, options: Options, field: FieldContext) {
   }
 }
 
-const uniqueRule = vine.createRule(isUnique, {
-  implicit: true,
-  isAsync: true,
-})
+function isPasswordComplex(value: unknown, _options: Options, field: FieldContext) {
+  if (typeof value !== 'string') return
+
+  if (value.length < 8) {
+    field.report('Le mot de passe doit contenir au moins 8 caractères', 'password', field)
+  }
+
+  if (!/[A-Z]/.test(value)) {
+    field.report('Le mot de passe doit contenir au moins 1 majuscule', 'password', field)
+  }
+
+  if (!/[a-z]/.test(value)) {
+    field.report('Le mot de passe doit contenir au moins 1 minuscule', 'password', field)
+  }
+
+  if (!/[0-9]/.test(value)) {
+    field.report('Le mot de passe doit contenir au moins 1 chiffre', 'password', field)
+  }
+}
+
+const uniqueRule = vine.createRule(isUnique, { implicit: true, isAsync: true })
+
+const passwordRule = vine.createRule(isPasswordComplex, { implicit: true, isAsync: false })
 
 export const createUserValidator = vine.compile(
   vine.object({
     username: vine
       .string()
       .trim()
-      .use(
-        uniqueRule({
-          column: 'username',
-        })
-      ),
+      .use(uniqueRule({ column: 'username' })),
     email: vine
       .string()
       .trim()
-      .use(uniqueRule({ column: 'email' }))
-      .email(),
-    password: vine.string().trim(),
+      .toLowerCase()
+      .email()
+      .use(uniqueRule({ column: 'email' })),
+    password: vine
+      .string()
+      .trim()
+      .confirmed({ confirmationField: 'passwordConfirmation' })
+      .use(passwordRule({ column: 'password' })),
   })
 )
 
@@ -52,4 +72,5 @@ createUserValidator.messagesProvider = new SimpleMessagesProvider({
   'email.required': "L'adresse email est obligatoire",
   'email.uniqueRule': "L'adresse email est déjà utilisée",
   'password.required': 'Le mot de passe est obligatoire',
+  'password.confirmed': 'Le mot de passe et la confirmation ne correspondent pas',
 })

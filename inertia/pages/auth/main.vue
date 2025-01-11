@@ -3,6 +3,7 @@ import { router } from '@inertiajs/vue3'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
 import Checkbox from 'primevue/checkbox'
+import Password from 'primevue/password'
 import { computed, ref, watch } from 'vue'
 
 const props = defineProps<{
@@ -17,6 +18,7 @@ const props = defineProps<{
 
 const email = ref('')
 const password = ref('')
+const passwordConfirmation = ref('')
 const username = ref('')
 const rememberMe = ref(true)
 
@@ -41,6 +43,7 @@ function submit() {
     username: username.value,
     email: email.value,
     password: password.value,
+    passwordConfirmation: passwordConfirmation.value,
     rememberMe: isLoginFormDisplayed ? rememberMe.value : false,
   }
 
@@ -91,11 +94,40 @@ function resetErrors() {
             </small>
           </div>
           <div>
-            <label for="">Password</label><br />
-            <InputText type="password" v-model="password" class="w-full" />
+            <label for="">Mot de passe</label><br />
+            <InputText
+              type="password"
+              v-model="password"
+              class="w-full"
+              v-if="isLoginFormDisplayed"
+            />
+            <Password
+              v-model="password"
+              v-if="!isLoginFormDisplayed"
+              class="w-full"
+              :feedback="true"
+              promptLabel="Entrez un mot de passe"
+              weakLabel="Trop simple"
+              mediumLabel="Complexité moyenne"
+              strongLabel="Mot de passe complèxe"
+            >
+              <template #footer>
+                <Divider />
+                <ul class="pl-2 ml-2 my-0 leading-normal">
+                  <li>Min. 1 minuscule</li>
+                  <li>Min. 1 majuscule</li>
+                  <li>Min. 1 chiffre</li>
+                  <li>Min. 8 caractères</li>
+                </ul>
+              </template>
+            </Password>
             <small v-if="props.errors?.password" class="text-red-500">
               {{ props.errors.password[0] }}
             </small>
+          </div>
+          <div v-if="!isLoginFormDisplayed">
+            <label for="">Confirmer le mot de passe</label><br />
+            <InputText type="password" v-model="passwordConfirmation" class="w-full" />
           </div>
           <div v-if="isLoginFormDisplayed" class="flex gap-2 items-center">
             <Checkbox
