@@ -3,11 +3,19 @@ import { useGrades } from '@/composables/use_grades'
 import type { GradedReview } from '@/app/types'
 import { router } from '@inertiajs/vue3'
 import Column from 'primevue/column'
-import DataTable from 'primevue/datatable'
+import DataTable, { DataTableSortEvent } from 'primevue/datatable'
 import Button from 'primevue/button'
 import { type Ref, ref } from 'vue'
 
-const props = defineProps<{ data: GradedReview[]; isChangingTab: boolean }>()
+const props = defineProps<{
+  data: GradedReview[]
+  isChangingTab: boolean
+  sortOrder: number
+  sortField: string
+}>()
+const emits = defineEmits<{
+  (event: 'sort', payload: { field: string; order: number }): void
+}>()
 
 interface ReviewListItem {
   reviewId: number
@@ -52,16 +60,24 @@ const reviewsList: ReviewListItem[] = props.data.map((review) => {
   }
   return line
 })
+
+function sort(event: DataTableSortEvent) {
+  const { sortField, sortOrder } = event
+  emits('sort', { field: sortField as string, order: sortOrder ?? 0 })
+}
 </script>
 
 <template>
   <DataTable
     stripedRows
-    selectionMode="single"
     size="small"
-    v-model:selection="selectedReview"
     :value="reviewsList"
-    @rowSelect="router.get('/reviews/' + $event.data.reviewId)"
+    :sortField="sortField"
+    :sortOrder="sortOrder"
+    removableSort
+    @rowClick="router.get('/reviews/' + $event.data.reviewId)"
+    @sort="sort"
+    :pt="{ bodyRow: 'cursor-pointer hover:!bg-gray-100' }"
   >
     <template #empty>
       <div v-if="isChangingTab" class="text-center py-4">
@@ -73,7 +89,7 @@ const reviewsList: ReviewListItem[] = props.data.map((review) => {
       </div>
     </template>
 
-    <Column field="title">
+    <Column field="title" :sortable="true">
       <template #header>
         <div class="ml-4">
           <span class="font-bold">Film</span>

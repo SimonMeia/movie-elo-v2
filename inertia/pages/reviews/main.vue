@@ -20,6 +20,8 @@ const props = defineProps<{
   viewingsTabData: ViewingWithMovieTitle[]
   tab: string
   searchQuery: string
+  sortField: string
+  sortOrder: string
 }>()
 const isLoaderVisible = ref(false)
 const isChangingTab = ref(false)
@@ -81,6 +83,21 @@ function search() {
     replace: true,
   })
 }
+
+function sort(event: { field: string; order: number }) {
+  console.log(event)
+
+  const order = event.order === 1 ? 'asc' : 'desc' // 1 = asc, -1 = desc
+
+  const query = new URLSearchParams({ tab: props.tab || '' })
+  if (event.field) {
+    query.append('sortField', event.field)
+    query.append('sortOrder', order)
+  }
+  query.toString()
+
+  router.visit(`/reviews?${query}`, { replace: true })
+}
 </script>
 
 <template>
@@ -122,7 +139,13 @@ function search() {
         </TabList>
         <TabPanels :pt="{ root: '!p-0' }">
           <TabPanel value="grades">
-            <GradesTable :data="gradesTabData" :isChangingTab />
+            <GradesTable
+              :data="gradesTabData"
+              :isChangingTab
+              @sort="sort"
+              :sort-field="sortField"
+              :sort-order="sortOrder === 'asc' ? 1 : -1"
+            />
           </TabPanel>
           <TabPanel value="viewings">
             <ViewingsTable :data="viewingsTabData" :isChangingTab />

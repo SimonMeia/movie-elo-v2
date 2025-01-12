@@ -31,6 +31,11 @@ export default class ReviewsController {
 
     const searchQuery = request.qs().searchQuery
 
+    let sortField = request.qs().sortField
+    if (sortField === 'null') sortField = null
+    let sortOrder = request.qs().sortOrder
+    if (sortOrder !== 'asc' && sortOrder !== 'desc') sortOrder = 'desc'
+
     let gradesTabData: GradedReview[] = []
     let viewingsTabData: ViewingWithMovieTitle[] = []
     let meta: PaginationMeta
@@ -49,7 +54,9 @@ export default class ReviewsController {
         user.id,
         page,
         20,
-        searchQuery
+        searchQuery,
+        sortField,
+        sortOrder
       )
       gradesTabData = data
       meta = m
@@ -61,12 +68,16 @@ export default class ReviewsController {
       viewingsTabData: ViewingWithMovieTitle[]
       tab: string
       searchQuery: string
+      sortField: string
+      sortOrder: string
     }>('reviews/main', {
       viewingsTabData: inertia.merge(() => viewingsTabData) as unknown as ViewingWithMovieTitle[], // Pas propre mais fonctionne pour le moment
       gradesTabData: inertia.merge(() => gradesTabData) as unknown as GradedReview[],
       meta: meta,
       tab: tab,
       searchQuery: searchQuery ?? '',
+      sortField: sortField ?? '',
+      sortOrder: sortOrder ?? '',
     })
   }
 

@@ -27,6 +27,9 @@ void createInertiaApp({
       .use(PrimeVue, {
         theme: movieEloTheme,
         locale: movieEloLocale,
+        pt: {
+          datatable: {},
+        },
       })
       .use(ConfirmationService)
       .use(ToastService)

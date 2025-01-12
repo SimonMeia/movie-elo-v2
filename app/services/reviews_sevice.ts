@@ -10,11 +10,24 @@ class ReviewService {
     userId: UserId,
     page = 1,
     perPage = 20,
-    searchQuery = ''
+    searchQuery = '',
+    sortField: string | null = null,
+    sortOrder: 'asc' | 'desc'
   ): Promise<{
     data: GradedReview[]
     meta: PaginationMeta
   }> {
+    const sortableFields = ['title']
+
+    const order: { column: string; order: 'asc' | 'desc' }[] = []
+
+    if (sortField && sortableFields.includes(sortField)) {
+      order.push({ column: sortField, order: sortOrder })
+    } else {
+      order.push({ column: 'total_grade', order: 'desc' })
+      order.push({ column: 'movies.title', order: 'asc' })
+    }
+
     let reviews = await Review.query()
       .where('userId', userId)
       .whereILike('title', `%${searchQuery.toLowerCase()}%`)
@@ -24,8 +37,7 @@ class ReviewService {
       .join('movies', 'reviews.movie_id', '=', 'movies.id')
       .groupBy('reviews.id')
       .select(db.raw('SUM(grades.value) as total_grade'))
-      .orderBy('total_grade', 'desc')
-      .orderBy('movies.title', 'asc')
+      .orderBy(order)
       .preload('movie')
       .preload('grades', (grade) => grade.preload('gradeType', (type) => type.preload('grades')))
       .paginate(page, perPage)
