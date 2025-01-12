@@ -2,31 +2,38 @@
 import type { ViewingWithMovieTitle } from '@/app/types'
 import { router } from '@inertiajs/vue3'
 import Column from 'primevue/column'
-import DataTable from 'primevue/datatable'
-import { type Ref, ref } from 'vue'
+import DataTable, { DataTableSortEvent } from 'primevue/datatable'
 import Button from 'primevue/button'
 
-defineProps<{ data: ViewingWithMovieTitle[]; isChangingTab: boolean }>()
+defineProps<{
+  data: ViewingWithMovieTitle[]
+  isChangingTab: boolean
+  sortOrder: number
+  sortField: string
+}>()
 
-// interface ViewingListItem {
-//   reviewId: number
-//   movieTitle: string
-//   date: Date
-//   locations: string[]
-//   partners: string[]
-// }
+const emits = defineEmits<{
+  (event: 'sort', payload: { field: string; order: number }): void
+}>()
 
-const selectedReview: Ref<ViewingWithMovieTitle | null> = ref(null)
+function sort(event: DataTableSortEvent) {
+  const { sortField, sortOrder } = event
+  emits('sort', { field: sortField as string, order: sortOrder ?? 0 })
+}
 </script>
 
 <template>
   <DataTable
     stripedRows
-    selectionMode="single"
     size="small"
-    v-model:selection="selectedReview"
     :value="data"
-    @rowSelect="router.get('/reviews/' + $event.data.reviewId)"
+    :sortField="sortField"
+    :sortOrder="sortOrder"
+    removableSort
+    @rowClick="router.get('/reviews/' + $event.data.reviewId)"
+    @sort="sort"
+    :pt="{ bodyRow: 'cursor-pointer hover:!bg-gray-100', thead: '!h-12' }"
+    lazy
   >
     <template #empty>
       <div v-if="isChangingTab" class="text-center py-4">
@@ -37,38 +44,40 @@ const selectedReview: Ref<ViewingWithMovieTitle | null> = ref(null)
         <Button label="Ajouter une review" @click="router.get(`/review-form`)" />
       </div>
     </template>
-    <Column field="title">
+    <Column field="title" :sortable="true">
       <template #header>
-        <div class="ml-4">
+        <div class="md:ml-4">
           <span class="font-bold">Film</span>
         </div>
       </template>
       <template #body="slotProps">
-        <div class="ml-4">
+        <div class="md:ml-4">
           <span class="font-bold">{{ slotProps.data.title }}</span>
         </div>
       </template>
     </Column>
 
-    <Column field="date" header="Date">
+    <Column field="date" header="Date" :sortable="true">
       <template #body="slotProps">
-        <span>{{
-          new Date(slotProps.data.date).toLocaleDateString('fr-CH', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })
-        }}</span>
+        <span>
+          {{
+            new Date(slotProps.data.date).toLocaleDateString('fr-CH', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })
+          }}
+        </span>
       </template>
     </Column>
 
-    <Column field="locations" header="Lieux">
+    <Column field="locations" header="Lieux" class="hidden md:table-cell">
       <template #body="slotProps">
         <span>{{ slotProps.data.locations.join(', ') }}</span>
       </template>
     </Column>
 
-    <Column field="partners" header="Partenaires">
+    <Column field="partners" header="Partenaires" class="hidden md:table-cell">
       <template #body="slotProps">
         <span>{{ slotProps.data.partners.join(', ') }}</span>
       </template>

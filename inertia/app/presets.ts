@@ -25,9 +25,9 @@ const presets = definePreset(Lara, {
           activeColor: '{zinc.800}',
         },
         highlight: {
-          background: '{zinc.300}',
+          background: '{zinc.950}',
           focusBackground: '{zinc.700}',
-          color: '{zinc.700}',
+          color: '#ffffff',
           focusColor: '#ffffff',
         },
       },

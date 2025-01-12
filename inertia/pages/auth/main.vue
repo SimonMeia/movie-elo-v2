@@ -5,6 +5,7 @@ import InputText from 'primevue/inputtext'
 import Checkbox from 'primevue/checkbox'
 import Password from 'primevue/password'
 import { computed, ref, watch } from 'vue'
+import Divider from 'primevue/divider'
 
 const props = defineProps<{
   errors?: {

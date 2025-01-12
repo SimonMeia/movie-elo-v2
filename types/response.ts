@@ -17,6 +17,7 @@ export type ViewingWithMovieTitle = {
 export type GradedReview = {
   id: number
   title: string
+  totalGrade: number
   grades: {
     givenGrade: number
     gradeType: GradeType

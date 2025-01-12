@@ -79,17 +79,19 @@ function changeTab(newTab: string) {
 }
 
 function search() {
-  router.visit(`/reviews?searchQuery=${searchQuery.value}&tab=${props.tab}`, {
+  const query = new URLSearchParams({ tab: props.tab || '', searchQuery: searchQuery.value })
+  if (props.sortField) query.append('sortField', props.sortField)
+  if (props.sortOrder) query.append('sortOrder', props.sortOrder)
+  query.toString()
+  router.visit(`/reviews?${query}`, {
     replace: true,
   })
 }
 
 function sort(event: { field: string; order: number }) {
-  console.log(event)
-
   const order = event.order === 1 ? 'asc' : 'desc' // 1 = asc, -1 = desc
 
-  const query = new URLSearchParams({ tab: props.tab || '' })
+  const query = new URLSearchParams({ tab: props.tab || '', searchQuery: searchQuery.value })
   if (event.field) {
     query.append('sortField', event.field)
     query.append('sortOrder', order)
@@ -148,7 +150,13 @@ function sort(event: { field: string; order: number }) {
             />
           </TabPanel>
           <TabPanel value="viewings">
-            <ViewingsTable :data="viewingsTabData" :isChangingTab />
+            <ViewingsTable
+              :data="viewingsTabData"
+              :isChangingTab
+              @sort="sort"
+              :sort-field="sortField"
+              :sort-order="sortOrder === 'asc' ? 1 : -1"
+            />
           </TabPanel>
         </TabPanels>
       </Tabs>

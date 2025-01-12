@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { useGrades } from '@/composables/use_grades'
 import type { GradedReview } from '@/app/types'
 import { router } from '@inertiajs/vue3'
 import Column from 'primevue/column'
 import DataTable, { DataTableSortEvent } from 'primevue/datatable'
 import Button from 'primevue/button'
-import { type Ref, ref } from 'vue'
 
 const props = defineProps<{
   data: GradedReview[]
@@ -28,10 +26,6 @@ interface ReviewListItem {
   }
 }
 
-const { calculateTotalGrade } = useGrades()
-
-const selectedReview: Ref<ReviewListItem | null> = ref(null)
-
 const gradeTypes = props.data[0]?.grades.map((grade) => {
   return {
     gradeTypeId: grade.gradeType.id,
@@ -43,14 +37,7 @@ const reviewsList: ReviewListItem[] = props.data.map((review) => {
   const line: ReviewListItem = {
     reviewId: review.id,
     title: review.title,
-    totalGrade: calculateTotalGrade(
-      review.grades.map((grade) => {
-        return {
-          grade: grade.givenGrade,
-          maxGrade: grade.gradeType.maxGrade,
-        }
-      })
-    ),
+    totalGrade: review.totalGrade,
   }
   for (const grade of review.grades) {
     line[grade.gradeType.id] = {
@@ -77,7 +64,8 @@ function sort(event: DataTableSortEvent) {
     removableSort
     @rowClick="router.get('/reviews/' + $event.data.reviewId)"
     @sort="sort"
-    :pt="{ bodyRow: 'cursor-pointer hover:!bg-gray-100' }"
+    :pt="{ bodyRow: 'cursor-pointer hover:!bg-gray-100', thead: '!h-12' }"
+    lazy
   >
     <template #empty>
       <div v-if="isChangingTab" class="text-center py-4">
@@ -91,29 +79,26 @@ function sort(event: DataTableSortEvent) {
 
     <Column field="title" :sortable="true">
       <template #header>
-        <div class="ml-4">
+        <div class="md:ml-4">
           <span class="font-bold">Film</span>
         </div>
       </template>
       <template #body="slotProps">
-        <div class="ml-4">
+        <div class="md:ml-4">
           <span class="font-bold">{{ slotProps.data.title }}</span>
         </div>
       </template>
     </Column>
     <template v-for="gradeType in gradeTypes" :key="gradeType.gradeTypeId">
-      <Column :field="`${gradeType.gradeTypeId}.grade`" :header="gradeType.gradeTypeName"></Column>
+      <Column
+        :field="`${gradeType.gradeTypeId}.grade`"
+        :header="gradeType.gradeTypeName"
+        class="hidden md:table-cell"
+      ></Column>
     </template>
-    <Column field="totalGrade">
-      <template #header>
-        <div class="mr-4">
-          <span class="font-bold">Note finale</span>
-        </div>
-      </template>
+    <Column field="totalGrade" :sortable="true" header="Note finale">
       <template #body="slotProps">
-        <div class="mr-4">
-          <span class="font-bold">{{ slotProps.data.totalGrade.toFixed(0) }}%</span>
-        </div>
+        <div class="mr-4">{{ slotProps.data.totalGrade }}%</div>
       </template>
     </Column>
   </DataTable>

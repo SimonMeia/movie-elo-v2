@@ -33,7 +33,8 @@
 
 :root {
   --accent: 194, 19, 19;
-
+  --p-datatable-header-cell-selected-background : #E4E4E7 !important;
+  --p-datatable-header-cell-selected-color : #18181B !important;
   --vis-color-main: #c21313 !important;
   --vis-color0: #c21313 !important;
   --vis-color1: #f93a3a !important;

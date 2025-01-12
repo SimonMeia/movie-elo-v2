@@ -45,7 +45,9 @@ export default class ReviewsController {
         user.id,
         page,
         20,
-        searchQuery
+        searchQuery,
+        sortField,
+        sortOrder
       )
       viewingsTabData = data
       meta = m

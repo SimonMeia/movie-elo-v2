@@ -17,12 +17,15 @@ class ReviewService {
     data: GradedReview[]
     meta: PaginationMeta
   }> {
-    const sortableFields = ['title']
+    const sortableFields = ['title', 'totalGrade']
 
     const order: { column: string; order: 'asc' | 'desc' }[] = []
 
     if (sortField && sortableFields.includes(sortField)) {
+      if (sortField === 'totalGrade') sortField = 'total_grade'
       order.push({ column: sortField, order: sortOrder })
+
+      if (sortField !== 'title') order.push({ column: 'movies.title', order: 'asc' })
     } else {
       order.push({ column: 'total_grade', order: 'desc' })
       order.push({ column: 'movies.title', order: 'asc' })
@@ -43,11 +46,16 @@ class ReviewService {
       .paginate(page, perPage)
 
     // console.log(reviews)
+    const maxGrade = reviews[0]?.grades.reduce(
+      (total, grade) => total + grade.gradeType.maxGrade,
+      0
+    )
     const data: GradedReview[] = []
     for (let review of reviews) {
       data.push({
         id: review.id,
         title: review.movie.title,
+        totalGrade: Number.parseInt(((review.$extras.total_grade * 100) / maxGrade).toFixed(0)),
         grades: review.grades.map((grade) => ({
           givenGrade: grade.value,
           gradeType: {
@@ -76,19 +84,33 @@ class ReviewService {
     userId: UserId,
     page = 1,
     perPage = 20,
-    searchQuery = ''
+    searchQuery = '',
+    sortField: string | null = null,
+    sortOrder: 'asc' | 'desc'
   ): Promise<{
     data: ViewingWithMovieTitle[]
     meta: PaginationMeta
   }> {
+    const sortableFields = ['title', 'date']
+
+    const order: { column: string; order: 'asc' | 'desc' }[] = []
+
+    if (sortField && sortableFields.includes(sortField)) {
+      if (sortField === 'date') sortField = 'viewings.viewing_date'
+      order.push({ column: sortField, order: sortOrder })
+      if (sortField !== 'title') order.push({ column: 'movies.title', order: 'asc' })
+    } else {
+      order.push({ column: 'viewings.viewing_date', order: 'desc' })
+      order.push({ column: 'movies.title', order: 'asc' })
+    }
+
     let viewings = await Viewing.query()
       .select('reviews.*', 'viewings.*')
       .join('reviews', 'reviews.id', '=', 'viewings.review_id')
       .join('movies', 'reviews.movie_id', '=', 'movies.id')
       .where('reviews.user_id', userId)
       .whereILike('title', `%${searchQuery.toLowerCase()}%`)
-      .orderBy('viewings.viewing_date', 'desc')
-      .orderBy('movies.title', 'asc')
+      .orderBy(order)
       .preload('review', (review) => {
         review.preload('movie')
       })
@@ -107,6 +129,8 @@ class ReviewService {
         partners: viewing.partners.map((p) => p.name),
       })
     }
+
+    console.log(data)
 
     const paginationJSON = viewings.toJSON()
 
