@@ -4,10 +4,14 @@ import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
 import Checkbox from 'primevue/checkbox'
 import Password from 'primevue/password'
-import { computed, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import Divider from 'primevue/divider'
+import { useToast } from 'primevue/usetoast'
+import { Notification } from '@/app/types'
+import Toast from 'primevue/toast'
 
 const props = defineProps<{
+  notification: { notification: Notification }
   errors?: {
     email?: string
     password?: string
@@ -16,6 +20,8 @@ const props = defineProps<{
     lastName?: string
   }
 }>()
+
+const toast = useToast()
 
 const email = ref('')
 const password = ref('')
@@ -37,6 +43,17 @@ const changeFormButtonLabel = computed(() =>
 watch(isLoginFormDisplayed, () => {
   resetErrors()
 })
+
+function getSummary(type: string) {
+  if (type == 'success') {
+    return 'Success'
+  } else if (type == 'danger') {
+    return 'Erreur'
+  } else if (type == 'warning') {
+    return 'Attention'
+  }
+  return 'Info'
+}
 
 function submit() {
   const destination = isLoginFormDisplayed.value ? 'login' : 'register'
@@ -63,9 +80,21 @@ function resetErrors() {
     props.errors.username = undefined
   }
 }
+
+onMounted(() => {
+  if (props.notification.notification) {
+    toast.add({
+      severity: props.notification.notification.type,
+      summary: getSummary(props.notification.notification.type ?? '') ?? '',
+      detail: props.notification.notification.message,
+      life: 3000,
+    })
+  }
+})
 </script>
 
 <template>
+  <Toast />
   <div class="flex flex-col lg:flex-row">
     <div class="w-full h-56 overflow-hidden ease-in-out lg:w-1/2 lg:h-screen">
       <img
@@ -125,6 +154,9 @@ function resetErrors() {
             <small v-if="props.errors?.password" class="text-red-500">
               {{ props.errors.password[0] }}
             </small>
+            <a href="/forgot-password" class="block mt-2 font-bold hover:underline text-gray-500"
+              >Mot de passe oublie?</a
+            >
           </div>
           <div v-if="!isLoginFormDisplayed">
             <label for="">Confirmer le mot de passe</label><br />

@@ -1,6 +1,7 @@
 import User from '#models/user'
 import vine, { SimpleMessagesProvider } from '@vinejs/vine'
 import { FieldContext } from '@vinejs/vine/types'
+import { passwordRule } from '#validators/rules/is_password_complex'
 
 type Options = {
   column: string
@@ -20,29 +21,7 @@ async function isUnique(value: unknown, options: Options, field: FieldContext) {
   }
 }
 
-function isPasswordComplex(value: unknown, _options: Options, field: FieldContext) {
-  if (typeof value !== 'string') return
-
-  if (value.length < 8) {
-    field.report('Le mot de passe doit contenir au moins 8 caractères', 'password', field)
-  }
-
-  if (!/[A-Z]/.test(value)) {
-    field.report('Le mot de passe doit contenir au moins 1 majuscule', 'password', field)
-  }
-
-  if (!/[a-z]/.test(value)) {
-    field.report('Le mot de passe doit contenir au moins 1 minuscule', 'password', field)
-  }
-
-  if (!/[0-9]/.test(value)) {
-    field.report('Le mot de passe doit contenir au moins 1 chiffre', 'password', field)
-  }
-}
-
 const uniqueRule = vine.createRule(isUnique, { implicit: true, isAsync: true })
-
-const passwordRule = vine.createRule(isPasswordComplex, { implicit: true, isAsync: false })
 
 export const createUserValidator = vine.compile(
   vine.object({

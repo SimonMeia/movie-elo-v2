@@ -8,7 +8,7 @@
 */
 
 import router from '@adonisjs/core/services/router'
-import {middleware} from './kernel.js'
+import { middleware } from './kernel.js'
 
 const HomeController = () => import('#controllers/home_controller')
 const MoviesController = () => import('#controllers/movies_controller')
@@ -18,6 +18,7 @@ const ProfileController = () => import('#controllers/profiles_controller')
 const GradeTypesController = () => import('#controllers/grade_types_controller')
 const ViewingsController = () => import('#controllers/viewings_controller')
 const RewindsController = () => import('#controllers/rewinds_controller')
+const PasswordResetController = () => import('#controllers/forgot_password_controller')
 
 router
   .group(() => {
@@ -57,5 +58,9 @@ router
     router.get('/auth', [SessionController, 'create'])
     router.post('/auth/login', [SessionController, 'login'])
     router.post('/auth/register', [SessionController, 'signUp'])
+    router.get('/forgot-password', [PasswordResetController, 'showForgotPasswordForm'])
+    router.post('/forgot-password', [PasswordResetController, 'sendResetEmail'])
+    router.get('/reset-password', [PasswordResetController, 'showResetPasswordForm'])
+    router.post('/reset-password', [PasswordResetController, 'resetPassword'])
   })
   .use(middleware.guest())

@@ -65,11 +65,12 @@ export default defineConfig({
       file: () => import('#start/scheduler'),
       environment: ['console'],
     },
+    () => import('#start/view'),
   ],
 
   /*
   |--------------------------------------------------------------------------
-  | Tests
+  | Testss
   |--------------------------------------------------------------------------
   |
   | List of test suites to organize tests by their type. Feel free to remove
