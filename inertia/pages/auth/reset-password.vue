@@ -36,7 +36,6 @@ watch(
 )
 
 function submit() {
-  console.log(password.value)
   router.post(
     `/reset-password`,
     {
