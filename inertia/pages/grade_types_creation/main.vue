@@ -112,6 +112,7 @@ function updateGradeInputList() {
     v-model:visible="isDialogVisible"
     modal
     :pt="{
+      root: '!max-w-[95vw]',
       content: '!pb-6',
     }"
     :ptOptions="{

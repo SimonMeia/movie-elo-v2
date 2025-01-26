@@ -44,7 +44,7 @@ function getSummary(type: string) {
 
 <template>
   <div class="flex flex-col min-h-full mb-4">
-    <Toast :pt="{ root: 'max-width:90vw' }" />
+    <Toast :pt="{ root: 'max-w-[90vw]' }" />
 
     <Header />
 

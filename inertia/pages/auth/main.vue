@@ -154,9 +154,13 @@ onMounted(() => {
             <small v-if="props.errors?.password" class="text-red-500">
               {{ props.errors.password[0] }}
             </small>
-            <a href="/forgot-password" class="block mt-2 font-bold hover:underline text-gray-500"
-              >Mot de passe oublie?</a
+            <a
+              v-if="isLoginFormDisplayed"
+              href="/forgot-password"
+              class="block mt-2 font-bold hover:underline text-gray-500"
             >
+              Mot de passe oublie?
+            </a>
           </div>
           <div v-if="!isLoginFormDisplayed">
             <label for="">Confirmer le mot de passe</label><br />
