@@ -20,9 +20,13 @@ const ViewingsController = () => import('#controllers/viewings_controller')
 const RewindsController = () => import('#controllers/rewinds_controller')
 const PasswordResetController = () => import('#controllers/forgot_password_controller')
 
+router.get('/', ({ inertia }) => {
+  return inertia.render('landing/main')
+})
+
 router
   .group(() => {
-    router.get('/', [HomeController, 'index'])
+    router.get('/home', [HomeController, 'index']).as('home')
 
     router.get('/reviews', [ReviewsController, 'index']).as('reviews.index')
     router.post('/reviews', [ReviewsController, 'store']).as('reviews.store')

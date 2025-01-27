@@ -55,7 +55,7 @@ export default class SessionController {
 
     await auth.use('web').login(user, !!request.input('rememberMe'))
 
-    return response.redirect().toRoute('/')
+    return response.redirect().toRoute('/home')
   }
 
   @inject()

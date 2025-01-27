@@ -13,7 +13,7 @@ defineProps<{ errorCode: number }>()
           <h1 class="text-9xl text-accent">{{ errorCode }}</h1>
           <h2 class="title">Server error</h2>
           <div>La page souhaitée n'est pas disponible</div>
-          <Button label="Retour à la homepage" @click="router.get('/')" />
+          <Button label="Retour à la homepage" @click="router.get('/home')" />
         </div>
       </template>
     </Card>
