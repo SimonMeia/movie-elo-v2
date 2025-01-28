@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-import InputText from 'primevue/inputtext'
-import SelectButton from 'primevue/selectbutton'
 
 interface Category {
   label: string
@@ -129,7 +127,11 @@ onUnmounted(() => {
   <div class="h-[90dvh] grid grid-cols-2 gap-12">
     <div class="flex justify-center flex-col">
       <h1 class="text-5xl font-titles">Classez vos films selon vos propres critères</h1>
-      <p></p>
+      <p class="pr-24">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, quidem. Quos? Quae, quidem.
+        Quos?
+      </p>
+      <Button label="Explorer les fonctionnalités" class="mt-6 w-fit" />
     </div>
     <div
       class="h-fit my-auto border-2 shadow-2xl border-accent rounded-xl p-6 category-rating flex flex-col gap-4"

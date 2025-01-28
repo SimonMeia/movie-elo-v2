@@ -4,12 +4,17 @@ import adonisjs from '@adonisjs/vite/client'
 import { getDirname } from '@adonisjs/core/helpers'
 import { resolve } from 'node:path'
 import inertia from '@adonisjs/inertia/client'
+import Components from 'unplugin-vue-components/vite'
+import { PrimeVueResolver } from '@primevue/auto-import-resolver'
 
 export default defineConfig({
   plugins: [
     vue({
       script: { defineModel: true },
       template: { compilerOptions: { isCustomElement: (tag) => ['model-viewer'].includes(tag) } },
+    }),
+    Components({
+      resolvers: [PrimeVueResolver()],
     }),
     adonisjs({
       /**
