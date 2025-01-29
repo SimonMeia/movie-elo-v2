@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import Fold from './fold.vue'
-import MainFeatures from './main_features.vue'
-import OtherFeatures from './other_features.vue'
+import Fold from '@/pages/landing/fold.vue'
+import MainFeatures from '@/pages/landing/main_features.vue'
+import OtherFeatures from '@/pages/landing/other_features.vue'
 import MovieEloLogo from '@/assets/icons/movieelo_logo.vue'
+import TryIt from '@/pages/landing/try_it.vue'
+import Story from '@/pages/landing/story.vue'
 </script>
 
 <template>
@@ -28,6 +30,10 @@ import MovieEloLogo from '@/assets/icons/movieelo_logo.vue'
     <MainFeatures />
 
     <OtherFeatures />
+
+    <TryIt />
+
+    <Story />
   </main>
 
   <footer class="border-t border-accent py-8 mt-12">
