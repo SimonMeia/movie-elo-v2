@@ -13,10 +13,10 @@ import Story from '@/pages/landing/story.vue'
       <MovieEloLogo></MovieEloLogo>
 
       <nav>
-        <ul class="flex gap-4">
+        <ul class="flex gap-8">
           <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#main-features">Fonctionnalités</a></li>
+          <li><a href="#story">L'histoire</a></li>
         </ul>
       </nav>
 

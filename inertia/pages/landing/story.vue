@@ -38,7 +38,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="grid grid-cols-2 gap-8">
+  <div class="grid grid-cols-2 gap-8" id="story">
     <div class="flex flex-col gap-4">
       <h2 class="text-3xl font-titles">L'histoire derrière Movie Elo</h2>
       <p>

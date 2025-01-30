@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="grid grid-cols-2 gap-4">
+  <div class="grid grid-cols-2 gap-4" id="main-features">
     <div class="flex flex-col gap-4">
       <h2 class="text-3xl font-titles">Créer un système de notation qui vous ressemble</h2>
       <p>

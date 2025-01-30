@@ -42,7 +42,7 @@ const cards = [
 </script>
 
 <template>
-  <div class="grid grid-cols-3 gap-8">
+  <div class="grid grid-cols-3 gap-8" id="other-features">
     <div
       v-for="(card, index) in cards"
       :key="index"
