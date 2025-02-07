@@ -7,6 +7,12 @@ export default defineConfig({
    */
   rootView: 'inertia_layout',
 
+  ssr: {
+    enabled: true,
+    entrypoint: 'inertia/app/ssr.ts',
+    pages: ['landing/main'],
+  },
+
   /**
    * Data that should be shared with all rendered pages
    */

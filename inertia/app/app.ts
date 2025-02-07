@@ -1,9 +1,7 @@
 import '../css/app.css'
-
 import { createApp, type DefineComponent, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from '@adonisjs/inertia/helpers'
-
 import PrimeVue from 'primevue/config'
 import 'primeicons/primeicons.css'
 import ConfirmationService from 'primevue/confirmationservice'
