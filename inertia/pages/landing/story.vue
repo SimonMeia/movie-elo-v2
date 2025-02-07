@@ -38,7 +38,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="grid grid-cols-2 gap-8" id="story">
+  <div class="grid items-center grid-cols-2 gap-8" id="story">
     <div class="flex flex-col gap-4">
       <h2 class="text-3xl font-titles">L'histoire derrière Movie Elo</h2>
       <p>
@@ -50,31 +50,29 @@ onMounted(() => {
         <li>Comparaison simplifiée sans avoir à aller dans le tableau</li>
       </ul>
     </div>
-    <Card>
-      <template #content>
-        <Timeline
-          :value="events"
-          align="left"
-          :pt="{ eventOpposite: '!grow-0', eventContent: '!-mt-2' }"
-        >
-          <template #marker="{ index }">
-            <span
-              class="flex w-3 h-3 outline-offset-2 outline-[2px] outline items-center justify-center z-10 shadow-sm rounded-full transition-colors ease-out duration-200"
-              :class="{
-                'bg-gray-400 outline-gray-400': index !== activeIndex, // Gris si inactif
-                'bg-accent outline-accent': index === activeIndex, // Rouge si actif
-              }"
-            >
-            </span>
-          </template>
+    <div>
+      <Timeline
+        :value="events"
+        align="left"
+        :pt="{ eventOpposite: '!grow-0', eventContent: '!-mt-2' }"
+      >
+        <template #marker="{ index }">
+          <span
+            class="flex w-3 h-3 outline-offset-2 outline-[2px] outline items-center justify-center z-10 shadow-sm rounded-full transition-colors ease-out duration-200"
+            :class="{
+              'bg-gray-400 outline-gray-400': index !== activeIndex, // Gris si inactif
+              'bg-accent outline-accent': index === activeIndex, // Rouge si actif
+            }"
+          >
+          </span>
+        </template>
 
-          <template #content="slotProps">
-            <p>{{ slotProps.item.year }}</p>
-            <h3>{{ slotProps.item.event }}</h3>
-          </template>
-        </Timeline>
-      </template>
-    </Card>
+        <template #content="slotProps">
+          <p>{{ slotProps.item.year }}</p>
+          <h3>{{ slotProps.item.event }}</h3>
+        </template>
+      </Timeline>
+    </div>
   </div>
 </template>
 

@@ -8,11 +8,11 @@ import Story from '@/pages/landing/story.vue'
 </script>
 
 <template>
-  <header class="border-b border-accent py-4">
-    <div class="container mx-auto flex justify-between items-center">
+  <header class="py-4 border-b border-accent">
+    <div class="container flex items-center justify-between mx-auto">
       <MovieEloLogo></MovieEloLogo>
 
-      <nav>
+      <nav class="hidden sm:block">
         <ul class="flex gap-8">
           <li><a href="#">Home</a></li>
           <li><a href="#main-features">Fonctionnalités</a></li>
@@ -33,10 +33,10 @@ import Story from '@/pages/landing/story.vue'
 
     <TryIt />
 
-    <Story />
+    <!-- <Story /> -->
   </main>
 
-  <footer class="border-t border-accent py-8 mt-12">
+  <footer class="py-8 border-t mt-36 border-accent">
     <div class="container mx-auto">
       <p class="text-center">© {{ new Date().getFullYear() }} Movie Elo. Tous droits reservés.</p>
     </div>

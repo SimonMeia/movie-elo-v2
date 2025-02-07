@@ -1,57 +1,59 @@
 <script setup lang="ts">
 import RewindIcon from '@/pages/landing/icons/rewind_icon.vue'
+import SortIcon from '@/pages/landing/icons/sort_icon.vue'
+import EasyIcon from '@/pages/landing/icons/easy_icon.vue'
+import StatsIcon from '@/pages/landing/icons/stats_icon.vue'
+import TmdbIcon from '@/pages/landing/icons/tmdb_icon.vue'
 
 const cards = [
   {
     icon: RewindIcon,
     title: 'Rewind',
     description:
-      "Obtenez une vue d'ensemble des films que vous avez regardez et des critiques de vos amis",
+      'A la manière de Spotify,  Movie Elo vous offre le récapitulatif moments de cinéma en fin d’année.',
   },
   {
-    icon: RewindIcon,
-    title: 'TMDB',
+    icon: SortIcon,
+    title: 'Tri et recherche',
+    description: 'Triez, filtrez, et recherchez facilement un film parmi vos reviews Movie Elo',
+  },
+  {
+    icon: TmdbIcon,
+    title: 'Information sur les films',
     description:
-      "Obtenez une vue d'ensemble des films que vous avez regardez et des critiques de vos amis",
+      'Movie Elo affiche les informations des films grâce à l’intégration des données de The Movie Database',
   },
   {
-    icon: RewindIcon,
+    icon: StatsIcon,
     title: 'Statistiques',
     description:
-      "Obtenez une vue d'ensemble des films que vous avez regardez et des critiques de vos amis",
+      'Explorez vos statistiques et découvrez les tendance qui se dégage de vos habitudes de films',
+  },
+  {
+    icon: EasyIcon,
+    title: 'Ajout de films simplifié',
+    description:
+      'Une fois votre système de notation mis en place il est super simple d’ajouter un nouveau film visionné',
   },
   {
     icon: RewindIcon,
-    title: 'Lieux et partenaires',
-    description:
-      "Obtenez une vue d'ensemble des films que vous avez regardez et des critiques de vos amis",
-  },
-  {
-    icon: RewindIcon,
-    title: 'Comparaison',
-    description:
-      "Obtenez une vue d'ensemble des films que vous avez regardez et des critiques de vos amis",
-  },
-  {
-    icon: RewindIcon,
-    title: 'Plusieurs vues',
-    description:
-      "Obtenez une vue d'ensemble des films que vous avez regardez et des critiques de vos amis",
+    title: '??',
+    description: '??',
   },
 ]
 </script>
 
 <template>
-  <div class="grid grid-cols-3 gap-8" id="other-features">
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="other-features">
     <div
       v-for="(card, index) in cards"
       :key="index"
-      class="flex flex-col gap-4 border border-accent rounded-xl p-6 shadow-lg w-full"
+      class="flex flex-col w-full p-6 border shadow-lg border-accent rounded-xl"
     >
-      <div class="border-2 border-gray-300 rounded-md p-2 w-fit bg-gray-100 shadow-md">
+      <div class="p-2 bg-gray-100 border-2 border-gray-300 rounded-md shadow-md w-fit">
         <component :is="card.icon" />
       </div>
-      <h3 class="text-xl font-titles">{{ card.title }}</h3>
+      <h3 class="mt-4 mb-2 text-xl font-tifont-titles">{{ card.title }}</h3>
       <p>{{ card.description }}</p>
     </div>
   </div>

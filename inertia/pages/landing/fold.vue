@@ -124,17 +124,19 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="h-[90dvh] grid grid-cols-2 gap-12">
-    <div class="flex justify-center flex-col">
-      <h1 class="text-5xl font-titles">Classez vos films selon vos propres critères</h1>
-      <p class="pr-24">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, quidem. Quos? Quae, quidem.
-        Quos?
+  <div class="h-[90dvh] grid lg:grid-cols-2 gap-24">
+    <div class="flex flex-col justify-center">
+      <h1 class="mb-2 text-4xl md:text-5xl font-titles">
+        Gardez une trace de vos films et notez-les à votre manière.
+      </h1>
+      <p class="pr-0 sm:pr-24">
+        Créez votre propre système de notation et ne laissez plus les films que vous regardez se
+        perdre dans l’oubli
       </p>
       <Button label="Explorer les fonctionnalités" class="mt-6 w-fit" />
     </div>
     <div
-      class="h-fit my-auto border-2 shadow-2xl border-accent rounded-xl p-6 category-rating flex flex-col gap-4"
+      class="flex-col hidden gap-4 p-6 my-auto border-2 shadow-2xl h-fit border-accent rounded-xl category-rating lg:flex"
     >
       <div>
         <label class="block mb-1 text-lg font-titles" for="movie-name">Nom du film</label>
@@ -147,7 +149,7 @@ onUnmounted(() => {
         />
       </div>
 
-      <div class="border-2 border-accent rounded-xl p-4 flex items-center gap-4 shadow-lg">
+      <div class="flex items-center gap-4 p-4 border-2 shadow-lg border-accent rounded-xl">
         <img
           :src="currentFilm.poster"
           class="object-contain h-48 rounded-lg shadow-md"
