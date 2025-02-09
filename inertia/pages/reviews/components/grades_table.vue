@@ -68,10 +68,10 @@ function sort(event: DataTableSortEvent) {
     lazy
   >
     <template #empty>
-      <div v-if="isChangingTab" class="text-center py-4">
+      <div v-if="isChangingTab" class="py-4 text-center">
         <i class="pi pi-spinner animate-spin text-accent" style="font-size: 2rem"></i>
       </div>
-      <div v-else class="text-center py-4 space-y-4">
+      <div v-else class="py-4 space-y-4 text-center">
         Votre tableau de critiques est aussi vide qu'une salle de cinéma avant la projection.<br />
         <Button label="Ajouter une review" @click="router.get(`/review-form`)" />
       </div>

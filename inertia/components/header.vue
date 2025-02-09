@@ -13,7 +13,7 @@ const environment = computed(() => page.props.environment as 'production' | 'dev
 const items = ref([
   {
     label: 'Home',
-    action: () => router.get('/'),
+    action: () => router.get('/home'),
   },
   {
     label: 'Ajouter une review',

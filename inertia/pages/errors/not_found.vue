@@ -12,7 +12,7 @@ import { router } from '@inertiajs/vue3'
           <h1 class="text-9xl text-accent">404</h1>
           <h2 class="title">Page not found</h2>
           <div>La page souhaitée n'est pas disponible</div>
-          <Button label="Retour à la homepage" @click="router.get('/')" />
+          <Button label="Retour à la homepage" @click="router.get('/home')" />
         </div>
       </template>
     </Card>

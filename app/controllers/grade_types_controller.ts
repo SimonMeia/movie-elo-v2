@@ -57,7 +57,7 @@ export default class GradeTypesController {
       message: 'Bienvenue !',
     })
 
-    return response.redirect().toRoute('/')
+    return response.redirect().toRoute('/home')
   }
 
   @inject()

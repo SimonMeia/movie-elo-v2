@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html class="light">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Movie Elo</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="9b67199b-cef2-4099-ad81-54089c8ddcd0"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Movie Elo vous permet de noter, classer et organiser vos films avec un système de notation personnalisé. Gardez une trace de vos visionnages et obtenez un rewind à la fin de l'année!"
+    />
 
-  @inertiaHead()
-  @vite(['inertia/app/app.ts', `inertia/pages/${page.component}.vue`])
-</head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <title>
+      Movie Elo
+    </title>
 
-<body>
-  @inertia({ as: 'main' })
-</body>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="9b67199b-cef2-4099-ad81-54089c8ddcd0">
+      
+    </script>
+
+    @inertiaHead()
+    @vite(['inertia/app/app.ts', `inertia/pages/${page.component}.vue`])
+  </head>
+
+  <body>
+    @inertia({ as: 'main' })
+  </body>
 
 </html>
