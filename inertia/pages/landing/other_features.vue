@@ -4,6 +4,7 @@ import SortIcon from '@/pages/landing/icons/sort_icon.vue'
 import EasyIcon from '@/pages/landing/icons/easy_icon.vue'
 import StatsIcon from '@/pages/landing/icons/stats_icon.vue'
 import TmdbIcon from '@/pages/landing/icons/tmdb_icon.vue'
+import InterfaceIcon from '@/pages/landing/icons/interface_icon.vue'
 
 const cards = [
   {
@@ -36,25 +37,32 @@ const cards = [
       'Une fois votre système de notation mis en place il est super simple d’ajouter un nouveau film visionné',
   },
   {
-    icon: RewindIcon,
-    title: '??',
-    description: '??',
+    icon: InterfaceIcon,
+    title: 'Interface simplifiée',
+    description:
+      'Movie vous offre une interface esthétique et facile d’utilisation pour une utilisation simplifiée',
   },
 ]
 </script>
 
 <template>
-  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="other-features">
-    <div
-      v-for="(card, index) in cards"
-      :key="index"
-      class="flex flex-col w-full p-6 border shadow-lg border-accent rounded-xl"
-    >
-      <div class="p-2 bg-gray-100 border-2 border-gray-300 rounded-md shadow-md w-fit">
-        <component :is="card.icon" />
+  <div id="other-features">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-titles">Et bien plus encore...</h2>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div
+        v-for="(card, index) in cards"
+        :key="index"
+        class="flex flex-col w-full p-6 border shadow-lg border-accent rounded-xl"
+      >
+        <div class="p-2 bg-gray-100 border-2 border-gray-300 rounded-md shadow-md w-fit">
+          <component :is="card.icon" />
+        </div>
+        <h3 class="mt-4 mb-2 text-xl font-tifont-titles">{{ card.title }}</h3>
+        <p>{{ card.description }}</p>
       </div>
-      <h3 class="mt-4 mb-2 text-xl font-tifont-titles">{{ card.title }}</h3>
-      <p>{{ card.description }}</p>
     </div>
   </div>
 </template>

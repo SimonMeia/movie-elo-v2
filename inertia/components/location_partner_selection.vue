@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import AutoComplete, {
-  AutoCompleteCompleteEvent,
-  AutoCompleteItemSelectEvent,
-} from 'primevue/autocomplete'
+import AutoComplete, { AutoCompleteCompleteEvent } from 'primevue/autocomplete'
 import type { Ref } from 'vue'
 import { ref } from 'vue'
 
@@ -10,6 +7,7 @@ const props = defineProps<{
   locationOrPartner: 'location' | 'partner'
   items: string[]
   error?: string[]
+  selectedValues?: string[]
 }>()
 
 const emit = defineEmits<{
@@ -17,12 +15,12 @@ const emit = defineEmits<{
 }>()
 
 const label = props.locationOrPartner === 'location' ? 'Lieu' : 'Partenaire'
-const selectedValues: Ref<string[]> = ref([])
+const selectedValues: Ref<string[]> = ref(props.selectedValues || [])
 const items = ref(props.items)
 const suggestions: Ref<string[]> = ref([])
 const addNewItemLabel = 'Ajouter : '
 
-function select(event: AutoCompleteItemSelectEvent) {
+function select(event) {
   if (event.value.includes(addNewItemLabel)) {
     const newItem = event.value.split(addNewItemLabel)[1]
     items.value.push(newItem)

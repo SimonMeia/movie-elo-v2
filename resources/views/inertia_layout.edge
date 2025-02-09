@@ -14,9 +14,10 @@
       Movie Elo
     </title>
 
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="9b67199b-cef2-4099-ad81-54089c8ddcd0">
-      
-    </script>
+    @if(environment === 'development')
+      <script defer src="https://cloud.umami.is/script.js" data-website-id="9b67199b-cef2-4099-ad81-54089c8ddcd0" />
+    @endif
+
 
     @inertiaHead()
     @vite(['inertia/app/app.ts', `inertia/pages/${page.component}.vue`])

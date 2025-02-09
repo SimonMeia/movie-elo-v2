@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { router } from '@inertiajs/vue3'
 
 interface Category {
   label: string
@@ -127,16 +128,20 @@ onUnmounted(() => {
   <div class="h-[90dvh] grid lg:grid-cols-2 gap-24">
     <div class="flex flex-col justify-center">
       <h1 class="mb-2 text-4xl md:text-5xl font-titles">
-        Gardez une trace de vos films et notez-les à votre manière.
+        Gardez une trace de vos films et notez-les à votre manière
       </h1>
       <p class="pr-0 sm:pr-24">
         Créez votre propre système de notation et ne laissez plus les films que vous regardez se
         perdre dans l’oubli
       </p>
-      <Button label="Explorer les fonctionnalités" class="mt-6 w-fit" />
+      <Button
+        label="Explorer les fonctionnalités"
+        class="mt-6 w-fit"
+        @click="router.visit('#main-features')"
+      />
     </div>
     <div
-      class="flex-col hidden gap-4 p-6 my-auto border-2 shadow-2xl h-fit border-accent rounded-xl category-rating lg:flex"
+      class="flex-col hidden gap-4 p-6 my-auto border-2 shadow-2xl h-fit border-accent rounded-xl category-rating lg:flex bg-white"
     >
       <div>
         <label class="block mb-1 text-lg font-titles" for="movie-name">Nom du film</label>
@@ -164,9 +169,9 @@ onUnmounted(() => {
       </div>
 
       <div v-for="(category, index) in currentFilm.categories" :key="index">
-        <label class="block mb-1 text-lg font-titles" :for="'category-' + index">{{
-          category.label
-        }}</label>
+        <label class="block mb-1 text-lg font-titles" :for="'category-' + index">
+          {{ category.label }}
+        </label>
         <SelectButton
           :pt="{ root: '!flex !w-full !h-10' }"
           :options="category.options.map((option) => ({ label: option.toString(), value: option }))"
