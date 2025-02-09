@@ -51,4 +51,5 @@ export const middleware = router.named({
   userHasGradeTypesValidated: () => import('#middleware/user_has_grade_types_validated_middleware'),
   guest: () => import('#middleware/guest_middleware'),
   auth: () => import('#middleware/auth_middleware'),
+  canAccessReview: () => import('#middleware/can_access_review_middleware'),
 })

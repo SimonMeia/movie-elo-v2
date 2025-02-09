@@ -38,7 +38,7 @@ const items = ref([
   <header class="sticky top-0 z-50 border-b border-accent">
     <Menubar :model="items" :pt="{ root: '!bg-white' }">
       <template #start>
-        <Link href="/" :preserve-scroll="true" :preserve-state="true" aria-label="Homepage">
+        <Link href="/home" :preserve-scroll="true" :preserve-state="true" aria-label="Homepage">
           <div class="hidden mr-4 md:block">
             <MovieEloLogo></MovieEloLogo>
           </div>

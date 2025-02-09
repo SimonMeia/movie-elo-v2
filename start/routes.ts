@@ -8,7 +8,7 @@
 */
 
 import router from '@adonisjs/core/services/router'
-import { middleware } from './kernel.js'
+import {middleware} from './kernel.js'
 
 const HomeController = () => import('#controllers/home_controller')
 const MoviesController = () => import('#controllers/movies_controller')
@@ -30,9 +30,17 @@ router
 
     router.get('/reviews', [ReviewsController, 'index']).as('reviews.index')
     router.post('/reviews', [ReviewsController, 'store']).as('reviews.store')
-    router.get('/reviews/:id', [ReviewsController, 'show']).as('reviews.show')
-    router.delete('/reviews/:id', [ReviewsController, 'delete']).as('reviews.delete')
-    router.patch('/reviews/:id/grades', [ReviewsController, 'updateGrades'])
+    router
+      .get('/reviews/:id', [ReviewsController, 'show'])
+      .as('reviews.show')
+      .use([middleware.canAccessReview()])
+    router
+      .delete('/reviews/:id', [ReviewsController, 'delete'])
+      .as('reviews.delete')
+      .use([middleware.canAccessReview()])
+    router
+      .patch('/reviews/:id/grades', [ReviewsController, 'updateGrades'])
+      .use([middleware.canAccessReview()])
 
     router.get('/review-form', [ReviewsController, 'create'])
 
