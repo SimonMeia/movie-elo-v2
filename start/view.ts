@@ -6,3 +6,4 @@ import env from '#start/env'
  */
 edge.global('appUrl', env.get('APP_URL'))
 edge.global('appName', env.get('APP_NAME'))
+edge.global('environment', env.get('NODE_ENV'))
