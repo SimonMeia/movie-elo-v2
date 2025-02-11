@@ -225,13 +225,24 @@ export default class ReviewsController {
   @inject()
   async updateGrades({ request, response, params, session }: HttpContext) {
     const review = await Review.findOrFail(params.id)
+    await review.load('grades')
     const payload = await updateGradesValidator.validate(request.all())
 
-    const grades = await review.related('grades').query()
+    for (const grade of payload.grades) {
+      const existingGrade = await review.grades.find((g) => g.gradeTypeId === grade.gradeTypeId)
+      if (existingGrade && existingGrade.value !== grade.grade) {
+        await review.related('grades').detach([existingGrade.id])
 
-    for (const grade of grades) {
-      grade.value = payload.grades.find((g) => g.gradeTypeId === grade.gradeTypeId)!.grade
-      grade.save()
+        // Attach la nouvelle grade
+        const newGrade = await Grade.query()
+          .where('grade_type_id', grade.gradeTypeId)
+          .where('value', grade.grade)
+          .firstOrFail()
+
+        await review.related('grades').attach([newGrade.id])
+
+        await review.save()
+      }
     }
 
     session.flash('notification', {
