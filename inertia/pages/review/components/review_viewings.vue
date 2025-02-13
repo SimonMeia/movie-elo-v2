@@ -53,7 +53,7 @@ function submitNewViewing() {
     date: formatedDate,
   }
 
-  router.visit('/viewings', {
+  router.visit('/app/viewings', {
     method: 'post',
     data: review,
     preserveState: true,
@@ -140,11 +140,7 @@ function submitNewViewing() {
         </div>
       </div>
       <div class="flex justify-end gap-4 mt-6">
-        <Button
-          label="Annuler"
-          severity="secondary"
-          @click="isDialogVisible = false"
-        />
+        <Button label="Annuler" severity="secondary" @click="isDialogVisible = false" />
         <Button label="Créer" type="submit" />
       </div>
     </form>

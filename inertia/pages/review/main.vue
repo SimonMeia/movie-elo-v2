@@ -7,7 +7,7 @@ import Layout from '@/layouts/default.vue'
 import ConfirmDialog from 'primevue/confirmdialog'
 import { useConfirm } from 'primevue/useconfirm'
 import Button from 'primevue/button'
-import {router} from "@inertiajs/vue3";
+import { router } from '@inertiajs/vue3'
 
 const props = defineProps<{
   review: ReviewResponse
@@ -38,15 +38,13 @@ const confirmDelete = () => {
       severity: 'danger',
     },
     accept: () => {
-      router.visit('/reviews/' + props.review.review.id, {
+      router.visit('/app/reviews/' + props.review.review.id, {
         method: 'delete',
         preserveState: true,
         preserveScroll: true,
       })
     },
-    reject: () => {
-
-    },
+    reject: () => {},
   })
 }
 </script>
@@ -68,7 +66,13 @@ const confirmDelete = () => {
         :errors="errors"
       ></ReviewViewings>
 
-      <Button @click="confirmDelete" label="Supprimer la review" outlined severity="danger" class="mt-8 w-full sm:w-fit"></Button>
+      <Button
+        @click="confirmDelete"
+        label="Supprimer la review"
+        outlined
+        severity="danger"
+        class="w-full mt-8 sm:w-fit"
+      ></Button>
       <ConfirmDialog />
     </div>
   </Layout>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {FormGradeType, Review} from '@/app/types'
+import type { FormGradeType, Review } from '@/app/types'
 import ReviewGrade from './review_grade.vue'
 import { useGrades } from '@/composables/use_grades'
 import { ref } from 'vue'
@@ -41,7 +41,7 @@ function updateGrade(gradeTypeId: number, grade: number) {
 }
 
 function applyChanges() {
-  router.visit('/reviews/' + props.review.id + '/grades', {
+  router.visit('/app/reviews/' + props.review.id + '/grades', {
     method: 'patch',
     data: {
       grades: grades.value,
@@ -95,14 +95,9 @@ function applyChanges() {
         @update="updateGrade(gradeType.id, $event)"
       />
       <div class="flex justify-end gap-4 mt-6">
-        <Button
-          label="Annuler"
-          severity="secondary"
-          @click="isDialogVisible = false"
-        />
+        <Button label="Annuler" severity="secondary" @click="isDialogVisible = false" />
         <Button label="Modifier" type="submit" />
       </div>
     </form>
   </Dialog>
 </template>
-

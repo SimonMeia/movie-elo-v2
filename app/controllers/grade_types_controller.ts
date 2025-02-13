@@ -32,7 +32,7 @@ export default class GradeTypesController {
       message: 'La catégorie a bien été ajoutée !',
     })
 
-    return response.redirect().toRoute('/grade-types')
+    return response.redirect().toRoute('grade-types')
   }
 
   @inject()
@@ -46,7 +46,7 @@ export default class GradeTypesController {
         type: 'error',
         message: 'Veuillez ajouter au moins une catégorie de notes !',
       })
-      return response.redirect().toRoute('/grade-types')
+      return response.redirect().toRoute('grade-types')
     }
 
     user.gradeTypesValidated = true
@@ -57,7 +57,7 @@ export default class GradeTypesController {
       message: 'Bienvenue !',
     })
 
-    return response.redirect().toRoute('/home')
+    return response.redirect().toRoute('home')
   }
 
   @inject()
@@ -76,6 +76,6 @@ export default class GradeTypesController {
       })
     }
 
-    return response.redirect().toRoute('/grade-types')
+    return response.redirect().toRoute('grade-types')
   }
 }

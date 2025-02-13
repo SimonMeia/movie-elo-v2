@@ -9,11 +9,16 @@ export default class UserHasGradeTypesMiddleware {
 
     const user = ctx.auth.user
 
-    if (!user) return ctx.response.redirect('/auth')
+    if (!user) return ctx.response.redirect().toRoute('auth')
 
     if (options.mustBeValidated && user.gradeTypesValidated) await next()
+
     if (!options.mustBeValidated && !user.gradeTypesValidated) await next()
-    if (!options.mustBeValidated && user.gradeTypesValidated) ctx.response.redirect('/home')
-    if (options.mustBeValidated && !user.gradeTypesValidated) ctx.response.redirect('/grade-types')
+
+    if (!options.mustBeValidated && user.gradeTypesValidated)
+      ctx.response.redirect().toRoute('/home')
+
+    if (options.mustBeValidated && !user.gradeTypesValidated)
+      ctx.response.redirect().toRoute('/grade-types')
   }
 }

@@ -37,7 +37,7 @@ watch(
 
 function submit() {
   router.post(
-    `/reset-password`,
+    `/app/reset-password`,
     {
       token: props.token,
       password: password.value,
@@ -75,7 +75,7 @@ function getSummary(type: string) {
     <div class="flex flex-col w-full px-4 lg:w-1/2 lg:h-screen sm:px-6 md:px-8">
       <form
         @submit.prevent="submit"
-        class="flex flex-col w-full h-full gap-4 my-3 md:my-0 justify-center"
+        class="flex flex-col justify-center w-full h-full gap-4 my-3 md:my-0"
       >
         <h1 class="my-4 text-2xl font-bold md:text-4xl">Réinitialistion du mot de passe</h1>
         <p>Entrez votre nouveau mot de passe.</p>
@@ -92,7 +92,7 @@ function getSummary(type: string) {
           >
             <template #footer>
               <Divider />
-              <ul class="pl-2 ml-2 my-0 leading-normal">
+              <ul class="pl-2 my-0 ml-2 leading-normal">
                 <li>Min. 1 minuscule</li>
                 <li>Min. 1 majuscule</li>
                 <li>Min. 1 chiffre</li>

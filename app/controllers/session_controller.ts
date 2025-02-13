@@ -44,7 +44,7 @@ export default class SessionController {
 
     await auth.use('web').login(user)
 
-    return response.redirect().toRoute('/grade-types')
+    return response.redirect().toRoute('grade-types')
   }
 
   @inject()
@@ -55,12 +55,12 @@ export default class SessionController {
 
     await auth.use('web').login(user, !!request.input('rememberMe'))
 
-    return response.redirect().toRoute('/home')
+    return response.redirect().toRoute('home')
   }
 
   @inject()
   async logout({ auth, response }: HttpContext) {
     await auth.use('web').logout()
-    return response.redirect().toRoute('/auth')
+    return response.redirect().toRoute('auth')
   }
 }

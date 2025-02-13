@@ -14,7 +14,7 @@ defineProps<{ lastReviews: ReviewCardType[] }>()
       <ReviewCard v-for="review in lastReviews" :key="review.reviewId" :review="review" />
       <div
         v-if="lastReviews.length === 0"
-        class="relative text-center flex flex-col border border-gray-200 rounded-lg shadow cursor-pointer card h-48 p-4 justify-center items-center hover:shadow-lg transition-all"
+        class="relative flex flex-col items-center justify-center h-48 p-4 text-center transition-all border border-gray-200 rounded-lg shadow cursor-pointer card hover:shadow-lg"
         @click="router.get(`/review-form`)"
       >
         <h3>Aucune reviews</h3>
@@ -27,7 +27,7 @@ defineProps<{ lastReviews: ReviewCardType[] }>()
         link
         icon="pi pi-arrow-right"
         iconPos="right"
-        @click="router.get('/reviews')"
+        @click="router.get('/app/reviews')"
       />
     </div>
   </div>

@@ -13,15 +13,15 @@ const environment = computed(() => page.props.environment as 'production' | 'dev
 const items = ref([
   {
     label: 'Home',
-    action: () => router.get('/home'),
+    action: () => router.get('/app'),
   },
   {
     label: 'Ajouter une review',
-    action: () => router.get('/review-form'),
+    action: () => router.get('/app/review-form'),
   },
   {
     label: 'Mes reviews',
-    action: () => router.get('/reviews'),
+    action: () => router.get('/app/reviews'),
   },
   // {
   //   label: 'Elo ranking',
@@ -29,7 +29,7 @@ const items = ref([
   // },
   {
     label: 'Rewinds',
-    action: () => router.get('/rewinds'),
+    action: () => router.get('/app/rewinds'),
   },
 ])
 </script>
@@ -38,7 +38,7 @@ const items = ref([
   <header class="sticky top-0 z-50 border-b border-accent">
     <Menubar :model="items" :pt="{ root: '!bg-white' }">
       <template #start>
-        <Link href="/home" :preserve-scroll="true" :preserve-state="true" aria-label="Homepage">
+        <Link href="/app" :preserve-scroll="true" :preserve-state="true" aria-label="Homepage">
           <div class="hidden mr-4 md:block">
             <MovieEloLogo></MovieEloLogo>
           </div>
@@ -53,11 +53,11 @@ const items = ref([
         </a>
       </template>
       <template #end>
-        <div class="flex gap-2 items-center">
+        <div class="flex items-center gap-2">
           <Message severity="info" v-if="environment === 'development'" class="m-2" closable>
             Environnement : {{ environment }}
           </Message>
-          <Avatar icon="pi pi-user" @click="router.get('/profile')" class="cursor-pointer" />
+          <Avatar icon="pi pi-user" @click="router.get('/app/profile')" class="cursor-pointer" />
         </div>
       </template>
     </Menubar>

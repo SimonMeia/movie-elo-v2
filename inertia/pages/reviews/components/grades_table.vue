@@ -62,7 +62,7 @@ function sort(event: DataTableSortEvent) {
     :sortField="sortField"
     :sortOrder="sortOrder"
     removableSort
-    @rowClick="router.get('/reviews/' + $event.data.reviewId)"
+    @rowClick="router.get('/app/reviews/' + $event.data.reviewId)"
     @sort="sort"
     :pt="{ bodyRow: 'cursor-pointer hover:!bg-gray-100', thead: '!h-12' }"
     lazy
@@ -73,7 +73,7 @@ function sort(event: DataTableSortEvent) {
       </div>
       <div v-else class="py-4 space-y-4 text-center">
         Votre tableau de critiques est aussi vide qu'une salle de cinéma avant la projection.<br />
-        <Button label="Ajouter une review" @click="router.get(`/review-form`)" />
+        <Button label="Ajouter une review" @click="router.get(`/app/review-form`)" />
       </div>
     </template>
 

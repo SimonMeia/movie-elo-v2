@@ -16,7 +16,7 @@ const inputValue = ref(props.initialValue || '')
 const suggestions: Ref<{ title: string; tmdbMovieId: number; releaseYear: number }[]> = ref([])
 
 function search() {
-  fetch(`/api/tmdb/search?id=${inputValue.value}`)
+  fetch(`/app/api/tmdb/search?id=${inputValue.value}`)
     .then((response) => response.json())
     .then((data: TmdbSearchResponse) => {
       suggestions.value = data.results

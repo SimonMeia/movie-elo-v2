@@ -112,6 +112,6 @@ export default class PasswordResetController {
       message: 'Mot de passe mis à jour',
     })
 
-    return response.redirect().toPath('/auth')
+    return response.redirect().toRoute('auth')
   }
 }

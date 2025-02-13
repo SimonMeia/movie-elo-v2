@@ -11,7 +11,7 @@ const tagColor = props.review.grade >= 80 ? 'success' : props.review.grade <= 50
 <template>
   <div
     class="relative flex flex-col border border-gray-200 rounded-lg shadow cursor-pointer card"
-    @click="router.get(`/reviews/${review.reviewId}`)"
+    @click="router.get(`/app/reviews/${review.reviewId}`)"
   >
     <Tag :value="review.grade" :severity="tagColor" class="absolute top-2 right-2" />
     <img

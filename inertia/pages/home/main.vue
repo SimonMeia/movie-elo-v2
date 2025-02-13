@@ -29,7 +29,7 @@ const tmdbMovieTitle = ref('')
           label="Ajouter une review"
           class="min-w-fit"
           @click="
-            router.get('/review-form', {
+            router.get('/app/review-form', {
               homeTmdbMovieId: tmdbMovieId,
               homeTmdbMovieTitle: tmdbMovieTitle,
             })

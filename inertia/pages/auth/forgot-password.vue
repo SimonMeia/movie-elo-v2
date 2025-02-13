@@ -32,7 +32,7 @@ const email = ref('')
 
 function submit() {
   router.post(
-    `/forgot-password`,
+    `/app/forgot-password`,
     {
       email: email.value,
     },
@@ -68,7 +68,7 @@ function getSummary(type: string) {
     <div class="flex flex-col w-full px-4 lg:w-1/2 lg:h-screen sm:px-6 md:px-8">
       <form
         @submit.prevent="submit"
-        class="flex flex-col w-full h-full gap-4 my-3 md:my-0 justify-center"
+        class="flex flex-col justify-center w-full h-full gap-4 my-3 md:my-0"
       >
         <h1 class="my-4 text-2xl font-bold md:text-4xl">Mot de passe oublié</h1>
         <p>

@@ -10,26 +10,26 @@ import PopcornIcon from '@/pages/landing/icons/popcorn_icon.vue'
 </script>
 
 <template>
-  <header class="py-4 border-b border-accent sticky top-0 bg-white z-50">
+  <header class="sticky top-0 z-50 py-4 bg-white border-b border-accent">
     <div class="container flex items-center justify-between mx-auto">
       <MovieEloLogo></MovieEloLogo>
 
       <nav class="hidden sm:block">
         <ul class="flex gap-8">
           <li
-            class="py-2 px-4 rounded hover:bg-gray-200 cursor-pointer transition-all ease-linear duration-100"
+            class="px-4 py-2 transition-all duration-100 ease-linear rounded cursor-pointer hover:bg-gray-200"
           >
             <a href="#">Home</a>
           </li>
           <li
-            class="py-2 px-4 rounded hover:bg-gray-200 cursor-pointer transition-all ease-linear duration-100"
+            class="px-4 py-2 transition-all duration-100 ease-linear rounded cursor-pointer hover:bg-gray-200"
           >
             <a href="#main-features">Fonctionnalités</a>
           </li>
         </ul>
       </nav>
 
-      <Button label="Login" @click="router.visit('/auth')"></Button>
+      <Button label="Login" @click="router.visit('/app/auth')"></Button>
     </div>
   </header>
 
@@ -53,7 +53,7 @@ import PopcornIcon from '@/pages/landing/icons/popcorn_icon.vue'
 
   <footer class="py-8 border-t mt-36 border-accent">
     <div
-      class="flex flex-col text-center lg:flex-row lg:text-left justify-between items-center gap-4 container"
+      class="container flex flex-col items-center justify-between gap-4 text-center lg:flex-row lg:text-left"
     >
       <div class="text-center">
         © {{ new Date().getFullYear() }} Movie Elo. Tous droits reservés.
@@ -71,7 +71,7 @@ import PopcornIcon from '@/pages/landing/icons/popcorn_icon.vue'
         Fait avec du
         <PopcornIcon />
         par
-        <a href="https://github.com/SimonMeia" target="_blank" class="text-accent font-bold">
+        <a href="https://github.com/SimonMeia" target="_blank" class="font-bold text-accent">
           Simon Meia
         </a>
       </div>

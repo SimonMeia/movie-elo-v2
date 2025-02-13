@@ -73,7 +73,7 @@ function loadMore() {
 
 function changeTab(newTab: string) {
   isChangingTab.value = true
-  router.visit(`/reviews?tab=${newTab}`, {
+  router.visit(`/app/reviews?tab=${newTab}`, {
     replace: true,
   })
 }
@@ -83,7 +83,7 @@ function search() {
   if (props.sortField) query.append('sortField', props.sortField)
   if (props.sortOrder) query.append('sortOrder', props.sortOrder)
   query.toString()
-  router.visit(`/reviews?${query}`, {
+  router.visit(`/app/reviews?${query}`, {
     replace: true,
   })
 }
@@ -98,7 +98,7 @@ function sort(event: { field: string; order: number }) {
   }
   query.toString()
 
-  router.visit(`/reviews?${query}`, { replace: true })
+  router.visit(`/app/reviews?${query}`, { replace: true })
 }
 </script>
 
@@ -106,7 +106,7 @@ function sort(event: { field: string; order: number }) {
   <Layout>
     <div class="container">
       <h1 class="my-8">Mes reviews</h1>
-      <div class="items-center w-full justify-end md:hidden flex mb-4">
+      <div class="flex items-center justify-end w-full mb-4 md:hidden">
         <InputText
           size="small"
           v-model="searchQuery"
@@ -124,7 +124,7 @@ function sort(event: { field: string; order: number }) {
         <TabList>
           <Tab value="grades"><i class="mr-2 pi pi-star"></i>Notes</Tab>
           <Tab value="viewings"><i class="mr-2 pi pi-calendar"></i>Visionnages</Tab>
-          <div class="items-center w-full justify-end hidden md:flex">
+          <div class="items-center justify-end hidden w-full md:flex">
             <InputText
               size="small"
               v-model="searchQuery"
@@ -163,7 +163,7 @@ function sort(event: { field: string; order: number }) {
       <div
         v-if="meta.currentPage < meta.lastPage && !isChangingTab"
         v-element-visibility="onElementVisibility"
-        class="h-24 text-center flex items-center justify-center"
+        class="flex items-center justify-center h-24 text-center"
       >
         <i
           v-if="isLoaderVisible"

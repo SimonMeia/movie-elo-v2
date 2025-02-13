@@ -18,7 +18,7 @@ const user = computed(() => page.props.user as User)
     <div class="container">
       <h1 class="my-8">Mon profil</h1>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <template #title>Mes infos</template>
           <template #content>
@@ -33,7 +33,7 @@ const user = computed(() => page.props.user as User)
         <Card>
           <template #title>Statistiques</template>
           <template #content>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+            <div class="grid grid-cols-2 gap-2 md:grid-cols-3">
               <span class="md:col-span-2">Member depuis</span>
               <span>{{ new Date(user.createdAt).toLocaleDateString() }}</span>
               <span class="md:col-span-2">Nombre de films vus</span>
@@ -46,8 +46,8 @@ const user = computed(() => page.props.user as User)
           </template>
         </Card>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-        <Button label="Deconnexion" @click="router.get('/auth/logout')"></Button>
+      <div class="grid gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3">
+        <Button label="Deconnexion" @click="router.get('/app/auth/logout')"></Button>
       </div>
     </div>
   </Layout>

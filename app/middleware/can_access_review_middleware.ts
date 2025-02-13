@@ -5,7 +5,7 @@ import Review from '#models/review'
 export default class CanAccessReviewMiddleware {
   async handle({ params, auth, response }: HttpContext, next: NextFn) {
     const user = auth.user
-    if (!user) return response.redirect('/auth')
+    if (!user) return response.redirect().toRoute('auth')
 
     if (!params.id) return response.redirect().toRoute('reviews.index')
 

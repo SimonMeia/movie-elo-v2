@@ -65,7 +65,7 @@ function submit() {
     rememberMe: isLoginFormDisplayed ? rememberMe.value : false,
   }
 
-  router.visit(`/auth/${destination}`, {
+  router.visit(`/app/auth/${destination}`, {
     method: 'post',
     data: userData,
     preserveState: true,
@@ -143,7 +143,7 @@ onMounted(() => {
             >
               <template #footer>
                 <Divider />
-                <ul class="pl-2 ml-2 my-0 leading-normal">
+                <ul class="pl-2 my-0 ml-2 leading-normal">
                   <li>Min. 1 minuscule</li>
                   <li>Min. 1 majuscule</li>
                   <li>Min. 1 chiffre</li>
@@ -156,8 +156,8 @@ onMounted(() => {
             </small>
             <a
               v-if="isLoginFormDisplayed"
-              href="/forgot-password"
-              class="block mt-2 font-bold hover:underline text-gray-500"
+              href="/app/forgot-password"
+              class="block mt-2 font-bold text-gray-500 hover:underline"
             >
               Mot de passe oublie?
             </a>
@@ -166,7 +166,7 @@ onMounted(() => {
             <label for="">Confirmer le mot de passe</label><br />
             <InputText type="password" v-model="passwordConfirmation" class="w-full" />
           </div>
-          <div v-if="isLoginFormDisplayed" class="flex gap-2 items-center">
+          <div v-if="isLoginFormDisplayed" class="flex items-center gap-2">
             <Checkbox
               type="checkbox"
               inputId="remember-me"

@@ -7,13 +7,13 @@ defineProps<{ errorCode: number }>()
 </script>
 <template>
   <div class="container flex justify-center mt-8">
-    <Card class="w-fit p-8 text-center">
+    <Card class="p-8 text-center w-fit">
       <template #content>
         <div class="space-y-4">
           <h1 class="text-9xl text-accent">{{ errorCode }}</h1>
           <h2 class="title">Server error</h2>
           <div>La page souhaitée n'est pas disponible</div>
-          <Button label="Retour à la homepage" @click="router.get('/home')" />
+          <Button label="Retour à la homepage" @click="router.get('/app')" />
         </div>
       </template>
     </Card>

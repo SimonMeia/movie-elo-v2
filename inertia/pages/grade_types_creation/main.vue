@@ -30,7 +30,7 @@ const confirmDeletion = (event: any, id: number) => {
     },
     acceptProps: { label: 'Supprimer' },
     accept: () => {
-      router.delete('/grade-types/' + id)
+      router.delete('/app/grade-types/' + id)
     },
   })
 }
@@ -38,7 +38,7 @@ const confirmDeletion = (event: any, id: number) => {
 let newGradeCategory: Ref<GradeCategoryModal> = initNewGradeCategory()
 
 function submitNewGradeCategory() {
-  router.visit(`/grade-types`, {
+  router.visit(`/app/grade-types`, {
     method: 'post',
     data: newGradeCategory.value,
     preserveState: true,
@@ -205,7 +205,7 @@ function updateGradeInputList() {
 
       <DataTable :value="props.gradeTypes">
         <template #empty>
-          <div class="text-center py-4 space-y-4">
+          <div class="py-4 space-y-4 text-center">
             <p>Définissez les éléments des films que vous souhaitez noter.</p>
             <p>
               Par exemple, vous pourriez avoir envie de noter l'<b>histoire</b>, l'<b>acting</b>
@@ -238,7 +238,7 @@ function updateGradeInputList() {
       <Button
         label="Valider"
         class="my-2"
-        @click="router.post('/grade-types/validate')"
+        @click="router.post('/app/grade-types/validate')"
         :disabled="!props.gradeTypes.length"
       />
     </div>
