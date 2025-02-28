@@ -1,0 +1,8 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # Ou "yarn" si vous utilisez Yarn
+    directory: "/" # Chemin du package.json (ici à la racine)
+    schedule:
+      interval: "weekly" # Fréquence des mises à jour (daily, weekly, monthly)
+    open-pull-requests-limit: 5 # Nombre maximal de PR ouvertes par Dépendabot
+
