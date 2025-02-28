@@ -29,10 +29,7 @@ export default defineConfig({
   providers: [
     () => import('@adonisjs/core/providers/app_provider'),
     () => import('@adonisjs/core/providers/hash_provider'),
-    {
-      file: () => import('@adonisjs/core/providers/repl_provider'),
-      environment: ['repl', 'test'],
-    },
+    { file: () => import('@adonisjs/core/providers/repl_provider'), environment: ['repl', 'test'] },
     () => import('@adonisjs/core/providers/vinejs_provider'),
     () => import('@adonisjs/core/providers/edge_provider'),
     () => import('@adonisjs/session/session_provider'),
@@ -42,10 +39,7 @@ export default defineConfig({
     () => import('@adonisjs/lucid/database_provider'),
     () => import('@adonisjs/auth/auth_provider'),
     () => import('@adonisjs/inertia/inertia_provider'),
-    {
-      file: () => import('adonisjs-scheduler/scheduler_provider'),
-      environment: ['console'],
-    },
+    { file: () => import('adonisjs-scheduler/scheduler_provider'), environment: ['console'] },
     () => import('@rlanz/sentry/provider'),
     () => import('@adonisjs/mail/mail_provider'),
   ],
@@ -61,10 +55,7 @@ export default defineConfig({
   preloads: [
     () => import('#start/routes'),
     () => import('#start/kernel'),
-    {
-      file: () => import('#start/scheduler'),
-      environment: ['console'],
-    },
+    { file: () => import('#start/scheduler'), environment: ['console'] },
     () => import('#start/view'),
   ],
 
@@ -79,40 +70,18 @@ export default defineConfig({
   */
   tests: {
     suites: [
-      {
-        files: ['tests/unit/**/*.spec(.ts|.js)'],
-        name: 'unit',
-        timeout: 2000,
-      },
-      {
-        files: ['tests/functional/**/*.spec(.ts|.js)'],
-        name: 'functional',
-        timeout: 30000,
-      },
+      { files: ['tests/unit/**/*.spec(.ts|.js)'], name: 'unit', timeout: 2000 },
+      { files: ['tests/functional/**/*.spec(.ts|.js)'], name: 'functional', timeout: 30000 },
     ],
     forceExit: false,
   },
   metaFiles: [
-    {
-      pattern: 'resources/views/**/*.edge',
-      reloadServer: false,
-    },
-    {
-      pattern: 'public/**',
-      reloadServer: false,
-    },
-    {
-      pattern: 'logs/**',
-      reloadServer: false,
-    },
-    {
-      pattern: 'database/seeders/demo_user_data.json',
-      reloadServer: false,
-    },
+    { pattern: 'resources/views/**/*.edge', reloadServer: false },
+    { pattern: 'public/**', reloadServer: false },
+    { pattern: 'logs/**', reloadServer: false },
+    { pattern: 'database/seeders/demo_user_data.json', reloadServer: false },
   ],
 
   assetsBundler: false,
-  hooks: {
-    onBuildStarting: [() => import('@adonisjs/vite/build_hook')],
-  },
+  hooks: { onBuildStarting: [() => import('@adonisjs/vite/build_hook')] },
 })

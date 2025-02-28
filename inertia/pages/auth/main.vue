@@ -113,14 +113,14 @@ onMounted(() => {
             <label for="">Nom d'utilisateur</label><br />
             <InputText v-model="username" class="w-full" />
             <small v-if="props.errors?.username" class="text-red-500">
-              {{ props.errors.username[0] }}
+              {{ props.errors.username }}
             </small>
           </div>
           <div>
             <label for="">Email</label><br />
             <InputText v-model="email" class="w-full" type="email" />
             <small v-if="props.errors?.email" class="text-red-500">
-              {{ props.errors.email[0] }}
+              {{ props.errors.email }}
             </small>
           </div>
           <div>
@@ -152,7 +152,7 @@ onMounted(() => {
               </template>
             </Password>
             <small v-if="props.errors?.password" class="text-red-500">
-              {{ props.errors.password[0] }}
+              {{ props.errors.password }}
             </small>
             <a
               v-if="isLoginFormDisplayed"

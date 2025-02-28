@@ -8,16 +8,20 @@ import app from '@adonisjs/core/services/app'
 
 export default class SessionController {
   @inject()
-  async create({ inertia, session }: HttpContext) {
+  async create({ inertia, session, request }: HttpContext) {
+    request.url().includes('register')
     if (
       session.flashMessages.all().errorsBag &&
       session.flashMessages.all().errorsBag.hasOwnProperty('E_INVALID_CREDENTIALS')
     ) {
       return inertia.render<{}>('auth/main', {
-        errors: { password: ["Le nom d'utilisateur ou le mot de passe est invalide"] },
+        errors: { password: "Le nom d'utilisateur ou le mot de passe est invalide" },
+        page: request.url().includes('register') ? 'register' : 'login',
       })
     } else {
-      return inertia.render<{}>('auth/main')
+      return inertia.render<{}>('auth/main', {
+        page: request.url().includes('register') ? 'register' : 'login',
+      })
     }
   }
 
