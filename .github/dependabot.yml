@@ -4,5 +4,5 @@ updates:
     directory: "/" # Chemin du package.json (ici à la racine)
     schedule:
       interval: "weekly" # Fréquence des mises à jour (daily, weekly, monthly)
-    open-pull-requests-limit: 5 # Nombre maximal de PR ouvertes par Dépendabot
+    open-pull-requests-limit: 50 # Nombre maximal de PR ouvertes par Dépendabot
 
