@@ -1,6 +1,7 @@
 import app from '@adonisjs/core/services/app'
 import { ExceptionHandler, HttpContext } from '@adonisjs/core/http'
 import type { StatusPageRange, StatusPageRenderer } from '@adonisjs/core/types/http'
+import { Sentry } from '@rlanz/sentry'
 
 export default class HttpExceptionHandler extends ExceptionHandler {
   /**
@@ -42,7 +43,7 @@ export default class HttpExceptionHandler extends ExceptionHandler {
    */
   async report(error: unknown, ctx: HttpContext) {
     if (this.shouldReport(error as any)) {
-      ctx.sentry.captureException(error)
+      Sentry.captureException(error)
     }
 
     return super.report(error, ctx)
