@@ -69,7 +69,7 @@
     "@adonisjs/static": "^1.1.1",
     "@adonisjs/vite": "^4.0.0",
     "@inertiajs/vue3": "2.0",
-    "@primevue/themes": "^4.2.5",
+    "@primevue/themes": "^4.3.1",
     "@rlanz/sentry": "^0.3.0",
     "@unovis/ts": "^1.5.0",
     "@unovis/vue": "^1.5.1",
