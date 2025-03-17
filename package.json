@@ -74,7 +74,7 @@
     "@rlanz/sentry": "^0.3.2",
     "@unovis/ts": "^1.5.0",
     "@unovis/vue": "^1.5.1",
-    "@vinejs/vine": "^3.0.0",
+    "@vinejs/vine": "^3.0.1",
     "@vueuse/components": "^12.7.0",
     "@vueuse/core": "^13.0.0",
     "adonisjs-scheduler": "^2.1.0",
