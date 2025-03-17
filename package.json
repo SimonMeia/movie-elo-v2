@@ -57,7 +57,7 @@
     "ts-node-maintained": "^10.9.5",
     "typescript": "^5.8.2",
     "unplugin-vue-components": "^28.4.1",
-    "vite": "^6.2.1"
+    "vite": "^6.2.2"
   },
   "dependencies": {
     "@adonisjs/auth": "^9.3.2",
