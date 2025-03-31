@@ -79,7 +79,7 @@
     "@vueuse/core": "^13.0.0",
     "adonisjs-scheduler": "^2.3.1",
     "edge.js": "^6.2.1",
-    "luxon": "^3.4.4",
+    "luxon": "^3.6.0",
     "mysql2": "^3.13.0",
     "primeicons": "^7.0.0",
     "primevue": "^4.3.2",
