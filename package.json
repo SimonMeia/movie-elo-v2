@@ -77,7 +77,7 @@
     "@vinejs/vine": "^3.0.1",
     "@vueuse/components": "^12.7.0",
     "@vueuse/core": "^13.0.0",
-    "adonisjs-scheduler": "^2.3.1",
+    "adonisjs-scheduler": "^2.4.0",
     "edge.js": "^6.2.1",
     "luxon": "^3.6.1",
     "mysql2": "^3.14.0",
