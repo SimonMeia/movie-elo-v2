@@ -43,7 +43,7 @@
     "@japa/runner": "^4.2.0",
     "@primevue/auto-import-resolver": "^4.3.3",
     "@swc/core": "^1.11.18",
-    "@types/luxon": "^3.6.0",
+    "@types/luxon": "^3.6.2",
     "@types/node": "^22.13.14",
     "@typescript-eslint/eslint-plugin": "^8.29.0",
     "@vitejs/plugin-vue": "^5.2.3",
