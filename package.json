@@ -80,7 +80,7 @@
     "adonisjs-scheduler": "^2.4.0",
     "edge.js": "^6.2.1",
     "luxon": "^3.6.1",
-    "mysql2": "^3.14.0",
+    "mysql2": "^3.14.1",
     "primeicons": "^7.0.0",
     "primevue": "^4.3.3",
     "reflect-metadata": "^0.2.1",
