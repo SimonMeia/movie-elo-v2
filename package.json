@@ -53,7 +53,7 @@
     "pino-pretty": "^13.0.0",
     "postcss": "^8.4.35",
     "prettier": "^3.5.3",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^4.1.6",
     "ts-node-maintained": "^10.9.5",
     "typescript": "^5.8.3",
     "unplugin-vue-components": "^28.5.0",
