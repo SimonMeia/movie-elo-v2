@@ -14,6 +14,7 @@ The demo user uses de [adonisjs-scheduler](https://packages.adonisjs.com/package
 `node ace scheduler:run` when deploying (or `node ace scheduler:run --watch` during dev if necessary)
 
 ## Demo User
+
 ```
 username: demo@movie-elo.com
 password: 1234

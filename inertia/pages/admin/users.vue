@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AdminLayout from '@/layouts/admin.vue'
-import type { AdminUserProfile, User } from '@/app/types'
+import type { AdminUserProfile } from '@/app/types'
 import { Column, DataTable } from 'primevue'
 
 defineProps<{ users: AdminUserProfile[] }>()

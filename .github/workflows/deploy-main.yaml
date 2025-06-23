@@ -13,7 +13,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4.0.1
         with:
-          node-version: "22.12.0"
+          node-version: '22.12.0'
 
       - name: Install dependencies
         run: npm install
@@ -33,11 +33,11 @@ jobs:
         uses: easingthemes/ssh-deploy@v5.0.0
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-          SOURCE: "build/"
+          SOURCE: 'build/'
           REMOTE_HOST: ${{ secrets.HOST }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           REMOTE_PORT: ${{ secrets.PORT }}
-          TARGET: "${{ secrets.TARGET }}"
+          TARGET: '${{ secrets.TARGET }}'
 
       - name: Start the app
         run: |

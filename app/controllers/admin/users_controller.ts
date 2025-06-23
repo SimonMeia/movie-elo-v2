@@ -1,6 +1,5 @@
 import type { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
-import db from '@adonisjs/lucid/services/db'
 import { AdminUserProfile } from '#types/user'
 import User from '#models/user'
 
