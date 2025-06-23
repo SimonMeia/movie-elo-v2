@@ -19,6 +19,8 @@ const GradeTypesController = () => import('#controllers/grade_types_controller')
 const ViewingsController = () => import('#controllers/viewings_controller')
 const RewindsController = () => import('#controllers/rewinds_controller')
 const PasswordResetController = () => import('#controllers/forgot_password_controller')
+const AdminController = () => import('#controllers/admin/admin_controller')
+const UsersController = () => import('#controllers/admin/users_controller')
 
 router.get('/', ({ inertia }) => {
   return inertia.render('landing/main')
@@ -80,3 +82,11 @@ router
       .use(middleware.guest())
   })
   .prefix('app')
+
+router
+  .group(() => {
+    router.get('/', [AdminController, 'index']).as('admin.index')
+    router.get('/users', [UsersController, 'index']).as('admin.users.index')
+  })
+  .use([middleware.auth(), middleware.isAdmin()])
+  .prefix('admin')

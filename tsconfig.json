@@ -24,6 +24,6 @@
     },
     "resolveJsonModule": true
   },
-  "include": ["./**/*"],
+  "include": ["./**/*", "inertia/components/admin/.vue"],
   "exclude": ["./inertia/**/*"]
 }

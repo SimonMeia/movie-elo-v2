@@ -16,9 +16,9 @@ export default class UserHasGradeTypesMiddleware {
     if (!options.mustBeValidated && !user.gradeTypesValidated) await next()
 
     if (!options.mustBeValidated && user.gradeTypesValidated)
-      ctx.response.redirect().toRoute('/home')
+      ctx.response.redirect().toRoute('home')
 
     if (options.mustBeValidated && !user.gradeTypesValidated)
-      ctx.response.redirect().toRoute('/grade-types')
+      ctx.response.redirect().toRoute('grade-types.create')
   }
 }
