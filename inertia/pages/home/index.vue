@@ -30,27 +30,28 @@ function handleWelcomeModalClose() {
 <template>
   <Layout>
     <div class="container">
-      <div class="flex flex-col gap-2 my-12 sm:flex-row">
-        <h2 class="mb-2 text-3xl font-bold">Ajouter une reviews</h2>
-
-        <SearchTmdbMovieBar
-          @update="
-            (event) => {
-              tmdbMovieId = event.tmdbMovieId
-              tmdbMovieTitle = event.title
-            }
-          "
-        />
-        <Button
-          label="Ajouter une review"
-          class="min-w-fit"
-          @click="
-            router.get('/app/reviews/create', {
-              homeTmdbMovieId: tmdbMovieId,
-              homeTmdbMovieTitle: tmdbMovieTitle,
-            })
-          "
-        ></Button>
+      <div class="my-12">
+        <h2 class="mb-4 text-3xl font-bold">Ajouter une reviews</h2>
+        <div class="flex flex-col gap-2 sm:flex-row">
+          <SearchTmdbMovieBar
+            @update="
+              (event) => {
+                tmdbMovieId = event.tmdbMovieId
+                tmdbMovieTitle = event.title
+              }
+            "
+          />
+          <Button
+            label="Ajouter une review"
+            class="min-w-fit"
+            @click="
+              router.get('/app/reviews/create', {
+                homeTmdbMovieId: tmdbMovieId,
+                homeTmdbMovieTitle: tmdbMovieTitle,
+              })
+            "
+          ></Button>
+        </div>
       </div>
       <LastReviews :last-reviews="lastReviews" />
     </div>
