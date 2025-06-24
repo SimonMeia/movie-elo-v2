@@ -12,6 +12,7 @@ declare module 'vue' {
     AccordionContent: typeof import('primevue/accordioncontent')['default']
     AccordionHeader: typeof import('primevue/accordionheader')['default']
     AccordionPanel: typeof import('primevue/accordionpanel')['default']
+    Badge: typeof import('primevue/badge')['default']
     Button: typeof import('primevue/button')['default']
     InputText: typeof import('primevue/inputtext')['default']
     SelectButton: typeof import('primevue/selectbutton')['default']
