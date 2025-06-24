@@ -1,10 +1,10 @@
-import type { HttpContext } from '@adonisjs/core/http'
-import { inject } from '@adonisjs/core'
 import User from '#models/user'
-import { createUserValidator } from '#validators/users'
-import mail from '@adonisjs/mail/services/main'
 import env from '#start/env'
+import { createUserValidator } from '#validators/users'
+import { inject } from '@adonisjs/core'
+import type { HttpContext } from '@adonisjs/core/http'
 import app from '@adonisjs/core/services/app'
+import mail from '@adonisjs/mail/services/main'
 
 export default class SessionController {
   @inject()
@@ -14,12 +14,12 @@ export default class SessionController {
       session.flashMessages.all().errorsBag &&
       session.flashMessages.all().errorsBag.hasOwnProperty('E_INVALID_CREDENTIALS')
     ) {
-      return inertia.render<{}>('auth/main', {
+      return inertia.render<{}>('auth/index', {
         errors: { password: "Le nom d'utilisateur ou le mot de passe est invalide" },
         page: request.url().includes('register') ? 'register' : 'login',
       })
     } else {
-      return inertia.render<{}>('auth/main', {
+      return inertia.render<{}>('auth/index', {
         page: request.url().includes('register') ? 'register' : 'login',
       })
     }
@@ -48,7 +48,7 @@ export default class SessionController {
 
     await auth.use('web').login(user)
 
-    return response.redirect().toRoute('grade-types')
+    return response.redirect().toRoute('home')
   }
 
   @inject()

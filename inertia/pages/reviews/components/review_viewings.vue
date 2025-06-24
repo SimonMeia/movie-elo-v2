@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import Chip from 'primevue/chip'
-import Accordion from 'primevue/accordion'
-import AccordionPanel from 'primevue/accordionpanel'
-import AccordionHeader from 'primevue/accordionheader'
-import AccordionContent from 'primevue/accordioncontent'
 import type { Viewing } from '@/app/types'
-import { Ref, ref, watch } from 'vue'
-import Button from 'primevue/button'
-import Dialog from 'primevue/dialog'
-import DatePicker from 'primevue/calendar'
 import LocationPartnerSelection from '@/components/location_partner_selection.vue'
 import { router } from '@inertiajs/vue3'
+import Accordion from 'primevue/accordion'
+import AccordionContent from 'primevue/accordioncontent'
+import AccordionHeader from 'primevue/accordionheader'
+import AccordionPanel from 'primevue/accordionpanel'
+import Button from 'primevue/button'
+import DatePicker from 'primevue/calendar'
+import Chip from 'primevue/chip'
+import Dialog from 'primevue/dialog'
+import { Ref, ref, watch } from 'vue'
 
 const props = defineProps<{
   reviewId: number
@@ -146,5 +146,3 @@ function submitNewViewing() {
     </form>
   </Dialog>
 </template>
-
-<style scoped></style>

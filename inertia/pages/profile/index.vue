@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Button from 'primevue/button'
-import Layout from '@/layouts/default.vue'
 import type { ProfileStatistics, User } from '@/app/types'
+import Layout from '@/layouts/default.vue'
 import { router, usePage } from '@inertiajs/vue3'
-import { computed } from 'vue'
-import Card from 'primevue/card'
 import { Duration } from 'luxon'
+import Button from 'primevue/button'
+import Card from 'primevue/card'
+import { computed } from 'vue'
 
 defineProps<{ statistics: ProfileStatistics }>()
 
@@ -47,7 +47,7 @@ const user = computed(() => page.props.user as User)
         </Card>
       </div>
       <div class="grid gap-4 mt-4 md:grid-cols-2 lg:grid-cols-3">
-        <Button label="Deconnexion" @click="router.get('/app/auth/logout')"></Button>
+        <Button label="Deconnexion" @click="router.get('/auth/logout')"></Button>
       </div>
     </div>
   </Layout>

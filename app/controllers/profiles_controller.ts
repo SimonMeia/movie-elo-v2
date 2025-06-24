@@ -1,7 +1,7 @@
-import { inject } from '@adonisjs/core'
-import type { HttpContext } from '@adonisjs/core/http'
 import Movie from '#models/movie'
 import { ProfileStatistics } from '#types/user'
+import { inject } from '@adonisjs/core'
+import type { HttpContext } from '@adonisjs/core/http'
 
 export default class ProfilesController {
   @inject()
@@ -18,9 +18,7 @@ export default class ProfilesController {
 
     const timeSpentMin = userMovies.reduce((acc, movie) => acc + movie.runtime, 0)
 
-    return inertia.render<{
-      statistics: ProfileStatistics
-    }>('profile/main', {
+    return inertia.render<{ statistics: ProfileStatistics }>('profile/index', {
       statistics: { movieCount: userMovies.length, timeSpentMin: timeSpentMin },
     })
   }

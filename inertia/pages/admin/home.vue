@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AdminLayout from '@/layouts/admin.vue'
 import type { User } from '@/app/types'
+import AdminLayout from '@/layouts/admin.vue'
 
 defineProps<{ users: User[] }>()
 </script>

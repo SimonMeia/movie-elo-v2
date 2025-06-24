@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import { Notification } from '@/app/types'
 import { router } from '@inertiajs/vue3'
 import Button from 'primevue/button'
-import InputText from 'primevue/inputtext'
 import Checkbox from 'primevue/checkbox'
-import Password from 'primevue/password'
-import { computed, onMounted, ref, watch } from 'vue'
 import Divider from 'primevue/divider'
-import { useToast } from 'primevue/usetoast'
-import { Notification } from '@/app/types'
+import InputText from 'primevue/inputtext'
+import Password from 'primevue/password'
 import Toast from 'primevue/toast'
+import { useToast } from 'primevue/usetoast'
+import { computed, onMounted, ref, watch } from 'vue'
 
 const props = defineProps<{
   notification: { notification: Notification }
@@ -65,7 +65,7 @@ function submit() {
     rememberMe: isLoginFormDisplayed ? rememberMe.value : false,
   }
 
-  router.visit(`/app/auth/${destination}`, {
+  router.visit(`/auth/${destination}`, {
     method: 'post',
     data: userData,
     preserveState: true,
@@ -156,7 +156,7 @@ onMounted(() => {
             </small>
             <a
               v-if="isLoginFormDisplayed"
-              href="/app/forgot-password"
+              href="/forgot-password"
               class="block mt-2 font-bold text-gray-500 hover:underline"
             >
               Mot de passe oublie?

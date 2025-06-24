@@ -1,18 +1,18 @@
 <script setup lang="ts">
 import { GradedReview, PaginationMeta, ViewingWithMovieTitle } from '@/app/types'
 import Layout from '@/layouts/default.vue'
-import GradesTable from './components/grades_table.vue'
-import ViewingsTable from './components/viewings_table.vue'
-import Tabs from 'primevue/tabs'
-import Tab from 'primevue/tab'
-import TabList from 'primevue/tablist'
-import TabPanels from 'primevue/tabpanels'
-import TabPanel from 'primevue/tabpanel'
 import { router } from '@inertiajs/vue3'
 import { vElementVisibility } from '@vueuse/components'
-import { onMounted, onUnmounted, ref } from 'vue'
-import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
+import InputText from 'primevue/inputtext'
+import Tab from 'primevue/tab'
+import TabList from 'primevue/tablist'
+import TabPanel from 'primevue/tabpanel'
+import TabPanels from 'primevue/tabpanels'
+import Tabs from 'primevue/tabs'
+import { onMounted, onUnmounted, ref } from 'vue'
+import GradesTable from './components/grades_table.vue'
+import ViewingsTable from './components/viewings_table.vue'
 
 const props = defineProps<{
   meta: PaginationMeta
@@ -174,5 +174,3 @@ function sort(event: { field: string; order: number }) {
     </div>
   </Layout>
 </template>
-
-<style scoped></style>

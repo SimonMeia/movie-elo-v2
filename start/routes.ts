@@ -31,57 +31,61 @@ router
     router
       .group(() => {
         router.get('/', [HomeController, 'index']).as('home')
-
-        router.get('/reviews', [ReviewsController, 'index']).as('reviews.index')
-        router.post('/reviews', [ReviewsController, 'store']).as('reviews.store')
-        router
-          .get('/reviews/:id', [ReviewsController, 'show'])
-          .as('reviews.show')
-          .use([middleware.canAccessReview()])
-        router
-          .delete('/reviews/:id', [ReviewsController, 'delete'])
-          .as('reviews.delete')
-          .use([middleware.canAccessReview()])
-        router
-          .patch('/reviews/:id/grades', [ReviewsController, 'updateGrades'])
-          .use([middleware.canAccessReview()])
-
-        router.get('/review-form', [ReviewsController, 'create'])
-
         router.get('/profile', [ProfileController, 'index'])
-
-        router.post('/viewings', [ViewingsController, 'store'])
-
         router.get('/rewinds', [RewindsController, 'index'])
 
+        router.get('/reviews', [ReviewsController, 'index']).as('reviews.index')
         router.get('/api/tmdb/search', [MoviesController, 'search'])
+        router.post('/viewings', [ViewingsController, 'store'])
 
-        router.get('/auth/logout', [SessionController, 'logout'])
-      })
-      .use([middleware.auth(), middleware.userHasGradeTypesValidated({ mustBeValidated: true })])
+        router
+          .group(() => {
+            router.get('/reviews/create', [ReviewsController, 'create']).as('reviews.create')
+            router.post('/reviews', [ReviewsController, 'store']).as('reviews.store')
+          })
+          .middleware([middleware.userHasGradeTypesValidated({ mustBeValidated: true })])
 
-    router
-      .group(() => {
-        router.get('/grade-types', [GradeTypesController, 'create']).as('grade-types.create')
-        router.post('/grade-types', [GradeTypesController, 'store'])
-        router.post('/grade-types/validate', [GradeTypesController, 'validate'])
-        router.delete('/grade-types/:id', [GradeTypesController, 'delete'])
-      })
-      .use([middleware.auth(), middleware.userHasGradeTypesValidated({ mustBeValidated: false })])
+        router
+          .group(() => {
+            router.get('/reviews/:id', [ReviewsController, 'show']).as('reviews.show')
+            router.delete('/reviews/:id', [ReviewsController, 'delete']).as('reviews.delete')
+            router.patch('/reviews/:id/grades', [ReviewsController, 'updateGrades'])
+          })
+          .middleware([middleware.canAccessReview()])
 
-    router
-      .group(() => {
-        router.get('/auth', [SessionController, 'create']).as('auth')
-        router.post('/auth/login', [SessionController, 'login'])
-        router.post('/auth/register', [SessionController, 'signUp'])
-        router.get('/forgot-password', [PasswordResetController, 'showForgotPasswordForm'])
-        router.post('/forgot-password', [PasswordResetController, 'sendResetEmail'])
-        router.get('/reset-password', [PasswordResetController, 'showResetPasswordForm'])
-        router.post('/reset-password', [PasswordResetController, 'resetPassword'])
+        router
+          .group(() => {
+            router.get('/grade-types', [GradeTypesController, 'create']).as('grade-types.create')
+            router.post('/grade-types', [GradeTypesController, 'store']).as('grade-types.store')
+            router
+              .post('/grade-types/validate', [GradeTypesController, 'validate'])
+              .as('grade-types.validate')
+            router
+              .delete('/grade-types/:id', [GradeTypesController, 'delete'])
+              .as('grade-types.delete')
+          })
+          .use([middleware.userHasGradeTypesValidated({ mustBeValidated: false })])
       })
-      .use(middleware.guest())
+      .use([middleware.auth()])
   })
   .prefix('app')
+
+router
+  .group(() => {
+    router.get('/auth', [SessionController, 'create']).as('auth')
+    router.post('/auth/login', [SessionController, 'login']).as('auth.login')
+    router.post('/auth/register', [SessionController, 'signUp']).as('auth.register')
+    router.get('/forgot-password', [PasswordResetController, 'showForgotPasswordForm'])
+    router.post('/forgot-password', [PasswordResetController, 'sendResetEmail'])
+    router.get('/reset-password', [PasswordResetController, 'showResetPasswordForm'])
+    router.post('/reset-password', [PasswordResetController, 'resetPassword'])
+  })
+  .use(middleware.guest())
+
+router
+  .get('/auth/logout', [SessionController, 'logout'])
+  .middleware([middleware.auth()])
+  .as('auth.logout')
 
 router
   .group(() => {

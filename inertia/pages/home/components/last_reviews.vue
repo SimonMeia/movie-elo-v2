@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import Button from 'primevue/button'
-import ReviewCard from './review_card.vue'
 import type { ReviewCard as ReviewCardType } from '@/app/types'
 import { router } from '@inertiajs/vue3'
+import Button from 'primevue/button'
+import ReviewCard from './review_card.vue'
 
 defineProps<{ lastReviews: ReviewCardType[] }>()
 </script>
@@ -15,7 +15,7 @@ defineProps<{ lastReviews: ReviewCardType[] }>()
       <div
         v-if="lastReviews.length === 0"
         class="relative flex flex-col items-center justify-center h-48 p-4 text-center transition-all border border-gray-200 rounded-lg shadow cursor-pointer card hover:shadow-lg"
-        @click="router.get(`/review-form`)"
+        @click="router.get(`/app/reviews/create`)"
       >
         <h3>Aucune reviews</h3>
         <span>Cliquez pour ajouter votre première review</span>

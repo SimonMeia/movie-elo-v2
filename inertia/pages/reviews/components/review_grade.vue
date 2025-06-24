@@ -15,5 +15,3 @@ defineProps<{
     <span class="w-20"> {{ name.charAt(0).toUpperCase() + name.slice(1) }}</span>
   </div>
 </template>
-
-<style scoped></style>

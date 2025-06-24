@@ -1,6 +1,13 @@
-import type { HttpContext } from '@adonisjs/core/http'
-import { inject } from '@adonisjs/core'
-import { createReviewValidator } from '#validators/review'
+import Grade from '#models/grade'
+import GradeType from '#models/grade_type'
+import Location from '#models/location'
+import Partner from '#models/partner'
+import Review from '#models/review'
+import GradeService from '#services/grade_service'
+import MovieService from '#services/movie_service'
+import ReviewService from '#services/reviews_sevice'
+import ViewingService from '#services/viewing_service'
+import { PaginationMeta } from '#types/pagination'
 import {
   FormGradeType,
   GradedReview,
@@ -8,17 +15,10 @@ import {
   ReviewResponse,
   ViewingWithMovieTitle,
 } from '#types/response'
-import MovieService from '#services/movie_service'
-import Review from '#models/review'
-import ReviewService from '#services/reviews_sevice'
-import ViewingService from '#services/viewing_service'
-import Location from '#models/location'
-import Partner from '#models/partner'
-import Grade from '#models/grade'
-import GradeType from '#models/grade_type'
-import GradeService from '#services/grade_service'
+import { createReviewValidator } from '#validators/review'
 import { updateGradesValidator } from '#validators/update_grades'
-import { PaginationMeta } from '#types/pagination'
+import { inject } from '@adonisjs/core'
+import type { HttpContext } from '@adonisjs/core/http'
 
 export default class ReviewsController {
   @inject()
@@ -72,7 +72,7 @@ export default class ReviewsController {
       searchQuery: string
       sortField: string
       sortOrder: string
-    }>('reviews/main', {
+    }>('reviews/index', {
       viewingsTabData: inertia.merge(() => viewingsTabData) as unknown as ViewingWithMovieTitle[], // Pas propre mais fonctionne pour le moment
       gradesTabData: inertia.merge(() => gradesTabData) as unknown as GradedReview[],
       meta: meta,
@@ -99,7 +99,7 @@ export default class ReviewsController {
       .orderBy('name', 'asc')
     const gradesTypes = await GradeType.query().where('user_id', user.id).preload('grades')
 
-    return inertia.render<ReviewFormResponse>('review_form/main', {
+    return inertia.render<ReviewFormResponse>('reviews/create', {
       homeTmdbMovieId: request.input('homeTmdbMovieId'),
       homeTmdbMovieTitle: request.input('homeTmdbMovieTitle'),
       dbLocations: locations.map((location) => location.name),
@@ -200,7 +200,7 @@ export default class ReviewsController {
       dbLocations: string[]
       dbPartners: string[]
       dbGradeTypes: FormGradeType[]
-    }>('review/main', {
+    }>('reviews/show', {
       review: responseData,
       dbLocations: locationNames,
       dbPartners: partnerNames,

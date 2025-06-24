@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Header from '@/components/header.vue'
+import { Notification } from '@/app/types'
 import Footer from '@/components/footer.vue'
+import Header from '@/components/header.vue'
+import { usePage } from '@inertiajs/vue3'
 import Toast from 'primevue/toast'
 import { useToast } from 'primevue/usetoast'
 import { nextTick, watch } from 'vue'
-import { usePage } from '@inertiajs/vue3'
-import { Notification } from '@/app/types'
 
 const toast = useToast()
 
@@ -15,7 +15,6 @@ watch(
   async (notification: any) => {
     const notif = notification.notification as Notification | null
     if (notif) {
-      console.log('Affichage')
       await nextTick()
       toast.add({
         severity: notif.type,

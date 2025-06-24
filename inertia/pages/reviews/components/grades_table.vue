@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { GradedReview } from '@/app/types'
 import { router } from '@inertiajs/vue3'
+import Button from 'primevue/button'
 import Column from 'primevue/column'
 import DataTable, { DataTableSortEvent } from 'primevue/datatable'
-import Button from 'primevue/button'
 
 const props = defineProps<{
   data: GradedReview[]
@@ -73,7 +73,7 @@ function sort(event: DataTableSortEvent) {
       </div>
       <div v-else class="py-4 space-y-4 text-center">
         Votre tableau de critiques est aussi vide qu'une salle de cinéma avant la projection.<br />
-        <Button label="Ajouter une review" @click="router.get(`/app/review-form`)" />
+        <Button label="Ajouter une review" @click="router.get(`/app/reviews/create`)" />
       </div>
     </template>
 
@@ -103,6 +103,3 @@ function sort(event: DataTableSortEvent) {
     </Column>
   </DataTable>
 </template>
-
-<style scoped></style>
-@/app/types

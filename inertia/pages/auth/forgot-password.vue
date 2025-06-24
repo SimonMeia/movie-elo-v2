@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { router } from '@inertiajs/vue3'
-import InputText from 'primevue/inputtext'
-import { nextTick, ref, watch } from 'vue'
-import Button from 'primevue/button'
 import { Notification } from '@/app/types'
+import { router } from '@inertiajs/vue3'
+import Button from 'primevue/button'
+import InputText from 'primevue/inputtext'
 import Toast from 'primevue/toast'
 import { useToast } from 'primevue/usetoast'
+import { nextTick, ref, watch } from 'vue'
 
 const props = defineProps<{
   notification: { notification: Notification }
@@ -32,7 +32,7 @@ const email = ref('')
 
 function submit() {
   router.post(
-    `/app/forgot-password`,
+    `/forgot-password`,
     {
       email: email.value,
     },

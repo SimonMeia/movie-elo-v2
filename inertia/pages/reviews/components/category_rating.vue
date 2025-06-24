@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import SelectButton from 'primevue/selectbutton'
-import Dialog from 'primevue/dialog'
-import { computed, ref } from 'vue'
 import type { FormGradeType } from '@/app/types'
+import Dialog from 'primevue/dialog'
+import SelectButton from 'primevue/selectbutton'
+import { computed, ref } from 'vue'
 
 const props = defineProps<{
   maxGrade: number

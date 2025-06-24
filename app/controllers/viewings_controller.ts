@@ -1,7 +1,7 @@
-import type { HttpContext } from '@adonisjs/core/http'
-import { inject } from '@adonisjs/core'
-import { createViewingValidator } from '#validators/viewing'
 import ViewingService from '#services/viewing_service'
+import { createViewingValidator } from '#validators/viewing'
+import { inject } from '@adonisjs/core'
+import type { HttpContext } from '@adonisjs/core/http'
 
 export default class ViewingsController {
   @inject()

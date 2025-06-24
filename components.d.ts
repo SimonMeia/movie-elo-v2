@@ -15,6 +15,5 @@ declare module 'vue' {
     Button: typeof import('primevue/button')['default']
     InputText: typeof import('primevue/inputtext')['default']
     SelectButton: typeof import('primevue/selectbutton')['default']
-    Timeline: typeof import('primevue/timeline')['default']
   }
 }

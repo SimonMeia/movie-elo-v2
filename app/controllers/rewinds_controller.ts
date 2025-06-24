@@ -1,8 +1,8 @@
-import type { HttpContext } from '@adonisjs/core/http'
-import { inject } from '@adonisjs/core'
+import Viewing from '#models/viewing'
 import RewindService from '#services/rewind_service'
 import { Rewind } from '#types/rewind'
-import Viewing from '#models/viewing'
+import { inject } from '@adonisjs/core'
+import type { HttpContext } from '@adonisjs/core/http'
 import db from '@adonisjs/lucid/services/db'
 
 export default class RewindsController {
@@ -29,6 +29,6 @@ export default class RewindsController {
     )
     const filteredRewinds = rewinds.filter((r): r is Rewind => r !== null)
 
-    return inertia.render<{ rewinds: Rewind[] }>('rewind/main', { rewinds: filteredRewinds })
+    return inertia.render<{ rewinds: Rewind[] }>('rewind/index', { rewinds: filteredRewinds })
   }
 }

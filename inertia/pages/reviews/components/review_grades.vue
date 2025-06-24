@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { FormGradeType, Review } from '@/app/types'
-import ReviewGrade from './review_grade.vue'
 import { useGrades } from '@/composables/use_grades'
-import { ref } from 'vue'
-import CategoryRating from '@/pages/review_form/components/category_rating.vue'
-import Dialog from 'primevue/dialog'
-import Button from 'primevue/button'
+import CategoryRating from '@/pages/reviews/components/category_rating.vue'
 import { router } from '@inertiajs/vue3'
+import Button from 'primevue/button'
+import Dialog from 'primevue/dialog'
+import { ref } from 'vue'
+import ReviewGrade from './review_grade.vue'
 
 const props = defineProps<{
   review: Review

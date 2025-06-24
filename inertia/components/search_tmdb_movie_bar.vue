@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Ref, ref } from 'vue'
-import AutoComplete from 'primevue/autocomplete'
 import type { TmdbSearchResponse } from '@/app/types'
+import AutoComplete from 'primevue/autocomplete'
+import { Ref, ref } from 'vue'
 
 const props = defineProps<{
   initialValue?: string
@@ -56,4 +56,3 @@ function search() {
     {{ props.error[0] }}
   </small>
 </template>
-@/app/types

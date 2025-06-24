@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { router } from '@inertiajs/vue3'
-import InputText from 'primevue/inputtext'
-import { nextTick, ref, watch } from 'vue'
-import Button from 'primevue/button'
 import { Notification } from '@/app/types'
+import { router } from '@inertiajs/vue3'
+import Button from 'primevue/button'
+import Divider from 'primevue/divider'
+import InputText from 'primevue/inputtext'
+import Password from 'primevue/password'
 import Toast from 'primevue/toast'
 import { useToast } from 'primevue/usetoast'
-import Password from 'primevue/password'
-import Divider from 'primevue/divider'
+import { nextTick, ref, watch } from 'vue'
 
 const props = defineProps<{
   notification: { notification: Notification }
@@ -37,7 +37,7 @@ watch(
 
 function submit() {
   router.post(
-    `/app/reset-password`,
+    `/reset-password`,
     {
       token: props.token,
       password: password.value,

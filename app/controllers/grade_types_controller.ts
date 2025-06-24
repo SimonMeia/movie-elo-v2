@@ -1,14 +1,14 @@
-import type { HttpContext } from '@adonisjs/core/http'
-import { inject } from '@adonisjs/core'
 import GradeType from '#models/grade_type'
 import { createGradeTypeValidator } from '#validators/create_grade_type'
+import { inject } from '@adonisjs/core'
+import type { HttpContext } from '@adonisjs/core/http'
 
 export default class GradeTypesController {
   @inject()
   async create({ inertia, auth }: HttpContext) {
     const user = auth.user!
     const gradeTypes = await GradeType.query().where('user_id', user.id).preload('grades')
-    return inertia.render<{ gradeTypes: GradeType[] }>('grade_types_creation/main', {
+    return inertia.render<{ gradeTypes: GradeType[] }>('grade_types/create', {
       gradeTypes: gradeTypes,
     })
   }
@@ -32,7 +32,7 @@ export default class GradeTypesController {
       message: 'La catégorie a bien été ajoutée !',
     })
 
-    return response.redirect().toRoute('grade-types')
+    return response.redirect().toRoute('grade-types.create')
   }
 
   @inject()
@@ -46,7 +46,7 @@ export default class GradeTypesController {
         type: 'error',
         message: 'Veuillez ajouter au moins une catégorie de notes !',
       })
-      return response.redirect().toRoute('grade-types')
+      return response.redirect().toRoute('grade-types.create')
     }
 
     user.gradeTypesValidated = true
@@ -76,6 +76,6 @@ export default class GradeTypesController {
       })
     }
 
-    return response.redirect().toRoute('grade-types')
+    return response.redirect().toRoute('grade-types.create')
   }
 }

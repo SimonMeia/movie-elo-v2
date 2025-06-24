@@ -20,7 +20,7 @@ const items = ref(props.items)
 const suggestions: Ref<string[]> = ref([])
 const addNewItemLabel = 'Ajouter : '
 
-function select(event) {
+function select(event: { value: string }) {
   if (event.value.includes(addNewItemLabel)) {
     const newItem = event.value.split(addNewItemLabel)[1]
     items.value.push(newItem)

@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import Layout from '@/layouts/default.vue'
 import { Rewind } from '@/app/types'
-import { computed, ref } from 'vue'
-import Button from 'primevue/button'
-import Dialog from 'primevue/dialog'
-import YearlyMovies from '@/pages/rewind/components/yearly_movies.vue'
-import TimeSpent from '@/pages/rewind/components/time_spent.vue'
+import Layout from '@/layouts/default.vue'
+import AverageGrades from '@/pages/rewind/components/average_grades.vue'
 import AverageRuntime from '@/pages/rewind/components/average_runtime.vue'
 import LongestShortestMovies from '@/pages/rewind/components/longest_shortest_movies.vue'
+import PreferredGenres from '@/pages/rewind/components/preferred_genres.vue'
 import PreferredLocations from '@/pages/rewind/components/preferred_locations.vue'
 import PreferredPartners from '@/pages/rewind/components/preferred_partners.vue'
-import PreferredGenres from '@/pages/rewind/components/preferred_genres.vue'
-import AverageGrades from '@/pages/rewind/components/average_grades.vue'
+import TimeSpent from '@/pages/rewind/components/time_spent.vue'
+import YearlyMovies from '@/pages/rewind/components/yearly_movies.vue'
+import Button from 'primevue/button'
+import Dialog from 'primevue/dialog'
 import Message from 'primevue/message'
+import { computed, ref } from 'vue'
 
 defineProps<{ rewinds: Rewind[] }>()
 
@@ -103,14 +103,14 @@ function stopTimer() {
           :pt="{ root: 'w-[95%] !max-w-lg aspect-[9/16]', header: '!pb-2' }"
         >
           <template #container="{ closeCallback }">
-            <div class="absolute top-4 flex gap-2 w-full px-4">
+            <div class="absolute flex w-full gap-2 px-4 top-4">
               <div
                 v-for="(_value, index) in Object.keys(rewind).length - 3"
                 :key="index"
-                class="bg-gray-200 h-1 grow rounded overflow-hidden"
+                class="h-1 overflow-hidden bg-gray-200 rounded grow"
               >
                 <div
-                  class="h-full bg-accent transition-all"
+                  class="h-full transition-all bg-accent"
                   :style="{
                     width:
                       index + 1 < step
@@ -122,7 +122,7 @@ function stopTimer() {
                 ></div>
               </div>
             </div>
-            <div class="absolute left-1/2 transform -translate-x-1/2 -bottom-8 flex gap-2">
+            <div class="absolute flex gap-2 transform -translate-x-1/2 left-1/2 -bottom-8">
               <Button
                 @click="move('back')"
                 icon="pi pi-arrow-left"
@@ -168,7 +168,7 @@ function stopTimer() {
                 class="aspect-square"
               />
             </div>
-            <div class="p-8 h-full">
+            <div class="h-full p-8">
               <YearlyMovies v-if="step === 1" :data="rewind.yearlyMovies" />
               <TimeSpent v-else-if="step === 2" :data="rewind.timeSpent" />
               <AverageRuntime v-else-if="step === 3" :data="rewind.averageRuntime" />
