@@ -23,7 +23,7 @@ const AdminController = () => import('#controllers/admin/admin_controller')
 const UsersController = () => import('#controllers/admin/users_controller')
 
 router.get('/', ({ inertia }) => {
-  return inertia.render('landing/main')
+  return inertia.render('landing/index')
 })
 
 router
