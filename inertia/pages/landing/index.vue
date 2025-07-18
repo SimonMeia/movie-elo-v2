@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import MovieEloLogo from '@/assets/icons/movieelo_logo.vue'
 import Fold from '@/pages/landing/fold.vue'
+import PopcornIcon from '@/pages/landing/icons/popcorn_icon.vue'
 import MainFeatures from '@/pages/landing/main_features.vue'
 import OtherFeatures from '@/pages/landing/other_features.vue'
-import MovieEloLogo from '@/assets/icons/movieelo_logo.vue'
 import TryIt from '@/pages/landing/try_it.vue'
 import { router } from '@inertiajs/vue3'
-import PopcornIcon from '@/pages/landing/icons/popcorn_icon.vue'
 // import Story from '@/pages/landing/story.vue'
 </script>
 
@@ -29,7 +29,7 @@ import PopcornIcon from '@/pages/landing/icons/popcorn_icon.vue'
         </ul>
       </nav>
 
-      <Button label="Login" @click="router.visit('/app/auth')"></Button>
+      <Button label="Login" @click="router.visit('/auth')"></Button>
     </div>
   </header>
 

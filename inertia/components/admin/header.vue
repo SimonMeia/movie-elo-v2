@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { Link, router, usePage } from '@inertiajs/vue3'
 import MovieEloLogo from '@/assets/icons/movieelo_logo.vue'
 import MovieEloLogoSmall from '@/assets/icons/movieelo_logo_small.vue'
+import { Link, router, usePage } from '@inertiajs/vue3'
 import Avatar from 'primevue/avatar'
 import Menubar from 'primevue/menubar'
 import Message from 'primevue/message'
