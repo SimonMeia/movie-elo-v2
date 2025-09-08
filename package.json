@@ -41,7 +41,7 @@
     "@japa/assert": "^4.0.1",
     "@japa/plugin-adonisjs": "^4.0.0",
     "@japa/runner": "^4.2.0",
-    "@primevue/auto-import-resolver": "^4.3.3",
+    "@primevue/auto-import-resolver": "^4.3.9",
     "@swc/core": "^1.12.6",
     "@types/luxon": "^3.6.2",
     "@types/node": "^22.15.19",
