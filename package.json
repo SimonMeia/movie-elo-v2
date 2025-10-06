@@ -73,7 +73,7 @@
     "@primevue/themes": "^4.3.9",
     "@rlanz/sentry": "^0.3.3",
     "@unovis/ts": "^1.6.1",
-    "@unovis/vue": "^1.5.1",
+    "@unovis/vue": "^1.6.1",
     "@vinejs/vine": "^3.0.1",
     "@vueuse/components": "^13.9.0",
     "@vueuse/core": "^13.0.0",
